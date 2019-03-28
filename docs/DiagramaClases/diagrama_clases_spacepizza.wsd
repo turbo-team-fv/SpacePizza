@@ -1,0 +1,132 @@
+@startuml Diagrama de Clases
+' left to right direction
+class Juego << (S,#FF7700) Singleton >>{
+    +mapa: Mapa
+    +estado: JEstado
+    +tiempo: int
+    +puntuacion: int
+
+    -init(): void
+    -update(): void
+    -render(): void
+    -input(): void
+    +getInstance(): &Juego
+}
+
+interface Estado {
+    +estado: Emum<tipoEstado>
+
+    -cambiarEstado(): int
+    -update(): void
+    -render(): void
+}
+
+class Jugador {
+    +sprite: Sprite
+    +textura: Texture
+    +vida: int
+    +velocidad: Vector2f
+    
+}
+
+class EstadoFisico {
+    +posicionActual: Vector2f
+    +posicionAnterior: Vector2f
+    
+}
+
+class Mapa {
+    +texture: Texture
+    +sprite: Sprite
+    +tileSet: map<vector<vector<int>>>
+
+    -getSprite(): Sprite
+    -setSprite(int gid): int
+}
+
+class Item {
+    +tipo: int
+    +tiempoGenereacion: int
+    +tiempoVida: int
+    +reloj: Clock
+    +posicion: Vector2f
+    +sprite: Sprite
+
+    -getTipo(): int
+    -getTiempoGenereacion(): int
+    -getTiempoVida(): int
+    -getReloj(): int
+    -getPosicion(): Vector2f
+    -getSprite(): Sprite
+}
+
+class Mundo {
+    +puntosEntrega: Vector2f []
+    +puntoEntregaActual: int
+}
+
+class Enemy {
+    +sprite: Sprite
+    +textura: Texture
+    +modo: int
+
+    -getSprite(): Sprite
+    -comprobarVision(): bool
+}
+
+class Trafico {
+    -textura: Texture
+    -sprite: Sprite
+    -camino: Vector2f[]
+
+    
+}
+
+
+class AIAgent {
+
+    -comprobarColisiones(): void
+}
+
+class EJugando << (S,#FF7700) Singleton >>{
+
+    -update(): void
+    -render(): void
+    +getInstance(): &Estado
+}
+
+class EMenu << (S,#FF7700) Singleton >>{
+
+    -update(): void
+    -render(): void
+    +getInstance(): &Estado
+}
+
+class EFin << (S,#FF7700) Singleton >>{
+
+    -update(): void
+    -render(): void
+    +getInstance(): &Estado
+}
+
+Juego -- Estado
+
+EJugando --|> Estado
+EMenu --|> Estado
+EFin --|> Estado
+
+EJugando -- Mundo
+
+Mundo *-- "1" Jugador
+Mundo *-- "*" Enemy
+Mundo *-- Item
+Mundo *-- Trafico
+Mundo *-- Mapa
+
+AIAgent *-- Mundo
+
+Enemy *-- EstadoFisico
+Jugador *-- EstadoFisico
+
+
+@enduml
