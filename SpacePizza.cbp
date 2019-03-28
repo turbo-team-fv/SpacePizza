@@ -42,8 +42,10 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="cb.bmp" />
+		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Mapa.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Mapa.cpp" />
 		<Extensions>
 			<code_completion />
