@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1554129291 source:/home/carlos/FV/SpacePizza/main.cpp
+	<SFML/Graphics.hpp>
+
+1554129291 source:/home/carlos/FV/SpacePizza/src/Mapa.cpp
+	"Mapa.h"
+
+1554129291 /home/carlos/FV/SpacePizza/include/Mapa.h
+
