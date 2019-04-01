@@ -9,11 +9,11 @@ int Mundo::getPtoEntregaActual() {
     return ptoEntrgaActual;
 }
 
-std::vector Mundo::getItems() {
+std::vector<Item*> Mundo::getItems() {
     return items;
 }
 
-std::vector Mundo::getPuntosEntrega() {
+std::vector<sf::Vector2f> Mundo::getPuntosEntrega() {
     return puntosEntrega;
 }
 

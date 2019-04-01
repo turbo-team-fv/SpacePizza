@@ -13,14 +13,14 @@ class Mundo
         Mundo();
         virtual ~Mundo();
         int getPtoEntregaActual();
-        std::vector getPuntosEntrega();
-        std::vector getItems();
+        std::vector< sf::Vector2f > getPuntosEntrega();
+        std::vector<Item*> getItems();
 
     protected:
 
     private:
         std::vector< sf::Vector2f > puntosEntrega;
-        std::vector< Items* > items;
+        std::vector< Item* > items;
         int ptoEntrgaActual;
 
 };

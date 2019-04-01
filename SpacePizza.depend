@@ -7,3 +7,9 @@
 
 1554129291 /home/carlos/FV/SpacePizza/include/Mapa.h
 
+1554131130 source:/home/carlos/FV/SpacePizza/src/Item.cpp
+	"Item.h"
+
+1554131370 /home/carlos/FV/SpacePizza/include/Item.h
+	<SFML/Graphics.hpp>
+
