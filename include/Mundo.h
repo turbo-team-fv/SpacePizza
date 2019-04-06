@@ -6,9 +6,6 @@ class Mundo
 {
     public:
         Mundo();
-        virtual ~Mundo();
-
-    protected:
 
     private:
 };

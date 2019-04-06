@@ -2,8 +2,47 @@
 1553678994 source:/home/pablo/Source/FV/SpacePizza/main.cpp
 	<SFML/Graphics.hpp>
 
-1553679087 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
+1554562198 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 
-1553679129 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
+1554562788 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
+	<string>
+
+1553796714 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
+	"Juego.h"
+
+1553796187 /home/pablo/Source/FV/SpacePizza/include/Juego.h
+
+1305426297 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinystr.cpp
+	"tinystr.h"
+
+1305426297 /home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1305426297 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1305426297 /home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1305426297 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxmlerror.cpp
+	"tinyxml.h"
+
+1305426297 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
 

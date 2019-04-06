@@ -6,3 +6,7 @@ Mapa::Mapa()
 
 }
 
+void Mapa::load(std::string file)
+{
+}
+
