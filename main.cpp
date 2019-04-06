@@ -1,7 +1,12 @@
 #include <SFML/Graphics.hpp>
 
+#include <Mapa.h>
+
 int main()
 {
+
+    Mapa * mapa = new Mapa();
+
     // Create the main window
     sf::RenderWindow app(sf::VideoMode(800, 600), "SFML window");
 

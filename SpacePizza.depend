@@ -1,12 +1,16 @@
 # depslib dependency file v1.0
-1553678994 source:/home/pablo/Source/FV/SpacePizza/main.cpp
+1554564499 source:/home/pablo/Source/FV/SpacePizza/main.cpp
 	<SFML/Graphics.hpp>
+	<Mapa.h>
 
-1554562198 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
+1554569443 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
+	"../lib/tinyxml/tinyxml2.h"
 
-1554562788 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
+1554569224 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
 	<string>
+	<iostream>
+	"SFML/Graphics.hpp"
 
 1553796714 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
@@ -45,4 +49,33 @@
 	<stddef.h>
 	"tinyxml.h"
 	<windows.h>
+
+1554562794 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
+	"Mundo.h"
+
+1554561243 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+
+1554513696 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxml2.cpp
+	"tinyxml2.h"
+	<new>
+	<stddef.h>
+	<stdarg.h>
+	<cstddef>
+	<cstdarg>
+
+1554513702 /home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxml2.h
+	<ctype.h>
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stddef.h>
+	<cctype>
+	<climits>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<stdint.h>
+	<android/log.h>
+	<assert.h>
 
