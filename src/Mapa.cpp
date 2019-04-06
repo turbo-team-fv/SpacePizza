@@ -84,5 +84,21 @@ void Mapa::load()
         }
         layer = layer->NextSiblingElement("layer");
     }
+
+    // for testing
+    printTileMap();
 }
+
+void Mapa::printTileMap()
+{
+    for(int l = 0; l < numLayers; l++)
+    {
+        for(int y = 0; y < height; y++) {
+            for(int x = 0; x < width; x++) {
+                cout << tileMap[l][y][x] << ", ";
+            }
+            cout << endl;
+        }
+    }
+}
 
