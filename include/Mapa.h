@@ -14,10 +14,13 @@ class Mapa
     public:
         Mapa();
         void load();
+        void setTileMapSprites();
 
     private:
         Texture* mapTexture;
         Sprite*** spriteSet;
+        Sprite ****tilemapSprite;
+
         int numLayers = 0;
         int tileWidth = 0;
         int tileHeight = 0;
