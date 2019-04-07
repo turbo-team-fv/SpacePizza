@@ -144,8 +144,8 @@ void Mapa::setTileMapSprites()
                     int xAux=gid%tilesetColumns, yAux=gid/tilesetColumns;
 
                     tilemapSprite[l][y][x] = new Sprite(*mapTexture);
-                    tilemapSprite[l][y][x]->setTextureRect(IntRect(xAux*tileWidth, yAux*tileHeight, tileWidth, tileHeight));
-                    tilemapSprite[l][y][x]->setPosition(x*(tileWidth), y*(tileHeight));
+                    tilemapSprite[l][y][x]->setTextureRect(IntRect(xAux*tileWidth + (xAux-1) * 1, yAux*tileHeight + (yAux-1) * 1, tileWidth + 1, tileHeight + 1));
+                    tilemapSprite[l][y][x]->setPosition(x*(tileWidth) - 1, y*(tileHeight) - 1);
                 } else {
                     tilemapSprite[l][y][x] = NULL;
                 }
