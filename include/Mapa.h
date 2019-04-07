@@ -15,6 +15,7 @@ class Mapa
         Mapa();
         void load();
         void setTileMapSprites();
+        void draw(RenderWindow * window);
 
     private:
         Texture* mapTexture;
@@ -26,6 +27,7 @@ class Mapa
         int tileHeight = 0;
         int width = 0;
         int height = 0;
+        int tilesetColumns = 0;
         const char * textureFileName;
         int ***tileMap; /// tilemap con los gid de el tmx, matriz en 3D
 

@@ -32,6 +32,8 @@ void Mapa::load()
     cout<<"Tilewidth: " << tileWidth << " Tileheight: " << tileHeight <<endl;
 
     XMLElement * tileset = map->FirstChildElement("tileset");
+    tileset->QueryIntAttribute("columns", &tilesetColumns);
+
     XMLElement * img = tileset->FirstChildElement("image");
     img->QueryStringAttribute("source", &textureFileName);
 
@@ -84,8 +86,10 @@ void Mapa::load()
         layer = layer->NextSiblingElement("layer");
     }
 
+
     // for testing
     printTileMap();
+
     setTileMapSprites();
 }
 
@@ -106,6 +110,8 @@ void Mapa::printTileMap()
 
 void Mapa::setTileMapSprites()
 {
+
+    tilemapSprite = new Sprite***[numLayers];
 
     for (int l = 0; l < numLayers; l++)
     {
@@ -128,23 +134,38 @@ void Mapa::setTileMapSprites()
     {
         for(int y = 0; y < height; y++)
         {
-
             for(int x = 0; x < width; x++)
             {
 
                 int gid = tileMap[l][y][x]-1;
 
-                if(gid < 0 || gid > tileWidth*tileHeight) //|| gid > tilecount
+                if(gid > 0)
                 {
-                    tilemapSprite[l][y][x] = NULL;
-                    cout << "Error, gid at (l,x,y)= (" << l << "," << x << "," << y << ") :" << gid << " fuera del rango del tileset (" << tileWidth*tileHeight << ")" << endl;
-                }
-                else if(gid>=0)
-                {
-                    tilemapSprite[l][y][x] = new Sprite(mapTexture, tilemapSprite[gid]->getTextureRect());
-                    tilemapSprite[l][y][x]->setPosition(x*(tileWidth/2), y*(tileHeight/2));
-                }
+                    int xAux=gid%tilesetColumns, yAux=gid/tilesetColumns;
 
+                    tilemapSprite[l][y][x] = new Sprite(*mapTexture);
+                    tilemapSprite[l][y][x]->setTextureRect(IntRect(xAux*tileWidth, yAux*tileHeight, tileWidth, tileHeight));
+                    tilemapSprite[l][y][x]->setPosition(x*(tileWidth), y*(tileHeight));
+                } else {
+                    tilemapSprite[l][y][x] = NULL;
+                }
+            }
+        }
+    }
+}
+
+void Mapa::draw(RenderWindow * window)
+{
+    for(int l = 0; l < numLayers; l++)
+    {
+        for(int y = 0; y < height; y++)
+        {
+            for(int x = 0; x < height; x++)
+            {
+                if(tilemapSprite[l][y][x] != NULL)
+                {
+                    window->draw(*tilemapSprite[l][y][x]);
+                }
             }
         }
     }
