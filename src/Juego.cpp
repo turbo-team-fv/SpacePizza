@@ -23,6 +23,7 @@ Juego::Juego()
     /**Eventos**/
 
     mapa = new Mapa();
+    p1 = new Jugador();
 
 
 }
@@ -123,20 +124,27 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 void Juego::updateGameState(sf::Time t)
 {
 
+ double x=0,y=0,potencia=50;
+
     if(eRight)
     {
         //La tecla Derecha está pulsada:
+         x=potencia;
+
     }
-    else if(eLeft)
+    if(eLeft)
     {
+        x=-potencia;
         //La tecla Izquierda está pulsada:
     }
-    else if(eUp)
+    if(eUp)
     {
+        y=-potencia;
         //La tecla Arriba está pulsada:
     }
-    else if(eDown)
+    if(eDown)
     {
+        y=potencia;
         //La tecla Abajo está pulsada:
     }
 
@@ -144,7 +152,9 @@ void Juego::updateGameState(sf::Time t)
 
     player.UpdatePlayer (velx,vely,t)
 
+
     **/
+    p1->updateJugador(x,y,t);
 
 }
 
@@ -155,6 +165,7 @@ void Juego::render(double i)
     //
     //Dibujamos nuestras mierdas
     mapa->draw(ventana);
+    p1->drawJugador(ventana,i);
     //
     ventana->display();
 }
