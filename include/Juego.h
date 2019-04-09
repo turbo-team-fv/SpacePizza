@@ -2,7 +2,7 @@
 #define JUEGO_H
 
 #include "Mapa.h"
-
+#include "Jugador.h"
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -46,6 +46,7 @@ private:
 
     static Juego* jInstancia;
     Mapa *mapa;
+    Jugador *p1;
 };
 
 #endif // JUEGO_H
