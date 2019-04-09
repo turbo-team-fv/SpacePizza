@@ -8,8 +8,8 @@ const sf::Time Juego::timePerFrame = sf::milliseconds(1000.0/25.0);
 Juego::Juego()
 {
 
-    int resol_x=800;
-    int resol_y=600;
+    int resol_x=950;
+    int resol_y=1000;
     string gamename="Space Pizza";
 
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);

@@ -14,7 +14,7 @@ void Mapa::load()
 {
 
     XMLDocument doc;
-    XMLError error = doc.LoadFile("assets/maps/testMap.tmx");
+    XMLError error = doc.LoadFile("assets/maps/MapaPrueba.tmx");
 
     if(error)
     {
@@ -78,6 +78,7 @@ void Mapa::load()
             {
                 for(int x = 0; x < width; x++)
                 {
+
                     tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
                     tile = tile->NextSiblingElement("tile");
                 }
@@ -139,7 +140,7 @@ void Mapa::setTileMapSprites()
 
                 int gid = tileMap[l][y][x]-1;
 
-                if(gid > 0)
+                if(gid >= 0)
                 {
                     int xAux=gid%tilesetColumns, yAux=gid/tilesetColumns;
 
@@ -160,7 +161,7 @@ void Mapa::draw(RenderWindow * window)
     {
         for(int y = 0; y < height; y++)
         {
-            for(int x = 0; x < height; x++)
+            for(int x = 0; x < width; x++)
             {
                 if(tilemapSprite[l][y][x] != NULL)
                 {
