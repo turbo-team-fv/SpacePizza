@@ -28,11 +28,11 @@ Juego::Juego()
 
     /** Vista stuff **/
     vista = new View();
-    vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 400, 200));
-
+    vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 300, 200));
+    vista->setCenter((float)p1->getPhysicsState().getActualState()[0], (float)p1->getPhysicsState().getActualState()[1]);
 }
 
-Juego::~Juego()
+                 Juego::~Juego()
 {
     //dtor
 }
@@ -128,12 +128,12 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 void Juego::updateGameState(sf::Time t)
 {
 
- double x=0,y=0,potencia=50;
+    double x=0,y=0,potencia=50;
 
     if(eRight)
     {
         //La tecla Derecha está pulsada:
-         x=potencia;
+        x=potencia;
 
     }
     if(eLeft)
