@@ -24,6 +24,7 @@ Juego::Juego()
 
     mapa = new Mapa();
     p1 = new Jugador();
+    e1 = new Enemigo();
 
 
 }
@@ -155,6 +156,7 @@ void Juego::updateGameState(sf::Time t)
 
     **/
     p1->updateJugador(x,y,t);
+    e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
 
 }
 
@@ -166,6 +168,8 @@ void Juego::render(double i)
     //Dibujamos nuestras mierdas
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
+    e1->drawEnemigo(ventana,i);
+
     //
     ventana->display();
 }
