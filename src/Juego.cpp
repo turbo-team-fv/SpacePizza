@@ -24,6 +24,7 @@ Juego::Juego()
 
     mapa = new Mapa();
     p1 = new Jugador();
+    mundo = new Mundo();
 
 
 }
@@ -155,6 +156,7 @@ void Juego::updateGameState(sf::Time t)
 
     **/
     p1->updateJugador(x,y,t);
+    mundo->procesarColisiones();
 
 }
 
@@ -166,6 +168,7 @@ void Juego::render(double i)
     //Dibujamos nuestras mierdas
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
+    mundo->draw(ventana);
     //
     ventana->display();
 }

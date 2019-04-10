@@ -13,6 +13,7 @@ class Item
         sf::Clock getClock();
         sf::Sprite getSprite();
         sf::Vector2f getPosicion();
+        void restartPowerUp();
 
     protected:
 
