@@ -227,7 +227,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1554656254 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
+1554927328 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -236,40 +236,61 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1554636422 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1554881500 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1554636422 /home/samuel/FV/SpacePizza/include/Mundo.h
+1554881500 /home/samuel/FV/SpacePizza/include/Mundo.h
+	<vector>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Item.h"
 
-1554656289 source:/home/samuel/FV/SpacePizza/main.cpp
+1554927328 source:/home/samuel/FV/SpacePizza/main.cpp
 	"Juego.h"
 
-1554822856 /home/samuel/FV/SpacePizza/include/Juego.h
+1554928794 /home/samuel/FV/SpacePizza/include/Juego.h
 	"Mapa.h"
 	"Jugador.h"
+	"Enemigo.h"
 	<iostream>
 	<vector>
-	<math.h>
+	<cmath>
 	<SFML/Graphics.hpp>
 
-1554823217 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+1554927328 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
-1554823009 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1554831605 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1554822997 /home/samuel/FV/SpacePizza/include/Jugador.h
+1554831605 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1554822339 /home/samuel/FV/SpacePizza/include/PhysicsState.h
+1554928782 /home/samuel/FV/SpacePizza/include/PhysicsState.h
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1554910482 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+	"PhysicsState.h"
+
+1554881500 source:/home/samuel/FV/SpacePizza/src/Item.cpp
+	"Item.h"
+
+1554881500 /home/samuel/FV/SpacePizza/include/Item.h
+	<SFML/Graphics.hpp>
+
+1554927328 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
+	"Enemigo.h"
+
+1554927328 /home/samuel/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
-
-1554822311 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1554833552 ated upstream

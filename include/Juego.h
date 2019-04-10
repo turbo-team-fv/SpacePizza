@@ -3,9 +3,10 @@
 
 #include "Mapa.h"
 #include "Jugador.h"
+#include "Enemigo.h"
 #include <iostream>
 #include <vector>
-#include <math.h>
+#include <cmath>
 #include <SFML/Graphics.hpp>
 #include "Mundo.h"
 
@@ -48,7 +49,11 @@ private:
     static Juego* jInstancia;
     Mapa *mapa;
     Jugador *p1;
+
     Mundo *mundo;
+
+    Enemigo *e1;
+
 };
 
 #endif // JUEGO_H
