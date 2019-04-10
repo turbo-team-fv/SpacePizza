@@ -32,6 +32,7 @@ private:
     /**GLOBAL **/
 
     sf::RenderWindow * ventana;
+    sf::View * vista;
 
     /** Clock Interpolacion **/
     sf::Clock updateClock;
