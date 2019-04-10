@@ -33,6 +33,7 @@ private:
 
     sf::RenderWindow * ventana;
     sf::View * vista; // La super vista
+    sf::View * minimap; // La super vista
 
     /** Clock Interpolacion **/
     sf::Clock updateClock;
