@@ -14,7 +14,7 @@ void Mapa::load()
 {
 
     XMLDocument doc;
-    XMLError error = doc.LoadFile("assets/maps/MapaPrueba.tmx");
+    XMLError error = doc.LoadFile("assets/maps/MapaPruebaCapas.tmx");
 
     if(error)
     {
@@ -58,6 +58,7 @@ void Mapa::load()
     {
         tileMap[i] = new int *[height];
     }
+
     for(int l = 0; l < numLayers; l++)
     {
         for(int y = 0; y < height; y++)
@@ -66,25 +67,44 @@ void Mapa::load()
         }
     }
 
+    for(int l = 0; l < numLayers; l++)
+    {
+        for(int y = 0; y < height; y++)
+        {
+            for(int x = 0; x < width; x++)
+            {
+                tileMap[l][y][x] = 0;
+            }
+        }
+    }
+
+
+
     layer = map->FirstChildElement("layer");
     XMLElement * tile ;
     while(layer)
     {
         tile = layer->FirstChildElement("data")->FirstChildElement("tile");
 
-        for (int l = 0; l < numLayers; l++)   // para cada capa del mapa
+        for (int l = 0; l < 1; l++)   // para cada capa del mapa
         {
             for(int y = 0; y < height; y++)   // para cada fila del tilemap
             {
                 for(int x = 0; x < width; x++)
                 {
 
-                    tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
+                    int status = tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
+                    //   if(status != 0){
+                    //      tileMap[l][y][x]= 0;
+                      }
                     tile = tile->NextSiblingElement("tile");
+                    cout<<"("<<l<<","<<y<<","<<x<< ","<< tileMap[l][y][x] << ") ";
                 }
             }
         }
         layer = layer->NextSiblingElement("layer");
+        cout<<"capa"<<endl;
+        cout<<"NumLayers: "<<numLayers<<endl;
     }
 
 
@@ -147,7 +167,9 @@ void Mapa::setTileMapSprites()
                     tilemapSprite[l][y][x] = new Sprite(*mapTexture);
                     tilemapSprite[l][y][x]->setTextureRect(IntRect(xAux*tileWidth + (xAux-1) * 1, yAux*tileHeight + (yAux-1) * 1, tileWidth + 1, tileHeight + 1));
                     tilemapSprite[l][y][x]->setPosition(x*(tileWidth) - 1, y*(tileHeight) - 1);
-                } else {
+                }
+                else
+                {
                     tilemapSprite[l][y][x] = NULL;
                 }
             }

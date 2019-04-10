@@ -124,12 +124,12 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 void Juego::updateGameState(sf::Time t)
 {
 
- double x=0,y=0,potencia=50;
+    double x=0,y=0,potencia=50;
 
     if(eRight)
     {
         //La tecla Derecha está pulsada:
-         x=potencia;
+        x=potencia;
 
     }
     if(eLeft)
