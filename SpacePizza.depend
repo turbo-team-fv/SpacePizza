@@ -1,9 +1,8 @@
 # depslib dependency file v1.0
-1554635384 source:/home/pablo/Source/FV/SpacePizza/main.cpp
-	<SFML/Graphics.hpp>
-	<Mapa.h>
+1554833906 source:/home/pablo/Source/FV/SpacePizza/main.cpp
+	"Juego.h"
 
-1554654515 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
+1554831323 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -12,10 +11,16 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1554574675 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
+1554881919 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
-1554574675 /home/pablo/Source/FV/SpacePizza/include/Juego.h
+1554833575 /home/pablo/Source/FV/SpacePizza/include/Juego.h
+	"Mapa.h"
+	"Jugador.h"
+	<iostream>
+	<vector>
+	<math.h>
+	<SFML/Graphics.hpp>
 
 1554574675 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinystr.cpp
 	"tinystr.h"
@@ -256,4 +261,31 @@
 
 1554822311 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
+
+1554833575 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"PhysicsState.h"
+
+1554833575 /home/pablo/Source/FV/SpacePizza/include/PhysicsState.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+
+1554833575 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
+	"Jugador.h"
+
+1554833575 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
+	"PhysicsState.h"
+
+1554881988 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
+	"EMenu.h"
+
+1554881885 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
+
+1554882550 source:/home/pablo/Source/FV/SpacePizza/src/EFin.cpp
+	"EFin.h"
+
+1554882544 /home/pablo/Source/FV/SpacePizza/include/EFin.h
 

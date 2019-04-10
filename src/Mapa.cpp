@@ -28,8 +28,8 @@ void Mapa::load()
     map->QueryIntAttribute("tilewidth", &tileWidth);
     map->QueryIntAttribute("tileheight", &tileHeight);
 
-    cout<<"Width: " << width << " Height: " << height <<endl;
-    cout<<"Tilewidth: " << tileWidth << " Tileheight: " << tileHeight <<endl;
+//    cout<<"Width: " << width << " Height: " << height <<endl;
+//    cout<<"Tilewidth: " << tileWidth << " Tileheight: " << tileHeight <<endl;
 
     XMLElement * tileset = map->FirstChildElement("tileset");
     tileset->QueryIntAttribute("columns", &tilesetColumns);
@@ -89,7 +89,7 @@ void Mapa::load()
 
 
     // for testing
-    printTileMap();
+    // printTileMap();
 
     setTileMapSprites();
 }
