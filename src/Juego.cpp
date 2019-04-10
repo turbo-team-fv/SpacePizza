@@ -30,6 +30,7 @@ Juego::Juego()
     vista = new View();
     vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 300, 200));
     vista->setCenter((float)p1->getPhysicsState().getActualState()[0], (float)p1->getPhysicsState().getActualState()[1]);
+    vista->setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
     minimap = new View();
     minimap->setViewport(sf::FloatRect(0.75f, 0.f, 0.25f, 0.25f));
 }
@@ -178,11 +179,13 @@ void Juego::render(double i)
     ventana->clear();
     //
     //Dibujamos nuestras mierdas
+
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
-
     ventana->setView(*minimap);
-     ventana->setView(*vista);
+ mapa->draw(ventana);
+    p1->drawJugador(ventana,i);
+    ventana->setView(*vista);
     //
     ventana->display();
 }
