@@ -111,7 +111,7 @@ void Juego::handleEvents()
 void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 {
 
-    if (key == sf::Keyboard::Up)
+    if (key == sf::Keyboard::Up && isPressed)
     {
         //Traslaciones
         eUp = isPressed;
@@ -119,22 +119,23 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
         menu->MoveUp();
 
     }
-    else if (key == sf::Keyboard::Down)
+    if (key == sf::Keyboard::Down && isPressed)
     {
         eDown = isPressed;
         std::cout<<"Se ha pulsado EDOWN"<<std::endl;
         menu->MoveDown();
     }
 
-    else if (key == sf::Keyboard::Left)
+    if (key == sf::Keyboard::Left && isPressed)
     {
         eLeft = isPressed;
     }
 
-    else if (key == sf::Keyboard::Right)
+    if (key == sf::Keyboard::Right && isPressed)
     {
         eRight = isPressed;
-    }else if (key == sf::Keyboard::Return){
+    }
+    if (key == sf::Keyboard::Return && isPressed){
 
         switch(menu->getSelectedItem()){
             case 0:
