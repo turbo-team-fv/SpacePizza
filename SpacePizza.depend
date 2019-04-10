@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1554833906 source:/home/pablo/Source/FV/SpacePizza/main.cpp
+1554883996 source:/home/pablo/Source/FV/SpacePizza/main.cpp
 	"Juego.h"
 
-1554831323 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
+1554885593 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -11,7 +11,7 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1554881919 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
+1554884914 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
 1554833575 /home/pablo/Source/FV/SpacePizza/include/Juego.h
@@ -55,10 +55,14 @@
 	"tinyxml.h"
 	<windows.h>
 
-1554574675 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
+1554883556 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1554574675 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+1554883556 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+	<vector>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Item.h"
 
 1554574675 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxml2.cpp
 	"tinyxml2.h"
@@ -267,43 +271,41 @@
 1554822311 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-<<<<<<< Updated upstream
+1554833552 ated upstream
+
 1554833575 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
-=======
+
 1554833552 /home/claudia/Desktop/SpacePizza/include/Jugador.h
->>>>>>> Stashed changes
+
+1554833552 shed changes
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
-
-<<<<<<< Updated upstream
-1554833575 /home/pablo/Source/FV/SpacePizza/include/PhysicsState.h
-=======
-1554833552 /home/claudia/Desktop/SpacePizza/include/PhysicsState.h
->>>>>>> Stashed changes
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 
-<<<<<<< Updated upstream
+1554833575 /home/pablo/Source/FV/SpacePizza/include/PhysicsState.h
+
+1554833552 /home/claudia/Desktop/SpacePizza/include/PhysicsState.h
+
 1554833575 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1554833575 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1554881988 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
+1554883996 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 
-1554881885 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
+1554883996 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
 
-1554882550 source:/home/pablo/Source/FV/SpacePizza/src/EFin.cpp
+1554883996 source:/home/pablo/Source/FV/SpacePizza/src/EFin.cpp
 	"EFin.h"
 
-1554882544 /home/pablo/Source/FV/SpacePizza/include/EFin.h
+1554883996 /home/pablo/Source/FV/SpacePizza/include/EFin.h
 
-=======
 1554883169 source:/home/claudia/Desktop/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
@@ -314,4 +316,11 @@
 1554833552 source:/home/claudia/Desktop/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
->>>>>>> Stashed changes
+1554883996 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
+	"EJugando.h"
+
+1554883996 /home/pablo/Source/FV/SpacePizza/include/EJugando.h
+
+1554883556 /home/pablo/Source/FV/SpacePizza/include/Item.h
+	<SFML/Graphics.hpp>
+

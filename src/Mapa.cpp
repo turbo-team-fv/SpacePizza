@@ -52,6 +52,8 @@ void Mapa::load()
         layer = layer->NextSiblingElement("layer");
     }
 
+    cout << "Num layers: " << numLayers << endl;
+
     // inicializamos la matriz de gids que tiene nuestor mapa
     tileMap = new int**[numLayers];
     for(int i = 0; i < numLayers; i++)
@@ -79,33 +81,28 @@ void Mapa::load()
     }
 
 
-
     layer = map->FirstChildElement("layer");
     XMLElement * tile ;
-    while(layer)
+
+
+    for (int l = 0; l < numLayers; l++)   // para cada capa del mapa
     {
         tile = layer->FirstChildElement("data")->FirstChildElement("tile");
 
-        for (int l = 0; l < 1; l++)   // para cada capa del mapa
+        for(int y = 0; y < height; y++)   // para cada fila del tilemap
         {
-            for(int y = 0; y < height; y++)   // para cada fila del tilemap
+            for(int x = 0; x < width; x++)
             {
-                for(int x = 0; x < width; x++)
-                {
 
-                    int status = tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
-                    //   if(status != 0){
-                    //      tileMap[l][y][x]= 0;
-                      }
-                    tile = tile->NextSiblingElement("tile");
-                    cout<<"("<<l<<","<<y<<","<<x<< ","<< tileMap[l][y][x] << ") ";
-                }
+                tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
+                tile = tile->NextSiblingElement("tile");
+
             }
         }
+
         layer = layer->NextSiblingElement("layer");
-        cout<<"capa"<<endl;
-        cout<<"NumLayers: "<<numLayers<<endl;
     }
+
 
 
     // for testing
