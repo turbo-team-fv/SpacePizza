@@ -43,8 +43,11 @@
 		</Compiler>
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Item.h" />
+		<Unit filename="include/Juego.h" />
+		<Unit filename="include/Jugador.h" />
 		<Unit filename="include/Mapa.h" />
 		<Unit filename="include/Mundo.h" />
+		<Unit filename="include/PhysicsState.h" />
 		<Unit filename="lib/tinyxml/tinystr.cpp" />
 		<Unit filename="lib/tinyxml/tinystr.h" />
 		<Unit filename="lib/tinyxml/tinyxml.cpp" />
@@ -55,8 +58,11 @@
 		<Unit filename="lib/tinyxml/tinyxmlparser.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Item.cpp" />
+		<Unit filename="src/Juego.cpp" />
+		<Unit filename="src/Jugador.cpp" />
 		<Unit filename="src/Mapa.cpp" />
 		<Unit filename="src/Mundo.cpp" />
+		<Unit filename="src/PhysicsState.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

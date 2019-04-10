@@ -257,3 +257,117 @@
 1554822311 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
+1554882933 source:/home/carlos/FV/SpacePizza/src/Item.cpp
+	"Item.h"
+	<iostream>
+
+1554880033 /home/carlos/FV/SpacePizza/include/Item.h
+	<SFML/Graphics.hpp>
+
+1554883021 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
+	"Mundo.h"
+
+1554883175 /home/carlos/FV/SpacePizza/include/Mundo.h
+	<vector>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Item.h"
+
+1554881332 source:/home/carlos/FV/SpacePizza/lib/tinyxml/tinystr.cpp
+	"tinystr.h"
+
+1554881332 /home/carlos/FV/SpacePizza/lib/tinyxml/tinystr.h
+	<assert.h>
+	<string.h>
+
+1554881332 source:/home/carlos/FV/SpacePizza/lib/tinyxml/tinyxml.cpp
+	<ctype.h>
+	<sstream>
+	<iostream>
+	"tinyxml.h"
+
+1554881332 /home/carlos/FV/SpacePizza/lib/tinyxml/tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1554881332 source:/home/carlos/FV/SpacePizza/lib/tinyxml/tinyxml2.cpp
+	"tinyxml2.h"
+	<new>
+	<stddef.h>
+	<stdarg.h>
+	<cstddef>
+	<cstdarg>
+
+1554881332 /home/carlos/FV/SpacePizza/lib/tinyxml/tinyxml2.h
+	<ctype.h>
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stddef.h>
+	<cctype>
+	<climits>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<stdint.h>
+	<android/log.h>
+	<assert.h>
+
+1554881332 source:/home/carlos/FV/SpacePizza/lib/tinyxml/tinyxmlerror.cpp
+	"tinyxml.h"
+
+1554881332 source:/home/carlos/FV/SpacePizza/lib/tinyxml/tinyxmlparser.cpp
+	<ctype.h>
+	<stddef.h>
+	"tinyxml.h"
+	<windows.h>
+
+1554881332 source:/home/carlos/FV/SpacePizza/main.cpp
+	"Juego.h"
+
+1554882583 /home/carlos/FV/SpacePizza/include/Juego.h
+	"Mapa.h"
+	"Jugador.h"
+	<iostream>
+	<vector>
+	<math.h>
+	<SFML/Graphics.hpp>
+	"Mundo.h"
+
+1554881332 /home/carlos/FV/SpacePizza/include/Mapa.h
+	<string>
+	<iostream>
+	"SFML/Graphics.hpp"
+
+1554881332 /home/carlos/FV/SpacePizza/include/Jugador.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"PhysicsState.h"
+
+1554881332 /home/carlos/FV/SpacePizza/include/PhysicsState.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+
+1554883698 source:/home/carlos/FV/SpacePizza/src/Juego.cpp
+	"Juego.h"
+
+1554881332 source:/home/carlos/FV/SpacePizza/src/Jugador.cpp
+	"Jugador.h"
+
+1554881332 source:/home/carlos/FV/SpacePizza/src/Mapa.cpp
+	"Mapa.h"
+	"../lib/tinyxml/tinyxml2.h"
+
+1554881332 source:/home/carlos/FV/SpacePizza/src/PhysicsState.cpp
+	"PhysicsState.h"
+

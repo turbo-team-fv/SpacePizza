@@ -15,7 +15,8 @@ class Mundo
         int getPtoEntregaActual();
         std::vector< sf::Vector2f > getPuntosEntrega();
         std::vector<Item*> getItems();
-
+        void draw(sf::RenderWindow * window);
+        void procesarColisiones();
     protected:
 
     private:
