@@ -14,7 +14,7 @@ Juego::Juego()
 
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
-
+//    ventana->setFramerateLimit(25);
 
     /**Eventos**/
     eUp=false;
@@ -164,7 +164,7 @@ void Juego::updateGameState(sf::Time t)
 
 //    vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
 //    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
-    vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
+//    vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
 
 
 
@@ -178,6 +178,9 @@ void Juego::render(double i)
     //Dibujamos nuestras mierdas
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
+//    vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
+//      vista->move(p1->getPhysicsState().getVel()[0], p1->getPhysicsState().getVel()[1]);
+
     ventana->setView(*vista);
     //
     ventana->display();
