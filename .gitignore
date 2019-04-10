@@ -1,6 +1,8 @@
 # Para los resultados de compilaciones
 obj
 bin
+.depend
+.layout
 
 # Codeblocks
 
