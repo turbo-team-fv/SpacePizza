@@ -17,7 +17,7 @@ Juego::Juego()
 
     /// Vista stuff
     vista = new View();
-
+    vista -> reset(sf::FloatRect(100, 100, 400, 200));
     /**Eventos**/
     eUp=false;
     eDown=false;
@@ -161,8 +161,8 @@ void Juego::updateGameState(sf::Time t)
 
     /** Updateamos la updatecamara para que updatesiga al updatejugador **/
 
-    vista -> reset(sf::FloatRect(100, 100, 400, 200));
-
+//    vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
+    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
 
 
 
