@@ -31,13 +31,27 @@ void PhysicsState::setPastState(double x, double y)
 
 void PhysicsState::Move(double ax, double ay, bool acelerado)
 {
-    int freno=15;
+    int freno=15,limit=150;
 
     if(acelerado)//MOTOR CON ACELERACION
     {
+        if(vel[0]<limit)
+        {
+            vel[0]+=ax;
+        }
+        else
+        {
+            vel[0]=limit;
+        }
+        if(vel[1]<limit)
+        {
+            vel[1]+=ay;
+        }
+        else
+        {
+            vel[1]=limit;
+        }
 
-        vel[0]+=ax;
-        vel[1]+=ay;
 
         if (vel[0]<=freno&&vel[0]>=-freno)
         {
