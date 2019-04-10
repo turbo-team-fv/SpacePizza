@@ -96,7 +96,7 @@ void Mapa::load()
                     int status = tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
                     //   if(status != 0){
                     //      tileMap[l][y][x]= 0;
-                      }
+                      // }
                     tile = tile->NextSiblingElement("tile");
                     cout<<"("<<l<<","<<y<<","<<x<< ","<< tileMap[l][y][x] << ") ";
                 }
