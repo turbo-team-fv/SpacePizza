@@ -6,7 +6,7 @@
 #include "Enemigo.h"
 #include <iostream>
 #include <vector>
-#include <math.h>
+#include <cmath>
 #include <SFML/Graphics.hpp>
 
 class Juego

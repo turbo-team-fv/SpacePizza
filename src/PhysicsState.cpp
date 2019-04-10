@@ -35,21 +35,22 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
 
     if(acelerado)//MOTOR CON ACELERACION
     {
-        if(vel[0]<limit)
+        if(std::abs(vel[0])<=limit)
         {
             vel[0]+=ax;
         }
         else
         {
-            vel[0]=limit;
+        /**Esta maravilla de aqui devuelve el signo en forma de -1 o 1 : (ax > 0) - (ax < 0)**/
+            vel[0]=limit*((ax > 0) - (ax < 0)) ;
         }
-        if(vel[1]<limit)
+        if(std::abs(vel[1])<=limit)
         {
             vel[1]+=ay;
         }
         else
         {
-            vel[1]=limit;
+           vel[1]=limit*((ay > 0) - (ay < 0)) ;
         }
 
 
