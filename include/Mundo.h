@@ -15,13 +15,15 @@ class Mundo
         int getPtoEntregaActual();
         std::vector< sf::Vector2f > getPuntosEntrega();
         std::vector<Item*> getItems();
-
+        void draw(sf::RenderWindow * window);
+        void procesarColisiones();
     protected:
 
     private:
         std::vector< sf::Vector2f > puntosEntrega;
         std::vector< Item* > items;
         int ptoEntrgaActual;
+        sf::RectangleShape *ptoEntrega;
 
 };
 

@@ -7,6 +7,7 @@
 #include <vector>
 #include <math.h>
 #include <SFML/Graphics.hpp>
+#include "Mundo.h"
 
 class Juego
 {
@@ -47,6 +48,7 @@ private:
     static Juego* jInstancia;
     Mapa *mapa;
     Jugador *p1;
+    Mundo *mundo;
 };
 
 #endif // JUEGO_H
