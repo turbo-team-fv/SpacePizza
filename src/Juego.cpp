@@ -15,9 +15,7 @@ Juego::Juego()
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
 
-    /// Vista stuff
-    vista = new View();
-    vista -> reset(sf::FloatRect(100, 100, 400, 200));
+
     /**Eventos**/
     eUp=false;
     eDown=false;
@@ -28,6 +26,9 @@ Juego::Juego()
     mapa = new Mapa();
     p1 = new Jugador();
 
+    /** Vista stuff **/
+    vista = new View();
+    vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 400, 200));
 
 }
 
@@ -162,9 +163,8 @@ void Juego::updateGameState(sf::Time t)
     /** Updateamos la updatecamara para que updatesiga al updatejugador **/
 
 //    vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
-    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
-
-
+//    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
+    vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
 
 
 

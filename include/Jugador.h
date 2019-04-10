@@ -16,7 +16,7 @@ class Jugador
         PhysicsState getPhysicsState();
         void updateJugador(double velx, double vely, sf::Time et);
         void drawJugador(sf::RenderWindow *w, double i);
-
+        vector<double> renderPos;
 
     protected:
 
@@ -24,7 +24,7 @@ class Jugador
     /**GRAFICOS**/
     sf::Texture  tex;
     sf::Sprite  spri;
-    vector<double> renderPos;
+
 
     /**FISICAS**/
     PhysicsState pState;
