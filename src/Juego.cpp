@@ -1,5 +1,5 @@
 #include "Juego.h"
-
+#include "EMenu.h"
 
 /** GLOBAL **/
 const sf::Time Juego::timePerFrame = sf::milliseconds(1000.0/25.0);
@@ -8,12 +8,14 @@ const sf::Time Juego::timePerFrame = sf::milliseconds(1000.0/25.0);
 Juego::Juego()
 {
 
-    int resol_x=950;
-    int resol_y=1000;
+    int resol_x=600;
+    int resol_y=600;
     string gamename="Space Pizza";
 
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
+
+    menu = EMenu::getInstance();
 
     /**Eventos**/
     eUp=false;
@@ -109,14 +111,45 @@ void Juego::handleEvents()
 void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 {
 
-    if (key == sf::Keyboard::Up)            //Traslaciones
+    if (key == sf::Keyboard::Up)
+    {
+        //Traslaciones
         eUp = isPressed;
+        std::cout<<"Se ha pulsado EUP"<<std::endl;
+        menu->MoveUp();
+
+    }
     else if (key == sf::Keyboard::Down)
+    {
         eDown = isPressed;
+        std::cout<<"Se ha pulsado EDOWN"<<std::endl;
+        menu->MoveDown();
+    }
+
     else if (key == sf::Keyboard::Left)
+    {
         eLeft = isPressed;
+    }
+
     else if (key == sf::Keyboard::Right)
+    {
         eRight = isPressed;
+    }else if (key == sf::Keyboard::Return){
+
+        switch(menu->getSelectedItem()){
+            case 0:
+                std::cout<<"Se ha seleccionado Play"<<std::endl;
+                break;
+            case 1:
+                std::cout<<"Se ha seleccionado Options"<<std::endl;
+                break;
+            case 2:
+                std::cout<<"Se ha seleccionado Exit"<<std::endl;
+                ventana->close();
+                break;
+        }
+    }
+
 
 }
 
@@ -124,12 +157,12 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 void Juego::updateGameState(sf::Time t)
 {
 
- double x=0,y=0,potencia=50;
+    double x=0,y=0,potencia=50;
 
     if(eRight)
     {
         //La tecla Derecha está pulsada:
-         x=potencia;
+        x=potencia;
 
     }
     if(eLeft)
@@ -163,9 +196,10 @@ void Juego::render(double i)
 {
     ventana->clear();
     //
+    menu->draw(ventana);
     //Dibujamos nuestras mierdas
-    mapa->draw(ventana);
-    p1->drawJugador(ventana,i);
+    ///mapa->draw(ventana);
+    ///p1->drawJugador(ventana,i);
     //
     ventana->display();
 }
