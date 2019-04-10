@@ -157,11 +157,11 @@ void Juego::updateGameState(sf::Time t)
 
     **/
     p1->updateJugador(x,y,t);
-<<<<<<< HEAD
+
     mundo->procesarColisiones();
-=======
+
     e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
->>>>>>> Enemigo
+
 
 }
 
@@ -173,12 +173,11 @@ void Juego::render(double i)
     //Dibujamos nuestras mierdas
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
-<<<<<<< HEAD
+
     mundo->draw(ventana);
-=======
+
     e1->drawEnemigo(ventana,i);
 
->>>>>>> Enemigo
     //
     ventana->display();
 }
