@@ -341,7 +341,7 @@
 	<vector>
 	<SFML/Graphics.hpp>
 
-1554832897 source:/home/ramon/Desktop/FV/SpacePizza/src/Mapa.cpp
+1554885342 source:/home/ramon/Desktop/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -350,10 +350,10 @@
 
 1554832897 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
 
-1554885099 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
+1554885309 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
-1554832897 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
+1554885203 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1554832897 source:/home/ramon/Desktop/FV/SpacePizza/src/PhysicsState.cpp

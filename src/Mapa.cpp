@@ -89,7 +89,7 @@ void Mapa::load()
 
 
     // for testing
-    printTileMap();
+//    printTileMap();
 
     setTileMapSprites();
 }
