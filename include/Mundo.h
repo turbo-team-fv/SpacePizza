@@ -23,6 +23,7 @@ class Mundo
         std::vector< sf::Vector2f > puntosEntrega;
         std::vector< Item* > items;
         int ptoEntrgaActual;
+        sf::RectangleShape *ptoEntrega;
 
 };
 
