@@ -67,6 +67,10 @@ sf::Vector2f Item::getPosicion() {
     return posicion;
 }
 
+void Item::restartPowerUp() {
+    reloj.restart();
+}
+
 Item::~Item()
 {
     //dtor

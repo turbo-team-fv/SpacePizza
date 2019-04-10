@@ -257,11 +257,11 @@
 1554822311 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1554882933 source:/home/carlos/FV/SpacePizza/src/Item.cpp
+1554884141 source:/home/carlos/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
-1554880033 /home/carlos/FV/SpacePizza/include/Item.h
+1554884074 /home/carlos/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
 1554883021 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
