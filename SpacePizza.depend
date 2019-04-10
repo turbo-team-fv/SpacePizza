@@ -2,11 +2,11 @@
 1554883996 source:/home/pablo/Source/FV/SpacePizza/main.cpp
 	"Juego.h"
 
-1554885593 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
+1554914881 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1554635384 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
+1554914729 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"

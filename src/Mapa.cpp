@@ -8,6 +8,8 @@ Mapa::Mapa()
     mapTexture = new Texture();
 
     load();
+
+    // test colision
 }
 
 void Mapa::load()
@@ -191,3 +193,27 @@ void Mapa::draw(RenderWindow * window)
     }
 }
 
+bool Mapa::checkearColision(FloatRect rect)
+{
+    /// comprobar si la posicion intersecta con alguno de los sprites de la capa 2 y 3
+
+
+    for(int l = 0; l < numLayers; l++)
+    {
+        for(int y = 0; y < height; y++)
+        {
+            for(int x = 0; x < width; x++)
+            {
+                if(tilemapSprite[l][y][x] != NULL)
+                {
+                    if(tilemapSprite[l][y][x]->getGlobalBounds().intersects(rect))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+    return false;
+}
