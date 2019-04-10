@@ -15,6 +15,9 @@ Juego::Juego()
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
 
+    /// Vista stuff
+    vista = new View();
+
     /**Eventos**/
     eUp=false;
     eDown=false;
@@ -156,6 +159,15 @@ void Juego::updateGameState(sf::Time t)
     **/
     p1->updateJugador(x,y,t);
 
+    /** Updateamos la updatecamara para que updatesiga al updatejugador **/
+
+    vista -> reset(sf::FloatRect(100, 100, 400, 200));
+
+
+
+
+
+
 }
 
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
@@ -166,6 +178,7 @@ void Juego::render(double i)
     //Dibujamos nuestras mierdas
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
+    ventana->setView(*vista);
     //
     ventana->display();
 }
