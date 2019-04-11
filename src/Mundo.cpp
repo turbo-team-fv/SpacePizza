@@ -87,7 +87,7 @@ void Mundo::draw(sf::RenderWindow * window) {
 
     }
 
-    window->draw(trafico[1]->getSprite());
+    window->draw(trafico[0]->getSprite());
 }
 
 Mundo::~Mundo()

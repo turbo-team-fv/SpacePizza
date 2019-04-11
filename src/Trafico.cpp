@@ -5,15 +5,15 @@ Trafico::Trafico(int tipo, sf::Vector2f pos){
     //ctor
     tipo = tipo;
     posicion = pos;
-
-    textura.loadFromFile("assets/Trafico/roguelikeCity_magenta2.png");
-    if (!textura.loadFromFile("assets/Trafico/roguelikeCity_magenta2.png"))
+    textura=new sf::Texture();
+    textura->loadFromFile("assets/Trafico/roguelikeCity_magenta2.png");
+    if (!textura->loadFromFile("assets/Trafico/roguelikeCity_magenta2.png"))
     {
         std::cout<< "Error cargando la imagen roguelikeCity_magenta2.png"<<std::endl;
         exit(0);
     }
     coche = new sf::Sprite();
-    coche->setTexture(textura);
+    coche->setTexture(*textura);
     //segun el tipo de coche que sea. el color puede determinar la velocidad del coche??
     switch (tipo) {
         case 1:

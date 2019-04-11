@@ -18,7 +18,7 @@ class Trafico
         sf::Clock reloj;
         sf::Vector2f posicion;
         sf::Sprite *coche;
-        sf::Texture textura;
+        sf::Texture *textura;
 
 };
 

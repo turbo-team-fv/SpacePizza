@@ -518,7 +518,7 @@
 	"Item.h"
 	"Trafico.h"
 
-1554989809 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Item.h
+1554992873 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
 1554889310 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Jugador.cpp
@@ -556,13 +556,13 @@
 1554989057 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1554992242 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Trafico.h
+1554992476 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Trafico.h
 	<SFML/Graphics.hpp>
 
-1554991988 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Mundo.cpp
+1554993435 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1554992161 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Trafico.cpp
+1554993072 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Trafico.cpp
 	"Trafico.h"
 	<iostream>
 
