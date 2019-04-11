@@ -80,7 +80,7 @@ void Juego::loop()
         //Renderizamos con interpolacion
         render(interpolation);
 
-
+        processHUD();
     }
 
 }
@@ -173,6 +173,9 @@ void Juego::updateGameState(sf::Time t)
 
 }
 
+void Juego::processHUD(){
+
+}
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
 void Juego::render(double i)
 {
@@ -183,7 +186,7 @@ void Juego::render(double i)
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
     ventana->setView(*minimap);
- mapa->draw(ventana);
+    mapa->draw(ventana);
     p1->drawJugador(ventana,i);
     ventana->setView(*vista);
     //
