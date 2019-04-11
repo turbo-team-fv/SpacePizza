@@ -175,6 +175,8 @@ void Juego::updateGameState(sf::Time t)
 
 void Juego::processHUD(){
 
+
+
 }
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
 void Juego::render(double i)

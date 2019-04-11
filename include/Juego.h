@@ -32,8 +32,12 @@ private:
     /**GLOBAL **/
 
     sf::RenderWindow * ventana;
-    sf::View * vista; // La super vista
-    sf::View * minimap; // La super vista
+
+    sf::View * vista, * minimap; // La super vista y el super minimapa
+
+    /** HUD stuff **/
+    int player_lifes, num_pizzas;
+
 
     /** Clock Interpolacion **/
     sf::Clock updateClock;
@@ -49,6 +53,8 @@ private:
     static Juego* jInstancia;
     Mapa *mapa;
     Jugador *p1;
+
+
 };
 
 #endif // JUEGO_H
