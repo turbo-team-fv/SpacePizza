@@ -62,7 +62,7 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
             movingclock.restart();
 
             if(teveo==true)
-                actitud=2;
+                actitud=1;
         }
         switch(direccion_patrullaje)
         {
@@ -116,15 +116,7 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
 
             if(teveo==true)
                 actitud=2;
-
         }
-
-
-
-
-
-
-
         break;
 
     case 2:

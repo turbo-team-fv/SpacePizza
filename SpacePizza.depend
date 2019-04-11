@@ -228,46 +228,19 @@
 	"tinyxml.h"
 	<windows.h>
 
-<<<<<<< HEAD
-1554929462 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
-=======
-1554926764 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
->>>>>>> implementandoMaquinaEstados
+1554929462 D
+
+1554999653 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1554929462 /home/samuel/FV/SpacePizza/include/Mapa.h
-	<string>
-	<iostream>
-	"SFML/Graphics.hpp"
-
-<<<<<<< HEAD
-1554929462 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
-	"Mundo.h"
-
-1554929462 /home/samuel/FV/SpacePizza/include/Mundo.h
-=======
-1554881500 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
-	"Mundo.h"
-
-1554881500 /home/samuel/FV/SpacePizza/include/Mundo.h
->>>>>>> implementandoMaquinaEstados
+1554926764 lementandoMaquinaEstados
+	"Mapa.h"
+	"../lib/tinyxml/tinyxml2.h"
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Item.h"
-
-<<<<<<< HEAD
-1554929462 source:/home/samuel/FV/SpacePizza/main.cpp
-	"Juego.h"
-
-1554984540 /home/samuel/FV/SpacePizza/include/Juego.h
-=======
-1554926764 source:/home/samuel/FV/SpacePizza/main.cpp
-	"Juego.h"
-
-1554926764 /home/samuel/FV/SpacePizza/include/Juego.h
->>>>>>> implementandoMaquinaEstados
 	"Mapa.h"
 	"EMenu.h"
 	"Jugador.h"
@@ -277,8 +250,41 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 	"Mundo.h"
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
+	"PhysicsState.h"
 
-1554980034 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+1554999653 /home/samuel/FV/SpacePizza/include/Mapa.h
+	<string>
+	<iostream>
+	"SFML/Graphics.hpp"
+
+1555001749 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+	"Mundo.h"
+
+1555001052 /home/samuel/FV/SpacePizza/include/Mundo.h
+	<vector>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Item.h"
+	"Jugador.h"
+	"Enemigo.h"
+	"Mapa.h"
+
+1554929462 source:/home/samuel/FV/SpacePizza/main.cpp
+	"Juego.h"
+
+1555000265 /home/samuel/FV/SpacePizza/include/Juego.h
+	"EMenu.h"
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
+	"Mundo.h"
+
+1555001863 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
 1554831605 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
@@ -290,38 +296,32 @@
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-<<<<<<< HEAD
-1554929812 /home/samuel/FV/SpacePizza/include/PhysicsState.h
-=======
-1554831605 /home/samuel/FV/SpacePizza/include/PhysicsState.h
->>>>>>> implementandoMaquinaEstados
+1554999653 /home/samuel/FV/SpacePizza/include/PhysicsState.h
 	<iostream>
 	<vector>
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1554981528 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+1554999653 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1554929462 source:/home/samuel/FV/SpacePizza/src/Item.cpp
+1554999653 source:/home/samuel/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
-1554929462 /home/samuel/FV/SpacePizza/include/Item.h
+1554999653 /home/samuel/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-<<<<<<< HEAD
-1554993317 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
+1554999653 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1554996775 /home/samuel/FV/SpacePizza/include/Enemigo.h
+1554999653 /home/samuel/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
-=======
-1554926764 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
->>>>>>> implementandoMaquinaEstados
 	"PhysicsState.h"
+
+1554996775 hics.hpp>
 
 1554833552 ated upstream
 
@@ -460,32 +460,14 @@
 
 1554929462 /home/samuel/FV/SpacePizza/include/EJugando.h
 
-1554929462 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
+1554999781 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
-
-1554929462 /home/samuel/FV/SpacePizza/include/EMenu.h
-
-1554881500 /home/samuel/FV/SpacePizza/include/Item.h
-	<SFML/Graphics.hpp>
-
-1554926764 /home/samuel/FV/SpacePizza/include/EMenu.h
+	<iostream>
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1554926764 source:/home/samuel/FV/SpacePizza/src/EFin.cpp
-	"EFin.h"
-
-1554926764 /home/samuel/FV/SpacePizza/include/EFin.h
-
-1554926764 source:/home/samuel/FV/SpacePizza/src/EJugando.cpp
-	"EJugando.h"
-
-1554926764 /home/samuel/FV/SpacePizza/include/EJugando.h
-
-1554926764 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
-	"EMenu.h"
-	<iostream>
+1554999781 /home/samuel/FV/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
