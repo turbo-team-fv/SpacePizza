@@ -30,6 +30,10 @@ Juego::Juego()
     // HUD
     player_lifes = 5;
     num_pizzas = 0;
+    txt_pizza = new Texture();
+    txt_pizza -> loadFromFile("resources/pizza.png");
+     spr_pizza = new Sprite(*txt_pizza);
+    spr_pizza -> setScale(50.f/190, 50.f/200);
     // Vista
     vista = new View();
     vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 300, 200));
@@ -196,6 +200,7 @@ void Juego::render(double i)
     ventana->setView(*minimap);
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
+    ventana->draw(*spr_pizza);
     ventana->setView(*vista);
     //
     ventana->display();

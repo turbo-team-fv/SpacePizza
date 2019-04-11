@@ -37,7 +37,8 @@ private:
 
     /** HUD stuff **/
     int player_lifes, num_pizzas;
-
+    Texture * txt_pizza;
+    Sprite * spr_pizza;
 
     /** Clock Interpolacion **/
     sf::Clock updateClock;
