@@ -32,7 +32,7 @@ Juego::Juego()
     vista->setCenter((float)p1->getPhysicsState().getActualState()[0], (float)p1->getPhysicsState().getActualState()[1]);
     vista->setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
     minimap = new View();
-    minimap->setViewport(sf::FloatRect(0.75f, 0.f, 0.25f, 0.25f));
+    minimap->setViewport(sf::FloatRect(0.75f, 0.75f, 0.25f, 0.25f));
 }
 
                  Juego::~Juego()
