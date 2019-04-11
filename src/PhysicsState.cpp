@@ -104,6 +104,8 @@ void PhysicsState::updatePhysicsState(sf::Time et)
     posNow[0] += vel[0]*et.asSeconds();
     posNow[1] += vel[1]*et.asSeconds();
 
+//    cout << "POSICION ACTUAL" << posNow[0] << ", " << posNow[1] << endl;
+
 }
 
 

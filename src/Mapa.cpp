@@ -10,7 +10,7 @@ Mapa::Mapa()
     load();
 
     // test colision
-    bool choca = checkearColision(FloatRect({150, 150}, {150, 150}));
+    bool choca = checkearColision(FloatRect({340, 280}, {3, 3}));
     if(choca) cout << "CHOCA" << endl;
     else cout << "NO CHOCA" << endl;
 }
@@ -19,7 +19,7 @@ void Mapa::load()
 {
 
     XMLDocument doc;
-    XMLError error = doc.LoadFile("assets/maps/MapaPruebaCapas.tmx");
+    XMLError error = doc.LoadFile("assets/maps/MapaFinal.tmx");
 
     if(error)
     {
@@ -198,18 +198,16 @@ void Mapa::draw(RenderWindow * window)
 
 bool Mapa::checkearColision(FloatRect rect)
 {
-    for(int l = 2; l < numLayers; l++)
+
+    for(int y = 0; y < height; y++)
     {
-        for(int y = 0; y < height; y++)
+        for(int x = 0; x < width; x++)
         {
-            for(int x = 0; x < width; x++)
+            if(tilemapSprite[0][y][x] != NULL)
             {
-                if(tilemapSprite[l][y][x] != NULL)
+                if(tilemapSprite[0][y][x]->getGlobalBounds().intersects(rect))
                 {
-                    if(tilemapSprite[l][y][x]->getGlobalBounds().intersects(rect))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
         }

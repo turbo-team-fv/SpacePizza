@@ -45,8 +45,7 @@
 		<Unit filename="include/EFin.h" />
 		<Unit filename="include/EJugando.h" />
 		<Unit filename="include/EMenu.h" />
-		<Unit filename="include/Juego.h" />
-		<Unit filename="include/Jugador.h" />
+		<Unit filename="include/Enemigo.h" />
 		<Unit filename="include/Item.h" />
 		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Jugador.h" />
@@ -62,6 +61,9 @@
 		<Unit filename="lib/tinyxml/tinyxmlerror.cpp" />
 		<Unit filename="lib/tinyxml/tinyxmlparser.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/EFin.cpp" />
+		<Unit filename="src/EJugando.cpp" />
+		<Unit filename="src/EMenu.cpp" />
 		<Unit filename="src/Enemigo.cpp" />
 		<Unit filename="src/Item.cpp" />
 		<Unit filename="src/Juego.cpp" />
