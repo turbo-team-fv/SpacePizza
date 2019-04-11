@@ -10,6 +10,9 @@ Mapa::Mapa()
     load();
 
     // test colision
+    bool choca = checkearColision(FloatRect({150, 150}, {150, 150}));
+    if(choca) cout << "CHOCA" << endl;
+    else cout << "NO CHOCA" << endl;
 }
 
 void Mapa::load()
@@ -195,10 +198,7 @@ void Mapa::draw(RenderWindow * window)
 
 bool Mapa::checkearColision(FloatRect rect)
 {
-    /// comprobar si la posicion intersecta con alguno de los sprites de la capa 2 y 3
-
-
-    for(int l = 0; l < numLayers; l++)
+    for(int l = 2; l < numLayers; l++)
     {
         for(int y = 0; y < height; y++)
         {
@@ -210,6 +210,25 @@ bool Mapa::checkearColision(FloatRect rect)
                     {
                         return true;
                     }
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+bool Mapa::estaEnCesped(FloatRect rect)
+{
+    for(int y = 0; y < height; y++)
+    {
+        for(int x = 0; x < width; x++)
+        {
+            if(tilemapSprite[1][y][x] != NULL)
+            {
+                if(tilemapSprite[1][y][x]->getGlobalBounds().intersects(rect))
+                {
+                    return true;
                 }
             }
         }

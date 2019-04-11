@@ -50,12 +50,6 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
     }
     pState.Move(x,y,true);
 
-    cout<<"Desplaza en x: "<<x<<endl;
-    cout<<"Desplaza en y: "<<y<<endl;
-
-
-
-
     pState.updatePhysicsState(et);
 
 }
