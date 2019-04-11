@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>"
 #include <iostream>
 #include "Item.h"
+#include "Trafico.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ class Mundo
         int getPtoEntregaActual();
         std::vector< sf::Vector2f > getPuntosEntrega();
         std::vector<Item*> getItems();
+        std::vector<Trafico*> getTrafico();
         void draw(sf::RenderWindow * window);
         void procesarColisiones();
     protected:
@@ -22,6 +24,7 @@ class Mundo
     private:
         std::vector< sf::Vector2f > puntosEntrega;
         std::vector< Item* > items;
+        std::vector< Trafico* > trafico;
         int ptoEntrgaActual;
         sf::RectangleShape *ptoEntrega;
 

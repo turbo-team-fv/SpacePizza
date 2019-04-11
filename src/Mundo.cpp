@@ -16,6 +16,9 @@ Mundo::Mundo() {
     items.push_back(vida1);
     Item *tiempo1 = new Item(2, sf::Vector2f(420,425), 2,10);
     items.push_back(tiempo1);
+
+    Trafico *coche1 = new Trafico(1, sf::Vector2f(200,200));
+    trafico.push_back(coche1);
 }
 
 int Mundo::getPtoEntregaActual() {
@@ -25,6 +28,12 @@ int Mundo::getPtoEntregaActual() {
 std::vector<Item*> Mundo::getItems() {
     return items;
 }
+
+std::vector<Trafico*> Mundo::getTrafico() {
+    return trafico;
+}
+
+
 
 std::vector<sf::Vector2f> Mundo::getPuntosEntrega() {
     return puntosEntrega;
@@ -65,6 +74,7 @@ void Mundo::draw(sf::RenderWindow * window) {
     // Dubujo el punto de entrega
     window->draw(*ptoEntrega);
 
+
     // Dibujo los powerUps
     for( int i = 0; i < items.size(); i++ ){
         float duracion = items[i]->getClock().getElapsedTime().asSeconds();
@@ -77,6 +87,7 @@ void Mundo::draw(sf::RenderWindow * window) {
 
     }
 
+    window->draw(trafico[1]->getSprite());
 }
 
 Mundo::~Mundo()
