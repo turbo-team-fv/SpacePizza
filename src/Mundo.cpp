@@ -72,10 +72,11 @@ void Mundo::procesarColisiones()
     }*/
 }
 
-void Mundo::updateMundo(double x, double y, sf::Time t)
+void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
 {
 
-    p1->updateJugador(x,y,t);
+
+    p1->updateJugador(eRight,eLeft,eUp,eDown,t);
     e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
     procesarColisiones();
 

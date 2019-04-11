@@ -19,6 +19,11 @@ vector<double> PhysicsState::getActualState()
     return posNow;
 }
 
+vector<double> PhysicsState::getVel()
+{
+    return vel;
+}
+
 
 void PhysicsState::setActualState(double x, double y)
 {

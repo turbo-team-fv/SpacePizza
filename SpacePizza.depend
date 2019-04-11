@@ -230,7 +230,7 @@
 
 1554929462 D
 
-1554999653 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
+1555002608 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -261,10 +261,10 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1555001749 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1555003811 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1555002632 /home/samuel/FV/SpacePizza/include/Mundo.h
+1555003819 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -276,7 +276,7 @@
 1554929462 source:/home/samuel/FV/SpacePizza/main.cpp
 	"Juego.h"
 
-1555002632 /home/samuel/FV/SpacePizza/include/Juego.h
+1555003893 /home/samuel/FV/SpacePizza/include/Juego.h
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -284,13 +284,13 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1555001863 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+1555003994 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
-1554831605 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1555003836 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1554831605 /home/samuel/FV/SpacePizza/include/Jugador.h
+1555004033 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -302,7 +302,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1554999653 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+1555002608 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1554999653 source:/home/samuel/FV/SpacePizza/src/Item.cpp
@@ -312,7 +312,7 @@
 1554999653 /home/samuel/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1554999653 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
+1555002632 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1555002608 /home/samuel/FV/SpacePizza/include/Enemigo.h
@@ -460,7 +460,7 @@
 
 1554929462 /home/samuel/FV/SpacePizza/include/EJugando.h
 
-1554999781 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
+1555002632 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	<iostream>
 	<string>

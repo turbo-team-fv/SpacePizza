@@ -19,7 +19,7 @@ class Mundo
         vector< sf::Vector2f > getPuntosEntrega();
         vector<Item*> getItems();
 
-        void updateMundo(double x, double y, sf::Time t);
+        void updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t);
         void drawMundo(sf::RenderWindow * window, double i);
         void procesarColisiones();
     protected:

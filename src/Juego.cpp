@@ -65,7 +65,7 @@ void Juego::loop()
             elapsedTime=updateClock.restart();
 
             //updateamos dependiendo del tiempo pasado
-            updateGameState(elapsedTime);
+            updateGameState( eRight, eLeft, eUp, eDown, elapsedTime);
         }
 
         //Se calcula el porcentaje de interpolacion
@@ -153,36 +153,12 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 }
 
 /**Update de juego donde se actualiza TODO **/
-void Juego::updateGameState(sf::Time t)
+void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time t)
 {
-
-    double x=0,y=0,potencia=50;
-
-    if(eRight)
-    {
-        //La tecla Derecha está pulsada:
-        x=potencia;
-
-    }
-    if(eLeft)
-    {
-        x=-potencia;
-        //La tecla Izquierda está pulsada:
-    }
-    if(eUp)
-    {
-        y=-potencia;
-        //La tecla Arriba está pulsada:
-    }
-    if(eDown)
-    {
-        y=potencia;
-        //La tecla Abajo está pulsada:
-    }
 
     /**Y aqui Updateariamos lo que tengamos que updatear, ejemplo
     **/
-    mundo->updateMundo(x,y,t);
+    mundo->updateMundo(eRight,eLeft,eUp,eDown,t);
 }
 
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
