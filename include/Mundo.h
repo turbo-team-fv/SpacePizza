@@ -4,6 +4,9 @@
 #include <SFML/Graphics.hpp>"
 #include <iostream>
 #include "Item.h"
+#include "Jugador.h"
+#include "Enemigo.h"
+#include "Mapa.h"
 
 using namespace std;
 
@@ -13,17 +16,26 @@ class Mundo
         Mundo();
         virtual ~Mundo();
         int getPtoEntregaActual();
-        std::vector< sf::Vector2f > getPuntosEntrega();
-        std::vector<Item*> getItems();
-        void draw(sf::RenderWindow * window);
+        vector< sf::Vector2f > getPuntosEntrega();
+        vector<Item*> getItems();
+
+        void updateMundo(double x, double y, sf::Time t);
+        void drawMundo(sf::RenderWindow * window, double i);
         void procesarColisiones();
     protected:
 
     private:
-        std::vector< sf::Vector2f > puntosEntrega;
-        std::vector< Item* > items;
+
         int ptoEntrgaActual;
         sf::RectangleShape *ptoEntrega;
+
+        /**ELEMENTOS**/
+        vector< sf::Vector2f > puntosEntrega;
+        vector< Item* > items;
+        Mapa *mapa;
+        Jugador *p1;
+        Enemigo *e1;
+        /**ELEMENTOS**/
 
 };
 

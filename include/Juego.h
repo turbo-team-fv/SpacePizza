@@ -1,9 +1,6 @@
 #ifndef JUEGO_H
 #define JUEGO_H
-
-#include "Mapa.h"
-#include "Jugador.h"
-#include "Enemigo.h"
+#include "EMenu.h"
 #include <iostream>
 #include <vector>
 #include <cmath>
@@ -41,17 +38,15 @@ private:
     double interpolation;
 
     /** Eventos **/
-    bool			eUp;
-    bool			eDown;
-    bool			eRight;
-    bool			eLeft;
+    bool eUp;
+    bool eDown;
+    bool eRight;
+    bool eLeft;
 
     static Juego* jInstancia;
-    Mapa *mapa;
-    Jugador *p1;
-    Mundo *mundo;
-    Enemigo *e1;
 
+    Mundo *mundo;
+    EMenu * menu;
 };
 
 #endif // JUEGO_H

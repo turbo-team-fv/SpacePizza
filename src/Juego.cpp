@@ -8,12 +8,14 @@ const sf::Time Juego::timePerFrame = sf::milliseconds(1000.0/25.0);
 Juego::Juego()
 {
 
-    int resol_x=950;
-    int resol_y=1000;
+    int resol_x=600;
+    int resol_y=600;
     string gamename="Space Pizza";
 
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
+
+    menu = EMenu::getInstance();
 
     /**Eventos**/
     eUp=false;
@@ -22,10 +24,7 @@ Juego::Juego()
     eRight=false;
     /**Eventos**/
 
-    mapa = new Mapa();
-    p1 = new Jugador();
     mundo = new Mundo();
-    e1 = new Enemigo();
 
 
 }
@@ -111,14 +110,45 @@ void Juego::handleEvents()
 void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 {
 
-    if (key == sf::Keyboard::Up)            //Traslaciones
+    if (key == sf::Keyboard::Up)
+    {
+        //Traslaciones
         eUp = isPressed;
-    else if (key == sf::Keyboard::Down)
+        std::cout<<"Se ha pulsado EUP"<<std::endl;
+       // menu->MoveUp();
+
+    }
+    if (key == sf::Keyboard::Down)
+    {
         eDown = isPressed;
-    else if (key == sf::Keyboard::Left)
+        //menu->MoveDown();
+    }
+
+    if (key == sf::Keyboard::Left )
+    {
         eLeft = isPressed;
-    else if (key == sf::Keyboard::Right)
+    }
+
+    if (key == sf::Keyboard::Right)
+    {
         eRight = isPressed;
+    }
+    if (key == sf::Keyboard::Return ){
+
+        /*switch(menu->getSelectedItem()){
+            case 0:
+                std::cout<<"Se ha seleccionado Play"<<std::endl;
+                break;
+            case 1:
+                std::cout<<"Se ha seleccionado Options"<<std::endl;
+                break;
+            case 2:
+                std::cout<<"Se ha seleccionado Exit"<<std::endl;
+                ventana->close();
+                break;
+        }*/
+    }
+
 
 }
 
@@ -151,34 +181,18 @@ void Juego::updateGameState(sf::Time t)
     }
 
     /**Y aqui Updateariamos lo que tengamos que updatear, ejemplo
-
-    player.UpdatePlayer (velx,vely,t)
-
-
     **/
-    p1->updateJugador(x,y,t);
-
-    mundo->procesarColisiones();
-
-    e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
-
-
+    mundo->updateMundo(x,y,t);
 }
 
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
 void Juego::render(double i)
 {
     ventana->clear();
-    //
+    //menu->draw(ventana);
     //Dibujamos nuestras mierdas
-    mapa->draw(ventana);
-    p1->drawJugador(ventana,i);
 
-    mundo->draw(ventana);
-
-    e1->drawEnemigo(ventana,i);
-
-    //
+    mundo->drawMundo(ventana,i);
     ventana->display();
 }
 
