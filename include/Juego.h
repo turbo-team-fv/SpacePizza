@@ -2,6 +2,7 @@
 #define JUEGO_H
 
 #include "Mapa.h"
+#include "EMenu.h"
 #include "Jugador.h"
 #include "Enemigo.h"
 #include <iostream>
@@ -52,6 +53,7 @@ private:
     Mundo *mundo;
     Enemigo *e1;
 
+    EMenu * menu;
 };
 
 #endif // JUEGO_H
