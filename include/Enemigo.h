@@ -31,6 +31,9 @@ class Enemigo
     double tiempo_espera; // sera un random de espera entre movimiento y movimiento
     sf::Clock movingclock;
     sf::Clock alertclock;
+
+    sf::Clock actitudTest;
+
     int direccion_patrullaje; // 0: quieto, 1: izquierda, 2: derecha, 3: arriba, 4: abajo
     int direccion_patrullaje2; // 0: quieto, 1: izquierda, 2: derecha, 3: arriba, 4: abajo
 

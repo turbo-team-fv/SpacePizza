@@ -21,7 +21,7 @@ Enemigo::Enemigo():pState()
 
     /**COSAS ENEMIGO**/
     pState.MoveTo(500,500);
-    actitud = 2;
+    actitud = 0;
     tiempo_espera = 3;
     direccion_patrullaje = 0;
     direccion_patrullaje2 = 0;
@@ -40,15 +40,22 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
 
     double x=0.0,y=0.0,power=20;
 
+    if(actitudTest.getElapsedTime().asSeconds()>=5)
+        {
+         actitud= rand () % 3;
+         actitudTest.restart();
+        }
+
     switch (actitud)
     {
     case 0:
 
-
+    spri.setTextureRect(sf::IntRect(5, 7,44, 38));
         if(movingclock.getElapsedTime().asSeconds()>=tiempo_espera)
         {
             direccion_patrullaje= rand() % 5;
             direccion_patrullaje2= rand() % 5;
+
             tiempo_espera= rand() % 1 + 1;
             movingclock.restart();
             cout<<"El enemigo esta patrullando"<<endl;
@@ -115,22 +122,23 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
     case 2:
 
         //move the nerd towards the player
+        cout<<"CORRE"<<endl;
         spri.setTextureRect(sf::IntRect(5, 89,44, 38));
         if (velx> pState.getActualState()[0])
         {
-            x+=power,y+=0.0;
+            x+=power;
         }
         else if (velx< pState.getActualState()[0])
         {
-            x+=-power,y+=0.0;
+            x+=-power;
         }
         if(vely>pState.getActualState()[1])
         {
-            y+=power,x+=0.0;
+            y+=power;
         }
         else if(vely < pState.getActualState()[1])
         {
-            y+=-power,x+=0.0;
+            y+=-power;
         }
 
         break;
