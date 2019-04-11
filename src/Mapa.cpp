@@ -179,6 +179,7 @@ void Mapa::setTileMapSprites()
     }
 }
 
+
 void Mapa::draw(RenderWindow * window)
 {
     for(int l = 0; l < numLayers; l++)
