@@ -13,11 +13,20 @@ Enemigo::Enemigo():pState()
 
     spri.setTexture(tex);
     spri.setOrigin(28/2,44/2);
-    spri.setTextureRect(sf::IntRect(50, 52,40, 44));
+    spri.setTextureRect(sf::IntRect(5, 7,44, 38));
     spri.scale(1,1);
 
     renderPos.push_back(0.0);
     renderPos.push_back(0.0);
+
+    /**COSAS ENEMIGO**/
+    pState.MoveTo(500,500);
+    actitud = 2;
+    tiempo_espera = 3;
+    direccion_patrullaje = 0;
+    direccion_patrullaje2 = 0;
+
+
 }
 
 PhysicsState Enemigo::getPhysicsState()
@@ -29,33 +38,109 @@ PhysicsState Enemigo::getPhysicsState()
 void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
 {
 
-    double x=0.0,y=0.0;
+    double x=0.0,y=0.0,power=20;
 
-    //move the nerd towards the player
-    if (velx> pState.getActualState()[0])
+    switch (actitud)
     {
-        x+=35.0,y+=0.0;
+    case 0:
+
+
+        if(movingclock.getElapsedTime().asSeconds()>=tiempo_espera)
+        {
+            direccion_patrullaje= rand() % 5;
+            direccion_patrullaje2= rand() % 5;
+            tiempo_espera= rand() % 1 + 1;
+            movingclock.restart();
+            cout<<"El enemigo esta patrullando"<<endl;
+            cout<<"Direccion es: "<<direccion_patrullaje<<endl;
+            cout<<"Direccion adicional es: "<<direccion_patrullaje2<<endl;
+        }
+        switch(direccion_patrullaje)
+        {
+        case 1:
+            x+=-power;
+            break;
+        case 2:
+            x+=power;
+            break;
+        case 3:
+            y+=-power;
+            break;
+        case 4:
+            y+=power;
+            break;
+        }
+        switch(direccion_patrullaje2)
+        {
+        case 1:
+            x+=-power;
+            break;
+        case 2:
+            x+=power;
+            break;
+        case 3:
+            y+=-power;
+            break;
+        case 4:
+            y+=power;
+            break;
+        }
+
+
+
+        break;
+
+    case 1:
+
+
+    spri.setTextureRect(sf::IntRect(5, 89,44, 38));
+     if(movingclock.getElapsedTime().asSeconds()>=tiempo_espera)
+        {
+
+            tiempo_espera=0.5;
+            movingclock.restart();
+            cout<<"El enemigo esta alerta"<<endl;
+
+
+        spri.setTextureRect(sf::IntRect(5, 7,44, 38));
+        }
+
+
+
+
+
+
+        break;
+
+    case 2:
+
+        //move the nerd towards the player
+        spri.setTextureRect(sf::IntRect(5, 89,44, 38));
+        if (velx> pState.getActualState()[0])
+        {
+            x+=power,y+=0.0;
+        }
+        else if (velx< pState.getActualState()[0])
+        {
+            x+=-power,y+=0.0;
+        }
+        if(vely>pState.getActualState()[1])
+        {
+            y+=power,x+=0.0;
+        }
+        else if(vely < pState.getActualState()[1])
+        {
+            y+=-power,x+=0.0;
+        }
+
+        break;
+
     }
-    else if (velx< pState.getActualState()[0])
-    {
-        x+=-35.0,y+=0.0;
-    }
-    if(vely>pState.getActualState()[1])
-    {
-        y+=35.0,x+=0.0;
-    }
-    else if(vely < pState.getActualState()[1])
-    {
-        y+=-35.0,x+=0.0;
-    }
+
+
+
+
     pState.Move(x,y,true);
-
-    cout<<"Desplaza en x: "<<x<<endl;
-    cout<<"Desplaza en y: "<<y<<endl;
-
-
-
-
     pState.updatePhysicsState(et);
 
 }

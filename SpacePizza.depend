@@ -258,7 +258,7 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1554927328 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+1554980034 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
 1554831605 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
@@ -276,7 +276,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1554910482 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+1554981528 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1554929462 source:/home/samuel/FV/SpacePizza/src/Item.cpp
@@ -286,10 +286,10 @@
 1554929462 /home/samuel/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1554929812 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
+1554981843 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1554929812 /home/samuel/FV/SpacePizza/include/Enemigo.h
+1554981685 /home/samuel/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -417,4 +417,19 @@
 1554915614 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
+
+1554929462 source:/home/samuel/FV/SpacePizza/src/EFin.cpp
+	"EFin.h"
+
+1554929462 /home/samuel/FV/SpacePizza/include/EFin.h
+
+1554929462 source:/home/samuel/FV/SpacePizza/src/EJugando.cpp
+	"EJugando.h"
+
+1554929462 /home/samuel/FV/SpacePizza/include/EJugando.h
+
+1554929462 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
+	"EMenu.h"
+
+1554929462 /home/samuel/FV/SpacePizza/include/EMenu.h
 

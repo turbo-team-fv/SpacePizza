@@ -25,6 +25,15 @@ class Enemigo
 
     /**FISICAS**/
     PhysicsState pState;
+
+    /**OTROS**/
+    int actitud; //0: Apatrullando la ciudad, 1: En alerta, 2: Te persigue
+    double tiempo_espera; // sera un random de espera entre movimiento y movimiento
+    sf::Clock movingclock;
+    sf::Clock alertclock;
+    int direccion_patrullaje; // 0: quieto, 1: izquierda, 2: derecha, 3: arriba, 4: abajo
+    int direccion_patrullaje2; // 0: quieto, 1: izquierda, 2: derecha, 3: arriba, 4: abajo
+
 };
 
 #endif // ENEMIGO_H
