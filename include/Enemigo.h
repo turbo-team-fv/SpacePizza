@@ -15,6 +15,9 @@ class Enemigo
         void updateEnemigo(double velx, double vely, sf::Time et);
         void drawEnemigo(sf::RenderWindow *w, double i);
 
+        void setVision(bool v);
+        void setActitud(int a);
+
     protected:
 
     private:
@@ -29,10 +32,14 @@ class Enemigo
     /**OTROS**/
     int actitud; //0: Apatrullando la ciudad, 1: En alerta, 2: Te persigue
     double tiempo_espera; // sera un random de espera entre movimiento y movimiento
+    double tiempo_alerta;
+    double tiempo_persecucion;
+
     sf::Clock movingclock;
     sf::Clock alertclock;
+    sf::Clock chaseclock;
 
-    sf::Clock actitudTest;
+    bool teveo; //Controla si esta viendo al jugador o no
 
     int direccion_patrullaje; // 0: quieto, 1: izquierda, 2: derecha, 3: arriba, 4: abajo
     int direccion_patrullaje2; // 0: quieto, 1: izquierda, 2: derecha, 3: arriba, 4: abajo

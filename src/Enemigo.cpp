@@ -34,33 +34,35 @@ PhysicsState Enemigo::getPhysicsState()
     return pState;
 }
 
+void Enemigo::setVision(bool v)
+{
+    teveo =v;
+}
+void Enemigo::setActitud(int a)
+{
+    actitud=a;
+}
 
 void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
 {
 
     double x=0.0,y=0.0,power=20;
 
-    if(actitudTest.getElapsedTime().asSeconds()>=5)
-        {
-         actitud= rand () % 3;
-         actitudTest.restart();
-        }
-
     switch (actitud)
     {
     case 0:
 
-    spri.setTextureRect(sf::IntRect(5, 7,44, 38));
+        spri.setTextureRect(sf::IntRect(5, 7,44, 38));
         if(movingclock.getElapsedTime().asSeconds()>=tiempo_espera)
         {
             direccion_patrullaje= rand() % 5;
             direccion_patrullaje2= rand() % 5;
 
-            tiempo_espera= rand() % 1 + 1;
+            tiempo_espera= rand() % 2 + 1;
             movingclock.restart();
-            cout<<"El enemigo esta patrullando"<<endl;
-            cout<<"Direccion es: "<<direccion_patrullaje<<endl;
-            cout<<"Direccion adicional es: "<<direccion_patrullaje2<<endl;
+
+            if(teveo==true)
+                actitud=2;
         }
         switch(direccion_patrullaje)
         {
@@ -100,17 +102,23 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
     case 1:
 
 
-    spri.setTextureRect(sf::IntRect(5, 89,44, 38));
-     if(movingclock.getElapsedTime().asSeconds()>=tiempo_espera)
-        {
 
+
+        spri.setTextureRect(sf::IntRect(5, 89,44, 38));
+        if(movingclock.getElapsedTime().asSeconds()>=tiempo_espera)
+        {
             tiempo_espera=0.5;
             movingclock.restart();
-            cout<<"El enemigo esta alerta"<<endl;
-
-
-        spri.setTextureRect(sf::IntRect(5, 7,44, 38));
+            spri.setTextureRect(sf::IntRect(5, 7,44, 38));
         }
+        if(alertclock.getElapsedTime().asSeconds()>=tiempo_alerta)
+        {
+
+            if(teveo==true)
+                actitud=2;
+
+        }
+
 
 
 
@@ -121,8 +129,6 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
 
     case 2:
 
-        //move the nerd towards the player
-        cout<<"CORRE"<<endl;
         spri.setTextureRect(sf::IntRect(5, 89,44, 38));
         if (velx> pState.getActualState()[0])
         {
@@ -146,7 +152,13 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
     }
 
 
+    if(chaseclock.getElapsedTime().asSeconds()>=tiempo_persecucion)
+    {
 
+        if(teveo==false)
+            actitud=0;
+
+    }
 
     pState.Move(x,y,true);
     pState.updatePhysicsState(et);
