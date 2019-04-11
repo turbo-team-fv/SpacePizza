@@ -94,6 +94,8 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
 void PhysicsState::MoveTo(double ax,double ay)
 {
 
+    posNow[0]=ax,posNow[1]=ay;
+    posBef=posNow;
 }
 
 void PhysicsState::updatePhysicsState(sf::Time et)

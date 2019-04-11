@@ -49,9 +49,7 @@ private:
     static Juego* jInstancia;
     Mapa *mapa;
     Jugador *p1;
-
     Mundo *mundo;
-
     Enemigo *e1;
 
 };
