@@ -16,6 +16,7 @@ class Jugador
         PhysicsState getPhysicsState();
         void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);
         void drawJugador(sf::RenderWindow *w, double i);
+        sf::Sprite getSprite(){ return spri; };
 
 
     protected:

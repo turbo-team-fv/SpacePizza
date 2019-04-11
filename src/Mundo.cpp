@@ -75,6 +75,16 @@ void Mundo::procesarColisiones()
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
 {
 
+    if(mapa->checkearColision(p1->getSprite().getGlobalBounds()))
+    {
+        cout << "COLISIONA" << endl;
+
+        eLeft = false;
+    }
+    else
+    {
+        cout << "NO COLISINA CARLOS" << endl;
+    }
 
     p1->updateJugador(eRight,eLeft,eUp,eDown,t);
     e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
