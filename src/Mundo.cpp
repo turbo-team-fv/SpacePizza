@@ -112,6 +112,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
     }
     p1->drawJugador(ventana,inter);
+    p1->getPhysicsState().drawColliders(ventana,inter);
     e1->drawEnemigo(ventana,inter);
 
 
