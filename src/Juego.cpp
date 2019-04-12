@@ -175,7 +175,6 @@ void Juego::updateGameState(sf::Time t)
     p1->updateJugador(x,y,t);
 
     /** Updateamos la updatecamara para que updatesiga al updatejugador **/
-
 //    vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
 //    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
         vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
@@ -196,14 +195,16 @@ void Juego::render(double i)
     //
     //Dibujamos nuestras mierdas
 
-//    mapa->draw(ventana);
-//    p1->drawJugador(ventana,i);
-//    ventana->setView(*minimap);
     mapa->draw(ventana);
     p1->drawJugador(ventana,i);
-    ventana->draw(*spr_pizza);
-//    ventana->setView(*vista);
-    //
+
+    ventana->setView(*minimap);
+    mapa->draw(ventana);
+    p1->drawJugador(ventana,i);
+
+    ventana->setView(*vista);
+     ventana->draw(*spr_pizza);
+
     ventana->display();
 }
 
