@@ -27,27 +27,9 @@ Juego::Juego()
 
     mundo = new Mundo();
 
-//    /** HUD, vista and minimap stuff **/
-//    // HUD
-//    player_lifes = 5;
-//    num_pizzas = 0;
-//    txt_pizza = new Texture();
-//    txt_pizza -> loadFromFile("assets/hud/pizza.png");
-//     spr_pizza = new Sprite(*txt_pizza);
-//     spr_pizza ->setPosition(100,100);
-////    spr_pizza -> setScale(50.f/190, 50.f/200);
-//    // Vista
-//    vista = new View();
-//    vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 300, 200));
-//    vista->setCenter((float)p1->getPhysicsState().getActualState()[0], (float)p1->getPhysicsState().getActualState()[1]);
-//    vista->setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
-//    // Minimap
-//    minimap = new View();
-//    minimap->setViewport(sf::FloatRect(0.75f, 0.75f, 0.25f, 0.25f));
-
 }
 
-                 Juego::~Juego()
+Juego::~Juego()
 {
     //dtor
 }
@@ -133,7 +115,7 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
         //Traslaciones
         eUp = isPressed;
         std::cout<<"Se ha pulsado EUP"<<std::endl;
-       // menu->MoveUp();
+        // menu->MoveUp();
 
     }
     if (key == sf::Keyboard::Down)
@@ -151,7 +133,8 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
     {
         eRight = isPressed;
     }
-    if (key == sf::Keyboard::Return ){
+    if (key == sf::Keyboard::Return )
+    {
 
         /*switch(menu->getSelectedItem()){
             case 0:
@@ -180,11 +163,6 @@ void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time 
     mundo->updateMundo(eRight,eLeft,eUp,eDown,t);
 }
 
-void Juego::processHUD(){
-
-
-
-}
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
 void Juego::render(double i)
 {

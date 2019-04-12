@@ -21,7 +21,7 @@ Enemigo::Enemigo():pState()
 
     /**COSAS ENEMIGO**/
     pState.MoveTo(500,500);
-    actitud = 0;
+    actitud = 2;
     tiempo_espera = 3;
     direccion_patrullaje = 0;
     direccion_patrullaje2 = 0;
