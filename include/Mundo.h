@@ -7,6 +7,7 @@
 #include "Jugador.h"
 #include "Enemigo.h"
 #include "Mapa.h"
+#include "Alcantarilla.h"
 
 using namespace std;
 
@@ -35,6 +36,7 @@ class Mundo
         Mapa *mapa;
         Jugador *p1;
         Enemigo *e1;
+        vector< Alcantarilla *> alcantarillas;
         /**ELEMENTOS**/
 
 };

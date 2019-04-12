@@ -23,6 +23,11 @@ Mundo::Mundo()
     p1 = new Jugador();
     e1 = new Enemigo();
 
+    //Inicializo una Alcantarilla
+    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(350,270), sf::Vector2f(500,500));
+    alcantarillas.push_back(alc1);
+
+
 }
 
 int Mundo::getPtoEntregaActual()
@@ -70,6 +75,21 @@ void Mundo::procesarColisiones()
             }
         }
     }*/
+
+    /// Colisiones con las alcantarillas
+    for( int i = 0; i < alcantarillas.size(); i++ ) {
+        if(p1->getSprite().getGlobalBounds().intersects(alcantarillas[i]->getForma().getGlobalBounds())){
+            std::cout<<"colisiona con una alcantarilla"<<std::endl;
+            sf::Vector2f destino = alcantarillas[i]->getPosDestino();
+            std::cout<<"Destino X: "<<destino.x<<std::endl;
+            std::cout<<"Destino Y: "<<destino.y<<std::endl;
+            p1->getPhysicsState().setPastState((double)destino.x, (double)destino.y);
+            p1->getPhysicsState().setActualState((double)destino.x, (double)destino.y);
+            p1->getPhysicsState().MoveTo((double)destino.x, (double)destino.y);
+            // p1->updateJugador();
+
+        }
+    }
 }
 
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
@@ -77,13 +97,13 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 
     if(mapa->checkearColision(p1->getSprite().getGlobalBounds()))
     {
-        cout << "COLISIONA" << endl;
+        //cout << "COLISIONA" << endl;
 
         eLeft = false;
     }
     else
     {
-        cout << "NO COLISINA CARLOS" << endl;
+        //cout << "NO COLISINA CARLOS" << endl;
     }
 
     p1->updateJugador(eRight,eLeft,eUp,eDown,t);
@@ -113,6 +133,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     }
     p1->drawJugador(ventana,inter);
     e1->drawEnemigo(ventana,inter);
+
+    for(int i = 0; i < alcantarillas.size(); i++ ){
+        alcantarillas[i]->drawAlcantarilla(ventana);
+    }
 
 
 }
