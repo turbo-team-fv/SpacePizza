@@ -111,7 +111,7 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     /** Updateamos la updatecamara para que updatesiga al updatejugador **/
 //    vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
 //    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
-        vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
+    vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
 
 
 
@@ -168,23 +168,9 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     p1->drawJugador(ventana,inter);
     e1->drawEnemigo(ventana,inter);
     ventana->setView(*vista);
-        // Hasta aqui la vista principal.
+    // Hasta aqui la vista principal.
 
-    //
-//    //Dibujamos nuestras mierdas
-//
-//    mapa->draw(ventana);
-//    p1->drawJugador(ventana,i);
-//
-//    ventana->setView(*minimap);
-//
-//    mapa->draw(ventana);
-//    p1->drawJugador(ventana,i);
-//    ventana->setView(*vista);
-//
-//     ventana->draw(*spr_pizza);
-//
-//    ventana->display();
+
 
 }
 
