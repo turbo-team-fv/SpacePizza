@@ -24,6 +24,24 @@ vector<double> PhysicsState::getVel()
     return vel;
 }
 
+void PhysicsState::setColliders(vector < sf::Rect<int> > colinit)
+{
+
+    for (unsigned i=0; i< colinit.size(); i++)
+    {
+
+        colliders.push_back(colinit[i]);
+
+    }
+
+
+}
+vector < sf::Rect<int> > PhysicsState::getColliders()
+{
+
+    return colliders;
+}
+
 
 void PhysicsState::setActualState(double x, double y)
 {
@@ -46,7 +64,7 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
         }
         else
         {
-        /**Esta maravilla de aqui devuelve el signo en forma de -1 o 1 : (ax > 0) - (ax < 0)**/
+            /**Esta maravilla de aqui devuelve el signo en forma de -1 o 1 : (ax > 0) - (ax < 0)**/
             vel[0]=limit*((ax > 0) - (ax < 0)) ;
         }
         if(std::abs(vel[1])<=limit)
@@ -55,7 +73,7 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
         }
         else
         {
-           vel[1]=limit*((ay > 0) - (ay < 0)) ;
+            vel[1]=limit*((ay > 0) - (ay < 0)) ;
         }
 
 

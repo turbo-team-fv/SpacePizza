@@ -18,7 +18,6 @@ class Jugador
         void drawJugador(sf::RenderWindow *w, double i);
         sf::Sprite getSprite(){ return spri; };
 
-
     protected:
 
      private:
