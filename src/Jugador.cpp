@@ -1,7 +1,8 @@
 #include "Jugador.h"
 
-Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
+Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
 {
+pState=new PhysicsState();
     //ctor
     //La carga de texturas podria ser otra clase
     tex.loadFromFile("assets/jugador/sp_alien_texture.png");
@@ -20,7 +21,7 @@ Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son
     renderPos.push_back(0.0);
 }
 
-PhysicsState Jugador::getPhysicsState()
+PhysicsState* Jugador::getPhysicsState()
 {
     return pState;
 }
@@ -53,8 +54,8 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
         //La tecla Abajo está pulsada:
     }
 
-    pState.Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
-    pState.updatePhysicsState(et);
+    pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
+    pState->updatePhysicsState(et);
 
 }
 
@@ -63,8 +64,8 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 {
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
-    renderPos[0]=(getPhysicsState().getActualState()[0]-getPhysicsState().getPastState()[0])*i+getPhysicsState().getPastState()[0];
-    renderPos[1]=(getPhysicsState().getActualState()[1]-getPhysicsState().getPastState()[1])*i+getPhysicsState().getPastState()[1];
+    renderPos[0]=(getPhysicsState()->getActualState()[0]-getPhysicsState()->getPastState()[0])*i+getPhysicsState()->getPastState()[0];
+    renderPos[1]=(getPhysicsState()->getActualState()[1]-getPhysicsState()->getPastState()[1])*i+getPhysicsState()->getPastState()[1];
 
     spri.setPosition(renderPos[0], renderPos[1]);
     w->draw(spri);

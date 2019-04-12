@@ -6,10 +6,9 @@
 class Alcantarilla
 {
     public:
-        Alcantarilla(sf::Vector2f posI, sf::Vector2f posF);
+        Alcantarilla(sf::Vector2f posI);
         virtual ~Alcantarilla();
         sf::Vector2f getPosInicial();
-        sf::Vector2f getPosDestino();
         sf::CircleShape getForma();
         void drawAlcantarilla(sf::RenderWindow *window);
 
@@ -17,7 +16,6 @@ class Alcantarilla
 
     private:
         sf::Vector2f posInicial;
-        sf::Vector2f posDestino;
         sf::CircleShape *forma;
 };
 

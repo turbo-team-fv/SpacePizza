@@ -24,8 +24,10 @@ Mundo::Mundo()
     e1 = new Enemigo();
 
     //Inicializo una Alcantarilla
-    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(350,270), sf::Vector2f(500,500));
+    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(350,270));
+     Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(500,500));
     alcantarillas.push_back(alc1);
+     alcantarillas.push_back(alc2);
 
 
 }
@@ -43,6 +45,28 @@ std::vector<Item*> Mundo::getItems()
 std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
 {
     return puntosEntrega;
+}
+
+void Mundo::colisionAlcantarilla(){
+
+/// Colisiones con las alcantarillas
+    for( int i = 0; i < alcantarillas.size(); i++ ) {
+        if(p1->getSprite().getGlobalBounds().intersects(alcantarillas[i]->getForma().getGlobalBounds())){
+
+            /**Comprobamos destino**/
+            if(i==alcantarillas.size()-1){
+            p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x+30, (double)alcantarillas[0]->getPosInicial().y);
+            }else{
+            p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x+30, (double)alcantarillas[i+1]->getPosInicial().y);
+            }
+
+
+            std::cout<<"Destino Alcanzado x: "<<p1->getPhysicsState()->getActualState()[0]<<std::endl;
+            // p1->updateJugador();
+
+        }
+    }
+
 }
 
 void Mundo::procesarColisiones()
@@ -76,20 +100,9 @@ void Mundo::procesarColisiones()
         }
     }*/
 
-    /// Colisiones con las alcantarillas
-    for( int i = 0; i < alcantarillas.size(); i++ ) {
-        if(p1->getSprite().getGlobalBounds().intersects(alcantarillas[i]->getForma().getGlobalBounds())){
-            std::cout<<"colisiona con una alcantarilla"<<std::endl;
-            sf::Vector2f destino = alcantarillas[i]->getPosDestino();
-            std::cout<<"Destino X: "<<destino.x<<std::endl;
-            std::cout<<"Destino Y: "<<destino.y<<std::endl;
-            p1->getPhysicsState().setPastState((double)destino.x, (double)destino.y);
-            p1->getPhysicsState().setActualState((double)destino.x, (double)destino.y);
-            p1->getPhysicsState().MoveTo((double)destino.x, (double)destino.y);
-            // p1->updateJugador();
+    colisionAlcantarilla();
 
-        }
-    }
+
 }
 
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
@@ -105,19 +118,18 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     {
         //cout << "NO COLISINA CARLOS" << endl;
     }
-
-    p1->updateJugador(eRight,eLeft,eUp,eDown,t);
-    e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
     procesarColisiones();
+    p1->updateJugador(eRight,eLeft,eUp,eDown,t);
+    e1->updateEnemigo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1],t);
+
 
 
 }
-void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
-{
-    // Dubujo el punto de entrega
-    mapa->draw(ventana);
-    ventana->draw(*ptoEntrega);
-    // Dibujo los powerUps
+
+
+void Mundo::drawItems(sf::RenderWindow * ventana){
+
+        // Dibujo los powerUps
     for( int i = 0; i < items.size(); i++ )
     {
         float duracion = items[i]->getClock().getElapsedTime().asSeconds();
@@ -131,12 +143,31 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
         }
 
     }
-    p1->drawJugador(ventana,inter);
-    e1->drawEnemigo(ventana,inter);
+
+
+}
+
+void Mundo::drawAlcantarillas(sf::RenderWindow * ventana){
+
 
     for(int i = 0; i < alcantarillas.size(); i++ ){
         alcantarillas[i]->drawAlcantarilla(ventana);
     }
+
+
+}
+
+void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
+{
+    // Dubujo el punto de entrega
+    mapa->draw(ventana);
+    this->drawAlcantarillas(ventana);
+    this->drawItems(ventana);
+    ventana->draw(*ptoEntrega);
+
+
+    p1->drawJugador(ventana,inter);
+    e1->drawEnemigo(ventana,inter);
 
 
 }

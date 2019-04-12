@@ -20,8 +20,15 @@ class Mundo
         vector< sf::Vector2f > getPuntosEntrega();
         vector<Item*> getItems();
 
+        void drawPuntosEntrega(sf::RenderWindow * window);
+        void drawItems(sf::RenderWindow * window);
+        void drawAlcantarillas(sf::RenderWindow * window);
+
         void updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t);
         void drawMundo(sf::RenderWindow * window, double i);
+
+        /**COLISIONES**/
+        void colisionAlcantarilla();
         void procesarColisiones();
     protected:
 

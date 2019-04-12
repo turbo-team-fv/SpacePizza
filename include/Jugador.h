@@ -13,7 +13,7 @@ class Jugador
     public:
         Jugador();
         virtual ~Jugador();
-        PhysicsState getPhysicsState();
+        PhysicsState* getPhysicsState();
         void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);
         void drawJugador(sf::RenderWindow *w, double i);
         vector<double> renderPos;
@@ -28,7 +28,7 @@ class Jugador
 
 
     /**FISICAS**/
-    PhysicsState pState;
+    PhysicsState *pState;
 };
 
 #endif // JUGADOR_H

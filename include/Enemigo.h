@@ -11,7 +11,7 @@ class Enemigo
     public:
         Enemigo();
         virtual ~Enemigo();
-        PhysicsState getPhysicsState();
+        PhysicsState* getPhysicsState();
         void updateEnemigo(double velx, double vely, sf::Time et);
         void drawEnemigo(sf::RenderWindow *w, double i);
 
@@ -27,7 +27,7 @@ class Enemigo
     vector<double> renderPos;
 
     /**FISICAS**/
-    PhysicsState pState;
+    PhysicsState *pState;
 
     /**OTROS**/
     int actitud; //0: Apatrullando la ciudad, 1: En alerta, 2: Te persigue
