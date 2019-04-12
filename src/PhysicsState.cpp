@@ -100,7 +100,8 @@ void PhysicsState::MoveTo(double ax,double ay)
 {
 
     posNow[0]=ax,posNow[1]=ay;
-    posBef=posNow;
+    //posBef=posNow;
+    cout<<"Dentro de estado Fisico x es :" << posNow[0]<<endl;
 }
 
 void PhysicsState::updatePhysicsState(sf::Time et)
