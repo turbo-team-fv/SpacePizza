@@ -22,6 +22,8 @@ public:
     void updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t);
     void drawMundo(sf::RenderWindow * window, double i);
     void procesarColisiones();
+
+    void processHUD();
 protected:
 
 private:

@@ -116,6 +116,15 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 
 
 }
+
+/**Metodo para processar los elementos del HUD*/
+void Juego::processHUD()
+{
+
+
+
+}
+
 void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 {
     // Dubujo el punto de entrega

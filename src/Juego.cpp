@@ -27,11 +27,9 @@ Juego::Juego()
 
     mundo = new Mundo();
 
-
-
 }
 
-                 Juego::~Juego()
+Juego::~Juego()
 {
     //dtor
 }
@@ -117,7 +115,7 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
         //Traslaciones
         eUp = isPressed;
         std::cout<<"Se ha pulsado EUP"<<std::endl;
-       // menu->MoveUp();
+        // menu->MoveUp();
 
     }
     if (key == sf::Keyboard::Down)
@@ -135,7 +133,8 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
     {
         eRight = isPressed;
     }
-    if (key == sf::Keyboard::Return ){
+    if (key == sf::Keyboard::Return )
+    {
 
         /*switch(menu->getSelectedItem()){
             case 0:
@@ -164,11 +163,6 @@ void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time 
     mundo->updateMundo(eRight,eLeft,eUp,eDown,t);
 }
 
-void Juego::processHUD(){
-
-
-
-}
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
 void Juego::render(double i)
 {
