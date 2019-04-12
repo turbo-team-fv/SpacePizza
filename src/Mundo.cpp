@@ -112,16 +112,16 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 //    vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
 //    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
     vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
-
+        processHUD();
 
 
 }
 
 /**Metodo para processar los elementos del HUD*/
-void Juego::processHUD()
+void Mundo::processHUD()
 {
 
-
+// Esta por hacer
 
 }
 

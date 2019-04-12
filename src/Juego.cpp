@@ -74,7 +74,7 @@ void Juego::loop()
         //Renderizamos con interpolacion
         render(interpolation);
 
-        processHUD();
+
     }
 
 }
