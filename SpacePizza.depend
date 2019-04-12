@@ -553,7 +553,7 @@
 1555056272 source:/home/ramon/Desktop/FV/SpacePizza/main.cpp
 	"Juego.h"
 
-1555056567 /home/ramon/Desktop/FV/SpacePizza/include/Juego.h
+1555061780 /home/ramon/Desktop/FV/SpacePizza/include/Juego.h
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -566,7 +566,7 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1555056272 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
+1555061805 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -624,4 +624,20 @@
 1555056272 source:/home/ramon/Desktop/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
+
+1555056567 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
+	"Jugador.h"
+
+1555056316 source:/home/ramon/Desktop/FV/SpacePizza/src/Mapa.cpp
+	"Mapa.h"
+	"../lib/tinyxml/tinyxml2.h"
+
+1555056272 source:/home/ramon/Desktop/FV/SpacePizza/src/Mundo.cpp
+	"Mundo.h"
+
+1555056308 source:/home/ramon/Desktop/FV/SpacePizza/src/PhysicsState.cpp
+	"PhysicsState.h"
+
+1555061535 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
+	"Juego.h"
 
