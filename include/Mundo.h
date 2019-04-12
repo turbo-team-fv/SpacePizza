@@ -22,6 +22,8 @@ class Mundo
         void updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t);
         void drawMundo(sf::RenderWindow * window, double i);
         void procesarColisiones();
+        void initPuntosEntrega();
+        void initItems();
     protected:
 
     private:
@@ -36,6 +38,8 @@ class Mundo
         Jugador *p1;
         Enemigo *e1;
         /**ELEMENTOS**/
+
+        int pizzas;
 
 };
 

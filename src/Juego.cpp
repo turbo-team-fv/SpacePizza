@@ -26,7 +26,6 @@ Juego::Juego()
 
     mundo = new Mundo();
 
-
 }
 
 Juego::~Juego()
@@ -159,6 +158,10 @@ void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time 
     /**Y aqui Updateariamos lo que tengamos que updatear, ejemplo
     **/
     mundo->updateMundo(eRight,eLeft,eUp,eDown,t);
+}
+
+void Juego::updateTime(int change) {
+    tiempoJuego += change;
 }
 
 /**Metodo para administrar el renderizado que recibe la interpolacion**/

@@ -17,6 +17,7 @@ class Jugador
         void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);
         void drawJugador(sf::RenderWindow *w, double i);
         sf::Sprite getSprite(){ return spri; };
+        void updateVida(int change);
 
 
     protected:
@@ -29,6 +30,7 @@ class Jugador
 
     /**FISICAS**/
     PhysicsState pState;
+    int vidas;
 };
 
 #endif // JUGADOR_H

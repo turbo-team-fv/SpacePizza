@@ -18,6 +18,8 @@ Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son
 
     renderPos.push_back(0.0);
     renderPos.push_back(0.0);
+
+    vidas = 5;
 }
 
 PhysicsState Jugador::getPhysicsState()
@@ -68,6 +70,18 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 
     spri.setPosition(renderPos[0], renderPos[1]);
     w->draw(spri);
+}
+
+// Este metodo permite modifcar la vida => hay que pasarle el valor a modificar incluyendo el signo si queremos restar
+void Jugador::updateVida(int change) {
+    vidas = vidas + change;
+    if(vidas < 0) {
+        vidas = 0;
+    }
+    if(vidas >= 10 ) {
+        vidas = 5;
+    }
+    std::cout<<"Muestor la vida despues de la operacion: "<< vidas<<std::endl;
 }
 
 Jugador::~Jugador()

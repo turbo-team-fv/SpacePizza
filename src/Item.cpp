@@ -5,7 +5,7 @@ using namespace std;
 
 Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
     //ctor
-    tipo = tipo;
+    this->tipo = tipo;
     posicion = pos;
     tiempoGeneracion = tiempoG;
     tiempoVida = tiempoV;
@@ -18,6 +18,7 @@ Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
     }
     sprite = new sf::Sprite();
     sprite->setTexture(textura);
+    activo = false;
     /// TODO: En funcion del tipo de item escoger la zona de recorte para poner la
     /// imagen a cada tipo de powerUp
     switch (tipo) {
@@ -41,6 +42,11 @@ Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
         break;
     }
     sprite->setPosition(pos.x, pos.y);
+}
+
+void Item::drawItem(sf::RenderWindow * ventana) {
+    activo = true;
+    ventana->draw(*sprite);
 }
 
 int Item::getTipo() {
@@ -68,7 +74,12 @@ sf::Vector2f Item::getPosicion() {
 }
 
 void Item::restartPowerUp() {
+    activo = false;
     reloj.restart();
+}
+
+bool Item::isActivo(){
+    return activo;
 }
 
 Item::~Item()
