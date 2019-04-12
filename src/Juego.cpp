@@ -8,12 +8,13 @@ const sf::Time Juego::timePerFrame = sf::milliseconds(1000.0/25.0);
 Juego::Juego()
 {
 
-    int resol_x=600;
+    int resol_x=800;
     int resol_y=600;
     string gamename="Space Pizza";
 
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
+//    ventana->setFramerateLimit(25);
 
     menu = EMenu::getInstance();
 
@@ -26,10 +27,27 @@ Juego::Juego()
 
     mundo = new Mundo();
 
+    /** HUD, vista and minimap stuff **/
+    // HUD
+    player_lifes = 5;
+    num_pizzas = 0;
+    txt_pizza = new Texture();
+    txt_pizza -> loadFromFile("assets/hud/pizza.png");
+     spr_pizza = new Sprite(*txt_pizza);
+     spr_pizza ->setPosition(100,100);
+//    spr_pizza -> setScale(50.f/190, 50.f/200);
+    // Vista
+    vista = new View();
+    vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 300, 200));
+    vista->setCenter((float)p1->getPhysicsState().getActualState()[0], (float)p1->getPhysicsState().getActualState()[1]);
+    vista->setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
+    // Minimap
+    minimap = new View();
+    minimap->setViewport(sf::FloatRect(0.75f, 0.75f, 0.25f, 0.25f));
 
 }
 
-Juego::~Juego()
+                 Juego::~Juego()
 {
     //dtor
 }
@@ -74,7 +92,7 @@ void Juego::loop()
         //Renderizamos con interpolacion
         render(interpolation);
 
-
+        processHUD();
     }
 
 }
@@ -116,6 +134,19 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
         eUp = isPressed;
         std::cout<<"Se ha pulsado EUP"<<std::endl;
        // menu->MoveUp();
+
+}
+
+/**Update de juego donde se actualiza TODO **/
+void Juego::updateGameState(sf::Time t)
+{
+
+    double x=0,y=0,potencia=50;
+
+    if(eRight)
+    {
+        //La tecla Derecha está pulsada:
+        x=potencia;
 
     }
     if (key == sf::Keyboard::Down)
@@ -161,6 +192,11 @@ void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time 
     mundo->updateMundo(eRight,eLeft,eUp,eDown,t);
 }
 
+void Juego::processHUD(){
+
+
+
+}
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
 void Juego::render(double i)
 {

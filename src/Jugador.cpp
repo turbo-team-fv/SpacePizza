@@ -14,7 +14,7 @@ Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son
     spri.setTexture(tex);
     spri.setOrigin(28/2,44/2);
     spri.setTextureRect(sf::IntRect(50, 52,40, 44));
-    spri.scale(1,1);
+    spri.scale(0.6,0.6);
 
     renderPos.push_back(0.0);
     renderPos.push_back(0.0);

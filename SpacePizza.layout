@@ -69,7 +69,7 @@
 	</File>
 	<File name="lib/tinyxml/tinyxml.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="50577" topLine="1400" />
+			<Cursor1 position="50" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src/Enemigo.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
