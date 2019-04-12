@@ -27,23 +27,7 @@ Juego::Juego()
 
     mundo = new Mundo();
 
-//    /** HUD, vista and minimap stuff **/
-//    // HUD
-//    player_lifes = 5;
-//    num_pizzas = 0;
-//    txt_pizza = new Texture();
-//    txt_pizza -> loadFromFile("assets/hud/pizza.png");
-//     spr_pizza = new Sprite(*txt_pizza);
-//     spr_pizza ->setPosition(100,100);
-////    spr_pizza -> setScale(50.f/190, 50.f/200);
-//    // Vista
-//    vista = new View();
-//    vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 300, 200));
-//    vista->setCenter((float)p1->getPhysicsState().getActualState()[0], (float)p1->getPhysicsState().getActualState()[1]);
-//    vista->setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
-//    // Minimap
-//    minimap = new View();
-//    minimap->setViewport(sf::FloatRect(0.75f, 0.75f, 0.25f, 0.25f));
+
 
 }
 

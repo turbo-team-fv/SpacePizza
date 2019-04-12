@@ -32,14 +32,6 @@ private:
 
     sf::RenderWindow * ventana;
 
-
-
-    /** vista, minimap & HUD stuff **/
-    sf::View * vista, * minimap, *vista_hud; // La super vista y el super minimapa
-    int player_lifes, num_pizzas;
-    Texture * txt_pizza;
-    Sprite * spr_pizza;
-
     /** Clock Interpolacion **/
     sf::Clock updateClock;
     sf::Time elapsedTime;
