@@ -16,6 +16,8 @@ Juego::Juego()
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
 //    ventana->setFramerateLimit(25);
 
+    menu = EMenu::getInstance();
+
     /**Eventos**/
     eUp=false;
     eDown=false;
@@ -23,8 +25,7 @@ Juego::Juego()
     eRight=false;
     /**Eventos**/
 
-    mapa = new Mapa();
-    p1 = new Jugador();
+    mundo = new Mundo();
 
     /** HUD, vista and minimap stuff **/
     // HUD
@@ -82,7 +83,7 @@ void Juego::loop()
             elapsedTime=updateClock.restart();
 
             //updateamos dependiendo del tiempo pasado
-            updateGameState(elapsedTime);
+            updateGameState( eRight, eLeft, eUp, eDown, elapsedTime);
         }
 
         //Se calcula el porcentaje de interpolacion
@@ -127,14 +128,12 @@ void Juego::handleEvents()
 void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 {
 
-    if (key == sf::Keyboard::Up)            //Traslaciones
+    if (key == sf::Keyboard::Up)
+    {
+        //Traslaciones
         eUp = isPressed;
-    else if (key == sf::Keyboard::Down)
-        eDown = isPressed;
-    else if (key == sf::Keyboard::Left)
-        eLeft = isPressed;
-    else if (key == sf::Keyboard::Right)
-        eRight = isPressed;
+        std::cout<<"Se ha pulsado EUP"<<std::endl;
+       // menu->MoveUp();
 
 }
 
@@ -150,37 +149,47 @@ void Juego::updateGameState(sf::Time t)
         x=potencia;
 
     }
-    if(eLeft)
+    if (key == sf::Keyboard::Down)
     {
-        x=-potencia;
-        //La tecla Izquierda está pulsada:
+        eDown = isPressed;
+        //menu->MoveDown();
     }
-    if(eUp)
+
+    if (key == sf::Keyboard::Left )
     {
-        y=-potencia;
-        //La tecla Arriba está pulsada:
+        eLeft = isPressed;
     }
-    if(eDown)
+
+    if (key == sf::Keyboard::Right)
     {
-        y=potencia;
-        //La tecla Abajo está pulsada:
+        eRight = isPressed;
     }
+    if (key == sf::Keyboard::Return ){
+
+        /*switch(menu->getSelectedItem()){
+            case 0:
+                std::cout<<"Se ha seleccionado Play"<<std::endl;
+                break;
+            case 1:
+                std::cout<<"Se ha seleccionado Options"<<std::endl;
+                break;
+            case 2:
+                std::cout<<"Se ha seleccionado Exit"<<std::endl;
+                ventana->close();
+                break;
+        }*/
+    }
+
+
+}
+
+/**Update de juego donde se actualiza TODO **/
+void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time t)
+{
 
     /**Y aqui Updateariamos lo que tengamos que updatear, ejemplo
-
-    player.UpdatePlayer (velx,vely,t)
-
-
     **/
-    p1->updateJugador(x,y,t);
-
-    /** Updateamos la updatecamara para que updatesiga al updatejugador **/
-//    vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
-//    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
-        vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
-
-
-
+    mundo->updateMundo(eRight,eLeft,eUp,eDown,t);
 }
 
 void Juego::processHUD(){
@@ -192,19 +201,10 @@ void Juego::processHUD(){
 void Juego::render(double i)
 {
     ventana->clear();
-    //
+    //menu->draw(ventana);
     //Dibujamos nuestras mierdas
 
-    mapa->draw(ventana);
-    p1->drawJugador(ventana,i);
-
-    ventana->setView(*minimap);
-    mapa->draw(ventana);
-    p1->drawJugador(ventana,i);
-
-    ventana->setView(*vista);
-     ventana->draw(*spr_pizza);
-
+    mundo->drawMundo(ventana,i);
     ventana->display();
 }
 

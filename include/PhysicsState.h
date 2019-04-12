@@ -2,6 +2,7 @@
 #define PHYSICSSTATE_H
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <SFML/Graphics.hpp>
 using namespace std;
 

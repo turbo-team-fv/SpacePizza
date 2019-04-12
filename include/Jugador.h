@@ -14,9 +14,10 @@ class Jugador
         Jugador();
         virtual ~Jugador();
         PhysicsState getPhysicsState();
-        void updateJugador(double velx, double vely, sf::Time et);
+        void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);
         void drawJugador(sf::RenderWindow *w, double i);
         vector<double> renderPos;
+        sf::Sprite getSprite(){ return spri; };
 
     protected:
 
