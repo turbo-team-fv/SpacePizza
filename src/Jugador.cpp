@@ -6,6 +6,7 @@ Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son
     /**Funcionamiento: le digo la ruta de la textura y el numero de animaciones**/
     jugador_sprite= new SuperSprite("assets/jugador/sp_alien_texture.png",4,0.6,true);
     jugador_sprite->addFrame(sf::IntRect(50, 52,40, 44),0);
+    jugador_sprite->addFrame(sf::IntRect(2, 50,40, 46),0);
 
 }
 
