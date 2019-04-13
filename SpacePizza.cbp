@@ -50,6 +50,7 @@
 		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Jugador.h" />
 		<Unit filename="include/Mapa.h" />
+		<Unit filename="include/MaquinaEstados.h" />
 		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/PhysicsState.h" />
 		<Unit filename="lib/tinyxml/tinystr.cpp" />
@@ -69,6 +70,7 @@
 		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Jugador.cpp" />
 		<Unit filename="src/Mapa.cpp" />
+		<Unit filename="src/MaquinaEstados.cpp" />
 		<Unit filename="src/Mundo.cpp" />
 		<Unit filename="src/PhysicsState.cpp" />
 		<Extensions>
