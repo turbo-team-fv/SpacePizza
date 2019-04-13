@@ -8,13 +8,18 @@ Mapa::Mapa()
     mapTexture = new Texture();
 
     load();
+
+    // test colision
+    bool choca = checkearColision(FloatRect({340, 280}, {3, 3}));
+    if(choca) cout << "CHOCA" << endl;
+    else cout << "NO CHOCA" << endl;
 }
 
 void Mapa::load()
 {
 
     XMLDocument doc;
-    XMLError error = doc.LoadFile("assets/maps/MapaPrueba.tmx");
+    XMLError error = doc.LoadFile("assets/maps/MapaFinal.tmx");
 
     if(error)
     {
@@ -52,12 +57,15 @@ void Mapa::load()
         layer = layer->NextSiblingElement("layer");
     }
 
+    cout << "Num layers: " << numLayers << endl;
+
     // inicializamos la matriz de gids que tiene nuestor mapa
     tileMap = new int**[numLayers];
     for(int i = 0; i < numLayers; i++)
     {
         tileMap[i] = new int *[height];
     }
+
     for(int l = 0; l < numLayers; l++)
     {
         for(int y = 0; y < height; y++)
@@ -66,26 +74,40 @@ void Mapa::load()
         }
     }
 
+    for(int l = 0; l < numLayers; l++)
+    {
+        for(int y = 0; y < height; y++)
+        {
+            for(int x = 0; x < width; x++)
+            {
+                tileMap[l][y][x] = 0;
+            }
+        }
+    }
+
+
     layer = map->FirstChildElement("layer");
     XMLElement * tile ;
-    while(layer)
+
+
+    for (int l = 0; l < numLayers; l++)   // para cada capa del mapa
     {
         tile = layer->FirstChildElement("data")->FirstChildElement("tile");
 
-        for (int l = 0; l < numLayers; l++)   // para cada capa del mapa
+        for(int y = 0; y < height; y++)   // para cada fila del tilemap
         {
-            for(int y = 0; y < height; y++)   // para cada fila del tilemap
+            for(int x = 0; x < width; x++)
             {
-                for(int x = 0; x < width; x++)
-                {
 
-                    tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
-                    tile = tile->NextSiblingElement("tile");
-                }
+                tile->QueryIntAttribute("gid", &tileMap[l][y][x]);
+                tile = tile->NextSiblingElement("tile");
+
             }
         }
+
         layer = layer->NextSiblingElement("layer");
     }
+
 
 
     // for testing
@@ -147,13 +169,16 @@ void Mapa::setTileMapSprites()
                     tilemapSprite[l][y][x] = new Sprite(*mapTexture);
                     tilemapSprite[l][y][x]->setTextureRect(IntRect(xAux*tileWidth + (xAux-1) * 1, yAux*tileHeight + (yAux-1) * 1, tileWidth + 1, tileHeight + 1));
                     tilemapSprite[l][y][x]->setPosition(x*(tileWidth) - 1, y*(tileHeight) - 1);
-                } else {
+                }
+                else
+                {
                     tilemapSprite[l][y][x] = NULL;
                 }
             }
         }
     }
 }
+
 
 void Mapa::draw(RenderWindow * window)
 {
@@ -172,3 +197,41 @@ void Mapa::draw(RenderWindow * window)
     }
 }
 
+bool Mapa::checkearColision(FloatRect rect)
+{
+
+    for(int y = 0; y < height; y++)
+    {
+        for(int x = 0; x < width; x++)
+        {
+            if(tilemapSprite[0][y][x] != NULL)
+            {
+                if(tilemapSprite[0][y][x]->getGlobalBounds().intersects(rect))
+                {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
+bool Mapa::estaEnCesped(FloatRect rect)
+{
+    for(int y = 0; y < height; y++)
+    {
+        for(int x = 0; x < width; x++)
+        {
+            if(tilemapSprite[1][y][x] != NULL)
+            {
+                if(tilemapSprite[1][y][x]->getGlobalBounds().intersects(rect))
+                {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}

@@ -14,7 +14,7 @@ Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son
     spri.setTexture(tex);
     spri.setOrigin(28/2,44/2);
     spri.setTextureRect(sf::IntRect(50, 52,40, 44));
-    spri.scale(1,1);
+    spri.scale(0.6,0.6);
 
     renderPos.push_back(0.0);
     renderPos.push_back(0.0);
@@ -26,10 +26,34 @@ PhysicsState Jugador::getPhysicsState()
 }
 
 
-void Jugador::updateJugador(double velx, double vely, sf::Time et)
+void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et)
 {
 
-    pState.Move(velx,vely,true);//Cambia el booleano para quitar aceleracion o ponerla
+    double x=0,y=0,potencia=50;
+
+    if(eRight)
+    {
+        //La tecla Derecha está pulsada:
+        x=potencia;
+
+    }
+    if(eLeft)
+    {
+        x=-potencia;
+        //La tecla Izquierda está pulsada:
+    }
+    if(eUp)
+    {
+        y=-potencia;
+        //La tecla Arriba está pulsada:
+    }
+    if(eDown)
+    {
+        y=potencia;
+        //La tecla Abajo está pulsada:
+    }
+
+    pState.Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
     pState.updatePhysicsState(et);
 
 }

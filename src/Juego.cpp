@@ -1,5 +1,5 @@
 #include "Juego.h"
-#include "EMenu.h"
+
 
 /** GLOBAL **/
 const sf::Time Juego::timePerFrame = sf::milliseconds(1000.0/25.0);
@@ -8,12 +8,13 @@ const sf::Time Juego::timePerFrame = sf::milliseconds(1000.0/25.0);
 Juego::Juego()
 {
 
-    int resol_x=600;
+    int resol_x=800;
     int resol_y=600;
     string gamename="Space Pizza";
 
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
+//    ventana->setFramerateLimit(25);
 
     menu = EMenu::getInstance();
 
@@ -24,9 +25,7 @@ Juego::Juego()
     eRight=false;
     /**Eventos**/
 
-    mapa = new Mapa();
-    p1 = new Jugador();
-
+    mundo = new Mundo();
 
 }
 
@@ -66,7 +65,7 @@ void Juego::loop()
             elapsedTime=updateClock.restart();
 
             //updateamos dependiendo del tiempo pasado
-            updateGameState(elapsedTime);
+            updateGameState( eRight, eLeft, eUp, eDown, elapsedTime);
         }
 
         //Se calcula el porcentaje de interpolacion
@@ -111,33 +110,33 @@ void Juego::handleEvents()
 void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
 {
 
-    if (key == sf::Keyboard::Up && isPressed)
+    if (key == sf::Keyboard::Up)
     {
         //Traslaciones
         eUp = isPressed;
         std::cout<<"Se ha pulsado EUP"<<std::endl;
-        menu->MoveUp();
+        // menu->MoveUp();
 
     }
-    if (key == sf::Keyboard::Down && isPressed)
+    if (key == sf::Keyboard::Down)
     {
         eDown = isPressed;
-        std::cout<<"Se ha pulsado EDOWN"<<std::endl;
-        menu->MoveDown();
+        //menu->MoveDown();
     }
 
-    if (key == sf::Keyboard::Left && isPressed)
+    if (key == sf::Keyboard::Left )
     {
         eLeft = isPressed;
     }
 
-    if (key == sf::Keyboard::Right && isPressed)
+    if (key == sf::Keyboard::Right)
     {
         eRight = isPressed;
     }
-    if (key == sf::Keyboard::Return && isPressed){
+    if (key == sf::Keyboard::Return )
+    {
 
-        switch(menu->getSelectedItem()){
+        /*switch(menu->getSelectedItem()){
             case 0:
                 std::cout<<"Se ha seleccionado Play"<<std::endl;
                 break;
@@ -148,60 +147,30 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
                 std::cout<<"Se ha seleccionado Exit"<<std::endl;
                 ventana->close();
                 break;
-        }
+        }*/
     }
 
 
 }
 
+
 /**Update de juego donde se actualiza TODO **/
-void Juego::updateGameState(sf::Time t)
+void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time t)
 {
 
-    double x=0,y=0,potencia=50;
-
-    if(eRight)
-    {
-        //La tecla Derecha está pulsada:
-        x=potencia;
-
-    }
-    if(eLeft)
-    {
-        x=-potencia;
-        //La tecla Izquierda está pulsada:
-    }
-    if(eUp)
-    {
-        y=-potencia;
-        //La tecla Arriba está pulsada:
-    }
-    if(eDown)
-    {
-        y=potencia;
-        //La tecla Abajo está pulsada:
-    }
-
     /**Y aqui Updateariamos lo que tengamos que updatear, ejemplo
-
-    player.UpdatePlayer (velx,vely,t)
-
-
     **/
-    p1->updateJugador(x,y,t);
-
+    mundo->updateMundo(eRight,eLeft,eUp,eDown,t);
 }
 
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
 void Juego::render(double i)
 {
     ventana->clear();
-    //
-    menu->draw(ventana);
+    //menu->draw(ventana);
     //Dibujamos nuestras mierdas
-    ///mapa->draw(ventana);
-    ///p1->drawJugador(ventana,i);
-    //
+
+    mundo->drawMundo(ventana,i);
     ventana->display();
 }
 

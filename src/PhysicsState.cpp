@@ -19,6 +19,11 @@ vector<double> PhysicsState::getActualState()
     return posNow;
 }
 
+vector<double> PhysicsState::getVel()
+{
+    return vel;
+}
+
 
 void PhysicsState::setActualState(double x, double y)
 {
@@ -31,13 +36,28 @@ void PhysicsState::setPastState(double x, double y)
 
 void PhysicsState::Move(double ax, double ay, bool acelerado)
 {
-    int freno=15;
+    int freno=15,limit=150;
 
     if(acelerado)//MOTOR CON ACELERACION
     {
+        if(std::abs(vel[0])<=limit)
+        {
+            vel[0]+=ax;
+        }
+        else
+        {
+        /**Esta maravilla de aqui devuelve el signo en forma de -1 o 1 : (ax > 0) - (ax < 0)**/
+            vel[0]=limit*((ax > 0) - (ax < 0)) ;
+        }
+        if(std::abs(vel[1])<=limit)
+        {
+            vel[1]+=ay;
+        }
+        else
+        {
+           vel[1]=limit*((ay > 0) - (ay < 0)) ;
+        }
 
-        vel[0]+=ax;
-        vel[1]+=ay;
 
         if (vel[0]<=freno&&vel[0]>=-freno)
         {
@@ -79,6 +99,8 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
 void PhysicsState::MoveTo(double ax,double ay)
 {
 
+    posNow[0]=ax,posNow[1]=ay;
+    posBef=posNow;
 }
 
 void PhysicsState::updatePhysicsState(sf::Time et)
@@ -88,6 +110,8 @@ void PhysicsState::updatePhysicsState(sf::Time et)
 
     posNow[0] += vel[0]*et.asSeconds();
     posNow[1] += vel[1]*et.asSeconds();
+
+//    cout << "POSICION ACTUAL" << posNow[0] << ", " << posNow[1] << endl;
 
 }
 
