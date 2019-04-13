@@ -5,6 +5,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "PhysicsState.h"
+#include "SuperSprite.h"
 using namespace std;
 
 
@@ -16,15 +17,14 @@ class Jugador
         PhysicsState getPhysicsState();
         void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);
         void drawJugador(sf::RenderWindow *w, double i);
-        vector<double> renderPos;
-        sf::Sprite getSprite(){ return spri; };
+        SuperSprite* getSprite(){ return jugador_sprite; };
+
 
     protected:
 
      private:
     /**GRAFICOS**/
-    sf::Texture  tex;
-    sf::Sprite  spri;
+    SuperSprite *jugador_sprite;
 
 
     /**FISICAS**/

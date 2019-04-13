@@ -30,8 +30,8 @@ void PhysicsState::setColliders(vector < sf::Rect<float> > colinit)
 
     for (unsigned i=0; i< colinit.size(); i++)
     {
-        colinit[i].top+=posNow[0];
-        colinit[i].left+=posNow[1];
+        colinit[i].top+=posNow[1];
+        colinit[i].left+=posNow[0];
 
         boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
 
@@ -142,6 +142,8 @@ void PhysicsState::updatePhysicsState(sf::Time et)
     {
     colliders[i].top+= vel[1]*et.asSeconds();
     colliders[i].left+= vel[0]*et.asSeconds();
+    /*colliders[i].left=posNow[0];
+    colliders[i].top=posNow[1];*/
 
     boxes[i].setPosition(colliders[i].left,colliders[i].top);
 
