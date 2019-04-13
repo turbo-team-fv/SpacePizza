@@ -66,7 +66,7 @@ void SuperSprite::drawSuperSprite(vector<double> past, vector<double> actual,sf:
         }
     changer.restart();
     }
-    s_sprite->setOrigin(frames[animacion][frame].width,frames[animacion][frame].height);
+    s_sprite->setOrigin(frames[animacion][frame].width/2,frames[animacion][frame].height/2);
     s_sprite->setTextureRect(frames[animacion][frame]);
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
