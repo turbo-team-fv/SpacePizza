@@ -93,7 +93,7 @@ void Mundo::procesarColisiones()
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
 {
 
-    if(mapa->checkearColision(p1->getSprite().getGlobalBounds()))
+    if(mapa->checkearColision(p1->getSprite()->getActualSprite()->getGlobalBounds()))
     {
         cout << "COLISIONA" << endl;
 

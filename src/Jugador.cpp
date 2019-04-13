@@ -3,21 +3,10 @@
 Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
 {
     //ctor
-    //La carga de texturas podria ser otra clase
-    tex.loadFromFile("assets/jugador/sp_alien_texture.png");
-    if (!tex.loadFromFile("assets/jugador/sp_alien_texture.png"))
-    {
-        std::cerr << "Error cargando la imagen sp_alien_texture.png";
-        exit(0);
-    }
+    /**Funcionamiento: le digo la ruta de la textura y el numero de animaciones**/
+    jugador_sprite= new SuperSprite("assets/jugador/sp_alien_texture.png",4,0.6,true);
+    jugador_sprite->addFrame(sf::IntRect(50, 52,40, 44),0);
 
-    spri.setTexture(tex);
-    spri.setOrigin(28/2,44/2);
-    spri.setTextureRect(sf::IntRect(50, 52,40, 44));
-    spri.scale(0.6,0.6);
-
-    renderPos.push_back(0.0);
-    renderPos.push_back(0.0);
 }
 
 PhysicsState Jugador::getPhysicsState()
@@ -30,6 +19,7 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
 {
 
     double x=0,y=0,potencia=50;
+    jugador_sprite->setAnimation(0);
 
     if(eRight)
     {
@@ -63,11 +53,8 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 {
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
-    renderPos[0]=(getPhysicsState().getActualState()[0]-getPhysicsState().getPastState()[0])*i+getPhysicsState().getPastState()[0];
-    renderPos[1]=(getPhysicsState().getActualState()[1]-getPhysicsState().getPastState()[1])*i+getPhysicsState().getPastState()[1];
+    this->jugador_sprite->drawSuperSprite(this->getPhysicsState().getPastState(),this->getPhysicsState().getActualState(),w,i);
 
-    spri.setPosition(renderPos[0], renderPos[1]);
-    w->draw(spri);
 }
 
 Jugador::~Jugador()
