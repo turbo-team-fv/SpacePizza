@@ -262,10 +262,14 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
+<<<<<<< HEAD
 1555064158 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+=======
+1555158095 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+>>>>>>> AnimationEngine
 	"Mundo.h"
 
-1555003819 /home/samuel/FV/SpacePizza/include/Mundo.h
+1555158033 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -273,11 +277,16 @@
 	"Jugador.h"
 	"Enemigo.h"
 	"Mapa.h"
+	"SuperSprite.h"
 
 1554929462 source:/home/samuel/FV/SpacePizza/main.cpp
 	"Juego.h"
 
+<<<<<<< HEAD
 1555061068 /home/samuel/FV/SpacePizza/include/Juego.h
+=======
+1555148865 /home/samuel/FV/SpacePizza/include/Juego.h
+>>>>>>> AnimationEngine
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -285,6 +294,7 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
+<<<<<<< HEAD
 1555061068 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
@@ -292,18 +302,36 @@
 	"Jugador.h"
 
 1555061068 /home/samuel/FV/SpacePizza/include/Jugador.h
+=======
+1555149114 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+	"Juego.h"
+
+1555161542 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+	"Jugador.h"
+
+1555157954 /home/samuel/FV/SpacePizza/include/Jugador.h
+>>>>>>> AnimationEngine
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
+	"SuperSprite.h"
 
+<<<<<<< HEAD
 1555064121 /home/samuel/FV/SpacePizza/include/PhysicsState.h
+=======
+1555149114 /home/samuel/FV/SpacePizza/include/PhysicsState.h
+>>>>>>> AnimationEngine
 	<iostream>
 	<vector>
 	<cmath>
 	<SFML/Graphics.hpp>
 
+<<<<<<< HEAD
 1555064462 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+=======
+1555149114 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+>>>>>>> AnimationEngine
 	"PhysicsState.h"
 
 1554999653 source:/home/samuel/FV/SpacePizza/src/Item.cpp
@@ -313,10 +341,10 @@
 1554999653 /home/samuel/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555002632 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
+1555149114 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1555002608 /home/samuel/FV/SpacePizza/include/Enemigo.h
+1555148860 /home/samuel/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -640,4 +668,14 @@
 
 1555094362 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
+
+1555158405 /home/samuel/FV/SpacePizza/include/SuperSprite.h
+	"PhysicsState.h"
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1555158541 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
+	"SuperSprite.h"
 
