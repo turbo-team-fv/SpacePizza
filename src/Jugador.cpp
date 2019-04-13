@@ -23,10 +23,10 @@ Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son
 
     vector <sf::Rect<float> > colinit;
 
-    colinit.push_back(sf::FloatRect(40,0,30,30));//iz
-    colinit.push_back(sf::FloatRect(-40,0,30,30));//der
-    colinit.push_back(sf::FloatRect(0,40,30,30));//arr
-    colinit.push_back(sf::FloatRect(0,-40,30,30));//ab
+    colinit.push_back(sf::FloatRect(13,-10,3,22));//iz
+    colinit.push_back(sf::FloatRect(-11,-10,3,22));//der
+    colinit.push_back(sf::FloatRect(-8,10,22,3));//arr
+    colinit.push_back(sf::FloatRect(-8,-13,22,3));//ab
 
     pState.setColliders(colinit);
 
