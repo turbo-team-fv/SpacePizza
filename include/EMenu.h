@@ -23,6 +23,8 @@ class EMenu
         static EMenu * eMenuInstancia;
         int selectedItemIndex;
         Font font;
+        Sprite * bg_menu;
+        Texture * bgMenu_txt;
         Text menu[MAX_NUMBER_OF_ITEMS];
 
 };

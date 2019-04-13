@@ -148,29 +148,36 @@
 	"tinyxml.h"
 	<windows.h>
 
-1554734409 source:/home/claudia/Desktop/SpacePizza/main.cpp
+1554997802 source:/home/claudia/Desktop/SpacePizza/main.cpp
 	"Juego.h"
 
-1554734377 /home/claudia/Desktop/SpacePizza/include/Mapa.h
+1555146395 /home/claudia/Desktop/SpacePizza/include/Mapa.h
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1554883131 source:/home/claudia/Desktop/SpacePizza/src/Juego.cpp
+1555148024 source:/home/claudia/Desktop/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
-1554833552 /home/claudia/Desktop/SpacePizza/include/Juego.h
-	"Mapa.h"
-	"Jugador.h"
+1555146395 /home/claudia/Desktop/SpacePizza/include/Juego.h
+	"EMenu.h"
 	<iostream>
 	<vector>
-	<math.h>
+	<cmath>
 	<SFML/Graphics.hpp>
-
-1554628510 source:/home/claudia/Desktop/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1554628510 /home/claudia/Desktop/SpacePizza/include/Mundo.h
+1555146395 source:/home/claudia/Desktop/SpacePizza/src/Mundo.cpp
+	"Mundo.h"
+
+1555146395 /home/claudia/Desktop/SpacePizza/include/Mundo.h
+	<vector>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Item.h"
+	"Jugador.h"
+	"Enemigo.h"
+	"Mapa.h"
 
 1554636422 source:/home/samuel/FV/SpacePizza/lib/tinyxml/tinystr.cpp
 	"tinystr.h"
@@ -332,7 +339,11 @@
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1554833552 /home/claudia/Desktop/SpacePizza/include/Jugador.h
+1555146395 /home/claudia/Desktop/SpacePizza/include/Jugador.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"PhysicsState.h"
 
 1554833552 shed changes
 	<iostream>
@@ -412,7 +423,11 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1554833552 /home/claudia/Desktop/SpacePizza/include/PhysicsState.h
+1555146395 /home/claudia/Desktop/SpacePizza/include/PhysicsState.h
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
 
 1555011613 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
@@ -440,7 +455,7 @@
 
 1554883996 /home/pablo/Source/FV/SpacePizza/include/EFin.h
 
-1554883169 source:/home/claudia/Desktop/SpacePizza/src/Mapa.cpp
+1555146395 source:/home/claudia/Desktop/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -640,4 +655,48 @@
 
 1555094362 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
+
+1555146982 /home/claudia/Desktop/SpacePizza/include/EMenu.h
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
+
+1555146395 /home/claudia/Desktop/SpacePizza/include/Item.h
+	<SFML/Graphics.hpp>
+
+1555146395 /home/claudia/Desktop/SpacePizza/include/Enemigo.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"PhysicsState.h"
+
+1554997802 source:/home/claudia/Desktop/SpacePizza/src/EFin.cpp
+	"EFin.h"
+
+1554997802 /home/claudia/Desktop/SpacePizza/include/EFin.h
+
+1554997802 source:/home/claudia/Desktop/SpacePizza/src/EJugando.cpp
+	"EJugando.h"
+
+1554997802 /home/claudia/Desktop/SpacePizza/include/EJugando.h
+
+1555146395 source:/home/claudia/Desktop/SpacePizza/src/Enemigo.cpp
+	"Enemigo.h"
+
+1555146395 source:/home/claudia/Desktop/SpacePizza/src/Item.cpp
+	"Item.h"
+	<iostream>
+
+1555146395 source:/home/claudia/Desktop/SpacePizza/src/Jugador.cpp
+	"Jugador.h"
+
+1555146395 source:/home/claudia/Desktop/SpacePizza/src/PhysicsState.cpp
+	"PhysicsState.h"
+
+1555148044 source:/home/claudia/Desktop/SpacePizza/src/EMenu.cpp
+	"EMenu.h"
+	<iostream>
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
 

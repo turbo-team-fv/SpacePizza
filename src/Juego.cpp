@@ -114,14 +114,17 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
     {
         //Traslaciones
         eUp = isPressed;
-        std::cout<<"Se ha pulsado EUP"<<std::endl;
-        // menu->MoveUp();
+        std::cout<<"Se ha pulsado Up"<<std::endl;
+        if(eUp)
+            menu->MoveUp();
 
     }
     if (key == sf::Keyboard::Down)
     {
         eDown = isPressed;
-        //menu->MoveDown();
+        std::cout<<"Se ha pulsado Down"<<std::endl;
+        if(eDown)
+            menu->MoveDown();
     }
 
     if (key == sf::Keyboard::Left )
@@ -167,10 +170,10 @@ void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time 
 void Juego::render(double i)
 {
     ventana->clear();
-    //menu->draw(ventana);
+    menu->draw(ventana);
     //Dibujamos nuestras mierdas
 
-    mundo->drawMundo(ventana,i);
+    //mundo->drawMundo(ventana,i);
     ventana->display();
 }
 
