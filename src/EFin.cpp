@@ -11,8 +11,26 @@ EFin* EFin::getInstance()
 {
     if(eFinInstancia==0)
     {
-        eFinInstancia = EFin::getInstance();
+        eFinInstancia = new EFin();
     }
 
     return eFinInstancia;
+}
+
+void EFin::Init()
+{
+
+}
+
+void EFin::HandleInput(RenderWindow * ventana)
+{
+
+}
+void EFin::Update()
+{
+
+}
+void EFin::Draw(RenderWindow * ventana)
+{
+
 }

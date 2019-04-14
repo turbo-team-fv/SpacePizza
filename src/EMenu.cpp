@@ -1,4 +1,5 @@
 #include "EMenu.h"
+#include "Juego.h"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -7,15 +8,34 @@
 using namespace sf;
 using namespace std;
 
+EMenu* EMenu::eMenuInstancia = 0;
+
+EMenu* EMenu::getInstance()
+{
+    if(eMenuInstancia==0)
+    {
+        eMenuInstancia = new EMenu();
+    }
+    return eMenuInstancia;
+}
+
 EMenu::EMenu()
 {
-    if(!font.loadFromFile("assets/PressStart2P.ttf")){
+    this->Init();
+}
+
+void EMenu::Init()
+{
+
+    if(!font.loadFromFile("assets/PressStart2P.ttf"))
+    {
         cout<<"Error, no se encuentra la tipografia"<<endl;
     }
 
     bgMenu_txt = new Texture();
 
-    if(!bgMenu_txt->loadFromFile("assets/hud/SpacePizzaSplashScreen.jpg")){
+    if(!bgMenu_txt->loadFromFile("assets/hud/SpacePizzaSplashScreen.jpg"))
+    {
         cout<<"Error, no se encuentra la imagen SpacePizzaSplashScreen"<<endl;
     }
 
@@ -40,31 +60,20 @@ EMenu::EMenu()
     selectedItemIndex = 0;
 }
 
-EMenu* EMenu::eMenuInstancia = 0;
-
-EMenu* EMenu::getInstance()
+void EMenu::Draw(RenderWindow * ventana)
 {
-    if(eMenuInstancia==0)
+    ventana->draw(*bg_menu);
+
+    for(int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {
-        eMenuInstancia = new EMenu();
+        ventana->draw(menu[i]);
     }
-
-    return eMenuInstancia;
 }
 
-void EMenu::draw(RenderWindow * window){
-
-    window->draw(*bg_menu);
-
-    for(int i = 0; i < MAX_NUMBER_OF_ITEMS; i++){
-        window->draw(menu[i]);
-        }
-
-}
-
-void EMenu::MoveUp(){
-
-    if(selectedItemIndex - 1 >= 0){
+void EMenu::MoveUp()
+{
+    if(selectedItemIndex - 1 >= 0)
+    {
         menu[selectedItemIndex].setColor(Color::White);
         selectedItemIndex=selectedItemIndex-1;
         menu[selectedItemIndex].setColor(Color::Cyan);
@@ -73,7 +82,8 @@ void EMenu::MoveUp(){
 
 void EMenu::MoveDown()
 {
-    if(selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS){
+    if(selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS)
+    {
         menu[selectedItemIndex].setColor(Color::White);
         selectedItemIndex=selectedItemIndex+1;
         menu[selectedItemIndex].setColor(Color::Cyan);
@@ -85,20 +95,46 @@ int EMenu::getSelectedItem()
     return selectedItemIndex;
 }
 
-void EMenu::Init()
+void EMenu::HandleInput(RenderWindow * ventana)
 {
+    Keyboard key;
 
+    while (ventana->isOpen())
+    {
+        Event event;
+
+        if (ventana->pollEvent(event))
+        {
+            if (key.isKeyPressed(Keyboard::Up))
+            {
+                MoveUp();
+            }
+            if (key.isKeyPressed(Keyboard::Down))
+            {
+                MoveDown();
+            }
+
+            if (key.isKeyPressed(Keyboard::Return))
+            {
+                /*switch(menu->getSelectedItem()){
+                    case 0:
+                        std::cout<<"Se ha seleccionado Play"<<std::endl;
+                        break;
+                    case 1:
+                        std::cout<<"Se ha seleccionado Options"<<std::endl;
+                        break;
+                    case 2:
+                        std::cout<<"Se ha seleccionado Exit"<<std::endl;
+                        ventana->close();
+                        break;
+                }*/
+            }
+        }
+        Draw(ventana);
+    }
 }
 
-void EMenu::HandleInput()
-{
-
-}
 void EMenu::Update()
-{
-
-}
-void EMenu::Draw(float)
 {
 
 }

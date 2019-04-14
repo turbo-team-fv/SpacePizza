@@ -1,5 +1,6 @@
 #include "Juego.h"
 
+using namespace sf;
 
 /** GLOBAL **/
 const sf::Time Juego::timePerFrame = sf::milliseconds(1000.0/25.0);
@@ -12,7 +13,7 @@ Juego::Juego()
     int resol_y=600;
     string gamename="Space Pizza";
 
-    ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
+    ventana = new RenderWindow(VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
 //    ventana->setFramerateLimit(25);
 
@@ -26,7 +27,6 @@ Juego::Juego()
     /**Eventos**/
 
     mundo = new Mundo();
-
 }
 
 Juego::~Juego()
@@ -83,23 +83,23 @@ void Juego::loop()
 void Juego::handleEvents()
 {
 
-    sf::Event event;
+    Event event;
     if (ventana->pollEvent(event))
     {
 
         switch (event.type)
         {
-        case sf::Event::KeyPressed:
+        case Event::KeyPressed:
 
             handleInputs(event.key.code, true);
             break;
 
-        case sf::Event::KeyReleased:
+        case Event::KeyReleased:
 
             handleInputs(event.key.code, false);
             break;
 
-        case sf::Event::Closed:
+        case Event::Closed:
             ventana->close();
             break;
         }
@@ -115,16 +115,16 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
         //Traslaciones
         eUp = isPressed;
         std::cout<<"Se ha pulsado Up"<<std::endl;
-        if(eUp)
-            menu->MoveUp();
+////        if(eUp)
+////            menu->MoveUp();
 
     }
     if (key == sf::Keyboard::Down)
     {
         eDown = isPressed;
         std::cout<<"Se ha pulsado Down"<<std::endl;
-        if(eDown)
-            menu->MoveDown();
+////        if(eDown)
+////            menu->MoveDown();
     }
 
     if (key == sf::Keyboard::Left )
@@ -170,10 +170,12 @@ void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time 
 void Juego::render(double i)
 {
     ventana->clear();
-    menu->draw(ventana);
+    menu->Draw(ventana); ///El draw no se si se tendra que hacer desde otro sitio
     //Dibujamos nuestras mierdas
 
     //mundo->drawMundo(ventana,i);
     ventana->display();
 }
+
+
 
