@@ -135,8 +135,9 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 
 
     /** Updateamos la updatecamara para que updatesiga al updatejugador **/
-//   vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
+//vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
 //   vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
+    //vista->move(p1->getPhysicsState()->getVel()[0],p1->getPhysicsState()->getVel()[1]);
     //vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
     processHUD();
 
@@ -151,57 +152,67 @@ void Mundo::processHUD()
 
 }
 
+void Mundo::drawItems(sf::RenderWindow * ventana)
+{
+
+
+    // Dibujo los powerUps
+    for( int i = 0; i < items.size(); i++ )
+    {
+        float duracion = items[i]->getClock().getElapsedTime().asSeconds();
+        if(duracion > items[i]->getTiempoGeneracion() && duracion < items[i]->getTiempoVida() + items[i]->getTiempoGeneracion())
+        {
+            ventana->draw(items[i]->getSprite());
+        }
+        if(duracion > items[i]->getTiempoVida() + items[i]->getTiempoGeneracion())
+        {
+            items[i]->restartPowerUp();
+        }
+
+    }
+}
+
+
+
 void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 {
-    // Dubujo el punto de entrega
+    /***PRIMERO RECALCULAMOS POSICION DE OBJETOS INTERPOLADOS***/
+    /**Por algun motivo que no acabo de comprender**/
+    p1->calcInter(ventana,inter);
+    //e1->calcInter(ventana,inter);
+
+
+    vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
+    ventana->setView(*vista);///SET VIEW PLAYER
     mapa->draw(ventana);
     ventana->draw(*ptoEntrega);
-    // Dibujo los powerUps
-    for( int i = 0; i < items.size(); i++ )
-    {
-        float duracion = items[i]->getClock().getElapsedTime().asSeconds();
-        if(duracion > items[i]->getTiempoGeneracion() && duracion < items[i]->getTiempoVida() + items[i]->getTiempoGeneracion())
-        {
-            ventana->draw(items[i]->getSprite());
-        }
-        if(duracion > items[i]->getTiempoVida() + items[i]->getTiempoGeneracion())
-        {
-            items[i]->restartPowerUp();
-        }
-
-    }
+    drawItems(ventana);
     p1->drawJugador(ventana,inter);
-    p1->getPhysicsState()->drawColliders(ventana,inter);
     e1->drawEnemigo(ventana,inter);
-    ventana->setView(*minimap);
-    // Hasta aqui el minimap.
 
+
+    ventana->setView(*minimap);///SET VIEW MAP
     mapa->draw(ventana);
     ventana->draw(*ptoEntrega);
-    // Dibujo los powerUps
-    for( int i = 0; i < items.size(); i++ )
-    {
-        float duracion = items[i]->getClock().getElapsedTime().asSeconds();
-        if(duracion > items[i]->getTiempoGeneracion() && duracion < items[i]->getTiempoVida() + items[i]->getTiempoGeneracion())
-        {
-            ventana->draw(items[i]->getSprite());
-        }
-        if(duracion > items[i]->getTiempoVida() + items[i]->getTiempoGeneracion())
-        {
-            items[i]->restartPowerUp();
-        }
-
-    }
+    drawItems(ventana);
     p1->drawJugador(ventana,inter);
     e1->drawEnemigo(ventana,inter);
-    vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
-    ventana->setView(*vista);
 
-    // Hasta aqui la vista principal.
 
 
 
 }
+
+/**Dibujado orden:
+-cosas
+-jugador
+-setview map
+
+-cosas
+-setcam
+-setview
+-jugador
+**/
 
 Mundo::~Mundo()
 {

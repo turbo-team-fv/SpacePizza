@@ -73,6 +73,13 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
 
 }
 
+void Jugador::calcInter(sf::RenderWindow *w, double i)
+{
+
+    /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
+    this->jugador_sprite->calcInter(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+
+}
 
 void Jugador::drawJugador(sf::RenderWindow *w, double i)
 {

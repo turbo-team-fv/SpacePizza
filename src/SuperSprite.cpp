@@ -55,6 +55,14 @@ vector<double> SuperSprite::getRenderPos(){
 
     return renderPos;
 }
+void SuperSprite::calcInter(vector<double> past, vector<double> actual,sf::RenderWindow *w, double i){
+
+
+/** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
+    renderPos[0]=(actual[0]-past[0])*i+past[0];
+    renderPos[1]=(actual[1]-past[1])*i+past[1];
+
+}
 void SuperSprite::drawSuperSprite(vector<double> past, vector<double> actual,sf::RenderWindow *w, double i)
 {
 
@@ -72,9 +80,8 @@ void SuperSprite::drawSuperSprite(vector<double> past, vector<double> actual,sf:
     s_sprite->setOrigin(frames[animacion][frame].width/2,frames[animacion][frame].height/2);
     s_sprite->setTextureRect(frames[animacion][frame]);
 
-    /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
-    renderPos[0]=(actual[0]-past[0])*i+past[0];
-    renderPos[1]=(actual[1]-past[1])*i+past[1];
+
+    calcInter(past,actual,w,i);
 
     s_sprite->setPosition(renderPos[0], renderPos[1]);
     w->draw(*s_sprite);

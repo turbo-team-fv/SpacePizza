@@ -38,11 +38,11 @@ void PhysicsState::setColliders(vector < sf::Rect<float> > colinit)
         colinit[i].top+=posNow[1];
         colinit[i].left+=posNow[0];
 
-        boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
+        /*boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
 
 
         boxes[i].setFillColor(sf::Color(i*50, i*50, i*50));
-        boxes[i].setPosition(colinit[i].left,colinit[i].top);
+        boxes[i].setPosition(colinit[i].left,colinit[i].top);*/
 
         colliders.push_back(colinit[i]);
 
@@ -150,7 +150,7 @@ void PhysicsState::updatePhysicsState(sf::Time et)
     /*colliders[i].left=posNow[0];
     colliders[i].top=posNow[1];*/
 
-    boxes[i].setPosition(colliders[i].left,colliders[i].top);
+   // boxes[i].setPosition(colliders[i].left,colliders[i].top);
 
     }
 
@@ -161,10 +161,10 @@ void PhysicsState::updatePhysicsState(sf::Time et)
 void PhysicsState::drawColliders(sf::RenderWindow *w, double i)
 {
 
-    for(unsigned i=0; i < boxes.size(); i++)
+    /*for(unsigned i=0; i < boxes.size(); i++)
     {
         w->draw(boxes[i]);
-    }
+    }*/
 
 }
 
