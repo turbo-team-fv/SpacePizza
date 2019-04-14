@@ -1,5 +1,6 @@
 #include "EMenu.h"
 #include "Juego.h"
+#include "EJugando.h"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -131,6 +132,8 @@ void EMenu::HandleEvents(RenderWindow * ventana)
             cout<<"SelectedItemIndex"<<selectedItemIndex<<endl;
             if(selectedItemIndex == 0)
             {
+                Juego::getInstance()->cambiarEstado(EJugando::getInstance());
+
                 cout<<"Play"<<endl;
             }
             else if(selectedItemIndex == 1)

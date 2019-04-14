@@ -19,6 +19,7 @@ public:
     void handleEvents();//Recoge el tipo de evento
     void handleInputs(sf::Keyboard::Key key, bool isPressed);
     void updateTime(int change);
+    void cambiarEstado(State* state);
 
 
 protected:

@@ -49,3 +49,8 @@ void Juego::loop()
     }
 
 }
+
+void Juego::cambiarEstado(State* state)
+{
+    estadoActivo = state;
+}

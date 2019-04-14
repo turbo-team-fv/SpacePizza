@@ -11,11 +11,12 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1555260233 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
+1555266105 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 	"EJugando.h"
+	"EMenu.h"
 
-1555260214 /home/pablo/Source/FV/SpacePizza/include/Juego.h
+1555266079 /home/pablo/Source/FV/SpacePizza/include/Juego.h
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -56,10 +57,11 @@
 	"tinyxml.h"
 	<windows.h>
 
-1555260214 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
+	"Juego.h"
 
-1555260214 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+1555265889 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -68,6 +70,7 @@
 	"Enemigo.h"
 	"Mapa.h"
 	"SuperSprite.h"
+	"Alcantarilla.h"
 
 1554574675 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxml2.cpp
 	"tinyxml2.h"
@@ -241,7 +244,6 @@
 	"tinyxml.h"
 	<windows.h>
 
-<<<<<<< HEAD
 1555240042 D
 	"SuperSprite.h"
 	"SuperSprite.h"
@@ -307,9 +309,14 @@
 	<vector>
 	<cmath>
 	<SFML/Graphics.hpp>
-=======
-1555236404 D
->>>>>>> LaRamaDelInfierno
+
+1555250862 hics.hpp>
+
+1555262717 amaDelInfierno
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
+	"State.h"
 
 1555240051 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
@@ -345,7 +352,7 @@
 1555259233 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1555259233 
+1555260155 
 	"Mundo.h"
 
 1555149114 mationEngine
@@ -431,11 +438,9 @@
 	"PhysicsState.h"
 	"SuperSprite.h"
 
-1555085415 hics.hpp>
-
 1554833552 ated upstream
 
-1555252322 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
+1555265889 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -537,7 +542,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555252322 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1555258487 /home/carlos/FV/SpacePizza/include/Jugador.h
@@ -547,15 +552,16 @@
 	"PhysicsState.h"
 	"SuperSprite.h"
 
-1555261092 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
+1555266123 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
+	"EJugando.h"
 	<iostream>
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1555260214 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
+1555265889 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
@@ -574,21 +580,21 @@
 1555258477 source:/home/carlos/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1555260214 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
-1555260214 /home/pablo/Source/FV/SpacePizza/include/EJugando.h
+1555265889 /home/pablo/Source/FV/SpacePizza/include/EJugando.h
 	"State.h"
 	"Juego.h"
 	"SFML/Graphics.hpp"
 
-1554915614 /home/pablo/Source/FV/SpacePizza/include/Item.h
+1555265889 /home/pablo/Source/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555252322 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1554915614 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
@@ -618,13 +624,14 @@
 	<SFML/Graphics.hpp>
 	"State.h"
 
-1555260214 /home/pablo/Source/FV/SpacePizza/include/Enemigo.h
+1555265889 /home/pablo/Source/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
+	"SuperSprite.h"
 
-1555260214 source:/home/pablo/Source/FV/SpacePizza/src/Enemigo.cpp
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1554832897 source:/home/ramon/Desktop/FV/SpacePizza/lib/tinyxml/tinystr.cpp
@@ -836,7 +843,7 @@
 1555094362 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
-1555260214 /home/pablo/Source/FV/SpacePizza/include/State.h
+1555265889 /home/pablo/Source/FV/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
 
 1555260214 source:/home/pablo/Source/FV/SpacePizza/src/MaquinaEstados.cpp
@@ -854,14 +861,10 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555260214 source:/home/pablo/Source/FV/SpacePizza/src/SuperSprite.cpp
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
-<<<<<<< HEAD
-1555250990 /home/samuel/FV/SpacePizza/include/SuperSprite.h
-=======
 1555250112 /home/samuel/FV/SpacePizza/include/SuperSprite.h
->>>>>>> LaRamaDelInfierno
 
 1555240042 eglandoView
 	"PhysicsState.h"
@@ -875,15 +878,7 @@
 
 1555236404 iendoColisiones
 
-<<<<<<< HEAD
-1555241144 /home/claudia/Desktop/SpacePizza/include/EMenu.h
-=======
 1555262705 /home/claudia/Desktop/SpacePizza/include/EMenu.h
->>>>>>> LaRamaDelInfierno
-	<string>
-	<sstream>
-	<SFML/Graphics.hpp>
-	"State.h"
 
 1555262705 /home/claudia/Desktop/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
@@ -896,15 +891,11 @@
 
 1555241161 ate.h"
 
-<<<<<<< HEAD
-1555146395 /home/claudia/Desktop/SpacePizza/include/Enemigo.h
-=======
 1555254841 /home/claudia/Desktop/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
->>>>>>> LaRamaDelInfierno
 
 1555254841 source:/home/claudia/Desktop/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
@@ -937,12 +928,8 @@
 
 1555241191 h"
 
-<<<<<<< HEAD
-1555250862 /home/samuel/FV/SpacePizza/include/State.h
-	<SFML/Graphics.hpp>
-=======
 1555240042 /home/samuel/FV/SpacePizza/include/State.h
->>>>>>> LaRamaDelInfierno
+	<SFML/Graphics.hpp>
 
 1555240042 source:/home/samuel/FV/SpacePizza/src/MaquinaEstados.cpp
 	"MaquinaEstados.h"
@@ -950,7 +937,6 @@
 
 1555240042 /home/samuel/FV/SpacePizza/include/MaquinaEstados.h
 
-<<<<<<< HEAD
 1555258536 source:/home/carlos/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
@@ -1002,7 +988,7 @@
 	"Alcantarilla.h"
 	<SFML/Graphics.hpp>
 	<iostream>
-=======
+
 1555254841 source:/home/claudia/Desktop/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
@@ -1029,5 +1015,22 @@
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
->>>>>>> LaRamaDelInfierno
+
+1555265889 /home/pablo/Source/FV/SpacePizza/include/Alcantarilla.h
+	<SFML/Graphics.hpp>
+
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/Alcantarilla.cpp
+	"Alcantarilla.h"
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1555265889 source:/home/pablo/Source/FV/SpacePizza/src/Motor2D.cpp
+	"Motor2D.h"
+	"Juego.h"
+	<iostream>
+
+1555265889 /home/pablo/Source/FV/SpacePizza/include/Motor2D.h
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
 
