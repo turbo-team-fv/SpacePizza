@@ -1,7 +1,9 @@
 #include "Enemigo.h"
 
-Enemigo::Enemigo():pState()
+Enemigo::Enemigo()
 {
+
+    pState=new PhysicsState();
     //ctor
     //La carga de texturas podria ser otra clase
     tex.loadFromFile("assets/enemigo/ufo.png");
@@ -20,8 +22,8 @@ Enemigo::Enemigo():pState()
     renderPos.push_back(0.0);
 
     /**COSAS ENEMIGO**/
-    pState.MoveTo(500,500);
-    actitud = 2;
+    pState->MoveTo(500,500);
+    actitud = 0;
     tiempo_espera = 3;
     direccion_patrullaje = 0;
     direccion_patrullaje2 = 0;
@@ -29,7 +31,7 @@ Enemigo::Enemigo():pState()
 
 }
 
-PhysicsState Enemigo::getPhysicsState()
+PhysicsState* Enemigo::getPhysicsState()
 {
     return pState;
 }
@@ -122,19 +124,19 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
     case 2:
 
         spri.setTextureRect(sf::IntRect(5, 89,44, 38));
-        if (velx> pState.getActualState()[0])
+        if (velx> pState->getActualState()[0])
         {
             x+=power;
         }
-        else if (velx< pState.getActualState()[0])
+        else if (velx< pState->getActualState()[0])
         {
             x+=-power;
         }
-        if(vely>pState.getActualState()[1])
+        if(vely>pState->getActualState()[1])
         {
             y+=power;
         }
-        else if(vely < pState.getActualState()[1])
+        else if(vely < pState->getActualState()[1])
         {
             y+=-power;
         }
@@ -152,8 +154,8 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
 
     }
 
-    pState.Move(x,y,true);
-    pState.updatePhysicsState(et);
+    pState->Move(x,y,true);
+    pState->updatePhysicsState(et);
 
 }
 
@@ -162,8 +164,8 @@ void Enemigo::drawEnemigo(sf::RenderWindow *w, double i)
 {
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
-    renderPos[0]=(getPhysicsState().getActualState()[0]-getPhysicsState().getPastState()[0])*i+getPhysicsState().getPastState()[0];
-    renderPos[1]=(getPhysicsState().getActualState()[1]-getPhysicsState().getPastState()[1])*i+getPhysicsState().getPastState()[1];
+    renderPos[0]=(getPhysicsState()->getActualState()[0]-getPhysicsState()->getPastState()[0])*i+getPhysicsState()->getPastState()[0];
+    renderPos[1]=(getPhysicsState()->getActualState()[1]-getPhysicsState()->getPastState()[1])*i+getPhysicsState()->getPastState()[1];
 
     spri.setPosition(renderPos[0], renderPos[1]);
     w->draw(spri);

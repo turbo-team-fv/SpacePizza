@@ -2,6 +2,7 @@
 
 Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
 {
+pState=new PhysicsState();
     //ctor
     pState= new PhysicsState();
     pState->setActualState(150,250);
