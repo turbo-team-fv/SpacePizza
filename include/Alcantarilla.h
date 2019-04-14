@@ -9,14 +9,13 @@ class Alcantarilla
         Alcantarilla(sf::Vector2f posI);
         virtual ~Alcantarilla();
         sf::Vector2f getPosInicial();
-        sf::CircleShape getForma();
+        sf::Sprite getSprite();
         void drawAlcantarilla(sf::RenderWindow *window);
 
     protected:
 
     private:
         sf::Vector2f posInicial;
-        sf::CircleShape *forma;
         sf::Texture texture;
         sf::Sprite *sprite;
 };

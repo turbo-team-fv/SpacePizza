@@ -24,11 +24,7 @@ Mundo::Mundo()
     e1 = new Enemigo();
 
     //Inicializo una Alcantarilla
-    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(350,270));
-     Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(500,500));
-    alcantarillas.push_back(alc1);
-     alcantarillas.push_back(alc2);
-
+    initAlcantarillas();
 
 }
 
@@ -51,7 +47,7 @@ void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown){
 
 /// Colisiones con las alcantarillas
     for( int i = 0; i < alcantarillas.size(); i++ ) {
-        if(p1->getSprite().getGlobalBounds().intersects(alcantarillas[i]->getForma().getGlobalBounds())){
+        if(p1->getSprite().getGlobalBounds().intersects(alcantarillas[i]->getSprite().getGlobalBounds())){
 
             /**Comprobamos destino**/
             if(i == alcantarillas.size() -1){
@@ -76,11 +72,7 @@ void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown){
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x, (double)alcantarillas[i+1]->getPosInicial().y-30);
                 }
             }
-
-
             std::cout<<"Destino Alcanzado x: "<<p1->getPhysicsState()->getActualState()[0]<<std::endl;
-            // p1->updateJugador();
-
         }
     }
 
@@ -187,6 +179,13 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     e1->drawEnemigo(ventana,inter);
 
 
+}
+/// Metodo para inizializar las Alcantarillas del Mundo
+void Mundo::initAlcantarillas() {
+    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(350,270));
+    Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(500,500));
+    alcantarillas.push_back(alc1);
+    alcantarillas.push_back(alc2);
 }
 
 Mundo::~Mundo()

@@ -7,9 +7,6 @@ Alcantarilla::Alcantarilla(sf::Vector2f posI)
     //ctor
     posInicial = posI;
 
-    forma = new sf::CircleShape(8);
-    forma->setFillColor(sf::Color::Green);
-    forma->setPosition(posInicial.x, posInicial.y);
     /// Cargo el SpriteSheet para la alcantarilla
     texture.loadFromFile("assets/PowerUps/power.png");
     if(!texture.loadFromFile("assets/PowerUps/power.png")) {
@@ -25,17 +22,15 @@ Alcantarilla::Alcantarilla(sf::Vector2f posI)
 
 }
 
+sf::Sprite Alcantarilla::getSprite(){
+    return *sprite;
+}
+
 sf::Vector2f Alcantarilla::getPosInicial(){
     return posInicial;
 }
 
-
-sf::CircleShape Alcantarilla::getForma(){
-    return *forma;
-}
-
 void Alcantarilla::drawAlcantarilla(sf::RenderWindow *ventana){
-    // ventana->draw(*forma);
     ventana->draw(*sprite);
 }
 

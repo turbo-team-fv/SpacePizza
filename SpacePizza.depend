@@ -344,7 +344,7 @@
 1555251059 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1555251059 /home/carlos/FV/SpacePizza/include/Mundo.h
+1555251881 /home/carlos/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -697,10 +697,10 @@
 1555251059 source:/home/carlos/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1555251113 /home/carlos/FV/SpacePizza/include/Alcantarilla.h
+1555251787 /home/carlos/FV/SpacePizza/include/Alcantarilla.h
 	<SFML/Graphics.hpp>
 
-1555251456 source:/home/carlos/FV/SpacePizza/src/Alcantarilla.cpp
+1555251759 source:/home/carlos/FV/SpacePizza/src/Alcantarilla.cpp
 	"Alcantarilla.h"
 	<SFML/Graphics.hpp>
 	<iostream>

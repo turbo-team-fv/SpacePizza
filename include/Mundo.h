@@ -30,6 +30,7 @@ class Mundo
         /**COLISIONES**/
         void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
         void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
+        void initAlcantarillas();
     protected:
 
     private:
