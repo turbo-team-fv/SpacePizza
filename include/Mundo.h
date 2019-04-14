@@ -23,6 +23,9 @@ public:
     void updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t);
     void drawMundo(sf::RenderWindow * window, double i);
     void drawItems(sf::RenderWindow * window);
+    int getTime();
+    void initItems();
+    void initPuntosEntrega();
 
 
 
@@ -52,6 +55,10 @@ private:
     Enemigo *e1;
     /**ELEMENTOS**/
 
+    int pizzas;
+    int tiempo;
+    sf::Sprite *puntoEntrega;
+    sf::Texture texture;
 };
 
 #endif // MUNDO_H
