@@ -16,3 +16,21 @@ EFin* EFin::getInstance()
 
     return eFinInstancia;
 }
+
+void EFin::Init()
+{
+
+}
+
+void EFin::HandleInput(RenderWindow * ventana)
+{
+
+}
+void EFin::Update()
+{
+
+}
+void EFin::Draw(RenderWindow * ventana)
+{
+
+}

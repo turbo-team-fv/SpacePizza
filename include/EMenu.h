@@ -14,23 +14,23 @@ class EMenu : public State
 {
     public:
         static EMenu* getInstance();
-        void draw(RenderWindow * window);
         void MoveUp();
         void MoveDown();
         int getSelectedItem();
 
         void Init();
-        void HandleInput();
+        void HandleInput(RenderWindow * ventana);
         void Update();
-        void Draw(float);
+        void Draw(RenderWindow * ventana);
 
     private:
         EMenu();
         static EMenu * eMenuInstancia;
         int selectedItemIndex;
         Font font;
+        Sprite * bg_menu;
+        Texture * bgMenu_txt;
         Text menu[MAX_NUMBER_OF_ITEMS];
-
 };
 
 #endif // EMENU_H

@@ -21,7 +21,7 @@ void EJugando::Init()
 
 }
 
-void EJugando::HandleInput()
+void EJugando::HandleInput(RenderWindow * ventana)
 {
 
 }
@@ -29,7 +29,7 @@ void EJugando::Update()
 {
 
 }
-void EJugando::Draw(float)
+void EJugando::Draw(RenderWindow * ventana)
 {
 
 }

@@ -7,6 +7,8 @@
 #include <SFML/Graphics.hpp>
 #include "Mundo.h"
 
+using namespace sf;
+
 class Juego
 {
 public:
@@ -17,7 +19,6 @@ public:
     void updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);//Recibe el tiempo pasado desde el ultimo update
     void handleEvents();//Recoge el tipo de evento
     void handleInputs(sf::Keyboard::Key key, bool isPressed);
-
 
 protected:
     Juego(); // constructor
@@ -30,11 +31,11 @@ private:
     static const sf::Time	timePerFrame;
     /**GLOBAL **/
 
-    sf::RenderWindow * ventana;
+    RenderWindow * ventana;
 
     /** Clock Interpolacion **/
-    sf::Clock updateClock;
-    sf::Time elapsedTime;
+    Clock updateClock;
+    Time elapsedTime;
     double interpolation;
 
     /** Eventos **/
