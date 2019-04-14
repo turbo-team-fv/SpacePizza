@@ -3,6 +3,7 @@
 EJugando::EJugando()
 {
     //ctor
+    SpacePizza = Juego::getInstance();
 }
 
 EJugando* EJugando::eJugandoInstancia = 0;

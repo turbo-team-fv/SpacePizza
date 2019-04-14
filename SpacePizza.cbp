@@ -54,6 +54,7 @@
 		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/PhysicsState.h" />
 		<Unit filename="include/State.h" />
+		<Unit filename="include/SuperSprite.h" />
 		<Unit filename="lib/tinyxml/tinystr.cpp" />
 		<Unit filename="lib/tinyxml/tinystr.h" />
 		<Unit filename="lib/tinyxml/tinyxml.cpp" />
@@ -74,6 +75,7 @@
 		<Unit filename="src/MaquinaEstados.cpp" />
 		<Unit filename="src/Mundo.cpp" />
 		<Unit filename="src/PhysicsState.cpp" />
+		<Unit filename="src/SuperSprite.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

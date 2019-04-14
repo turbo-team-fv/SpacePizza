@@ -1,6 +1,7 @@
 #ifndef EJUGANDO_H
 #define EJUGANDO_H
 #include "State.h"
+#include "Juego.h"
 
 class EJugando : public State
 {
@@ -18,6 +19,8 @@ class EJugando : public State
 
     private:
         static EJugando * eJugandoInstancia;
+
+        Juego * SpacePizza;
 };
 
 #endif // EJUGANDO_H
