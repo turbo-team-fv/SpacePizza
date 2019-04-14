@@ -95,47 +95,23 @@ void EJugando::Init()
 
 void EJugando::HandleInputs(sf::Keyboard::Key key, bool isPressed)
 {
-        if (key == sf::Keyboard::Up)
+    switch(key)
     {
-        //Traslaciones
-        eUp = isPressed;
-        std::cout<<"Se ha pulsado Up"<<std::endl;
-////        if(eUp)
-////            menu->MoveUp();
+        case sf::Keyboard::Up :
+            eUp = isPressed;
+            break;
 
-    }
-    if (key == sf::Keyboard::Down)
-    {
-        eDown = isPressed;
-        std::cout<<"Se ha pulsado Down"<<std::endl;
-////        if(eDown)
-////            menu->MoveDown();
-    }
+        case sf::Keyboard::Down :
+            eDown = isPressed;
+            break;
 
-    if (key == sf::Keyboard::Left )
-    {
-        eLeft = isPressed;
-    }
+        case sf::Keyboard::Left :
+            eLeft = isPressed;
+            break;
 
-    if (key == sf::Keyboard::Right)
-    {
-        eRight = isPressed;
-    }
-    if (key == sf::Keyboard::Return )
-    {
-
-        /*switch(menu->getSelectedItem()){
-            case 0:
-                std::cout<<"Se ha seleccionado Play"<<std::endl;
-                break;
-            case 1:
-                std::cout<<"Se ha seleccionado Options"<<std::endl;
-                break;
-            case 2:
-                std::cout<<"Se ha seleccionado Exit"<<std::endl;
-                ventana->close();
-                break;
-        }*/
+        case sf::Keyboard::Right :
+            eRight = isPressed;
+            break;
     }
 }
 void EJugando::Update()
