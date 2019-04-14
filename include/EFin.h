@@ -4,12 +4,19 @@
 
 class EFin : public State
 {
-    public:
-        EFin * getInstance();
+public:
+    static EFin * getInstance();
+    void Init();
+    void HandleInput(RenderWindow * ventana);
+    void Update();
+    void Draw(RenderWindow * ventana);
 
-    private:
-        static EFin * eFinInstancia;
-        EFin();
+protected:
+    EFin(); // constructor
+    EFin(const EFin &); // operador de copia
+    EFin &operator= (const EFin &); // operador de asignacion
+private:
+    static EFin * eFinInstancia;
 
 };
 
