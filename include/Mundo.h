@@ -8,6 +8,7 @@
 #include "Enemigo.h"
 #include "Mapa.h"
 #include "SuperSprite.h"
+#include "Alcantarilla.h"
 
 using namespace std;
 
@@ -23,11 +24,22 @@ public:
     void updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t);
     void drawMundo(sf::RenderWindow * window, double i);
     void drawItems(sf::RenderWindow * window);
-
-
-
+    void drawAlcantarillas(sf::RenderWindow * window);
+    int getTime();
+    void initItems();
+    void initPuntosEntrega();
     void colisionesMapa();
-    void procesarColisiones();
+    void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
+    void colisionItems();
+    void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
+        void initAlcantarillas();
+
+
+
+    void visionIA();
+
+
+    vector< Alcantarilla *> alcantarillas;
 
     void processHUD();
 protected:
@@ -53,9 +65,13 @@ private:
     vector< Item* > items;
     Mapa *mapa;
     Jugador *p1;
-    Enemigo *e1;
+    vector< Enemigo* > e1;
     /**ELEMENTOS**/
 
+    int pizzas;
+    int tiempo;
+    sf::Sprite *puntoEntrega;
+    sf::Texture texture;
 };
 
 #endif // MUNDO_H

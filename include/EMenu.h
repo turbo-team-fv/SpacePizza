@@ -17,9 +17,12 @@ class EMenu : public State
         void MoveUp();
         void MoveDown();
         int getSelectedItem();
+        void HandleInputs(sf::Keyboard::Key key, bool isPressed);
 
+        /**STATE**/
         void Init();
-        void HandleInput(RenderWindow * ventana);
+        void HandleEvents(RenderWindow * ventana);
+        void loop(RenderWindow * ventana, Time timePerFrame);
         void Update();
         void Draw(RenderWindow * ventana);
 

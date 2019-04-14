@@ -2,6 +2,7 @@
 
 Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
 {
+pState=new PhysicsState();
     //ctor
     pState= new PhysicsState();
     pState->setActualState(150,250);
@@ -28,6 +29,8 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
     pState->setColliders(colinit);
 
 
+    vidas = 5;
+    limite_estado=5;
 }
 
 PhysicsState* Jugador::getPhysicsState()
@@ -35,12 +38,20 @@ PhysicsState* Jugador::getPhysicsState()
     return pState;
 }
 
+void Jugador::restartEstado(){
 
+timer_estado.restart();
+
+}
 void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et)
 {
 
     double x=0,y=0,potencia=50;
 
+    if(estado==1){
+    cout<<"TURBO"<<endl;
+    potencia=potencia*3;
+    }
 
     if(eRight)
     {
@@ -68,6 +79,10 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
         //La tecla Abajo está pulsada:
     }
 
+    if(timer_estado.getElapsedTime().asSeconds()>=limite_estado){
+    estado=0;
+    }
+
     pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
     pState->updatePhysicsState(et);
 
@@ -87,6 +102,29 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
     this->jugador_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
 
+}
+
+int Jugador::checkEstado(){
+
+return estado;
+
+}
+
+void Jugador::setEstado(int e){
+
+estado=e;
+
+}
+// Este metodo permite modifcar la vida => hay que pasarle el valor a modificar incluyendo el signo si queremos restar
+void Jugador::updateVida(int change) {
+    vidas = vidas + change;
+    if(vidas < 0) {
+        vidas = 0;
+    }
+    if(vidas >= 5 ) {
+        vidas = 5;
+    }
+    std::cout<<"Muestor la vida despues de la operacion: "<< vidas<<std::endl;
 }
 
 Jugador::~Jugador()
