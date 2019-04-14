@@ -29,8 +29,8 @@ public:
     void initItems();
     void initPuntosEntrega();
     void colisionesMapa();
-        void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
-        void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
+        void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t);
+        void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown,sf::Time t);
         void initAlcantarillas();
 
 
@@ -64,6 +64,8 @@ private:
     int tiempo;
     sf::Sprite *puntoEntrega;
     sf::Texture texture;
+
+    sf::Clock clockAlcantarillas;
 };
 
 #endif // MUNDO_H

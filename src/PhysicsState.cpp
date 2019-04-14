@@ -38,11 +38,11 @@ void PhysicsState::setColliders(vector < sf::Rect<float> > colinit)
         colinit[i].top+=posNow[1];
         colinit[i].left+=posNow[0];
 
-        /*boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
+        boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
 
 
         boxes[i].setFillColor(sf::Color(i*50, i*50, i*50));
-        boxes[i].setPosition(colinit[i].left,colinit[i].top);*/
+        boxes[i].setPosition(colinit[i].left,colinit[i].top);
 
         colliders.push_back(colinit[i]);
 
@@ -128,12 +128,36 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
 
 }
 
+void PhysicsState::MovePlayerTo(double ax,double ay, sf::Time et)
+{
+
+    posNow[0]=ax,posNow[1]=ay;
+    //posBef=posNow;
+    cout<<"Dentro de estado Fisico x es :" << posNow[0]<<endl;
+
+    /// Added
+    for(unsigned i=0; i < colliders.size(); i++)
+    {
+    colliders[i].top+= vel[1]*et.asSeconds();
+    colliders[i].left+= vel[0]*et.asSeconds();
+    /*colliders[i].left=posNow[0];
+    colliders[i].top=posNow[1];*/
+
+    boxes[i].setPosition(colliders[i].left,colliders[i].top);
+
+    }
+}
 void PhysicsState::MoveTo(double ax,double ay)
 {
 
     posNow[0]=ax,posNow[1]=ay;
     //posBef=posNow;
     cout<<"Dentro de estado Fisico x es :" << posNow[0]<<endl;
+    for(unsigned i = 0; i< colliders.size(); i++){
+        colliders[i].top=posNow[1];
+        colliders[i].left=posNow[0];
+
+    }
 }
 
 void PhysicsState::updatePhysicsState(sf::Time et)
@@ -151,7 +175,7 @@ void PhysicsState::updatePhysicsState(sf::Time et)
     /*colliders[i].left=posNow[0];
     colliders[i].top=posNow[1];*/
 
-   // boxes[i].setPosition(colliders[i].left,colliders[i].top);
+    boxes[i].setPosition(colliders[i].left,colliders[i].top);
 
     }
 
@@ -162,10 +186,10 @@ void PhysicsState::updatePhysicsState(sf::Time et)
 void PhysicsState::drawColliders(sf::RenderWindow *w, double i)
 {
 
-    /*for(unsigned i=0; i < boxes.size(); i++)
+    for(unsigned i=0; i < boxes.size(); i++)
     {
         w->draw(boxes[i]);
-    }*/
+    }
 
 }
 
