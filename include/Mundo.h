@@ -44,7 +44,8 @@ private:
     Text * text_player_lifes, *text_num_pizzas, *text_time;
     Texture * txt_pizza;
     Sprite * spr_pizza;
-
+    Clock * clock1;
+    Time * time1;
 
 
     /**ELEMENTOS**/

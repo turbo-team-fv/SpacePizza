@@ -37,6 +37,9 @@ Mundo::Mundo()
     text_num_pizzas = new Text();
     text_num_pizzas -> setFont(*font_numbers);
     text_num_pizzas -> setCharacterSize(15);
+    text_time = new Text();
+    text_time -> setFont(*font_numbers);
+    text_time -> setCharacterSize(15);
 
     // Vista
     vista = new View();
@@ -156,6 +159,7 @@ void Mundo::processHUD()
     // Primero vamos acolocar los elementos sabrosos
 //    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
  text_num_pizzas -> setString(std::to_string(num_pizzas));
+ text_time -> setString(std::to_string(num_pizzas));
 }
 
 void Mundo::drawItems(sf::RenderWindow * ventana)
@@ -198,9 +202,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     /// HUD STUFF
     spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
     text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 100);
+    text_time -> setPosition(p1->getSprite()->getRenderPos()[0]+70,p1->getSprite()->getRenderPos()[1] - 100);
     ventana->draw(*spr_pizza);
     ventana->draw(*text_num_pizzas);
-
+    ventana->draw(*text_time);
 
     ventana->setView(*minimap);///SET VIEW MAP
     mapa->draw(ventana);
