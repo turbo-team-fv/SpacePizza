@@ -16,6 +16,7 @@ class SuperSprite
         void setSpeed(double s);
         void setAnimation(int a);
         sf::Sprite* getActualSprite();
+        vector<double> getRenderPos();
         void drawSuperSprite(vector<double> past, vector<double> actual,sf::RenderWindow *w, double i);
         virtual ~SuperSprite();
 
