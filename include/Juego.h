@@ -16,10 +16,10 @@ public:
     static Juego* getInstance();
     void loop();
     void render(double i);//Se le pasa la interpolacion
-    void updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);//Recibe el tiempo pasado desde el ultimo update
     void handleEvents();//Recoge el tipo de evento
     void handleInputs(sf::Keyboard::Key key, bool isPressed);
     void updateTime(int change);
+
 
 protected:
     Juego(); // constructor
@@ -27,6 +27,9 @@ protected:
     Juego &operator= (const Juego &); // operador de asignacion
 
 private:
+
+    // NEW
+    State * estadoActivo;
 
     /**GLOBAL **/
     static const sf::Time	timePerFrame;

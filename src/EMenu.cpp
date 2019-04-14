@@ -64,10 +64,14 @@ void EMenu::Draw(RenderWindow * ventana)
 {
     ventana->draw(*bg_menu);
 
+
     for(int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {
         ventana->draw(menu[i]);
     }
+    ventana->display();
+
+
 }
 
 void EMenu::MoveUp()
@@ -95,43 +99,9 @@ int EMenu::getSelectedItem()
     return selectedItemIndex;
 }
 
-void EMenu::HandleInput(RenderWindow * ventana)
+void EMenu::HandleInputs(Keyboard::Key key, bool isPressed)
 {
-    Keyboard key;
 
-    while (ventana->isOpen())
-    {
-        Event event;
-
-        if (ventana->pollEvent(event))
-        {
-            if (key.isKeyPressed(Keyboard::Up))
-            {
-                MoveUp();
-            }
-            if (key.isKeyPressed(Keyboard::Down))
-            {
-                MoveDown();
-            }
-
-            if (key.isKeyPressed(Keyboard::Return))
-            {
-                /*switch(menu->getSelectedItem()){
-                    case 0:
-                        std::cout<<"Se ha seleccionado Play"<<std::endl;
-                        break;
-                    case 1:
-                        std::cout<<"Se ha seleccionado Options"<<std::endl;
-                        break;
-                    case 2:
-                        std::cout<<"Se ha seleccionado Exit"<<std::endl;
-                        ventana->close();
-                        break;
-                }*/
-            }
-        }
-        Draw(ventana);
-    }
 }
 
 void EMenu::Update()
@@ -139,3 +109,46 @@ void EMenu::Update()
 
 }
 
+void EMenu::HandleEvents(RenderWindow * ventana)
+{
+    Event event;
+    if (ventana->pollEvent(event))
+    {
+        Keyboard e;
+
+        if(e.isKeyPressed(Keyboard::Up))
+        {
+            MoveUp();
+        }
+
+        if(e.isKeyPressed(Keyboard::Down))
+        {
+            MoveDown();
+        }
+
+        if (e.isKeyPressed(Keyboard::Return))
+        {
+            cout<<"SelectedItemIndex"<<selectedItemIndex<<endl;
+            if(selectedItemIndex == 0)
+            {
+                cout<<"Play"<<endl;
+            }
+            else if(selectedItemIndex == 1)
+            {
+                cout<<"Como jugar"<<endl;
+            }
+            else if(selectedItemIndex == 2)
+            {
+                cout<<"Exit"<<endl;
+                ventana->close();
+            }
+        }
+    }
+}
+
+void EMenu::loop(RenderWindow * ventana, Time timePerFrame)
+{
+    HandleEvents(ventana);
+    ventana->clear();
+    Draw(ventana);
+}

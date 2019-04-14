@@ -1,14 +1,21 @@
 #ifndef MAQUINAESTADOS_H
 #define MAQUINAESTADOS_H
 
+#include <vector>
+#include "State.h"
+
 class MaquinaEstados
 {
     public:
         MaquinaEstados();
         virtual ~MaquinaEstados();
 
-    private:
+        /**MANEJO DE ESTADOS**/
+        void AddState(State * state);
 
+
+    private:
+        std::vector<State*> estados;
 
 };
 
