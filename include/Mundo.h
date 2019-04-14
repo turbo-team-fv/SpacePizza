@@ -35,6 +35,9 @@ public:
 
 
 
+    void visionIA();
+    void colisionesMapa();
+    void procesarColisiones();
         vector< Alcantarilla *> alcantarillas;
 
     void processHUD();
@@ -57,7 +60,7 @@ private:
     vector< Item* > items;
     Mapa *mapa;
     Jugador *p1;
-    Enemigo *e1;
+    vector< Enemigo* > e1;
     /**ELEMENTOS**/
 
     int pizzas;

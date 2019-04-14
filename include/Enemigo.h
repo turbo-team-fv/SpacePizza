@@ -5,6 +5,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "PhysicsState.h"
+#include "SuperSprite.h"
 
 class Enemigo
 {
@@ -16,6 +17,7 @@ class Enemigo
 
         void calcInter(sf::RenderWindow *w, double i);
         void drawEnemigo(sf::RenderWindow *w, double i);
+        SuperSprite* getSprite(){ return enemigo_sprite; };
 
         void setVision(bool v);
         void setActitud(int a);
@@ -24,9 +26,7 @@ class Enemigo
 
     private:
     /**GRAFICOS**/
-    sf::Texture  tex;
-    sf::Sprite  spri;
-    vector<double> renderPos;
+    SuperSprite *enemigo_sprite;
 
     /**FISICAS**/
     PhysicsState *pState;

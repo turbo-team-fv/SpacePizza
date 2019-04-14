@@ -16,7 +16,14 @@ Mundo::Mundo()
     /**EELEMENTOS**/
     mapa = new Mapa();
     p1 = new Jugador();
-    e1 = new Enemigo();
+
+    e1.resize(4);
+
+    for(unsigned en=0; en < e1.size(); en++){
+    e1 [en]= new Enemigo();
+    }
+
+
 
     /** HUD, vista and minimap stuff **/
     // HUD
@@ -54,6 +61,24 @@ std::vector<Item*> Mundo::getItems()
 std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
 {
     return puntosEntrega;
+}
+
+void Mundo::visionIA()
+{
+for(unsigned en=0; en< e1.size(); en++){
+    if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<50)
+        &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<50))
+    {
+
+        e1[en]->setVision(true);
+
+
+
+    }else{
+        e1[en]->setVision(false);
+    }
+    }
+
 }
 
 void Mundo::colisionesMapa()
@@ -128,7 +153,7 @@ void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown){
 
 void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
-
+    visionIA();
     colisionesMapa();
     /// Colisiones con los puntos de entrega
     if(puntoEntrega->getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds())){
@@ -182,7 +207,11 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 {
     procesarColisiones(eRight,eLeft,eUp,eDown);
     p1->updateJugador(eRight,eLeft,eUp,eDown,t);
-    e1->updateEnemigo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1],t);
+    for(unsigned en=0; en< e1.size(); en++){
+
+        e1[en]->updateEnemigo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1],t);
+
+    }
 
 
     /** Updateamos la updatecamara para que updatesiga al updatejugador **/
@@ -230,7 +259,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     /***PRIMERO RECALCULAMOS POSICION DE OBJETOS INTERPOLADOS***/
     /**Por algun motivo que no acabo de comprender**/
     p1->calcInter(ventana,inter);
-    //e1->calcInter(ventana,inter);
+     for(unsigned en=0; en< e1.size(); en++){
+
+    e1[en]->calcInter(ventana,inter);
+    }
 
 
     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
@@ -241,7 +273,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawAlcantarillas(ventana);
 
     p1->drawJugador(ventana,inter);
-    e1->drawEnemigo(ventana,inter);
+     for(unsigned en=0; en< e1.size(); en++){
+
+    e1[en]->drawEnemigo(ventana,inter);
+    }
 
 
     ventana->setView(*minimap);///SET VIEW MAP
@@ -249,7 +284,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
     p1->drawJugador(ventana,inter);
-    e1->drawEnemigo(ventana,inter);
+     for(unsigned en=0; en< e1.size(); en++){
+
+    e1[en]->drawEnemigo(ventana,inter);
+    }
 
 
 

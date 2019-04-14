@@ -10,8 +10,8 @@ SuperSprite::SuperSprite(string ruta, int numanim, double escala, bool isanimado
     /*for (int i = 0 ; i < 4 ; i++)
     	frames[i].resize(2);*/
 
-    textura->loadFromFile("assets/jugador/sp_alien_texture.png");
-    if (!textura->loadFromFile("assets/jugador/sp_alien_texture.png"))
+    textura->loadFromFile(ruta);
+    if (!textura->loadFromFile(ruta))
     {
         std::cerr << "Error cargando la imagen sp_alien_texture.png";
         exit(0);
