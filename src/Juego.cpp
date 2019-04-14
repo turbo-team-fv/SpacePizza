@@ -1,4 +1,5 @@
 #include "Juego.h"
+#include "Motor2D.h"
 
 using namespace sf;
 
@@ -50,14 +51,13 @@ Juego* Juego::getInstance()
 void Juego::loop()
 {
 
-    while (ventana->isOpen())
+    Motor2D *motor = Motor2D::Instance();
+    motor->setFrameLimit();
+
+    while (motor->openWindow())
     {
-
-
         //Proceso mis eventos
-
         handleEvents();
-
 
         if(updateClock.getElapsedTime().asMilliseconds()>timePerFrame.asMilliseconds())
         {
@@ -73,10 +73,12 @@ void Juego::loop()
 
         //Renderizamos con interpolacion
         render(interpolation);
-
-
     }
 
+}
+
+void Juego::setState(State* escena){
+    this->escena = escena;
 }
 
 /**Aqui leemos el tipo de evento recibido desde fuera**/

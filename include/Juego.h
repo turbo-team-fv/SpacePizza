@@ -6,6 +6,7 @@
 #include <cmath>
 #include <SFML/Graphics.hpp>
 #include "Mundo.h"
+#include "State.h"
 
 using namespace sf;
 
@@ -18,7 +19,7 @@ public:
     void render(double i);//Se le pasa la interpolacion
     void updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);//Recibe el tiempo pasado desde el ultimo update
     void handleEvents();//Recoge el tipo de evento
-    void handleInputs(sf::Keyboard::Key key, bool isPressed);
+    void setState(State* escena);
 
 protected:
     Juego(); // constructor
@@ -48,6 +49,8 @@ private:
 
     Mundo *mundo;
     EMenu * menu;
+
+    State* escena;
 };
 
 #endif // JUEGO_H
