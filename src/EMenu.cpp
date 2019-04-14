@@ -95,43 +95,18 @@ int EMenu::getSelectedItem()
     return selectedItemIndex;
 }
 
-void EMenu::HandleInput(RenderWindow * ventana)
+void EMenu::HandleInputs(sf::Keyboard::Key key, bool isPressed)
 {
-    Keyboard key;
 
-    while (ventana->isOpen())
+    if (key == sf::Keyboard::Up)
     {
-        Event event;
-
-        if (ventana->pollEvent(event))
-        {
-            if (key.isKeyPressed(Keyboard::Up))
-            {
-                MoveUp();
-            }
-            if (key.isKeyPressed(Keyboard::Down))
-            {
-                MoveDown();
-            }
-
-            if (key.isKeyPressed(Keyboard::Return))
-            {
-                /*switch(menu->getSelectedItem()){
-                    case 0:
-                        std::cout<<"Se ha seleccionado Play"<<std::endl;
-                        break;
-                    case 1:
-                        std::cout<<"Se ha seleccionado Options"<<std::endl;
-                        break;
-                    case 2:
-                        std::cout<<"Se ha seleccionado Exit"<<std::endl;
-                        ventana->close();
-                        break;
-                }*/
-            }
-        }
-        Draw(ventana);
+        MoveUp();
     }
+    if (key == sf::Keyboard::Down)
+    {
+        MoveDown();
+    }
+
 }
 
 void EMenu::Update()
@@ -139,3 +114,12 @@ void EMenu::Update()
 
 }
 
+void EMenu::HandleEvents(RenderWindow * ventana)
+{
+
+}
+
+void EMenu::loop(RenderWindow * ventana, Time timePerFrame)
+{
+
+}

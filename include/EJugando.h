@@ -2,13 +2,21 @@
 #define EJUGANDO_H
 #include "State.h"
 #include "Juego.h"
+#include "SFML/Graphics.hpp"
 
 class EJugando : public State
 {
     public:
         static EJugando * getInstance();
+
+        void loop(RenderWindow * ventana, sf::Time timePerFrame);
+        void render(double i, RenderWindow * ventana, Time timePerFrame);//Se le pasa la interpolacion
+        void updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);//Recibe el tiempo pasado desde el ultimo update
+        void HandleInputs(sf::Keyboard::Key key, bool isPressed);
+
+        /**STATE**/
         void Init();
-        void HandleInput(RenderWindow * ventana);
+        void HandleEvents(RenderWindow * window);
         void Update();
         void Draw(RenderWindow * ventana);
 
@@ -18,9 +26,22 @@ class EJugando : public State
         EJugando &operator= (const EJugando &); // operador de asignacion
 
     private:
+
+        /** Clock Interpolacion **/
+        Clock updateClock;
+        Time elapsedTime;
+        double interpolation;
+
+        /** Eventos **/
+        bool eUp;
+        bool eDown;
+        bool eRight;
+        bool eLeft;
+
         static EJugando * eJugandoInstancia;
 
-        Juego * SpacePizza;
+        Mundo *mundo;
+        EMenu * menu;
 };
 
 #endif // EJUGANDO_H
