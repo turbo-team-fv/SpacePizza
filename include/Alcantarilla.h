@@ -17,6 +17,8 @@ class Alcantarilla
     private:
         sf::Vector2f posInicial;
         sf::CircleShape *forma;
+        sf::Texture texture;
+        sf::Sprite *sprite;
 };
 
 #endif // ALCANTARILLA_H
