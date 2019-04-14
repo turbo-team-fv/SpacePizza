@@ -147,8 +147,7 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 /**Metodo para processar los elementos del HUD*/
 void Mundo::processHUD()
 {
-
-// Esta por hacer
+    // que comiencen los hudegos del hambre
 
 }
 

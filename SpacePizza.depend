@@ -237,7 +237,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1555094362 D
+1555236404 D
 
 1555240051 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
@@ -591,7 +591,7 @@
 1555056272 source:/home/ramon/Desktop/FV/SpacePizza/main.cpp
 	"Juego.h"
 
-1555094313 /home/ramon/Desktop/FV/SpacePizza/include/Juego.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/Juego.h
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -599,12 +599,13 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1555056272 /home/ramon/Desktop/FV/SpacePizza/include/EMenu.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
+	"State.h"
 
-1555094313 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -612,45 +613,50 @@
 	"Jugador.h"
 	"Enemigo.h"
 	"Mapa.h"
+	"SuperSprite.h"
 
 1555056272 /home/ramon/Desktop/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555056567 /home/ramon/Desktop/FV/SpacePizza/include/Jugador.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
+	"SuperSprite.h"
 
-1555056272 /home/ramon/Desktop/FV/SpacePizza/include/PhysicsState.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/PhysicsState.h
 	<iostream>
 	<vector>
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555056272 /home/ramon/Desktop/FV/SpacePizza/include/Enemigo.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1555056272 /home/ramon/Desktop/FV/SpacePizza/include/Mapa.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/Mapa.h
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1555056272 source:/home/ramon/Desktop/FV/SpacePizza/src/EFin.cpp
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/EFin.cpp
 	"EFin.h"
 
-1555056272 /home/ramon/Desktop/FV/SpacePizza/include/EFin.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/EFin.h
+	"State.h"
 
-1555056272 source:/home/ramon/Desktop/FV/SpacePizza/src/EJugando.cpp
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
-1555056272 /home/ramon/Desktop/FV/SpacePizza/include/EJugando.h
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/EJugando.h
+	"State.h"
 
-1555056272 source:/home/ramon/Desktop/FV/SpacePizza/src/EMenu.cpp
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
+	"Juego.h"
 	<iostream>
 	<string>
 	<sstream>
@@ -663,20 +669,20 @@
 	"Item.h"
 	<iostream>
 
-1555056567 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1555056316 source:/home/ramon/Desktop/FV/SpacePizza/src/Mapa.cpp
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1555062665 source:/home/ramon/Desktop/FV/SpacePizza/src/Mundo.cpp
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1555056308 source:/home/ramon/Desktop/FV/SpacePizza/src/PhysicsState.cpp
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1555094362 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
 1555234900 /home/pablo/Source/FV/SpacePizza/include/State.h
@@ -687,11 +693,9 @@
 
 1555234618 /home/pablo/Source/FV/SpacePizza/include/MaquinaEstados.h
 
-<<<<<<< HEAD
-1555236261 /home/samuel/FV/SpacePizza/include/SuperSprite.h
-=======
 1555250112 /home/samuel/FV/SpacePizza/include/SuperSprite.h
->>>>>>> arreglandoView
+
+1555240042 eglandoView
 	"PhysicsState.h"
 	<iostream>
 	<vector>
@@ -703,7 +707,6 @@
 
 1555236404 iendoColisiones
 
-<<<<<<< HEAD
 1555241144 /home/claudia/Desktop/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
@@ -753,7 +756,9 @@
 
 1555241191 source:/home/claudia/Desktop/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
-=======
+
+1555241191 h"
+
 1555240042 /home/samuel/FV/SpacePizza/include/State.h
 
 1555240042 source:/home/samuel/FV/SpacePizza/src/MaquinaEstados.cpp
@@ -761,5 +766,20 @@
 	"EJugando.h"
 
 1555240042 /home/samuel/FV/SpacePizza/include/MaquinaEstados.h
->>>>>>> arreglandoView
+
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/State.h
+	<SFML/Graphics.hpp>
+
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/SuperSprite.h
+	"PhysicsState.h"
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/MaquinaEstados.cpp
+	"MaquinaEstados.h"
+	"EJugando.h"
+
+1555254754 /home/ramon/Desktop/FV/SpacePizza/include/MaquinaEstados.h
 
