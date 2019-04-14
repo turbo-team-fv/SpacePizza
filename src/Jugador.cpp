@@ -78,7 +78,7 @@ void Jugador::updateVida(int change) {
     if(vidas < 0) {
         vidas = 0;
     }
-    if(vidas >= 10 ) {
+    if(vidas >= 5 ) {
         vidas = 5;
     }
     std::cout<<"Muestor la vida despues de la operacion: "<< vidas<<std::endl;

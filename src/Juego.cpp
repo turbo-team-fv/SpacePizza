@@ -52,26 +52,31 @@ void Juego::loop()
     while (ventana->isOpen())
     {
 
+        // Control del tiempo de juego
+        if(gameClock.getElapsedTime().asSeconds() < mundo->getTime()) {
+            //Proceso mis eventos
 
-        //Proceso mis eventos
-
-        handleEvents();
+            handleEvents();
 
 
-        if(updateClock.getElapsedTime().asMilliseconds()>timePerFrame.asMilliseconds())
-        {
-            //Calculamos el tiempo desde el ultimo update
-            elapsedTime=updateClock.restart();
+            if(updateClock.getElapsedTime().asMilliseconds()>timePerFrame.asMilliseconds()) {
+                //Calculamos el tiempo desde el ultimo update
+                elapsedTime=updateClock.restart();
 
-            //updateamos dependiendo del tiempo pasado
-            updateGameState( eRight, eLeft, eUp, eDown, elapsedTime);
+                //updateamos dependiendo del tiempo pasado
+                updateGameState( eRight, eLeft, eUp, eDown, elapsedTime);
+            }
+
+            //Se calcula el porcentaje de interpolacion
+            interpolation = std::min(1.0,(double)updateClock.getElapsedTime().asMilliseconds() / (double)timePerFrame.asMilliseconds());
+
+            //Renderizamos con interpolacion
+            render(interpolation);
+
+        }else {
+            /// TODO: Cambiar de estado en vez de hacer exit
+            exit(0);
         }
-
-        //Se calcula el porcentaje de interpolacion
-        interpolation = std::min(1.0,(double)updateClock.getElapsedTime().asMilliseconds() / (double)timePerFrame.asMilliseconds());
-
-        //Renderizamos con interpolacion
-        render(interpolation);
 
 
     }
@@ -161,7 +166,7 @@ void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time 
 }
 
 void Juego::updateTime(int change) {
-    tiempoJuego += change;
+//    tiempoJuego += change;
 }
 
 /**Metodo para administrar el renderizado que recibe la interpolacion**/

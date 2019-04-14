@@ -9,9 +9,9 @@ Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
     posicion = pos;
     tiempoGeneracion = tiempoG;
     tiempoVida = tiempoV;
-    /// TODO: cargar el spriteSheet
-    textura.loadFromFile("assets/PowerUps/PowerUps.png");
-    if (!textura.loadFromFile("assets/PowerUps/PowerUps.png"))
+    /// Carga el spriteSheet
+    textura.loadFromFile("assets/PowerUps/power.png");
+    if (!textura.loadFromFile("assets/PowerUps/power.png"))
     {
         std::cout<< "Error cargando la imagen PowerUps.png"<<std::endl;
         exit(0);
@@ -19,26 +19,32 @@ Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
     sprite = new sf::Sprite();
     sprite->setTexture(textura);
     activo = false;
-    /// TODO: En funcion del tipo de item escoger la zona de recorte para poner la
+    /// En funcion del tipo de item escoger la zona de recorte para poner la
     /// imagen a cada tipo de powerUp
     switch (tipo) {
         case 1:
             /// Vida Extra
-            sprite->setTextureRect(sf::IntRect(3,15,92,74));
-            sprite->setOrigin(92/2,74/2);
-            sprite->setScale(0.4,0.4);
+            sprite->setTextureRect(sf::IntRect(134,13,92,96));
+            sprite->setOrigin(92/2,96/2);
+            sprite->setScale(0.2,0.2);
         break;
         case 2:
             /// Turbo
-            sprite->setTextureRect(sf::IntRect(23,95,61,93));
-            sprite->setOrigin(61/2,93/2);
-            sprite->setScale(0.4,0.4);
+            sprite->setTextureRect(sf::IntRect(25,135,67,90));
+            sprite->setOrigin(67/2,90/2);
+            sprite->setScale(0.2,0.2);
         break;
         case 3:
             /// Tiempo Extra
+            sprite->setTextureRect(sf::IntRect(150,133,63,94));
+            sprite->setOrigin(63/2,94/2);
+            sprite->setScale(0.2,0.2);
         break;
         case 4:
             /// Invisibilidad
+            sprite->setTextureRect(sf::IntRect(258,15,91,92));
+            sprite->setOrigin(92/2, 92/2);
+            sprite->setScale(0.2,0.2);
         break;
     }
     sprite->setPosition(pos.x, pos.y);

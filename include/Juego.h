@@ -49,7 +49,8 @@ private:
     Mundo *mundo;
     EMenu * menu;
 
-    int tiempoJuego;
+    // int tiempoJuego;
+    sf::Clock gameClock;
 };
 
 #endif // JUEGO_H

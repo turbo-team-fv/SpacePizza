@@ -24,12 +24,13 @@ class Mundo
         void procesarColisiones();
         void initPuntosEntrega();
         void initItems();
+        int getTime();
     protected:
 
     private:
 
         int ptoEntrgaActual;
-        sf::RectangleShape *ptoEntrega;
+        //sf::RectangleShape *ptoEntrega;
 
         /**ELEMENTOS**/
         vector< sf::Vector2f > puntosEntrega;
@@ -40,6 +41,10 @@ class Mundo
         /**ELEMENTOS**/
 
         int pizzas;
+        int tiempo;
+
+        sf::Texture texture;
+        sf::Sprite *puntoEntrega;
 
 };
 
