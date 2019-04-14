@@ -18,7 +18,7 @@ Juego::Juego()
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
     //ventana->setFramerateLimit(25);
 
-    estadoActivo = EJugando::getInstance();
+    estadoActivo = EMenu::getInstance();
 }
 
 Juego::~Juego()

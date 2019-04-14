@@ -64,10 +64,13 @@ void EMenu::Draw(RenderWindow * ventana)
 {
     ventana->draw(*bg_menu);
 
+
     for(int i = 0; i < MAX_NUMBER_OF_ITEMS; i++)
     {
         ventana->draw(menu[i]);
     }
+
+
 }
 
 void EMenu::MoveUp()
@@ -121,5 +124,7 @@ void EMenu::HandleEvents(RenderWindow * ventana)
 
 void EMenu::loop(RenderWindow * ventana, Time timePerFrame)
 {
+    HandleEvents(ventana);
 
+    Draw();
 }
