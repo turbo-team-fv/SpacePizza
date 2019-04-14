@@ -34,8 +34,8 @@ Mundo::Mundo()
 //    spr_pizza -> setScale(50.f/190, 50.f/200);
     // Vista
     vista = new View();
-    vista -> reset(sf::FloatRect(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1], 300, 200));
-    vista->setCenter((float)p1->getPhysicsState().getActualState()[0], (float)p1->getPhysicsState().getActualState()[1]);
+    vista -> reset(sf::FloatRect(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1], 300, 200));
+    vista->setCenter((float)p1->getPhysicsState()->getActualState()[0], (float)p1->getPhysicsState()->getActualState()[1]);
     vista->setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
     // Minimap
     minimap = new View();
@@ -58,8 +58,45 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
     return puntosEntrega;
 }
 
+void Mundo::colisionesMapa()
+{
+
+    float offset=0;
+    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
+    {
+
+        p1->getPhysicsState()->Move(0,-100,true);
+
+    }
+
+    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
+    {
+
+        p1->getPhysicsState()->Move(+100,0,true);
+//        eLeft = false;
+    }
+
+    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
+    {
+
+        p1->getPhysicsState()->Move(-100,0,true);
+        // eRight = false;
+    }
+
+    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
+    {
+
+        p1->getPhysicsState()->Move(0,+100,true);
+        //  eUp = false;
+    }
+
+
+}
+
 void Mundo::procesarColisiones()
 {
+
+    colisionesMapa();
     /// Colisiones con los puntos de entrega
     /*if(jugador->getGlobalBounds().intersects(ptoEntrega->getGlobalBounds())){
         //jugador.puntuacion + 10;
@@ -92,37 +129,16 @@ void Mundo::procesarColisiones()
 
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
 {
-
-    if(mapa->checkearColision(p1->getPhysicsState().getColliders()[0]))
-    {
-        eLeft = false;
-    }
-
-    if(mapa->checkearColision(p1->getPhysicsState().getColliders()[1]))
-    {
-        eRight = false;
-    }
-
-    if(mapa->checkearColision(p1->getPhysicsState().getColliders()[2]))
-    {
-        eUp = false;
-    }
-
-    if(mapa->checkearColision(p1->getPhysicsState().getColliders()[0]))
-    {
-        eDown = false;
-    }
-
-
-    p1->updateJugador(eRight,eLeft,eUp,eDown,t);
-    e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
     procesarColisiones();
+    p1->updateJugador(eRight,eLeft,eUp,eDown,t);
+    e1->updateEnemigo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1],t);
+
 
     /** Updateamos la updatecamara para que updatesiga al updatejugador **/
-//    vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
-//    vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
-    vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
-        processHUD();
+//   vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
+//   vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
+    //vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
+    processHUD();
 
 
 }
@@ -155,7 +171,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
     }
     p1->drawJugador(ventana,inter);
-    p1->getPhysicsState().drawColliders(ventana,inter);
+    p1->getPhysicsState()->drawColliders(ventana,inter);
     e1->drawEnemigo(ventana,inter);
     ventana->setView(*minimap);
     // Hasta aqui el minimap.
@@ -178,7 +194,9 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     }
     p1->drawJugador(ventana,inter);
     e1->drawEnemigo(ventana,inter);
+    vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
     ventana->setView(*vista);
+
     // Hasta aqui la vista principal.
 
 

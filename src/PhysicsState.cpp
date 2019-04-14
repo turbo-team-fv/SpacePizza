@@ -24,6 +24,11 @@ vector<double> PhysicsState::getVel()
     return vel;
 }
 
+void PhysicsState::setVel(double x, double y){
+    vel[0]=x,vel[1]=y;
+
+}
+
 void PhysicsState::setColliders(vector < sf::Rect<float> > colinit)
 {
 
@@ -36,7 +41,7 @@ void PhysicsState::setColliders(vector < sf::Rect<float> > colinit)
         boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
 
 
-        boxes[i].setFillColor(sf::Color(100, 250, 50));
+        boxes[i].setFillColor(sf::Color(i*50, i*50, i*50));
         boxes[i].setPosition(colinit[i].left,colinit[i].top);
 
         colliders.push_back(colinit[i]);
