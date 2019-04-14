@@ -29,7 +29,7 @@ public:
 
     void Move(double ax,double ay,bool acelerado);//Mueve el objeto que tenga fisicas la distancia pasada por parametro, de forma acelerada o no
     void MoveTo(double ax,double ay);//Mueve el objeto a ciertas coordenadas
-    void MovePlayerTo(double ax,double ay, sf::Time et);
+
 
 
     void updatePhysicsState(sf::Time et);
@@ -43,6 +43,7 @@ private:
 
     /**Colisionadores**/
     vector < sf::Rect<float> > colliders;
+    vector < sf::Rect<float> > initialColliders;
 
     vector <sf::RectangleShape> boxes;
 
