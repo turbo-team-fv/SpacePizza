@@ -1,8 +1,8 @@
 #ifndef EFIN_H
 #define EFIN_H
+#include "State.h"
 
-
-class EFin
+class EFin : public State
 {
     public:
         EFin * getInstance();

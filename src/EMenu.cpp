@@ -71,8 +71,8 @@ void EMenu::MoveUp(){
     }
 }
 
-void EMenu::MoveDown(){
-
+void EMenu::MoveDown()
+{
     if(selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS){
         menu[selectedItemIndex].setColor(Color::White);
         selectedItemIndex=selectedItemIndex+1;
@@ -80,6 +80,25 @@ void EMenu::MoveDown(){
     }
 }
 
-int EMenu::getSelectedItem(){
+int EMenu::getSelectedItem()
+{
     return selectedItemIndex;
+}
+
+void EMenu::Init()
+{
+
+}
+
+void EMenu::HandleInput()
+{
+
+}
+void EMenu::Update()
+{
+
+}
+void EMenu::Draw(float)
+{
+
 }

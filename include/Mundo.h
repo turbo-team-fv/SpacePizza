@@ -7,6 +7,7 @@
 #include "Jugador.h"
 #include "Enemigo.h"
 #include "Mapa.h"
+#include "SuperSprite.h"
 
 using namespace std;
 

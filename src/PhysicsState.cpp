@@ -24,6 +24,33 @@ vector<double> PhysicsState::getVel()
     return vel;
 }
 
+void PhysicsState::setColliders(vector < sf::Rect<float> > colinit)
+{
+
+
+    for (unsigned i=0; i< colinit.size(); i++)
+    {
+        colinit[i].top+=posNow[1];
+        colinit[i].left+=posNow[0];
+
+        boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
+
+
+        boxes[i].setFillColor(sf::Color(100, 250, 50));
+        boxes[i].setPosition(colinit[i].left,colinit[i].top);
+
+        colliders.push_back(colinit[i]);
+
+
+    }
+
+
+}
+vector <sf::Rect<float> >  PhysicsState::getColliders()
+{
+    return colliders;
+}
+
 
 void PhysicsState::setActualState(double x, double y)
 {
@@ -46,7 +73,7 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
         }
         else
         {
-        /**Esta maravilla de aqui devuelve el signo en forma de -1 o 1 : (ax > 0) - (ax < 0)**/
+            /**Esta maravilla de aqui devuelve el signo en forma de -1 o 1 : (ax > 0) - (ax < 0)**/
             vel[0]=limit*((ax > 0) - (ax < 0)) ;
         }
         if(std::abs(vel[1])<=limit)
@@ -55,7 +82,7 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
         }
         else
         {
-           vel[1]=limit*((ay > 0) - (ay < 0)) ;
+            vel[1]=limit*((ay > 0) - (ay < 0)) ;
         }
 
 
@@ -111,10 +138,30 @@ void PhysicsState::updatePhysicsState(sf::Time et)
     posNow[0] += vel[0]*et.asSeconds();
     posNow[1] += vel[1]*et.asSeconds();
 
+    for(unsigned i=0; i < colliders.size(); i++)
+    {
+    colliders[i].top+= vel[1]*et.asSeconds();
+    colliders[i].left+= vel[0]*et.asSeconds();
+    /*colliders[i].left=posNow[0];
+    colliders[i].top=posNow[1];*/
+
+    boxes[i].setPosition(colliders[i].left,colliders[i].top);
+
+    }
+
 //    cout << "POSICION ACTUAL" << posNow[0] << ", " << posNow[1] << endl;
 
 }
 
+void PhysicsState::drawColliders(sf::RenderWindow *w, double i)
+{
+
+    for(unsigned i=0; i < boxes.size(); i++)
+    {
+        w->draw(boxes[i]);
+    }
+
+}
 
 
 PhysicsState::~PhysicsState()

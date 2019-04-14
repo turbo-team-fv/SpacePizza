@@ -93,16 +93,26 @@ void Mundo::procesarColisiones()
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
 {
 
-    if(mapa->checkearColision(p1->getSprite().getGlobalBounds()))
+    if(mapa->checkearColision(p1->getPhysicsState().getColliders()[0]))
     {
-        cout << "COLISIONA" << endl;
+        eLeft = false;
+    }
 
-//        eLeft = false;
-    }
-    else
+    if(mapa->checkearColision(p1->getPhysicsState().getColliders()[1]))
     {
-        cout << "NO COLISINA CARLOS" << endl;
+        eRight = false;
     }
+
+    if(mapa->checkearColision(p1->getPhysicsState().getColliders()[2]))
+    {
+        eUp = false;
+    }
+
+    if(mapa->checkearColision(p1->getPhysicsState().getColliders()[0]))
+    {
+        eDown = false;
+    }
+
 
     p1->updateJugador(eRight,eLeft,eUp,eDown,t);
     e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
@@ -145,6 +155,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
     }
     p1->drawJugador(ventana,inter);
+    p1->getPhysicsState().drawColliders(ventana,inter);
     e1->drawEnemigo(ventana,inter);
     ventana->setView(*minimap);
     // Hasta aqui el minimap.

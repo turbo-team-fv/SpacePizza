@@ -11,7 +11,7 @@ EFin* EFin::getInstance()
 {
     if(eFinInstancia==0)
     {
-        eFinInstancia = new EFin();
+        eFinInstancia = EFin::getInstance();
     }
 
     return eFinInstancia;

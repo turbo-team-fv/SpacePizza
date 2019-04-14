@@ -8,11 +8,6 @@ Mapa::Mapa()
     mapTexture = new Texture();
 
     load();
-
-    // test colision
-    bool choca = checkearColision(FloatRect({340, 280}, {3, 3}));
-    if(choca) cout << "CHOCA" << endl;
-    else cout << "NO CHOCA" << endl;
 }
 
 void Mapa::load()
