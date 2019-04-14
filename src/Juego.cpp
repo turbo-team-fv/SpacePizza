@@ -118,7 +118,7 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
     {
         //Traslaciones
         eUp = isPressed;
-        std::cout<<"Se ha pulsado Up"<<std::endl;
+
 ////        if(eUp)
 ////            menu->MoveUp();
 
@@ -126,7 +126,7 @@ void Juego::handleInputs(sf::Keyboard::Key key, bool isPressed)
     if (key == sf::Keyboard::Down)
     {
         eDown = isPressed;
-        std::cout<<"Se ha pulsado Down"<<std::endl;
+
 ////        if(eDown)
 ////            menu->MoveDown();
     }

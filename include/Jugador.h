@@ -19,6 +19,9 @@ class Jugador
         void calcInter(sf::RenderWindow *w, double i);
         void drawJugador(sf::RenderWindow *w, double i);
         void updateVida(int change);
+        int checkEstado();
+        void setEstado(int e);
+        void restartEstado();
         SuperSprite* getSprite(){ return jugador_sprite; };
 
 
@@ -32,6 +35,11 @@ class Jugador
     /**FISICAS**/
     PhysicsState *pState;
     int vidas;
+    int estado;
+
+    sf::Clock timer_estado;
+    double limite_estado;
+
 };
 
 #endif // JUGADOR_H
