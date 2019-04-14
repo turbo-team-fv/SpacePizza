@@ -270,7 +270,7 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1555255747 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1555259233 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
 1555149114 mationEngine
@@ -292,7 +292,7 @@
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1555255142 /home/samuel/FV/SpacePizza/include/Mundo.h
+1555259456 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -305,7 +305,7 @@
 1554929462 source:/home/samuel/FV/SpacePizza/main.cpp
 	"Juego.h"
 
-1555250862 /home/samuel/FV/SpacePizza/include/Juego.h
+1555259233 /home/samuel/FV/SpacePizza/include/Juego.h
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -313,13 +313,13 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1555251125 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+1555259233 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
-1555250990 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1555259233 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1555250990 /home/samuel/FV/SpacePizza/include/Jugador.h
+1555259233 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -332,20 +332,20 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555250990 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+1555259233 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1554999653 source:/home/samuel/FV/SpacePizza/src/Item.cpp
+1555259233 source:/home/samuel/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
-1554999653 /home/samuel/FV/SpacePizza/include/Item.h
+1555259233 /home/samuel/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555256848 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
+1555259233 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1555253918 /home/samuel/FV/SpacePizza/include/Enemigo.h
+1555259233 /home/samuel/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -709,7 +709,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555254115 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
+1555259233 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
 1555236404 iendoColisiones

@@ -50,7 +50,7 @@ private:
     vector< Item* > items;
     Mapa *mapa;
     Jugador *p1;
-    Enemigo *e1;
+    vector< Enemigo* > e1;
     /**ELEMENTOS**/
 
 };
