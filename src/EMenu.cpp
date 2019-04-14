@@ -69,6 +69,7 @@ void EMenu::Draw(RenderWindow * ventana)
     {
         ventana->draw(menu[i]);
     }
+    ventana->display();
 
 
 }
@@ -98,17 +99,8 @@ int EMenu::getSelectedItem()
     return selectedItemIndex;
 }
 
-void EMenu::HandleInputs(sf::Keyboard::Key key, bool isPressed)
+void EMenu::HandleInputs(Keyboard::Key key, bool isPressed)
 {
-
-    if (key == sf::Keyboard::Up)
-    {
-        MoveUp();
-    }
-    if (key == sf::Keyboard::Down)
-    {
-        MoveDown();
-    }
 
 }
 
@@ -119,12 +111,44 @@ void EMenu::Update()
 
 void EMenu::HandleEvents(RenderWindow * ventana)
 {
+    Event event;
+    if (ventana->pollEvent(event))
+    {
+        Keyboard e;
 
+        if(e.isKeyPressed(Keyboard::Up))
+        {
+            MoveUp();
+        }
+
+        if(e.isKeyPressed(Keyboard::Down))
+        {
+            MoveDown();
+        }
+
+        if (e.isKeyPressed(Keyboard::Return))
+        {
+            cout<<"SelectedItemIndex"<<selectedItemIndex<<endl;
+            if(selectedItemIndex == 0)
+            {
+                cout<<"Play"<<endl;
+            }
+            else if(selectedItemIndex == 1)
+            {
+                cout<<"Como jugar"<<endl;
+            }
+            else if(selectedItemIndex == 2)
+            {
+                cout<<"Exit"<<endl;
+                ventana->close();
+            }
+        }
+    }
 }
 
 void EMenu::loop(RenderWindow * ventana, Time timePerFrame)
 {
     HandleEvents(ventana);
-
-    Draw();
+    ventana->clear();
+    Draw(ventana);
 }

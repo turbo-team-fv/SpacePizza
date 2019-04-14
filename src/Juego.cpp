@@ -1,5 +1,6 @@
 #include "Juego.h"
 #include "EJugando.h"
+#include "EMenu.h"
 
 using namespace sf;
 
