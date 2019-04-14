@@ -14,7 +14,7 @@ Juego::Juego()
 
     ventana= new sf::RenderWindow(sf::VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
-//    ventana->setFramerateLimit(25);
+    //ventana->setFramerateLimit(60);
 
     menu = EMenu::getInstance();
 
