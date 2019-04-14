@@ -30,8 +30,8 @@ Mundo::Mundo()
     txt_pizza = new Texture();
     txt_pizza -> loadFromFile("assets/hud/pizza.png");
     spr_pizza = new Sprite(*txt_pizza);
-    spr_pizza ->setPosition(100,100);
-//    spr_pizza -> setScale(50.f/190, 50.f/200);
+
+   spr_pizza -> setScale(20.f/338, 20.f/400);
     // Vista
     vista = new View();
     vista -> reset(sf::FloatRect(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1], 300, 200));
@@ -147,7 +147,8 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 /**Metodo para processar los elementos del HUD*/
 void Mundo::processHUD()
 {
-
+    // Primero vamos acolocar los elementos sabrosos
+//    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
 
 }
 
@@ -188,6 +189,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawItems(ventana);
     p1->drawJugador(ventana,inter);
     e1->drawEnemigo(ventana,inter);
+    /// HUD STUFF
+    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*spr_pizza);
+
 
 
     ventana->setView(*minimap);///SET VIEW MAP
