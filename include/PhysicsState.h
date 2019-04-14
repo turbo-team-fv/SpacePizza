@@ -16,6 +16,7 @@ public:
     vector<double> getPastState();
     vector<double> getActualState();
     vector<double> getVel();
+    void setVel(double x, double y);
 
     void setPastState(double x, double y);
     void setActualState(double x, double y);

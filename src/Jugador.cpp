@@ -1,9 +1,10 @@
 #include "Jugador.h"
 
-Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
+Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
 {
     //ctor
-    pState.setActualState(150,250);
+    pState= new PhysicsState();
+    pState->setActualState(150,250);
     /**Funcionamiento: le digo la ruta de la textura y el numero de animaciones**/
     jugador_sprite= new SuperSprite("assets/jugador/sp_alien_texture.png",4,0.6,true);
     jugador_sprite->addFrame(sf::IntRect(50, 52,40, 44),0);//iz
@@ -24,16 +25,12 @@ Jugador::Jugador(): pState() /**Asi inicializamos de mejor forma objetos que son
     colinit.push_back(sf::FloatRect(-11,-10,3,22));//der
     colinit.push_back(sf::FloatRect(13,-10,3,22));//iz
     colinit.push_back(sf::FloatRect(-8,-13,22,3));//ab
-    pState.setColliders(colinit);
-
-
-
-
+    pState->setColliders(colinit);
 
 
 }
 
-PhysicsState Jugador::getPhysicsState()
+PhysicsState* Jugador::getPhysicsState()
 {
     return pState;
 }
@@ -71,8 +68,8 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
         //La tecla Abajo está pulsada:
     }
 
-    pState.Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
-    pState.updatePhysicsState(et);
+    pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
+    pState->updatePhysicsState(et);
 
 }
 
@@ -81,7 +78,7 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 {
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
-    this->jugador_sprite->drawSuperSprite(this->getPhysicsState().getPastState(),this->getPhysicsState().getActualState(),w,i);
+    this->jugador_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
 
 }
 

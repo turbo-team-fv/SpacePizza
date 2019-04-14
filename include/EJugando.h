@@ -8,9 +8,9 @@ class EJugando : public State
     public:
         static EJugando * getInstance();
         void Init();
-        void HandleInput();
+        void HandleInput(RenderWindow * ventana);
         void Update();
-        void Draw(float);
+        void Draw(RenderWindow * ventana);
 
     protected:
         EJugando(); // constructor

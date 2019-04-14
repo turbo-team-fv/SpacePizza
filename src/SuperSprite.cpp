@@ -51,7 +51,10 @@ sf::Sprite* SuperSprite::getActualSprite()
 {
     return s_sprite;
 }
+vector<double> SuperSprite::getRenderPos(){
 
+    return renderPos;
+}
 void SuperSprite::drawSuperSprite(vector<double> past, vector<double> actual,sf::RenderWindow *w, double i)
 {
 
