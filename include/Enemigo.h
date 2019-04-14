@@ -13,6 +13,8 @@ class Enemigo
         virtual ~Enemigo();
         PhysicsState getPhysicsState();
         void updateEnemigo(double velx, double vely, sf::Time et);
+
+        void calcInter(sf::RenderWindow *w, double i);
         void drawEnemigo(sf::RenderWindow *w, double i);
 
         void setVision(bool v);

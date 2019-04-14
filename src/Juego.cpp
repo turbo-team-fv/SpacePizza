@@ -15,7 +15,7 @@ Juego::Juego()
 
     ventana = new RenderWindow(VideoMode(resol_x,resol_y),gamename);
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
-//    ventana->setFramerateLimit(25);
+    //ventana->setFramerateLimit(25);
 
     menu = EMenu::getInstance();
 
@@ -69,7 +69,7 @@ void Juego::loop()
         }
 
         //Se calcula el porcentaje de interpolacion
-        interpolation = std::min(1.0,(double)updateClock.getElapsedTime().asMilliseconds() / (double)timePerFrame.asMilliseconds());
+        //interpolation = std::min(1.0,(double)updateClock.getElapsedTime().asMilliseconds() / (double)timePerFrame.asMilliseconds());
 
         //Renderizamos con interpolacion
         render(interpolation);
@@ -169,11 +169,11 @@ void Juego::updateGameState(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Time 
 /**Metodo para administrar el renderizado que recibe la interpolacion**/
 void Juego::render(double i)
 {
-    ventana->clear();
-    menu->Draw(ventana); ///El draw no se si se tendra que hacer desde otro sitio
-    //Dibujamos nuestras mierdas
 
-    //mundo->drawMundo(ventana,i);
+    ventana->clear();
+    interpolation = std::min(1.0,(double)updateClock.getElapsedTime().asMilliseconds() / (double)timePerFrame.asMilliseconds());
+    mundo->drawMundo(ventana,interpolation);
+
     ventana->display();
 }
 
