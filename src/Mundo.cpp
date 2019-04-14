@@ -25,6 +25,9 @@ Mundo::Mundo()
 
     /** HUD, vista and minimap stuff **/
     // HUD
+    // 4th dimension
+    clock1 = new Clock();
+    time1 = new Time();
     player_lifes = 5;
     num_pizzas = 0;
     txt_pizza = new Texture();
@@ -157,9 +160,9 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 void Mundo::processHUD()
 {
     // Primero vamos acolocar los elementos sabrosos
-//    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
+ *time1 = clock1->getElapsedTime();
  text_num_pizzas -> setString(std::to_string(num_pizzas));
- text_time -> setString(std::to_string(num_pizzas));
+ text_time -> setString(std::to_string(time1->asSeconds()));
 }
 
 void Mundo::drawItems(sf::RenderWindow * ventana)
