@@ -179,7 +179,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     /***PRIMERO RECALCULAMOS POSICION DE OBJETOS INTERPOLADOS***/
     /**Por algun motivo que no acabo de comprender**/
     p1->calcInter(ventana,inter);
-    //e1->calcInter(ventana,inter);
+    e1->calcInter(ventana,inter);
 
 
     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
