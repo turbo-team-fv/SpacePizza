@@ -38,7 +38,7 @@ private:
     sf::RectangleShape *ptoEntrega;
 
     /** vista, minimap & HUD stuff **/
-    sf::View * vista, * minimap, *vista_hud; // La super vista y el super minimapa
+    sf::View * vista, * minimap; // La super vista y el super minimapa
     int player_lifes, num_pizzas;
     Texture * txt_pizza;
     Sprite * spr_pizza;
