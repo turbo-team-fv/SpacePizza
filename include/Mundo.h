@@ -36,9 +36,9 @@ public:
 
 
     void visionIA();
-    void colisionesMapa();
-    void procesarColisiones();
-        vector< Alcantarilla *> alcantarillas;
+
+
+    vector< Alcantarilla *> alcantarillas;
 
     void processHUD();
 protected:
