@@ -776,7 +776,7 @@
 
 1555257435 /home/carlos/FV/SpacePizza/include/EMenu.h
 
-1555274022 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
+1555274396 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -872,7 +872,7 @@
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1555274164 source:/home/ramon/Desktop/FV/SpacePizza/src/Mundo.cpp
+1555274396 source:/home/ramon/Desktop/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 

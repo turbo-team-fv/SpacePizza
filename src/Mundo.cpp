@@ -290,6 +290,7 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 /**Metodo para processar los elementos del HUD*/
 void Mundo::processHUD()
 {
+ // hay que hacer lo de las vidas y tal cogerlas de p1
     // Primero vamos acolocar los elementos sabrosos
  *time1 = clock1->getElapsedTime();
  text_num_pizzas -> setString(std::to_string(num_pizzas));
