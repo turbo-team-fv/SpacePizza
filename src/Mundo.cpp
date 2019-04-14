@@ -173,7 +173,7 @@ void Mundo::processHUD()
  string strAux;
     for (int i = 0; i<player_lifes; i++ )
     {
-        strAux.append("f");
+        strAux.append("b");
     }
     text_player_lifes -> setString(strAux);
 }
@@ -223,7 +223,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*text_num_pizzas);
     text_time -> setPosition(p1->getSprite()->getRenderPos()[0]+70,p1->getSprite()->getRenderPos()[1] - 100);
     ventana->draw(*text_time);
-    text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-70,p1->getSprite()->getRenderPos()[1] - 100);
+    text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 100);
     ventana->draw(*text_player_lifes);
 
     ventana->setView(*minimap);///SET VIEW MAP
