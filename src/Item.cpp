@@ -46,6 +46,12 @@ Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
             sprite->setOrigin(92/2, 92/2);
             sprite->setScale(0.2,0.2);
         break;
+        case 5:
+            /// El trafico no afecta al jugador
+            sprite->setTextureRect(sf::IntRect(14,250,95,100));
+            sprite->setOrigin(95/2, 100/2);
+            sprite->setScale(0.2,0.2);
+
     }
     sprite->setPosition(pos.x, pos.y);
 }

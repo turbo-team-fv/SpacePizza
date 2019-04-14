@@ -194,6 +194,11 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
                     // Colisiona con una invisibilidad => cambiar la IA del Enemigo?
                     items[i]->restartPowerUp();
                 break;
+                case 5:
+                    // Colisiona con un evita trafico => Elimina las colisiones con el trafico que de momento no hay
+                    items[i]->restartPowerUp();
+                    std::cout<<"El jugador pilla un powerUp que hace que no choque con el trafico que esta por implementar"<<std::endl;
+                break;
             }
         }
     }
@@ -347,6 +352,8 @@ void Mundo::initItems(){
     items.push_back(tiempo);
     Item *inivisibilidad = new Item(4, sf::Vector2f(100,280), 2,10);
     items.push_back(inivisibilidad);
+    Item *evitaTrafico = new Item(5, sf::Vector2f(360,500),2,10);
+    items.push_back(evitaTrafico);
 }
 
 Mundo::~Mundo()

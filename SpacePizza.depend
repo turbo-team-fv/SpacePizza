@@ -446,11 +446,11 @@
 1555257435 /home/carlos/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555258961 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
+1555263813 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
-1555258760 /home/carlos/FV/SpacePizza/include/Mundo.h
+1555263813 /home/carlos/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -531,7 +531,7 @@
 1555153084 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1555258487 /home/carlos/FV/SpacePizza/include/Jugador.h
+1555263813 /home/carlos/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -561,7 +561,7 @@
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1555258477 source:/home/carlos/FV/SpacePizza/src/PhysicsState.cpp
+1555263301 source:/home/carlos/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1555236113 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
@@ -748,7 +748,7 @@
 
 1555056272 /home/ramon/Desktop/FV/SpacePizza/include/PhysicsState.h
 
-1555257435 /home/carlos/FV/SpacePizza/include/PhysicsState.h
+1555263301 /home/carlos/FV/SpacePizza/include/PhysicsState.h
 	<iostream>
 	<vector>
 	<cmath>
@@ -756,11 +756,12 @@
 
 1555056272 /home/ramon/Desktop/FV/SpacePizza/include/Enemigo.h
 
-1555258477 /home/carlos/FV/SpacePizza/include/Enemigo.h
+1555263304 /home/carlos/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
+	"SuperSprite.h"
 
 1555056272 /home/ramon/Desktop/FV/SpacePizza/include/Mapa.h
 
@@ -901,17 +902,17 @@
 
 1555240042 /home/samuel/FV/SpacePizza/include/MaquinaEstados.h
 
-1555258536 source:/home/carlos/FV/SpacePizza/src/Enemigo.cpp
+1555263304 source:/home/carlos/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1555257435 source:/home/carlos/FV/SpacePizza/src/Item.cpp
+1555264746 source:/home/carlos/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
-1555257435 source:/home/carlos/FV/SpacePizza/src/Juego.cpp
+1555263813 source:/home/carlos/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
-1555258543 source:/home/carlos/FV/SpacePizza/src/Jugador.cpp
+1555263813 source:/home/carlos/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1555257435 source:/home/carlos/FV/SpacePizza/src/Mapa.cpp
@@ -934,7 +935,7 @@
 
 1555257435 /home/carlos/FV/SpacePizza/include/MaquinaEstados.h
 
-1555257435 source:/home/carlos/FV/SpacePizza/src/SuperSprite.cpp
+1555263304 source:/home/carlos/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
 1555258477 /home/carlos/FV/SpacePizza/include/Alcantarilla.h
