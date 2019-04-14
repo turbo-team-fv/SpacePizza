@@ -47,17 +47,34 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
     return puntosEntrega;
 }
 
-void Mundo::colisionAlcantarilla(){
+void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown){
 
 /// Colisiones con las alcantarillas
     for( int i = 0; i < alcantarillas.size(); i++ ) {
         if(p1->getSprite().getGlobalBounds().intersects(alcantarillas[i]->getForma().getGlobalBounds())){
 
             /**Comprobamos destino**/
-            if(i==alcantarillas.size()-1){
-            p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x+30, (double)alcantarillas[0]->getPosInicial().y);
+            if(i == alcantarillas.size() -1){
+                if(eRight) {
+                    p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x+30, (double)alcantarillas[0]->getPosInicial().y);
+                }else if(eLeft) {
+                    p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x-30, (double)alcantarillas[0]->getPosInicial().y);
+                }else if(eDown) {
+                    p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x, (double)alcantarillas[0]->getPosInicial().y+30);
+                }else if(eUp) {
+                    p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x, (double)alcantarillas[0]->getPosInicial().y-30);
+                }
+
             }else{
-            p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x+30, (double)alcantarillas[i+1]->getPosInicial().y);
+                if(eRight) {
+                    p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x+30, (double)alcantarillas[i+1]->getPosInicial().y);
+                }else if(eLeft) {
+                    p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x-30, (double)alcantarillas[i+1]->getPosInicial().y);
+                }else if(eDown) {
+                    p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x, (double)alcantarillas[i+1]->getPosInicial().y+30);
+                }else if(eUp) {
+                    p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x, (double)alcantarillas[i+1]->getPosInicial().y-30);
+                }
             }
 
 
@@ -69,7 +86,7 @@ void Mundo::colisionAlcantarilla(){
 
 }
 
-void Mundo::procesarColisiones()
+void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     /// Colisiones con los puntos de entrega
     /*if(jugador->getGlobalBounds().intersects(ptoEntrega->getGlobalBounds())){
@@ -100,7 +117,7 @@ void Mundo::procesarColisiones()
         }
     }*/
 
-    colisionAlcantarilla();
+    colisionAlcantarilla(eRight,eLeft, eUp, eDown);
 
 
 }
@@ -112,13 +129,13 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     {
         //cout << "COLISIONA" << endl;
 
-        eLeft = false;
+        //eLeft = false;
     }
     else
     {
         //cout << "NO COLISINA CARLOS" << endl;
     }
-    procesarColisiones();
+    procesarColisiones(eRight,eLeft, eUp, eDown);
     p1->updateJugador(eRight,eLeft,eUp,eDown,t);
     e1->updateEnemigo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1],t);
 

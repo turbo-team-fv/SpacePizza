@@ -28,8 +28,8 @@ class Mundo
         void drawMundo(sf::RenderWindow * window, double i);
 
         /**COLISIONES**/
-        void colisionAlcantarilla();
-        void procesarColisiones();
+        void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
+        void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
     protected:
 
     private:
