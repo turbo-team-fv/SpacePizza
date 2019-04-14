@@ -28,13 +28,31 @@ Mundo::Mundo()
 
     /** HUD, vista and minimap stuff **/
     // HUD
+    // 4th dimension
+    clock1 = new Clock();
+    time1 = new Time();
     player_lifes = 5;
     num_pizzas = 0;
     txt_pizza = new Texture();
     txt_pizza -> loadFromFile("assets/hud/pizza.png");
     spr_pizza = new Sprite(*txt_pizza);
-    spr_pizza ->setPosition(100,100);
-//    spr_pizza -> setScale(50.f/190, 50.f/200);
+    spr_pizza -> setScale(20.f/338, 20.f/400);
+
+    font_numbers = new Font();
+    font_numbers ->loadFromFile("assets/hud/fullPack2025.ttf");
+    font_player_lifes = new Font();
+    font_player_lifes ->loadFromFile("assets/hud/HeartsSt.ttf");
+    text_num_pizzas = new Text();
+    text_num_pizzas -> setFont(*font_numbers);
+    text_num_pizzas -> setCharacterSize(15);
+    text_time = new Text();
+    text_time -> setFont(*font_numbers);
+    text_time -> setCharacterSize(15);
+    text_player_lifes = new Text();
+    text_player_lifes -> setFont(*font_player_lifes);
+    text_player_lifes -> setCharacterSize(15);
+    text_player_lifes -> setColor(Color::Red);
+
     // Vista
     vista = new View();
     vista -> reset(sf::FloatRect(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1], 300, 200));
@@ -272,10 +290,19 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 /**Metodo para processar los elementos del HUD*/
 void Mundo::processHUD()
 {
+    // Primero vamos acolocar los elementos sabrosos
+ *time1 = clock1->getElapsedTime();
+ text_num_pizzas -> setString(std::to_string(num_pizzas));
+ text_time -> setString(std::to_string(time1->asSeconds()));
 
-// Esta por hacer
-
+ string strAux;
+    for (int i = 0; i<player_lifes; i++ )
+    {
+        strAux.append("b");
+    }
+    text_player_lifes -> setString(strAux);
 }
+
 
 void Mundo::drawItems(sf::RenderWindow * ventana)
 {
@@ -321,9 +348,18 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     p1->drawJugador(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
-
         e1[en]->drawEnemigo(ventana,inter);
     }
+
+    /// HUD STUFF
+    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*spr_pizza);
+    text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*text_num_pizzas);
+    text_time -> setPosition(p1->getSprite()->getRenderPos()[0]+70,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*text_time);
+    text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*text_player_lifes);
 
 
     ventana->setView(*minimap);///SET VIEW MAP
