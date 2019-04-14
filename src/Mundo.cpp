@@ -30,8 +30,14 @@ Mundo::Mundo()
     txt_pizza = new Texture();
     txt_pizza -> loadFromFile("assets/hud/pizza.png");
     spr_pizza = new Sprite(*txt_pizza);
+    spr_pizza -> setScale(20.f/338, 20.f/400);
 
-   spr_pizza -> setScale(20.f/338, 20.f/400);
+    font_numbers = new Font();
+    font_numbers ->loadFromFile("assets/hud/fullPack2025.ttf");
+    text_num_pizzas = new Text();
+    text_num_pizzas -> setFont(*font_numbers);
+    text_num_pizzas -> setCharacterSize(15);
+
     // Vista
     vista = new View();
     vista -> reset(sf::FloatRect(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1], 300, 200));
@@ -149,7 +155,7 @@ void Mundo::processHUD()
 {
     // Primero vamos acolocar los elementos sabrosos
 //    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
-
+ text_num_pizzas -> setString(std::to_string(num_pizzas));
 }
 
 void Mundo::drawItems(sf::RenderWindow * ventana)
@@ -191,8 +197,9 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     e1->drawEnemigo(ventana,inter);
     /// HUD STUFF
     spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
+    text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 100);
     ventana->draw(*spr_pizza);
-
+    ventana->draw(*text_num_pizzas);
 
 
     ventana->setView(*minimap);///SET VIEW MAP
