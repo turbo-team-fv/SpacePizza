@@ -53,6 +53,7 @@
 		<Unit filename="include/MaquinaEstados.h" />
 		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/PhysicsState.h" />
+		<Unit filename="include/State.h" />
 		<Unit filename="lib/tinyxml/tinystr.cpp" />
 		<Unit filename="lib/tinyxml/tinystr.h" />
 		<Unit filename="lib/tinyxml/tinyxml.cpp" />

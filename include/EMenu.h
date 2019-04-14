@@ -3,13 +3,14 @@
 #include <string>
 #include <sstream>
 #include <SFML/Graphics.hpp>
+#include "State.h"
 
 using namespace std;
 using namespace sf;
 
 #define MAX_NUMBER_OF_ITEMS 3
 
-class EMenu
+class EMenu : public State
 {
     public:
         static EMenu* getInstance();
@@ -17,6 +18,11 @@ class EMenu
         void MoveUp();
         void MoveDown();
         int getSelectedItem();
+
+        void Init();
+        void HandleInput();
+        void Update();
+        void Draw(float);
 
     private:
         EMenu();

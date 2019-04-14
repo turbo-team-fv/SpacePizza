@@ -1,14 +1,22 @@
 #ifndef EJUGANDO_H
 #define EJUGANDO_H
+#include "State.h"
 
-
-class EJugando
+class EJugando : public State
 {
     public:
-        EJugando * getInstance();
+        static EJugando * getInstance();
+        void Init();
+        void HandleInput();
+        void Update();
+        void Draw(float);
+
+    protected:
+        EJugando(); // constructor
+        EJugando(const EJugando &); // operador de copia
+        EJugando &operator= (const EJugando &); // operador de asignacion
 
     private:
-        EJugando();
         static EJugando * eJugandoInstancia;
 };
 
