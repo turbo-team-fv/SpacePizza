@@ -58,6 +58,23 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
     return puntosEntrega;
 }
 
+void Mundo::visionIA()
+{
+
+    if((abs(p1->getSprite()->getRenderPos()[0]-e1->getSprite()->getRenderPos()[0])<50)
+        &&(abs(p1->getSprite()->getRenderPos()[1]-e1->getSprite()->getRenderPos()[1])<50))
+    {
+
+        e1->setVision(true);
+
+
+
+    }else{
+        e1->setVision(false);
+    }
+
+}
+
 void Mundo::colisionesMapa()
 {
 
@@ -95,7 +112,7 @@ void Mundo::colisionesMapa()
 
 void Mundo::procesarColisiones()
 {
-
+    visionIA();
     colisionesMapa();
     /// Colisiones con los puntos de entrega
     /*if(jugador->getGlobalBounds().intersects(ptoEntrega->getGlobalBounds())){

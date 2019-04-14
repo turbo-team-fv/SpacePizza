@@ -29,14 +29,35 @@ Enemigo::Enemigo()
     enemigo_sprite->addFrame(sf::IntRect(284, 49,44, 38),0);
     enemigo_sprite->addFrame(sf::IntRect(330, 49,44, 38),0);
 
-    enemigo_sprite->addFrame(sf::IntRect(5, 59,44, 38),2);
-    enemigo_sprite->addFrame(sf::IntRect(52, 59,44, 38),2);
-    enemigo_sprite->addFrame(sf::IntRect(99, 59,44, 38),2);
-    enemigo_sprite->addFrame(sf::IntRect(146, 59,44, 38),2);
-    enemigo_sprite->addFrame(sf::IntRect(192, 59,44, 38),2);
-    enemigo_sprite->addFrame(sf::IntRect(238, 59,44, 38),2);
-    enemigo_sprite->addFrame(sf::IntRect(284, 59,44, 38),2);
-    enemigo_sprite->addFrame(sf::IntRect(330, 59,44, 38),2);
+
+    enemigo_sprite->addFrame(sf::IntRect(5, 7,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(52, 89,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(99, 7,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(146, 89,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(192, 7,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(238, 89,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(284, 7,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(330, 89,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(5, 49,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(52, 131,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(99, 89,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(146, 131,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(192, 89,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(238, 131,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(284, 89,44, 38),1);
+    enemigo_sprite->addFrame(sf::IntRect(330, 131,44, 38),1);
+
+
+
+
+    enemigo_sprite->addFrame(sf::IntRect(5, 89,44, 38),2);
+    enemigo_sprite->addFrame(sf::IntRect(52, 89,44, 38),2);
+    enemigo_sprite->addFrame(sf::IntRect(99, 89,44, 38),2);
+    enemigo_sprite->addFrame(sf::IntRect(146, 89,44, 38),2);
+    enemigo_sprite->addFrame(sf::IntRect(192, 89,44, 38),2);
+    enemigo_sprite->addFrame(sf::IntRect(238, 89,44, 38),2);
+    enemigo_sprite->addFrame(sf::IntRect(284, 89,44, 38),2);
+    enemigo_sprite->addFrame(sf::IntRect(330, 89,44, 38),2);
     enemigo_sprite->addFrame(sf::IntRect(5, 131,44, 38),2);
     enemigo_sprite->addFrame(sf::IntRect(52, 131,44, 38),2);
     enemigo_sprite->addFrame(sf::IntRect(99, 131,44, 38),2);
@@ -54,7 +75,9 @@ Enemigo::Enemigo()
     /**COSAS ENEMIGO**/
     pState->MoveTo(500,500);
     actitud = 0;
-    tiempo_espera = 3;
+    tiempo_espera = 1;
+    tiempo_alerta = 5;
+    tiempo_persecucion =5;
     direccion_patrullaje = 0;
     direccion_patrullaje2 = 0;
 
@@ -68,7 +91,7 @@ PhysicsState* Enemigo::getPhysicsState()
 
 void Enemigo::setVision(bool v)
 {
-    teveo =v;
+    teveo=v;
 }
 void Enemigo::setActitud(int a)
 {
@@ -94,7 +117,11 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
             movingclock.restart();
 
             if(teveo==true)
+            {
+                alertclock.restart();
+                cout<<"Estaba patruyando y le vi"<<endl;
                 actitud=1;
+            }
         }
         switch(direccion_patrullaje)
         {
@@ -134,58 +161,55 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
     case 1:
 
 
-    enemigo_sprite->setAnimation(1);
-
-
-        if(movingclock.getElapsedTime().asSeconds()>=tiempo_espera)
-        {
-            tiempo_espera=0.5;
-            movingclock.restart();
-
-        }
+        enemigo_sprite->setAnimation(1);
         if(alertclock.getElapsedTime().asSeconds()>=tiempo_alerta)
         {
-
-            if(teveo==true)
+            if(teveo==true){
                 actitud=2;
-        }
-        break;
-
-    case 2:
-
-
-        if (velx> pState->getActualState()[0])
-        {
-            x+=power;
-        }
-        else if (velx< pState->getActualState()[0])
-        {
-            x+=-power;
-        }
-        if(vely>pState->getActualState()[1])
-        {
-            y+=power;
-        }
-        else if(vely < pState->getActualState()[1])
-        {
-            y+=-power;
+                chaseclock.restart();
+            }
         }
 
-        break;
+    break;
 
-    }
+case 2:
 
-
-    if(chaseclock.getElapsedTime().asSeconds()>=tiempo_persecucion)
+    enemigo_sprite->setAnimation(2);
+    if (velx> pState->getActualState()[0])
     {
-
-        if(teveo==false)
-            actitud=0;
-
+        x+=power;
+    }
+    else if (velx< pState->getActualState()[0])
+    {
+        x+=-power;
+    }
+    if(vely>pState->getActualState()[1])
+    {
+        y+=power;
+    }
+    else if(vely < pState->getActualState()[1])
+    {
+        y+=-power;
     }
 
-    pState->Move(x,y,true);
-    pState->updatePhysicsState(et);
+    break;
+
+}
+
+
+if(chaseclock.getElapsedTime().asSeconds()>=tiempo_persecucion)
+{
+
+    if(teveo==false){
+        actitud=0;
+    }else{
+    chaseclock.restart();
+    }
+
+}
+
+pState->Move(x,y,true);
+pState->updatePhysicsState(et);
 
 }
 

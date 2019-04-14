@@ -26,6 +26,7 @@ public:
 
 
 
+    void visionIA();
     void colisionesMapa();
     void procesarColisiones();
 
