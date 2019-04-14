@@ -192,9 +192,9 @@ void Mapa::draw(RenderWindow * window)
     }
 }
 
-bool Mapa::checkearColision(FloatRect rect)
+float Mapa::checkearColision(FloatRect rect)
 {
-
+    float offset=0;
     for(int y = 0; y < height; y++)
     {
         for(int x = 0; x < width; x++)
@@ -203,13 +203,14 @@ bool Mapa::checkearColision(FloatRect rect)
             {
                 if(tilemapSprite[0][y][x]->getGlobalBounds().intersects(rect))
                 {
-                    return true;
+                    offset= rect.top-tilemapSprite[0][y][x]->getGlobalBounds().top+1;
+                    return offset;
                 }
             }
         }
     }
 
-    return false;
+    return 0;
 }
 
 bool Mapa::estaEnCesped(FloatRect rect)
