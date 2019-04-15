@@ -828,7 +828,7 @@
 
 1555257435 /home/carlos/FV/SpacePizza/include/EMenu.h
 
-1555274396 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
+1555348015 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -838,22 +838,28 @@
 	"Mapa.h"
 	"SuperSprite.h"
 	"Alcantarilla.h"
+	<sstream>
+	<iomanip>
 
 1555274022 /home/ramon/Desktop/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555274022 /home/ramon/Desktop/FV/SpacePizza/include/Jugador.h
+1555348015 /home/ramon/Desktop/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 	"SuperSprite.h"
 
-1555056272 /home/ramon/Desktop/FV/SpacePizza/include/PhysicsState.h
+1555348015 /home/ramon/Desktop/FV/SpacePizza/include/PhysicsState.h
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
 
 1555257435 /home/carlos/FV/SpacePizza/include/PhysicsState.h
 
-1555274022 /home/ramon/Desktop/FV/SpacePizza/include/Enemigo.h
+1555348015 /home/ramon/Desktop/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -906,14 +912,14 @@
 
 1555257435 source:/home/carlos/FV/SpacePizza/src/EMenu.cpp
 
-1555274022 source:/home/ramon/Desktop/FV/SpacePizza/src/Enemigo.cpp
+1555348015 source:/home/ramon/Desktop/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1555274022 source:/home/ramon/Desktop/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
-1555274022 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
+1555348015 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/Mapa.cpp
@@ -924,7 +930,7 @@
 	"Mundo.h"
 	"Juego.h"
 
-1555274022 source:/home/ramon/Desktop/FV/SpacePizza/src/PhysicsState.cpp
+1555348015 source:/home/ramon/Desktop/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1555274022 source:/home/ramon/Desktop/FV/SpacePizza/src/Juego.cpp
@@ -1070,7 +1076,7 @@
 	<vector>
 	"State.h"
 
-1555274022 source:/home/ramon/Desktop/FV/SpacePizza/src/SuperSprite.cpp
+1555348015 source:/home/ramon/Desktop/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
 1555257435 source:/home/carlos/FV/SpacePizza/src/MaquinaEstados.cpp
