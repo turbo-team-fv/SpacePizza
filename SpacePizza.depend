@@ -513,7 +513,7 @@
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1555346195 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Mundo.h
+1555350957 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -565,7 +565,7 @@
 1555347190 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1555350081 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Trafico.cpp
+1555350580 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Trafico.cpp
 	"Trafico.h"
 	<iostream>
 

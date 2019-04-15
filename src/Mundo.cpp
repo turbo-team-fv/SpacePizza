@@ -84,13 +84,16 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega() {
 
 sf::Clock Mundo::getClock() {
     return clock;
+    return clock2;
 }
 sf::Time Mundo::getTime() {
     return time;
+    return time2;
 }
 void Mundo::movimientoTrafico(){
 
 time = clock.getElapsedTime();
+time2 = clock2.getElapsedTime();
 
         if(time.asSeconds()>=0.005){
             if(trafico[0]->getX()<=346 && trafico[0]->getY()<=290){
@@ -109,6 +112,7 @@ time = clock.getElapsedTime();
             }
             clock.restart();
         }
+
 
 }
 

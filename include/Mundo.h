@@ -31,7 +31,9 @@ class Mundo
         int ptoEntrgaActual;
         sf::RectangleShape *ptoEntrega;
         sf::Clock clock;
+        sf::Clock clock2;
         sf::Time time;
+        sf::Time time2;
 };
 
 #endif // MUNDO_H
