@@ -30,6 +30,7 @@ pState=new PhysicsState();
 
 
     vidas = 5;
+    limite_estado=5;
 }
 
 PhysicsState* Jugador::getPhysicsState()
@@ -37,12 +38,20 @@ PhysicsState* Jugador::getPhysicsState()
     return pState;
 }
 
+void Jugador::restartEstado(){
 
+timer_estado.restart();
+
+}
 void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et)
 {
 
     double x=0,y=0,potencia=50;
 
+    if(estado==1){
+    cout<<"TURBO"<<endl;
+    potencia=potencia*3;
+    }
 
     if(eRight)
     {
@@ -70,6 +79,10 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
         //La tecla Abajo está pulsada:
     }
 
+    if(timer_estado.getElapsedTime().asSeconds()>=limite_estado){
+    estado=0;
+    }
+
     pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
     pState->updatePhysicsState(et);
 
@@ -91,6 +104,17 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 
 }
 
+int Jugador::checkEstado(){
+
+return estado;
+
+}
+
+void Jugador::setEstado(int e){
+
+estado=e;
+
+}
 // Este metodo permite modifcar la vida => hay que pasarle el valor a modificar incluyendo el signo si queremos restar
 void Jugador::updateVida(int change) {
     vidas = vidas + change;

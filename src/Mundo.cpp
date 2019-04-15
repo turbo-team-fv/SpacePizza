@@ -19,21 +19,40 @@ Mundo::Mundo()
 
     e1.resize(4);
 
-    for(unsigned en=0; en < e1.size(); en++){
-    e1 [en]= new Enemigo();
+    for(unsigned en=0; en < e1.size(); en++)
+    {
+        e1 [en]= new Enemigo();
     }
 
 
 
     /** HUD, vista and minimap stuff **/
     // HUD
+    // 4th dimension
+    clock1 = new Clock();
+    time1 = new Time();
     player_lifes = 5;
     num_pizzas = 0;
     txt_pizza = new Texture();
     txt_pizza -> loadFromFile("assets/hud/pizza.png");
     spr_pizza = new Sprite(*txt_pizza);
-    spr_pizza ->setPosition(100,100);
-//    spr_pizza -> setScale(50.f/190, 50.f/200);
+    spr_pizza -> setScale(20.f/338, 20.f/400);
+
+    font_numbers = new Font();
+    font_numbers ->loadFromFile("assets/hud/fullPack2025.ttf");
+    font_player_lifes = new Font();
+    font_player_lifes ->loadFromFile("assets/hud/HeartsSt.ttf");
+    text_num_pizzas = new Text();
+    text_num_pizzas -> setFont(*font_numbers);
+    text_num_pizzas -> setCharacterSize(15);
+    text_time = new Text();
+    text_time -> setFont(*font_numbers);
+    text_time -> setCharacterSize(15);
+    text_player_lifes = new Text();
+    text_player_lifes -> setFont(*font_player_lifes);
+    text_player_lifes -> setCharacterSize(15);
+    text_player_lifes -> setColor(Color::Red);
+
     // Vista
     vista = new View();
     vista -> reset(sf::FloatRect(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1], 300, 200));
@@ -65,21 +84,33 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
 
 void Mundo::visionIA()
 {
-for(unsigned en=0; en< e1.size(); en++){
-    if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<50)
-        &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<50))
+
+    if(p1->checkEstado()!=2)
     {
+        for(unsigned en=0; en< e1.size(); en++)
+        {
+            if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<50)
+                    &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<50))
+            {
 
-        e1[en]->setVision(true);
+                e1[en]->setVision(true);
 
 
 
-    }else{
-        e1[en]->setVision(false);
+            }
+            else
+            {
+                e1[en]->setVision(false);
+            }
+        }
+
     }
+    else
+    {
+        cout<<"MODO INVISIBLE"<<endl;
     }
-
 }
+
 
 void Mundo::colisionesMapa()
 {
@@ -116,32 +147,52 @@ void Mundo::colisionesMapa()
 
 }
 
-void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown){
+void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown)
+{
 
 /// Colisiones con las alcantarillas
-    for( int i = 0; i < alcantarillas.size(); i++ ) {
-        if(p1->getSprite()->getActualSprite()->getGlobalBounds().intersects(alcantarillas[i]->getSprite().getGlobalBounds())){
+    for( int i = 0; i < alcantarillas.size(); i++ )
+    {
+        if(p1->getSprite()->getActualSprite()->getGlobalBounds().intersects(alcantarillas[i]->getSprite().getGlobalBounds()))
+        {
 
             /**Comprobamos destino**/
-            if(i == alcantarillas.size() -1){
-                if(eRight) {
+            if(i == alcantarillas.size() -1)
+            {
+                if(eRight)
+                {
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x+30, (double)alcantarillas[0]->getPosInicial().y);
-                }else if(eLeft) {
+                }
+                else if(eLeft)
+                {
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x-30, (double)alcantarillas[0]->getPosInicial().y);
-                }else if(eDown) {
+                }
+                else if(eDown)
+                {
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x, (double)alcantarillas[0]->getPosInicial().y+30);
-                }else if(eUp) {
+                }
+                else if(eUp)
+                {
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[0]->getPosInicial().x, (double)alcantarillas[0]->getPosInicial().y-30);
                 }
 
-            }else{
-                if(eRight) {
+            }
+            else
+            {
+                if(eRight)
+                {
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x+30, (double)alcantarillas[i+1]->getPosInicial().y);
-                }else if(eLeft) {
+                }
+                else if(eLeft)
+                {
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x-30, (double)alcantarillas[i+1]->getPosInicial().y);
-                }else if(eDown) {
+                }
+                else if(eDown)
+                {
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x, (double)alcantarillas[i+1]->getPosInicial().y+30);
-                }else if(eUp) {
+                }
+                else if(eUp)
+                {
                     p1->getPhysicsState()->MoveTo((double)alcantarillas[i+1]->getPosInicial().x, (double)alcantarillas[i+1]->getPosInicial().y-30);
                 }
             }
@@ -150,53 +201,70 @@ void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown){
     }
 
 }
+void Mundo::colisionItems()
+{
 
+/// Colisones con los PowerUps
+    for(int i = 0; i < items.size(); i++)
+    {
+        if(items[i]->getSprite().getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()) && items[i]->isActivo())
+        {
+            // Colision del jugador con uno de los powerUps del vector
+            std::cout<<"Colision con un item"<<std::endl;
+            int tipo = items[i]->getTipo();
+            std::cout<<tipo<<std::endl;
+            switch (tipo)
+            {
+            case 1:
+                //Colisiona con una vida
+                items[i]->restartPowerUp();
+                p1->updateVida(1);
+                break;
+            case 2:
+                // Colisiona con un turbo => aumenta la velocidad durante un perido de tiempo
+                items[i]->restartPowerUp();
+                p1->setEstado(1);
+                p1->restartEstado();
+                break;
+            case 3:
+                // Colisiona con un tiempo
+                // juego->tiempo += 10
+                //Juego.getInstance()->updateTime(10);
+                tiempo += 10;
+                items[i]->restartPowerUp();
+                break;
+            case 4:
+                // Colisiona con una invisibilidad => cambiar la IA del Enemigo?
+                items[i]->restartPowerUp();
+                 p1->setEstado(2);
+                p1->restartEstado();
+                break;
+            }
+        }
+    }
+
+}
 void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     visionIA();
     colisionesMapa();
+    colisionItems();
     /// Colisiones con los puntos de entrega
-    if(puntoEntrega->getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds())){
+    if(puntoEntrega->getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()))
+    {
         //jugador.puntuacion + 10;
-        if(ptoEntrgaActual == puntosEntrega.size() - 1){
+        if(ptoEntrgaActual == puntosEntrega.size() - 1)
+        {
             ptoEntrgaActual = 0;
-        }else {
+        }
+        else
+        {
             ptoEntrgaActual++;
         }
         puntoEntrega->setPosition(puntosEntrega[ptoEntrgaActual]);
         pizzas++;
     }
-    /// Colisones con los PowerUps
-    for(int i = 0; i < items.size(); i++) {
-        if(items[i]->getSprite().getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()) && items[i]->isActivo()){
-            // Colision del jugador con uno de los powerUps del vector
-            std::cout<<"Colision con un item"<<std::endl;
-            int tipo = items[i]->getTipo();
-            std::cout<<tipo<<std::endl;
-            switch (tipo) {
-                case 1:
-                    //Colisiona con una vida
-                    items[i]->restartPowerUp();
-                    p1->updateVida(1);
-                break;
-                case 2:
-                    // Colisiona con un turbo => aumenta la velocidad durante un perido de tiempo
-                    items[i]->restartPowerUp();
-                break;
-                case 3:
-                    // Colisiona con un tiempo
-                    // juego->tiempo += 10
-                    //Juego.getInstance()->updateTime(10);
-                    tiempo += 10;
-                    items[i]->restartPowerUp();
-                break;
-                case 4:
-                    // Colisiona con una invisibilidad => cambiar la IA del Enemigo?
-                    items[i]->restartPowerUp();
-                break;
-            }
-        }
-    }
+
 
     // colisionAlcantarilla(eRight,eLeft, eUp, eDown);
 
@@ -207,18 +275,13 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 {
     procesarColisiones(eRight,eLeft,eUp,eDown);
     p1->updateJugador(eRight,eLeft,eUp,eDown,t);
-    for(unsigned en=0; en< e1.size(); en++){
+    for(unsigned en=0; en< e1.size(); en++)
+    {
 
         e1[en]->updateEnemigo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1],t);
 
     }
 
-
-    /** Updateamos la updatecamara para que updatesiga al updatejugador **/
-//vista->setCenter(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1]);
-//   vista->setCenter(p1->renderPos[0],p1->renderPos[1]);
-    //vista->move(p1->getPhysicsState()->getVel()[0],p1->getPhysicsState()->getVel()[1]);
-    //vista->move(p1->getPhysicsState().getActualState()[0] - p1->getPhysicsState().getPastState()[0], p1->getPhysicsState().getActualState()[1] - p1->getPhysicsState().getPastState()[1]);
     processHUD();
 
 
@@ -227,10 +290,32 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 /**Metodo para processar los elementos del HUD*/
 void Mundo::processHUD()
 {
+ // hay que hacer lo de las vidas y tal cogerlas de p1
+    // Primero vamos acolocar los elementos sabrosos
+ *time1 = clock1->getElapsedTime();
 
-// Esta por hacer
+  std::stringstream ss;  // #include <sstream>
+    ss << setw(2) << setfill('0') << num_pizzas;
+    std::stringstream ss1;
+    ss1 << setw(2) << setfill('0') << time1->asSeconds();
+    /*t_score.setString("score  "+ss.str()+"");
+    t_score.setCharacterSize(23);
+    t_score.setColor(sf::Color::White);
+    t_score.setStyle(sf::Text::Bold);
+    t_score.setOrigin(0,0);
+    t_score.setPosition(16.0,-8.0);*/
 
+ text_num_pizzas -> setString(ss.str());
+ text_time -> setString(ss1.str());
+
+ string strAux;
+    for (int i = 0; i<player_lifes; i++ )
+    {
+        strAux.append("b");
+    }
+    text_player_lifes -> setString(strAux);
 }
+
 
 void Mundo::drawItems(sf::RenderWindow * ventana)
 {
@@ -259,9 +344,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     /***PRIMERO RECALCULAMOS POSICION DE OBJETOS INTERPOLADOS***/
     /**Por algun motivo que no acabo de comprender**/
     p1->calcInter(ventana,inter);
-     for(unsigned en=0; en< e1.size(); en++){
+    for(unsigned en=0; en< e1.size(); en++)
+    {
 
-    e1[en]->calcInter(ventana,inter);
+        e1[en]->calcInter(ventana,inter);
     }
 
 
@@ -273,10 +359,20 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawAlcantarillas(ventana);
 
     p1->drawJugador(ventana,inter);
-     for(unsigned en=0; en< e1.size(); en++){
-
-    e1[en]->drawEnemigo(ventana,inter);
+    for(unsigned en=0; en< e1.size(); en++)
+    {
+        e1[en]->drawEnemigo(ventana,inter);
     }
+
+    /// HUD STUFF
+    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*spr_pizza);
+    text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*text_num_pizzas);
+    text_time -> setPosition(p1->getSprite()->getRenderPos()[0]+70,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*text_time);
+    text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*text_player_lifes);
 
 
     ventana->setView(*minimap);///SET VIEW MAP
@@ -284,9 +380,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
     p1->drawJugador(ventana,inter);
-     for(unsigned en=0; en< e1.size(); en++){
+    for(unsigned en=0; en< e1.size(); en++)
+    {
 
-    e1[en]->drawEnemigo(ventana,inter);
+        e1[en]->drawEnemigo(ventana,inter);
     }
 
 
@@ -294,27 +391,32 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
 }
 
-void Mundo::drawAlcantarillas(sf::RenderWindow * ventana){
+void Mundo::drawAlcantarillas(sf::RenderWindow * ventana)
+{
 
 
-    for(int i = 0; i < alcantarillas.size(); i++ ){
+    for(int i = 0; i < alcantarillas.size(); i++ )
+    {
         alcantarillas[i]->drawAlcantarilla(ventana);
     }
 
 }
 /// Metodo para inizializar las Alcantarillas del Mundo
-void Mundo::initAlcantarillas() {
+void Mundo::initAlcantarillas()
+{
     Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(360,280));
     Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(360,665));
     alcantarillas.push_back(alc1);
     alcantarillas.push_back(alc2);
 }
 
-int Mundo::getTime(){
+int Mundo::getTime()
+{
     return tiempo;
 }
 
-void Mundo::initPuntosEntrega(){
+void Mundo::initPuntosEntrega()
+{
     /// Inicializo la textura del punto de entrega
     texture.loadFromFile("assets/PowerUps/power.png");
     if (!texture.loadFromFile("assets/PowerUps/power.png"))
@@ -336,7 +438,8 @@ void Mundo::initPuntosEntrega(){
     puntoEntrega->setPosition(puntosEntrega[0]);
 }
 
-void Mundo::initItems(){
+void Mundo::initItems()
+{
     /// Creo un item de cada tipo en una posicion determinada con un tiempo de
     /// vida y de generacion
     Item *vida1 = new Item(1, sf::Vector2f(360,150), 2, 5);

@@ -9,6 +9,8 @@
 #include "Mapa.h"
 #include "SuperSprite.h"
 #include "Alcantarilla.h"
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -29,8 +31,9 @@ public:
     void initItems();
     void initPuntosEntrega();
     void colisionesMapa();
-        void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
-        void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
+    void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
+    void colisionItems();
+    void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
         void initAlcantarillas();
 
 
@@ -49,10 +52,14 @@ private:
     sf::RectangleShape *ptoEntrega;
 
     /** vista, minimap & HUD stuff **/
-    sf::View * vista, * minimap, *vista_hud; // La super vista y el super minimapa
+    sf::View * vista, * minimap; // La super vista y el super minimapa
     int player_lifes, num_pizzas;
+    Font * font_player_lifes, *font_numbers;
+    Text * text_player_lifes, *text_num_pizzas, *text_time;
     Texture * txt_pizza;
     Sprite * spr_pizza;
+    Clock * clock1;
+    Time * time1;
 
 
     /**ELEMENTOS**/
