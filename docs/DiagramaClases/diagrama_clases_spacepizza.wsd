@@ -1,47 +1,76 @@
 @startuml Diagrama de Clases
 ' left to right direction
 class Juego << (S,#FF7700) Singleton >>{
-    +mapa: Mapa
     +estado: JEstado
     +tiempo: int
     +puntuacion: int
 
-    -init(): void
-    -update(): void
+    -loop(): void
+    -updateTime(int change): void
     -render(): void
-    -input(): void
-    +getInstance(): &Juego
+    -handleEvents(): void
+    -handleInputs(): void
+    +getInstance(): Juego*
 }
 
 interface Estado {
-    +estado: Emum<tipoEstado>
-
-    -cambiarEstado(): int
-    -update(): void
-    -render(): void
+    -Init(): void
+    -HandleEvents(RenderWindow* ventana): void
+    -Update(): void
+    -loop(RenderWindow* ventana): void
+    -Draw(RenderWindow* ventana)
 }
 
 class Jugador {
-    +sprite: Sprite
-    +textura: Texture
-    +vida: int
-    +velocidad: Vector2f
-    
+    +jugador_sprite: SuperSprite
+    +pState: PhysicsState*
+    +vidas: int
+    +estado: Clock
+    +limite_estado: double
+
+
+    -getPhysicsState(): PhysicsState* 
+    -updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et): void 
+    -calcInter(RenderWindow* w, double i): void 
+    -drawJugador(RenderWindow* w, double i): void 
+    -updateVida(int change): void 
+    -checkEstado(): int
+    -setEstado(int e): void 
+    -restartEstado(): void 
+    -getSprite(): void 
 }
 
-class EstadoFisico {
+class PhysicsState {
     +posicionActual: Vector2f
     +posicionAnterior: Vector2f
     
+    -getPastState(): vector<double> 
+    -getActualState(): vector<double> 
+    -getVel(): vector<double> 
+    -setVel(double x, double y): void
+    -setPastState(double x, double y): void 
+    -setActualState(double x, double y): void 
+    -setColliders(vector <Rect<float> > colinit): void 
+    -drawColliders(RenderWindow* w, double i): void
+    -getColliders(): vector<Rect<float>>
+    -Move(double ax,double ay,bool acelerado): void
+    -MoveTo(double ax,double ay): void 
+    -updatePhysicsState(sf::Time et): void   
 }
 
 class Mapa {
-    +texture: Texture
-    +sprite: Sprite
+    +texture: Texture*
+    +spriteSet: Sprite***
+    +tilemapSprite: Sprite****
     +tileSet: map<vector<vector<int>>>
+    +tileMap: int***
 
-    -getSprite(): Sprite
-    -setSprite(int gid): int
+    -load(): void
+    -setTileMapSprites(): void 
+    -draw(RenderWindow * window): void
+    -checkearColision(FloatRect rect): float
+    -estaEnCesped(FloatRect rect): bool
+    -printTileMap(): void
 }
 
 class Item {
@@ -63,50 +92,99 @@ class Item {
 class Mundo {
     +puntosEntrega: Vector2f []
     +puntoEntregaActual: int
+
+    -updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, Time t): void
+    -drawMundo(RenderWindow* window, double i): void
+    -drawItems(sf::RenderWindow * window): void
+    -drawAlcantarillas(sf::RenderWindow * window): void
+    -getTime(): int
+    -initItems(): void
+    -initPuntosEntrega(): void
+    -colisionesMapa(): void
+    -colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown): void
+    -colisionItems(): void
+    -procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown): void 
+    -initAlcantarillas(): void
+    -visionIA(): void 
+    -processHUD(): void 
 }
 
 class Enemy {
-    +sprite: Sprite
-    +textura: Texture
-    +modo: int
+    
+    +enemigo_sprit: SuperSprite*
+    +pState: PhysicsState*
+    +actitud: int 
+    +tiempo_espera: double 
+    +tiempo_alerta: double 
+    +tiempo_persecucion: double 
+    +movingclock: Clock 
+    +alertclock: Clock 
+    +chaseclock: Clock 
+    +teveo: bool
+    +direccion_patrullaje: int
+    +direccion_patrullaje2: int
 
-    -getSprite(): Sprite
-    -comprobarVision(): bool
+    -getPhysicsState(): PhysicsState*
+    -updateEnemigo(double velx, double vely, sf::Time et): void
+    -calcInter(sf::RenderWindow *w, double i): void 
+    -drawEnemigo(sf::RenderWindow *w, double i) void
+    -getSprite(): SuperSprite* 
+    -setVision(bool v): void 
+    -setActitud(int a): void 
 }
 
 class Trafico {
-    -textura: Texture
-    -sprite: Sprite
-    -camino: Vector2f[]
-
+    +textura: Texture
+    +sprite: Sprite
+    +camino: Vector2f[]
     
-}
-
-
-class AIAgent {
-
-    -comprobarColisiones(): void
 }
 
 class EJugando << (S,#FF7700) Singleton >>{
 
-    -update(): void
-    -render(): void
-    +getInstance(): &Estado
+    +loop(RenderWindow* ventana, Time timePerFrame): void
+    +render(double i, RenderWindow* ventana, Time timePerFrame): void 
+    +updateGameState(bool eRight, bool eLeft, bool eUp, bool eDown, Time et): void
+    +HandleInputs(Keyboard::Key key, bool isPressed): void
+    +Init(): void
+    +HandleEvents(RenderWindow * window): void
+    +Update(): void
+    +Draw(RenderWindow * ventana): void
 }
 
 class EMenu << (S,#FF7700) Singleton >>{
 
-    -update(): void
-    -render(): void
-    +getInstance(): &Estado
+    +selectedItemIndex: int
+    +font: Font 
+    +bg_menu: Sprite*
+    +bg_menu_txt: Texture* 
+    +menu: [Text]
+
+    -Init(): void
+    -HandleEvents(RenderWindow* ventana): void
+    -Update(): void
+    -loop(RenderWindow* ventana): void
+    -Draw(RenderWindow* ventana)
+    -MoveUp(): void
+    -MoveDown(): void 
+    -getSelectedItem(): int
+    -HandleInputs(Keyboard::Key key, bool isPressed): void
 }
 
 class EFin << (S,#FF7700) Singleton >>{
 
-    -update(): void
-    -render(): void
-    +getInstance(): &Estado
+    +font: Font 
+    +bg_menu: Sprite*
+    +bg_menu_txt: Texture* 
+    +menu: [Text]
+
+    -Init(): void
+    -HandleEvents(RenderWindow* ventana): void
+    -Update(): void
+    -loop(RenderWindow* ventana): void
+    -Draw(RenderWindow* ventana)
+    -HandleInputs(Keyboard::Key key, bool isPressed): void
+    -Restart(): void
 }
 
 Juego -- Estado
@@ -117,16 +195,14 @@ EFin --|> Estado
 
 EJugando -- Mundo
 
-Mundo *-- "1" Jugador
-Mundo *-- "*" Enemy
-Mundo *-- Item
+Mundo *-- Jugador
+Mundo -- "*" Enemy
+Mundo -- "*" Item
 Mundo *-- Trafico
 Mundo *-- Mapa
 
-AIAgent *-- Mundo
-
-Enemy *-- EstadoFisico
-Jugador *-- EstadoFisico
+Enemy *-- PhysicsState
+Jugador *-- PhysicsState
 
 
 @enduml
