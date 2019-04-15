@@ -2,6 +2,7 @@
 
 Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
 {
+pState=new PhysicsState();
     //ctor
     pState= new PhysicsState();
     pState->setActualState(150,250);
@@ -28,6 +29,7 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
     pState->setColliders(colinit);
 
 
+    vidas = 5;
 }
 
 PhysicsState* Jugador::getPhysicsState()
@@ -87,6 +89,18 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
     this->jugador_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
 
+}
+
+// Este metodo permite modifcar la vida => hay que pasarle el valor a modificar incluyendo el signo si queremos restar
+void Jugador::updateVida(int change) {
+    vidas = vidas + change;
+    if(vidas < 0) {
+        vidas = 0;
+    }
+    if(vidas >= 5 ) {
+        vidas = 5;
+    }
+    std::cout<<"Muestor la vida despues de la operacion: "<< vidas<<std::endl;
 }
 
 Jugador::~Jugador()

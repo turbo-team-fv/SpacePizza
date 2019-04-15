@@ -5,17 +5,19 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "PhysicsState.h"
+#include "SuperSprite.h"
 
 class Enemigo
 {
     public:
         Enemigo();
         virtual ~Enemigo();
-        PhysicsState getPhysicsState();
+        PhysicsState* getPhysicsState();
         void updateEnemigo(double velx, double vely, sf::Time et);
 
         void calcInter(sf::RenderWindow *w, double i);
         void drawEnemigo(sf::RenderWindow *w, double i);
+        SuperSprite* getSprite(){ return enemigo_sprite; };
 
         void setVision(bool v);
         void setActitud(int a);
@@ -24,12 +26,10 @@ class Enemigo
 
     private:
     /**GRAFICOS**/
-    sf::Texture  tex;
-    sf::Sprite  spri;
-    vector<double> renderPos;
+    SuperSprite *enemigo_sprite;
 
     /**FISICAS**/
-    PhysicsState pState;
+    PhysicsState *pState;
 
     /**OTROS**/
     int actitud; //0: Apatrullando la ciudad, 1: En alerta, 2: Te persigue

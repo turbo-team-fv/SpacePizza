@@ -14,6 +14,8 @@ class Item
         sf::Sprite getSprite();
         sf::Vector2f getPosicion();
         void restartPowerUp();
+        void drawItem(sf::RenderWindow * window);
+        bool isActivo();
 
     protected:
 
@@ -25,6 +27,7 @@ class Item
         sf::Vector2f posicion;
         sf::Sprite *sprite;
         sf::Texture textura;
+        bool activo;
 
 
 };
