@@ -314,7 +314,7 @@
 
 1555265667 hics.hpp>
 
-1555347672 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1555350806 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -395,7 +395,7 @@
 
 1555240051 nyxml/tinyxml2.h"
 
-1555345053 /home/samuel/FV/SpacePizza/include/Mundo.h
+1555347830 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -476,7 +476,7 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1555342483 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1555351095 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1555328456 /home/samuel/FV/SpacePizza/include/Jugador.h
@@ -502,12 +502,12 @@
 1555260155 /home/samuel/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555347392 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
+1555347830 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1555338625 "
 
-1555345743 /home/samuel/FV/SpacePizza/include/Enemigo.h
+1555347830 /home/samuel/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
