@@ -34,11 +34,12 @@ public:
     void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
     void colisionItems();
     void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
-        void initAlcantarillas();
+    void initAlcantarillas();
 
 
 
     void visionIA();
+    void atacaIA();
 
 
     vector< Alcantarilla *> alcantarillas;
@@ -74,6 +75,8 @@ private:
     int tiempo;
     sf::Sprite *puntoEntrega;
     sf::Texture texture;
+
+    sf::Clock clockAlcantarillas;
 };
 
 #endif // MUNDO_H

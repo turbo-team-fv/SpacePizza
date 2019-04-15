@@ -82,21 +82,35 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
     return puntosEntrega;
 }
 
+void Mundo::atacaIA()
+{
+int rango=20;
+
+    for(unsigned en=0; en< e1.size(); en++)
+        {
+            if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<rango)
+                    &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<rango))
+            {
+                if(e1[en]->getAtaque()){
+                    cout<<"ATAQUE HIJO PUTA"<<endl;
+                    p1->updateVida(-1);
+
+                }
+            }
+        }
+}
+
 void Mundo::visionIA()
 {
-
+    int rango=100;
     if(p1->checkEstado()!=2)
     {
         for(unsigned en=0; en< e1.size(); en++)
         {
-            if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<50)
-                    &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<50))
+            if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<rango)
+                    &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<rango))
             {
-
                 e1[en]->setVision(true);
-
-
-
             }
             else
             {
@@ -118,29 +132,28 @@ void Mundo::colisionesMapa()
     float offset=0;
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
     {
-
-        p1->getPhysicsState()->Move(0,-100,true);
-
+        p1->getPhysicsState()->Move(0,-150,true);
+        //p1->getPhysicsState()->MoveTo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1]-20);
     }
 
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
     {
 
-        p1->getPhysicsState()->Move(+100,0,true);
+        p1->getPhysicsState()->Move(+150,0,true);
 //        eLeft = false;
     }
 
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
     {
 
-        p1->getPhysicsState()->Move(-100,0,true);
+        p1->getPhysicsState()->Move(-150,0,true);
         // eRight = false;
     }
 
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
     {
 
-        p1->getPhysicsState()->Move(0,+100,true);
+        p1->getPhysicsState()->Move(0,+150,true);
         //  eUp = false;
     }
 
@@ -151,10 +164,10 @@ void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
 
 /// Colisiones con las alcantarillas
-    for( int i = 0; i < alcantarillas.size(); i++ )
-    {
-        if(p1->getSprite()->getActualSprite()->getGlobalBounds().intersects(alcantarillas[i]->getSprite().getGlobalBounds()))
-        {
+    for( int i = 0; i < alcantarillas.size(); i++ ) {
+        if(p1->getSprite()->getActualSprite()->getGlobalBounds().intersects(alcantarillas[i]->getSprite().getGlobalBounds())){
+            //p1->getPhysicsState()->MoveTo((double) 500, (double) 425);
+            // p1->getPhysicsState()->MovePlayerTo((double) 500, (double) 425);
 
             /**Comprobamos destino**/
             if(i == alcantarillas.size() -1)
@@ -247,6 +260,7 @@ void Mundo::colisionItems()
 void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     visionIA();
+    atacaIA();
     colisionesMapa();
     colisionItems();
     /// Colisiones con los puntos de entrega
@@ -267,6 +281,7 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 
 
     // colisionAlcantarilla(eRight,eLeft, eUp, eDown);
+    colisionAlcantarilla(eRight,eLeft, eUp, eDown);
 
 
 }
@@ -359,6 +374,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawAlcantarillas(ventana);
 
     p1->drawJugador(ventana,inter);
+    //p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
         e1[en]->drawEnemigo(ventana,inter);
@@ -380,6 +396,8 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
     p1->drawJugador(ventana,inter);
+
+
     for(unsigned en=0; en< e1.size(); en++)
     {
 
