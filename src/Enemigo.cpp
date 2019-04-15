@@ -31,7 +31,6 @@ Enemigo::Enemigo()
     enemigo_sprite->addFrame(sf::IntRect(284, 49,44, 38),0);
     enemigo_sprite->addFrame(sf::IntRect(330, 49,44, 38),0);
 
-
     enemigo_sprite->addFrame(sf::IntRect(5, 7,44, 38),1);
     enemigo_sprite->addFrame(sf::IntRect(52, 89,44, 38),1);
     enemigo_sprite->addFrame(sf::IntRect(99, 7,44, 38),1);
@@ -48,9 +47,6 @@ Enemigo::Enemigo()
     enemigo_sprite->addFrame(sf::IntRect(238, 131,44, 38),1);
     enemigo_sprite->addFrame(sf::IntRect(284, 89,44, 38),1);
     enemigo_sprite->addFrame(sf::IntRect(330, 131,44, 38),1);
-
-
-
 
     enemigo_sprite->addFrame(sf::IntRect(5, 89,44, 38),2);
     enemigo_sprite->addFrame(sf::IntRect(52, 89,44, 38),2);
@@ -77,7 +73,9 @@ Enemigo::Enemigo()
     /**COSAS ENEMIGO**/
     pState->MoveTo(500,500);
     actitud = 0;
+    teataco = 0;
     tiempo_espera = 1;
+    tiempo_ataque = 1;
     tiempo_alerta = 1;
     tiempo_persecucion =5;
     direccion_patrullaje = 0;
@@ -94,6 +92,10 @@ PhysicsState* Enemigo::getPhysicsState()
 void Enemigo::setVision(bool v)
 {
     teveo=v;
+}
+void Enemigo::setAtaque(bool v)
+{
+    teataco=v;
 }
 void Enemigo::setActitud(int a)
 {
@@ -189,6 +191,13 @@ case 2:
     else if(vely < pState->getActualState()[1])
     {
         y+=-power;
+    }
+
+    if(atackClock.getElapsedTime().asSeconds()>tiempo_ataque){
+        atackClock.restart();
+        teataco=true;
+    }else{
+        teataco=false;
     }
 
     break;
