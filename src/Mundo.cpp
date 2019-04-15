@@ -114,6 +114,7 @@ time2 = clock2.getElapsedTime();
         }
 
 
+
 }
 
 void Mundo::procesarColisiones() {
