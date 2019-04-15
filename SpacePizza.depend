@@ -377,7 +377,7 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1555261766 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1555315996 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -438,7 +438,7 @@
 1555267876 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1555267876 /home/samuel/FV/SpacePizza/include/Jugador.h
+1555317436 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
