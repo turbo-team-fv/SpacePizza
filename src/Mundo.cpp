@@ -31,7 +31,7 @@ Mundo::Mundo()
     // 4th dimension
     clock1 = new Clock();
     time1 = new Time();
-    reparto_time = 30;
+    reparto_time = 80;
     player_lifes = p1->getVidas();
     num_pizzas = 0;
     txt_pizza = new Texture();
@@ -314,14 +314,12 @@ void Mundo::processHUD()
     // Primero vamos acolocar los elementos sabrosos
     *time1 = clock1->getElapsedTime();
 
-
-
     std::stringstream ss;  // #include <sstream>
     ss << setw(2) << setfill('0') << ptoEntrgaActual;
     std::stringstream ss1;
-    ss1 << setw(2) << setfill('0') << reparto_time - (int)time1->asSeconds();
+    ss1 << setw(2) << setfill('0') << (reparto_time - (int)time1->asSeconds()) - 60;
     std::stringstream ss2;
-    ss2 << setw(2) << setfill('0') << (int)((time1->asSeconds())/60);
+    ss2 << setw(2) << setfill('0') << (int)((reparto_time - (int)time1->asSeconds())/60);
     /*t_score.setString("score  "+ss.str()+"");
     t_score.setCharacterSize(23);
     t_score.setColor(sf::Color::White);
