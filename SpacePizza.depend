@@ -403,7 +403,7 @@
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1555261121 /home/samuel/FV/SpacePizza/include/Mundo.h
+1555315940 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -413,6 +413,8 @@
 	"Mapa.h"
 	"SuperSprite.h"
 	"Alcantarilla.h"
+	<sstream>
+	<iomanip>
 
 1555085415 antarillas
 
@@ -420,7 +422,7 @@
 	"Juego.h"
 	"Juego.h"
 
-1555260155 /home/samuel/FV/SpacePizza/include/Juego.h
+1555266433 /home/samuel/FV/SpacePizza/include/Juego.h
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -428,26 +430,28 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1555262076 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+1555267926 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
+	"EJugando.h"
+	"EMenu.h"
 
-1555262033 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1555267876 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1555261684 /home/samuel/FV/SpacePizza/include/Jugador.h
+1555267876 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 	"SuperSprite.h"
 
-1555240051 /home/samuel/FV/SpacePizza/include/PhysicsState.h
+1555264534 /home/samuel/FV/SpacePizza/include/PhysicsState.h
 	<iostream>
 	<vector>
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555260155 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+1555264534 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1555260155 source:/home/samuel/FV/SpacePizza/src/Item.cpp
@@ -457,10 +461,10 @@
 1555260155 /home/samuel/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555260257 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
+1555264534 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1555260198 /home/samuel/FV/SpacePizza/include/Enemigo.h
+1555264534 /home/samuel/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -633,21 +637,24 @@
 1555250862 /home/samuel/FV/SpacePizza/include/EFin.h
 	"State.h"
 
-1555250862 source:/home/samuel/FV/SpacePizza/src/EJugando.cpp
+1555265667 source:/home/samuel/FV/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
-1555250862 /home/samuel/FV/SpacePizza/include/EJugando.h
+1555265667 /home/samuel/FV/SpacePizza/include/EJugando.h
 	"State.h"
+	"Juego.h"
+	"SFML/Graphics.hpp"
 
-1555250862 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
+1555266433 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
+	"EJugando.h"
 	<iostream>
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1555250862 /home/samuel/FV/SpacePizza/include/EMenu.h
+1555265667 /home/samuel/FV/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
@@ -905,7 +912,12 @@
 1555265889 source:/home/pablo/Source/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
-1555250112 /home/samuel/FV/SpacePizza/include/SuperSprite.h
+1555250990 /home/samuel/FV/SpacePizza/include/SuperSprite.h
+	"PhysicsState.h"
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
 
 1555240042 eglandoView
 	"PhysicsState.h"
@@ -914,7 +926,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555260198 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
+1555264534 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
 1555236404 iendoColisiones
@@ -973,14 +985,16 @@
 
 1555241191 h"
 
-1555240042 /home/samuel/FV/SpacePizza/include/State.h
+1555265667 /home/samuel/FV/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
 
-1555240042 source:/home/samuel/FV/SpacePizza/src/MaquinaEstados.cpp
+1555265667 source:/home/samuel/FV/SpacePizza/src/MaquinaEstados.cpp
 	"MaquinaEstados.h"
 	"EJugando.h"
 
-1555240042 /home/samuel/FV/SpacePizza/include/MaquinaEstados.h
+1555265667 /home/samuel/FV/SpacePizza/include/MaquinaEstados.h
+	<vector>
+	"State.h"
 
 1555274022 /home/ramon/Desktop/FV/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
@@ -1104,6 +1118,16 @@
 	<iostream>
 
 1555274022 /home/ramon/Desktop/FV/SpacePizza/include/Motor2D.h
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
+
+1555265667 source:/home/samuel/FV/SpacePizza/src/Motor2D.cpp
+	"Motor2D.h"
+	"Juego.h"
+	<iostream>
+
+1555265667 /home/samuel/FV/SpacePizza/include/Motor2D.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
