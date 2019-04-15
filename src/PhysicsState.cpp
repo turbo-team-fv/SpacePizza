@@ -38,11 +38,11 @@ void PhysicsState::setColliders(vector < sf::Rect<float> > colinit)
         colinit[i].top+=posNow[1];
         colinit[i].left+=posNow[0];
 
-        /*boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
+        boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
 
 
         boxes[i].setFillColor(sf::Color(i*50, i*50, i*50));
-        boxes[i].setPosition(colinit[i].left,colinit[i].top);*/
+        boxes[i].setPosition(colinit[i].left,colinit[i].top);
 
         colliders.push_back(colinit[i]);
 
@@ -148,24 +148,22 @@ void PhysicsState::updatePhysicsState(sf::Time et)
     {
     colliders[i].top+= vel[1]*et.asSeconds();
     colliders[i].left+= vel[0]*et.asSeconds();
-    /*colliders[i].left=posNow[0];
-    colliders[i].top=posNow[1];*/
 
-   // boxes[i].setPosition(colliders[i].left,colliders[i].top);
+
+   boxes[i].setPosition(colliders[i].left,colliders[i].top);
 
     }
 
-//    cout << "POSICION ACTUAL" << posNow[0] << ", " << posNow[1] << endl;
 
 }
 
 void PhysicsState::drawColliders(sf::RenderWindow *w, double i)
 {
 
-    /*for(unsigned i=0; i < boxes.size(); i++)
+    for(unsigned i=0; i < boxes.size(); i++)
     {
         w->draw(boxes[i]);
-    }*/
+    }
 
 }
 

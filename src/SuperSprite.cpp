@@ -19,7 +19,7 @@ SuperSprite::SuperSprite(string ruta, int numanim, double escala, bool isanimado
 
     speed=0.2;
     s_sprite->setTexture(*textura);
-    s_sprite->scale(0.6,0.6);
+    s_sprite->scale(escala,escala);
 
     animacion=0;
     frame=0;

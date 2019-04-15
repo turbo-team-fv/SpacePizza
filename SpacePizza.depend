@@ -379,7 +379,7 @@
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1555261766 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1555327919 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -437,10 +437,10 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1555267876 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1555328185 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1555267876 /home/samuel/FV/SpacePizza/include/Jugador.h
+1555317436 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -453,7 +453,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555264534 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+1555327263 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1555260155 source:/home/samuel/FV/SpacePizza/src/Item.cpp
@@ -928,7 +928,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555264534 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
+1555327064 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
 1555236404 iendoColisiones

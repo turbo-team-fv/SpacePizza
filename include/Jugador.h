@@ -30,6 +30,7 @@ class Jugador
      private:
     /**GRAFICOS**/
     SuperSprite *jugador_sprite;
+    SuperSprite *turbo;
 
 
     /**FISICAS**/
