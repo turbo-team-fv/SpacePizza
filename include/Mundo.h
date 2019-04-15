@@ -74,6 +74,8 @@ private:
     int tiempo;
     sf::Sprite *puntoEntrega;
     sf::Texture texture;
+
+    sf::Clock clockAlcantarillas;
 };
 
 #endif // MUNDO_H

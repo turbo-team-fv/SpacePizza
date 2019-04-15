@@ -32,6 +32,7 @@ void PhysicsState::setVel(double x, double y){
 void PhysicsState::setColliders(vector < sf::Rect<float> > colinit)
 {
 
+initialColliders=colinit;
 
     for (unsigned i=0; i< colinit.size(); i++)
     {
@@ -128,12 +129,20 @@ void PhysicsState::Move(double ax, double ay, bool acelerado)
 
 }
 
+
 void PhysicsState::MoveTo(double ax,double ay)
 {
 
+   colliders=initialColliders;
     posNow[0]=ax,posNow[1]=ay;
     //posBef=posNow;
     cout<<"Dentro de estado Fisico x es :" << posNow[0]<<endl;
+    for(unsigned i = 0; i< colliders.size(); i++){
+        colliders[i].top+=posNow[1];
+        colliders[i].left+=posNow[0];
+
+    }
+
 }
 
 void PhysicsState::updatePhysicsState(sf::Time et)

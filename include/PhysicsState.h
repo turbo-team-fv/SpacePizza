@@ -31,6 +31,7 @@ public:
     void MoveTo(double ax,double ay);//Mueve el objeto a ciertas coordenadas
 
 
+
     void updatePhysicsState(sf::Time et);
 
 protected:
@@ -42,6 +43,7 @@ private:
 
     /**Colisionadores**/
     vector < sf::Rect<float> > colliders;
+    vector < sf::Rect<float> > initialColliders;
 
     vector <sf::RectangleShape> boxes;
 
