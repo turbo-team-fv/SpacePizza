@@ -39,6 +39,7 @@ public:
 
 
     void visionIA();
+    void atacaIA();
 
 
     vector< Alcantarilla *> alcantarillas;

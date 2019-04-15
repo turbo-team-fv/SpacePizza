@@ -82,6 +82,24 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
     return puntosEntrega;
 }
 
+void Mundo::atacaIA()
+{
+int rango=20;
+
+    for(unsigned en=0; en< e1.size(); en++)
+        {
+            if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<rango)
+                    &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<rango))
+            {
+                if(e1[en]->getAtaque()){
+                    cout<<"ATAQUE HIJO PUTA"<<endl;
+                    p1->updateVida(-1);
+
+                }
+            }
+        }
+}
+
 void Mundo::visionIA()
 {
     int rango=100;
@@ -92,9 +110,7 @@ void Mundo::visionIA()
             if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<rango)
                     &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<rango))
             {
-
                 e1[en]->setVision(true);
-
             }
             else
             {
@@ -244,6 +260,7 @@ void Mundo::colisionItems()
 void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     visionIA();
+    atacaIA();
     colisionesMapa();
     colisionItems();
     /// Colisiones con los puntos de entrega
