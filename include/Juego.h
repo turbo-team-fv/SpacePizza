@@ -2,6 +2,7 @@
 #define JUEGO_H
 
 #include "Mapa.h"
+#include "Trafico.h"
 #include "Jugador.h"
 #include "Enemigo.h"
 #include <iostream>

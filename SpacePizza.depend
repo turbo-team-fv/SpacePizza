@@ -475,11 +475,13 @@
 	"tinyxml.h"
 	<windows.h>
 
-1554889310 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/main.cpp
+1555321571 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/main.cpp
 	"Juego.h"
+	"Trafico.h"
 
-1554989057 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Juego.h
+1555336465 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Juego.h
 	"Mapa.h"
+	"Trafico.h"
 	"Jugador.h"
 	"Enemigo.h"
 	<iostream>
@@ -511,7 +513,7 @@
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1554991681 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Mundo.h
+1555346195 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -546,7 +548,7 @@
 	"Item.h"
 	<iostream>
 
-1554989057 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Juego.cpp
+1555341377 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Juego.cpp
 	"Juego.h"
 
 1554989057 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Mapa.cpp
@@ -556,13 +558,14 @@
 1554989057 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1554992476 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Trafico.h
+1555350100 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Trafico.h
 	<SFML/Graphics.hpp>
+	"PhysicsState.h"
 
-1554993435 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Mundo.cpp
+1555347190 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1554993072 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Trafico.cpp
+1555350081 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Trafico.cpp
 	"Trafico.h"
 	<iostream>
 

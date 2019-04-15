@@ -37,28 +37,61 @@ Trafico::Trafico(int tipo, sf::Vector2f pos){
     }
     coche->setPosition(pos.x, pos.y);
 
+
+
+
+    /*
+
+        sf::Clock clock;
+        sf::Time time;
+
+    t   time = clock.getElapsedTime();
+        time2 = clock2.getElapsedTime();
+        time3 = clock3.getElapsedTime();
+        time4 = clock4.getElapsedTime();
+        time5 = clock5.getElapsedTime();
+
+        if(time.asSeconds()>=0.15 && enemigo.getPosition().x>260 && enemigo.getPosition().y==166){
+            enemigo.move(sf::Vector2f(-5,0));
+            clock.restart();
+        }
+
+    */
+
 }
+
+void Trafico::movera(sf::Vector2f dir){
+     coche->move(dir);
+ }
 
 int Trafico::getTipo() {
     return tipo;
 }
 
-sf::Clock Trafico::getClock() {
-    return reloj;
-}
+
 
 sf::Sprite Trafico::getSprite(){
     return *coche;
 }
 
-sf::Vector2f Trafico::getPosicion() {
-    return posicion;
-}
+int Trafico::getX(){
+     return coche->getPosition().x;
+ }
+
+ int Trafico::getY(){
+    return coche->getPosition().y;
+ }
+ void Trafico::rotate(float angle){
+     coche->rotate(angle);
+ }
+
+void Trafico::draw(sf::RenderWindow &window){
+        window.draw(*coche);
+    }
 
 Trafico::~Trafico()
 {
     //dtor
 }
-
 
 

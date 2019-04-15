@@ -162,7 +162,7 @@ void Juego::updateGameState(sf::Time t)
 
     e1->updateEnemigo(p1->getPhysicsState().getActualState()[0],p1->getPhysicsState().getActualState()[1],t);
 
-
+    mundo->movimientoTrafico();
 }
 
 /**Metodo para administrar el renderizado que recibe la interpolacion**/

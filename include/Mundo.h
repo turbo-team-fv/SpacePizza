@@ -19,6 +19,9 @@ class Mundo
         std::vector<Trafico*> getTrafico();
         void draw(sf::RenderWindow * window);
         void procesarColisiones();
+        void movimientoTrafico();
+        sf::Clock getClock();
+        sf::Time getTime();
     protected:
 
     private:
@@ -27,7 +30,8 @@ class Mundo
         std::vector< Trafico* > trafico;
         int ptoEntrgaActual;
         sf::RectangleShape *ptoEntrega;
-
+        sf::Clock clock;
+        sf::Time time;
 };
 
 #endif // MUNDO_H

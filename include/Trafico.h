@@ -1,6 +1,7 @@
 #ifndef TRAFICO_H
 #define TRAFICO_H
 #include <SFML/Graphics.hpp>
+#include "PhysicsState.h"
 
 
 class Trafico
@@ -9,13 +10,17 @@ class Trafico
         Trafico(int tipo, sf::Vector2f pos);
         virtual ~Trafico();
         int getTipo();
-        sf::Clock getClock();
         sf::Sprite getSprite();
         sf::Vector2f getPosicion();
+        int getX();
+        int getY();
+        void movera(sf::Vector2f dir);
+        void draw(sf::RenderWindow &window);
+        void rotate(float angle);
+
     protected:
     private:
         int tipo;
-        sf::Clock reloj;
         sf::Vector2f posicion;
         sf::Sprite *coche;
         sf::Texture *textura;
