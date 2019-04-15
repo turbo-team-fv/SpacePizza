@@ -43,10 +43,10 @@ pState=new PhysicsState();
 
        /**COLLIDERS**/
     vector <sf::Rect<float> > colinit;
-    colinit.push_back(sf::FloatRect(-8,6,18,3));//arr
-    colinit.push_back(sf::FloatRect(-11,-10,3,18));//der
-    colinit.push_back(sf::FloatRect(9,-10,3,18));//iz
-    colinit.push_back(sf::FloatRect(-8,-9,18,3));//ab
+    colinit.push_back(sf::FloatRect(-8,6,18,5));//arr
+    colinit.push_back(sf::FloatRect(-11,-10,5,18));//der
+    colinit.push_back(sf::FloatRect(9,-10,5,18));//iz
+    colinit.push_back(sf::FloatRect(-8,-4,18,-5));//ab
     pState->setColliders(colinit);
 
 
