@@ -248,6 +248,7 @@ void Mundo::colisionItems()
                 // juego->tiempo += 10
                 //Juego.getInstance()->updateTime(10);
                 tiempo += 10;
+                reparto_time +=10;
                 items[i]->restartPowerUp();
                 break;
             case 4:
