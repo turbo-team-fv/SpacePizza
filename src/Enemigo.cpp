@@ -78,7 +78,7 @@ Enemigo::Enemigo()
     pState->MoveTo(500,500);
     actitud = 0;
     tiempo_espera = 1;
-    tiempo_alerta = 5;
+    tiempo_alerta = 1;
     tiempo_persecucion =5;
     direccion_patrullaje = 0;
     direccion_patrullaje2 = 0;
@@ -155,9 +155,6 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
             y+=power;
             break;
         }
-
-
-
         break;
 
     case 1:
@@ -209,6 +206,19 @@ if(chaseclock.getElapsedTime().asSeconds()>=tiempo_persecucion)
     }
 
 }
+
+if(pState->getActualState()[0]>960)
+x-=power;
+
+if(pState->getActualState()[0]<0)
+x+=power;
+
+if(pState->getActualState()[1]>960)
+y-=power;
+
+if(pState->getActualState()[1]<0)
+y+=power;
+
 
 pState->Move(x,y,true);
 pState->updatePhysicsState(et);

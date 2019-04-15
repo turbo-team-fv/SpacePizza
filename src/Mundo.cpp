@@ -84,18 +84,16 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
 
 void Mundo::visionIA()
 {
-
+    int rango=100;
     if(p1->checkEstado()!=2)
     {
         for(unsigned en=0; en< e1.size(); en++)
         {
-            if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<50)
-                    &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<50))
+            if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<rango)
+                    &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<rango))
             {
 
                 e1[en]->setVision(true);
-
-
 
             }
             else
@@ -118,29 +116,28 @@ void Mundo::colisionesMapa()
     float offset=0;
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
     {
-
-        p1->getPhysicsState()->Move(0,-100,true);
-
+        p1->getPhysicsState()->Move(0,-150,true);
+        //p1->getPhysicsState()->MoveTo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1]-20);
     }
 
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
     {
 
-        p1->getPhysicsState()->Move(+100,0,true);
+        p1->getPhysicsState()->Move(+150,0,true);
 //        eLeft = false;
     }
 
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
     {
 
-        p1->getPhysicsState()->Move(-100,0,true);
+        p1->getPhysicsState()->Move(-150,0,true);
         // eRight = false;
     }
 
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
     {
 
-        p1->getPhysicsState()->Move(0,+100,true);
+        p1->getPhysicsState()->Move(0,+150,true);
         //  eUp = false;
     }
 
@@ -381,6 +378,8 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
     p1->drawJugador(ventana,inter);
+
+
     for(unsigned en=0; en< e1.size(); en++)
     {
 
