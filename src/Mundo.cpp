@@ -290,10 +290,23 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 /**Metodo para processar los elementos del HUD*/
 void Mundo::processHUD()
 {
+ // hay que hacer lo de las vidas y tal cogerlas de p1
     // Primero vamos acolocar los elementos sabrosos
  *time1 = clock1->getElapsedTime();
- text_num_pizzas -> setString(std::to_string(num_pizzas));
- text_time -> setString(std::to_string(time1->asSeconds()));
+
+  std::stringstream ss;  // #include <sstream>
+    ss << setw(2) << setfill('0') << num_pizzas;
+    std::stringstream ss1;
+    ss1 << setw(2) << setfill('0') << time1->asSeconds();
+    /*t_score.setString("score  "+ss.str()+"");
+    t_score.setCharacterSize(23);
+    t_score.setColor(sf::Color::White);
+    t_score.setStyle(sf::Text::Bold);
+    t_score.setOrigin(0,0);
+    t_score.setPosition(16.0,-8.0);*/
+
+ text_num_pizzas -> setString(ss.str());
+ text_time -> setString(ss1.str());
 
  string strAux;
     for (int i = 0; i<player_lifes; i++ )

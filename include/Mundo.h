@@ -9,6 +9,8 @@
 #include "Mapa.h"
 #include "SuperSprite.h"
 #include "Alcantarilla.h"
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
