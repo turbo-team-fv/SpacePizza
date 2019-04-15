@@ -1,38 +1,61 @@
 @startuml Diagrama de Clases
 ' left to right direction
 class Juego << (S,#FF7700) Singleton >>{
-    +mapa: Mapa
     +estado: JEstado
     +tiempo: int
     +puntuacion: int
 
-    -init(): void
-    -update(): void
+    -loop(): void
+    -updateTime(int change): void
     -render(): void
-    -input(): void
-    +getInstance(): &Juego
+    -handleEvents(): void
+    -handleInputs(): void
+    +getInstance(): Juego*
 }
 
 interface Estado {
-    +estado: Emum<tipoEstado>
-
-    -cambiarEstado(): int
-    -update(): void
-    -render(): void
+    -Init(): void
+    -HandleEvents(RenderWindow* ventana): void
+    -Update(): void
+    -loop(RenderWindow* ventana): void
+    -Draw(RenderWindow* ventana)
 }
 
 class Jugador {
-    +sprite: Sprite
-    +textura: Texture
-    +vida: int
-    +velocidad: Vector2f
-    
+    +jugador_sprite: SuperSprite
+    +pState: PhysicsState*
+    +vidas: int
+    +estado: Clock
+    +limite_estado: double
+
+
+    -getPhysicsState(): PhysicsState* 
+    -updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et): void 
+    -calcInter(RenderWindow* w, double i): void 
+    -drawJugador(RenderWindow* w, double i): void 
+    -updateVida(int change): void 
+    -checkEstado(): int
+    -setEstado(int e): void 
+    -restartEstado(): void 
+    -getSprite(): void 
 }
 
 class EstadoFisico {
     +posicionActual: Vector2f
     +posicionAnterior: Vector2f
     
+    -getPastState(): vector<double> 
+    -getActualState(): vector<double> 
+    -getVel(): vector<double> 
+    -setVel(double x, double y): void
+    -setPastState(double x, double y): void 
+    -setActualState(double x, double y): void 
+    -setColliders(vector <Rect<float> > colinit): void 
+    -drawColliders(RenderWindow* w, double i): void
+    -getColliders(): vector<Rect<float>>
+    -Move(double ax,double ay,bool acelerado): void
+    -MoveTo(double ax,double ay): void 
+    -updatePhysicsState(sf::Time et): void   
 }
 
 class Mapa {

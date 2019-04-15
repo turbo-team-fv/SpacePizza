@@ -5,6 +5,5 @@ bin
 .layout
 
 # Codeblocks
-
 *.depend
 *.layout

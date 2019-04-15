@@ -57,11 +57,11 @@
 	"tinyxml.h"
 	<windows.h>
 
-1555265889 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
+1555317401 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
-1555265889 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+1555317401 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -71,6 +71,8 @@
 	"Mapa.h"
 	"SuperSprite.h"
 	"Alcantarilla.h"
+	<sstream>
+	<iomanip>
 
 1554574675 source:/home/pablo/Source/FV/SpacePizza/lib/tinyxml/tinyxml2.cpp
 	"tinyxml2.h"
@@ -473,7 +475,7 @@
 
 1554833552 ated upstream
 
-1555265889 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
+1555317402 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -575,7 +577,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555265889 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
+1555317402 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1555258487 /home/carlos/FV/SpacePizza/include/Jugador.h
