@@ -279,12 +279,11 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
         else
         {
             ptoEntrgaActual++;
+            reparto_time +=10;
         }
         puntoEntrega->setPosition(puntosEntrega[ptoEntrgaActual]);
         pizzas++;
     }
-
-
     // colisionAlcantarilla(eRight,eLeft, eUp, eDown);
     colisionAlcantarilla(eRight,eLeft, eUp, eDown);
 
