@@ -314,7 +314,7 @@ void Mundo::processHUD()
     *time1 = clock1->getElapsedTime();
 
     std::stringstream ss;  // #include <sstream>
-    ss << setw(2) << setfill('0') << num_pizzas;
+    ss << setw(2) << setfill('0') << ptoEntrgaActual;
     std::stringstream ss1;
     ss1 << setw(2) << setfill('0') << (int)time1->asSeconds();
     std::stringstream ss2;
@@ -341,7 +341,6 @@ void Mundo::processHUD()
 void Mundo::drawItems(sf::RenderWindow * ventana)
 {
 
-
     // Dibujo los powerUps
     for( int i = 0; i < items.size(); i++ )
     {
@@ -354,7 +353,6 @@ void Mundo::drawItems(sf::RenderWindow * ventana)
         {
             items[i]->restartPowerUp();
         }
-
     }
 }
 
@@ -380,7 +378,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawAlcantarillas(ventana);
 
     p1->drawJugador(ventana,inter);
-    //p1->getPhysicsState()->drawColliders(ventana,inter);
+    p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
         e1[en]->drawEnemigo(ventana,inter);
