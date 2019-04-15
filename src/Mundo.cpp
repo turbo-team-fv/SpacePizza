@@ -31,7 +31,7 @@ Mundo::Mundo()
     // 4th dimension
     clock1 = new Clock();
     time1 = new Time();
-    player_lifes = 5;
+    player_lifes = p1->getVidas();
     num_pizzas = 0;
     txt_pizza = new Texture();
     txt_pizza -> loadFromFile("assets/hud/pizza.png");
@@ -308,7 +308,8 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 /**Metodo para processar los elementos del HUD*/
 void Mundo::processHUD()
 {
-// hay que hacer lo de las vidas y tal cogerlas de p1
+    player_lifes = p1->getVidas();
+    // hay que hacer lo de las vidas y tal cogerlas de p1
     // Primero vamos acolocar los elementos sabrosos
     *time1 = clock1->getElapsedTime();
 
@@ -316,7 +317,7 @@ void Mundo::processHUD()
     ss << setw(2) << setfill('0') << num_pizzas;
     std::stringstream ss1;
     ss1 << setw(2) << setfill('0') << (int)time1->asSeconds();
-  std::stringstream ss2;
+    std::stringstream ss2;
     ss2 << setw(2) << setfill('0') << (int)((time1->asSeconds())/60);
     /*t_score.setString("score  "+ss.str()+"");
     t_score.setCharacterSize(23);

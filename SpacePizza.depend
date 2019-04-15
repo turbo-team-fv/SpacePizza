@@ -844,7 +844,7 @@
 1555274022 /home/ramon/Desktop/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555348015 /home/ramon/Desktop/FV/SpacePizza/include/Jugador.h
+1555348821 /home/ramon/Desktop/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -919,7 +919,7 @@
 	"Item.h"
 	<iostream>
 
-1555348015 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
+1555348857 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/Mapa.cpp
