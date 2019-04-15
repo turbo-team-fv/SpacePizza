@@ -7,7 +7,7 @@ pState=new PhysicsState();
     pState= new PhysicsState();
     pState->setActualState(150,250);
     /**Funcionamiento: le digo la ruta de la textura y el numero de animaciones**/
-    jugador_sprite= new SuperSprite("assets/jugador/sp_alien_texture.png",4,0.6,true);
+    jugador_sprite= new SuperSprite("assets/jugador/sp_alien_texture.png",4,0.4,true);
     turbo= new SuperSprite("assets/jugador/turbo.png",4,0.6,true);
 
     turbo->addFrame(sf::IntRect(27, 11,27, 58),0);
@@ -43,10 +43,10 @@ pState=new PhysicsState();
 
        /**COLLIDERS**/
     vector <sf::Rect<float> > colinit;
-    colinit.push_back(sf::FloatRect(-8,10,22,3));//arr
-    colinit.push_back(sf::FloatRect(-11,-10,3,22));//der
-    colinit.push_back(sf::FloatRect(13,-10,3,22));//iz
-    colinit.push_back(sf::FloatRect(-8,-13,22,3));//ab
+    colinit.push_back(sf::FloatRect(-8,6,18,3));//arr
+    colinit.push_back(sf::FloatRect(-11,-10,3,18));//der
+    colinit.push_back(sf::FloatRect(9,-10,3,18));//iz
+    colinit.push_back(sf::FloatRect(-8,-9,18,3));//ab
     pState->setColliders(colinit);
 
 
@@ -72,6 +72,9 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
     if(estado==1){
     cout<<"TURBO"<<endl;
     potencia=potencia*3;
+    jugador_sprite->setSpeed(0.1);
+    }else{
+    jugador_sprite->setSpeed(0.2);
     }
 
     if(eRight)
