@@ -61,6 +61,7 @@ private:
     Sprite * spr_pizza;
     Clock * clock1;
     Time * time1;
+    int reparto_time;
 
 
     /**ELEMENTOS**/
