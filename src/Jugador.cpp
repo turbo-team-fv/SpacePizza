@@ -2,7 +2,7 @@
 
 Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
 {
-pState=new PhysicsState();
+    pState=new PhysicsState();
     //ctor
     pState= new PhysicsState();
     pState->setActualState(150,250);
@@ -41,7 +41,7 @@ pState=new PhysicsState();
     jugador_sprite->addFrame(sf::IntRect(10, 4,28, 44),3);//ab
     jugador_sprite->addFrame(sf::IntRect(58, 6,28, 42),3);
 
-       /**COLLIDERS**/
+    /**COLLIDERS**/
     vector <sf::Rect<float> > colinit;
     colinit.push_back(sf::FloatRect(-8,6,18,5));//arr
     colinit.push_back(sf::FloatRect(-11,-10,5,18));//der
@@ -59,9 +59,10 @@ PhysicsState* Jugador::getPhysicsState()
     return pState;
 }
 
-void Jugador::restartEstado(){
+void Jugador::restartEstado()
+{
 
-timer_estado.restart();
+    timer_estado.restart();
 
 }
 void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et)
@@ -69,46 +70,50 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
 
     double x=0,y=0,potencia=50;
 
-    if(estado==1){
-    cout<<"TURBO"<<endl;
-    potencia=potencia*3;
-    jugador_sprite->setSpeed(0.1);
-    }else{
-    jugador_sprite->setSpeed(0.2);
+    if(estado==1)
+    {
+        cout<<"TURBO"<<endl;
+        potencia=potencia*3;
+        jugador_sprite->setSpeed(0.1);
+    }
+    else
+    {
+        jugador_sprite->setSpeed(0.2);
     }
 
     if(eRight)
     {
-    jugador_sprite->setAnimation(1);
-    turbo->setAnimation(1);
+        jugador_sprite->setAnimation(1);
+        turbo->setAnimation(1);
         //La tecla Derecha está pulsada:
         x=potencia;
 
     }
     if(eLeft)
     {
-    jugador_sprite->setAnimation(0);
-    turbo->setAnimation(0);
+        jugador_sprite->setAnimation(0);
+        turbo->setAnimation(0);
         x=-potencia;
         //La tecla Izquierda está pulsada:
     }
     if(eUp)
     {
-    turbo->setAnimation(2);
-    jugador_sprite->setAnimation(2);
+        turbo->setAnimation(2);
+        jugador_sprite->setAnimation(2);
         y=-potencia;
         //La tecla Arriba está pulsada:
     }
     if(eDown)
     {
-    jugador_sprite->setAnimation(3);
-    turbo->setAnimation(3);
+        jugador_sprite->setAnimation(3);
+        turbo->setAnimation(3);
         y=potencia;
         //La tecla Abajo está pulsada:
     }
 
-    if(timer_estado.getElapsedTime().asSeconds()>=limite_estado){
-    estado=0;
+    if(timer_estado.getElapsedTime().asSeconds()>=limite_estado)
+    {
+        estado=0;
     }
 
     pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
@@ -129,30 +134,41 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
     this->jugador_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
-    if(estado==1){
-    this->turbo->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+    if(estado==1)
+    {
+        this->turbo->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
     }
 
 }
 
-int Jugador::checkEstado(){
+int Jugador::checkEstado()
+{
 
-return estado;
+    return estado;
 
 }
 
-void Jugador::setEstado(int e){
+int Jugador::getVidas()
+{
+    return vidas;
+}
 
-estado=e;
+void Jugador::setEstado(int e)
+{
+
+    estado=e;
 
 }
 // Este metodo permite modifcar la vida => hay que pasarle el valor a modificar incluyendo el signo si queremos restar
-void Jugador::updateVida(int change) {
+void Jugador::updateVida(int change)
+{
     vidas = vidas + change;
-    if(vidas < 0) {
+    if(vidas < 0)
+    {
         vidas = 0;
     }
-    if(vidas >= 5 ) {
+    if(vidas >= 5 )
+    {
         vidas = 5;
     }
     std::cout<<"Muestor la vida despues de la operacion: "<< vidas<<std::endl;

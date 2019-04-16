@@ -31,7 +31,8 @@ Mundo::Mundo()
     // 4th dimension
     clock1 = new Clock();
     time1 = new Time();
-    player_lifes = 5;
+    reparto_time = 30;
+    player_lifes = p1->getVidas();
     num_pizzas = 0;
     txt_pizza = new Texture();
     txt_pizza -> loadFromFile("assets/hud/pizza.png");
@@ -84,20 +85,21 @@ std::vector<sf::Vector2f> Mundo::getPuntosEntrega()
 
 void Mundo::atacaIA()
 {
-int rango=20;
+    int rango=20;
 
     for(unsigned en=0; en< e1.size(); en++)
+    {
+        if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<rango)
+                &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<rango))
         {
-            if((abs(p1->getSprite()->getRenderPos()[0]-e1[en]->getSprite()->getRenderPos()[0])<rango)
-                    &&(abs(p1->getSprite()->getRenderPos()[1]-e1[en]->getSprite()->getRenderPos()[1])<rango))
+            if(e1[en]->getAtaque())
             {
-                if(e1[en]->getAtaque()){
-                    cout<<"ATAQUE HIJO PUTA"<<endl;
-                    p1->updateVida(-1);
+                cout<<"ATAQUE HIJO PUTA"<<endl;
+                p1->updateVida(-1);
 
-                }
             }
         }
+    }
 }
 
 void Mundo::visionIA()
@@ -164,8 +166,10 @@ void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
 
 /// Colisiones con las alcantarillas
-    for( int i = 0; i < alcantarillas.size(); i++ ) {
-        if(p1->getSprite()->getActualSprite()->getGlobalBounds().intersects(alcantarillas[i]->getSprite().getGlobalBounds())){
+    for( int i = 0; i < alcantarillas.size(); i++ )
+    {
+        if(p1->getSprite()->getActualSprite()->getGlobalBounds().intersects(alcantarillas[i]->getSprite().getGlobalBounds()))
+        {
             //p1->getPhysicsState()->MoveTo((double) 500, (double) 425);
             // p1->getPhysicsState()->MovePlayerTo((double) 500, (double) 425);
 
@@ -244,12 +248,13 @@ void Mundo::colisionItems()
                 // juego->tiempo += 10
                 //Juego.getInstance()->updateTime(10);
                 tiempo += 10;
+                reparto_time +=10;
                 items[i]->restartPowerUp();
                 break;
             case 4:
                 // Colisiona con una invisibilidad => cambiar la IA del Enemigo?
                 items[i]->restartPowerUp();
-                 p1->setEstado(2);
+                p1->setEstado(2);
                 p1->restartEstado();
                 break;
             }
@@ -274,12 +279,11 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
         else
         {
             ptoEntrgaActual++;
+            reparto_time +=10;
         }
         puntoEntrega->setPosition(puntosEntrega[ptoEntrgaActual]);
         pizzas++;
     }
-
-
     // colisionAlcantarilla(eRight,eLeft, eUp, eDown);
     colisionAlcantarilla(eRight,eLeft, eUp, eDown);
 
@@ -305,14 +309,23 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 /**Metodo para processar los elementos del HUD*/
 void Mundo::processHUD()
 {
- // hay que hacer lo de las vidas y tal cogerlas de p1
+    player_lifes = p1->getVidas();
+    // hay que hacer lo de las vidas y tal cogerlas de p1
     // Primero vamos acolocar los elementos sabrosos
- *time1 = clock1->getElapsedTime();
+    *time1 = clock1->getElapsedTime();
 
-  std::stringstream ss;  // #include <sstream>
-    ss << setw(2) << setfill('0') << num_pizzas;
+    std::stringstream ss;  // #include <sstream>
+    ss << setw(2) << setfill('0') << ptoEntrgaActual;
     std::stringstream ss1;
-    ss1 << setw(2) << setfill('0') << time1->asSeconds();
+    if((reparto_time - (int)time1->asSeconds()) > 60){
+      ss1 << setw(2) << setfill('0') << (reparto_time - (int)time1->asSeconds()) - 60;
+    }else{
+     ss1 << setw(2) << setfill('0') << (reparto_time - (int)time1->asSeconds());
+
+    }
+
+    std::stringstream ss2;
+    ss2 << setw(2) << setfill('0') << (int)((reparto_time - (int)time1->asSeconds())/60);
     /*t_score.setString("score  "+ss.str()+"");
     t_score.setCharacterSize(23);
     t_score.setColor(sf::Color::White);
@@ -320,21 +333,25 @@ void Mundo::processHUD()
     t_score.setOrigin(0,0);
     t_score.setPosition(16.0,-8.0);*/
 
- text_num_pizzas -> setString(ss.str());
- text_time -> setString(ss1.str());
+    text_num_pizzas -> setString(ss.str());
+    text_time -> setString(ss2.str()+":"+ss1.str());
 
- string strAux;
+    string strAux;
     for (int i = 0; i<player_lifes; i++ )
     {
         strAux.append("b");
     }
     text_player_lifes -> setString(strAux);
+
+    // Se que esto no va aqui pero ya lo pondremos mejor
+    if(player_lifes == 0 || (reparto_time - (int)time1->asSeconds()) == 0){
+        exit(0);
+    }
 }
 
 
 void Mundo::drawItems(sf::RenderWindow * ventana)
 {
-
 
     // Dibujo los powerUps
     for( int i = 0; i < items.size(); i++ )
@@ -348,7 +365,6 @@ void Mundo::drawItems(sf::RenderWindow * ventana)
         {
             items[i]->restartPowerUp();
         }
-
     }
 }
 
@@ -374,7 +390,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawAlcantarillas(ventana);
 
     p1->drawJugador(ventana,inter);
-    //p1->getPhysicsState()->drawColliders(ventana,inter);
+    //    p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
         e1[en]->drawEnemigo(ventana,inter);

@@ -19,6 +19,7 @@ class Jugador
         void calcInter(sf::RenderWindow *w, double i);
         void drawJugador(sf::RenderWindow *w, double i);
         void updateVida(int change);
+        int getVidas();
         int checkEstado();
         void setEstado(int e);
         void restartEstado();
