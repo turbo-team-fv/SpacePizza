@@ -18,6 +18,11 @@ class Trafico
         void draw(sf::RenderWindow &window);
         void rotate(float angle);
 
+        void der();
+        void abajo();
+        void izq();
+        void arriba();
+
     protected:
     private:
         int tipo;

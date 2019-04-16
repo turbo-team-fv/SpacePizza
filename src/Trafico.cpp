@@ -59,6 +59,18 @@ Trafico::Trafico(int tipo, sf::Vector2f pos){
     */
 
 }
+void Trafico::der(){
+    coche->setTextureRect(sf::IntRect(583,416,38,25));
+}
+void Trafico::abajo(){
+    coche->setTextureRect(sf::IntRect(566,444,23,30));
+}
+void Trafico::izq(){
+    coche->setTextureRect(sf::IntRect(534,416,38,25));
+}
+void Trafico::arriba(){
+    coche->setTextureRect(sf::IntRect(532,444,23,30));
+}
 
 void Trafico::movera(sf::Vector2f dir){
      coche->move(dir);

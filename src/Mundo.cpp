@@ -96,23 +96,49 @@ time = clock.getElapsedTime();
 time2 = clock2.getElapsedTime();
 
         if(time.asSeconds()>=0.005){
-            if(trafico[0]->getX()<=346 && trafico[0]->getY()<=290){
+            if(trafico[0]->getX()<=350 && trafico[0]->getY()<=290){
                 trafico[0]->movera(sf::Vector2f(2,0));
+                trafico[0]->der();
             }
-            if(trafico[0]->getX()>=346 && trafico[0]->getY()<=410){
+            if(trafico[0]->getX()>=350 && trafico[0]->getY()<=410){
                 trafico[0]->movera(sf::Vector2f(0,2));
+                trafico[0]->abajo();
             }
 
-            if(trafico[0]->getX()<=350 && trafico[0]->getY()>=410){
+            if(trafico[0]->getX()<=355 && trafico[0]->getY()>=410){
                 trafico[0]->movera(sf::Vector2f(-2,0));
+                trafico[0]->izq();
             }
 
-            if(trafico[0]->getX()<=55 && trafico[0]->getY()<=410){
+            if(trafico[0]->getX()<=60 && trafico[0]->getY()<=410){
                 trafico[0]->movera(sf::Vector2f(0,-2));
+                trafico[0]->arriba();
             }
             clock.restart();
         }
 
+
+        if(time2.asSeconds()>=0.005){
+            if(trafico[2]->getX()<=350 && trafico[2]->getY()<=675){
+                trafico[2]->movera(sf::Vector2f(2,0));
+                trafico[2]->der();
+            }
+            if(trafico[2]->getX()>=350 && trafico[2]->getY()<=760){
+                trafico[2]->movera(sf::Vector2f(0,2));
+                trafico[2]->abajo();
+            }
+            if(trafico[2]->getX()>74 && trafico[2]->getY()>=760){
+                trafico[2]->movera(sf::Vector2f(-2,0));
+                trafico[2]->izq();
+            }
+            if(trafico[2]->getX()<=74 && trafico[2]->getY()<=765){
+                trafico[2]->movera(sf::Vector2f(0,-2));
+                trafico[2]->arriba();
+            }
+
+
+            clock2.restart();
+        }
 
 
 }

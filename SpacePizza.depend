@@ -558,14 +558,14 @@
 1554989057 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1555350100 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Trafico.h
+1555425159 /home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/include/Trafico.h
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1555347190 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Mundo.cpp
+1555425699 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 
-1555350580 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Trafico.cpp
+1555425264 source:/home/hugobellanger21/Escritorio/Codeblocks/SpacePizza/src/Trafico.cpp
 	"Trafico.h"
 	<iostream>
 
