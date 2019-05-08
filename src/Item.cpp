@@ -92,9 +92,11 @@ void Item::setTipo(int tipo){
         break;
         case 5:
             /// Levitar
+            /// TODO: Poner el sprite correspondiente
         break;
         case 6:
             /// Modo Imparable
+            /// TODO: Poner el sprite correspondiente
         break;
     }
 }
