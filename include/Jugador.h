@@ -15,7 +15,7 @@ class Jugador
         Jugador();
         virtual ~Jugador();
         PhysicsState* getPhysicsState();
-        void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);
+        void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vector2f bounce, sf::Time et);
         void calcInter(sf::RenderWindow *w, double i);
         void drawJugador(sf::RenderWindow *w, double i);
         void updateVida(int change);

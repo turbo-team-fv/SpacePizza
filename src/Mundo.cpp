@@ -128,36 +128,33 @@ void Mundo::visionIA()
 }
 
 
-void Mundo::colisionesMapa()
+sf::Vector2f Mundo::colisionesMapa()
 {
 
     float offset=0;
+    sf:Vector2f bounce(0,0);
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
     {
-        p1->getPhysicsState()->Move(0,-150,true);
-        //p1->getPhysicsState()->MoveTo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1]-20);
+        bounce.y=-220;
     }
 
-    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
+    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
+    {
+        bounce.x=220;
+    }
+
+    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
     {
 
-        p1->getPhysicsState()->Move(+150,0,true);
-//        eLeft = false;
+        bounce.x=-220;
     }
 
-    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
+    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
     {
-
-        p1->getPhysicsState()->Move(-150,0,true);
-        // eRight = false;
+        bounce.y=220;
     }
 
-    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
-    {
-
-        p1->getPhysicsState()->Move(0,+150,true);
-        //  eUp = false;
-    }
+    return bounce;
 
 
 }
@@ -266,7 +263,6 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     visionIA();
     atacaIA();
-    colisionesMapa();
     colisionItems();
     /// Colisiones con los puntos de entrega
     if(puntoEntrega->getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()))
@@ -292,8 +288,11 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
 {
+sf::Vector2f bounce=colisionesMapa();
+
+
     procesarColisiones(eRight,eLeft,eUp,eDown);
-    p1->updateJugador(eRight,eLeft,eUp,eDown,t);
+    p1->updateJugador(eRight,eLeft,eUp,eDown,bounce,t);
     for(unsigned en=0; en< e1.size(); en++)
     {
 
@@ -390,7 +389,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawAlcantarillas(ventana);
 
     p1->drawJugador(ventana,inter);
-    p1->getPhysicsState()->drawColliders(ventana,inter);
+   // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
         e1[en]->drawEnemigo(ventana,inter);
