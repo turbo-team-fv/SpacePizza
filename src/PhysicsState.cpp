@@ -153,17 +153,23 @@ void PhysicsState::updatePhysicsState(sf::Time et)
     posNow[0] += vel[0]*et.asSeconds();
     posNow[1] += vel[1]*et.asSeconds();
 
-    for(unsigned i=0; i < colliders.size(); i++)
+
+updateColliders(vel[0]*et.asSeconds(),vel[1]*et.asSeconds());
+
+}
+
+void PhysicsState::updateColliders(double x, double y){
+
+
+ for(unsigned i=0; i < colliders.size(); i++)
     {
-    colliders[i].top+= vel[1]*et.asSeconds();
-    colliders[i].left+= vel[0]*et.asSeconds();
+    colliders[i].top+=y;
+    colliders[i].left+=x;
 
 
    boxes[i].setPosition(colliders[i].left,colliders[i].top);
 
     }
-
-
 }
 
 void PhysicsState::drawColliders(sf::RenderWindow *w, double i)

@@ -30,7 +30,7 @@ public:
     int getTime();
     void initItems();
     void initPuntosEntrega();
-    void colisionesMapa();
+    sf::Vector2f colisionesMapa();
     void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
     void colisionItems();
     void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);

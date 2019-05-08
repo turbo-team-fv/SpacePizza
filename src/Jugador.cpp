@@ -43,10 +43,10 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
 
     /**COLLIDERS**/
     vector <sf::Rect<float> > colinit;
-    colinit.push_back(sf::FloatRect(-6,6,10,6));//ab
-    colinit.push_back(sf::FloatRect(-11,4,6,8));//der
-    colinit.push_back(sf::FloatRect(9,4,-6,8));//iz
-    colinit.push_back(sf::FloatRect(-6,8,10,-4));//arr
+    colinit.push_back(sf::FloatRect(-6,15,10,6));//ab
+    colinit.push_back(sf::FloatRect(-20,4,6,8));//iz
+    colinit.push_back(sf::FloatRect(20,4,-6,8));//der
+    colinit.push_back(sf::FloatRect(-6,-8,10,-4));//arr
     pState->setColliders(colinit);
 
 
@@ -65,10 +65,19 @@ void Jugador::restartEstado()
     timer_estado.restart();
 
 }
-void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et)
+void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vector2f bounce, sf::Time et)
 {
 
     double x=0,y=0,potencia=50;
+
+    if(bounce.x<0)
+    eRight=false;
+    if(bounce.x>0)
+    eLeft=false;
+    if(bounce.y<0)
+    eDown=false;
+    if(bounce.y>0)
+    eUp=false;
 
     if(estado==1)
     {
@@ -116,7 +125,7 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
         estado=0;
     }
 
-    pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
+    pState->Move(x+bounce.x,y+bounce.y,true);//Cambia el booleano para quitar aceleracion o ponerla
     pState->updatePhysicsState(et);
 
 }

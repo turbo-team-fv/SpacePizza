@@ -128,36 +128,35 @@ void Mundo::visionIA()
 }
 
 
-void Mundo::colisionesMapa()
+sf::Vector2f Mundo::colisionesMapa()
 {
 
     float offset=0;
+    sf:Vector2f bounce(0,0);
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
     {
-        p1->getPhysicsState()->Move(0,-150,true);
-        //p1->getPhysicsState()->MoveTo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1]-20);
+        bounce.y=-150;
     }
 
-    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
+    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
+    {
+        bounce.x=150;
+    }
+
+    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
     {
 
-        p1->getPhysicsState()->Move(+150,0,true);
-//        eLeft = false;
+        bounce.x=-150;
     }
 
-    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
+    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
     {
-
-        p1->getPhysicsState()->Move(-150,0,true);
-        // eRight = false;
+        bounce.y=150;
     }
-
-    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
-    {
-
-        p1->getPhysicsState()->Move(0,+150,true);
-        //  eUp = false;
-    }
+   /* if(bounce.x!=0||bounce.y!=0){
+    p1->getPhysicsState()->Move(bounce.x,bounce.y,true);
+    }*/
+    return bounce;
 
 
 }
@@ -266,7 +265,6 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     visionIA();
     atacaIA();
-    colisionesMapa();
     colisionItems();
     /// Colisiones con los puntos de entrega
     if(puntoEntrega->getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()))
@@ -292,8 +290,11 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
 {
+sf::Vector2f bounce=colisionesMapa();
+
+
     procesarColisiones(eRight,eLeft,eUp,eDown);
-    p1->updateJugador(eRight,eLeft,eUp,eDown,t);
+    p1->updateJugador(eRight,eLeft,eUp,eDown,bounce,t);
     for(unsigned en=0; en< e1.size(); en++)
     {
 
