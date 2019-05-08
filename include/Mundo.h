@@ -78,6 +78,9 @@ private:
     sf::Texture texture;
 
     sf::Clock clockAlcantarillas;
+
+    bool entregando;
+    sf::Clock clockEntrega;
 };
 
 #endif // MUNDO_H

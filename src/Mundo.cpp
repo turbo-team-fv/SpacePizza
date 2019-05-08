@@ -66,6 +66,8 @@ Mundo::Mundo()
     tiempo = 10;
 
     initAlcantarillas();
+
+    entregando = false;
 }
 
 int Mundo::getPtoEntregaActual()
@@ -271,18 +273,28 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
     /// Colisiones con los puntos de entrega
     if(puntoEntrega->getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()))
     {
-        //jugador.puntuacion + 10;
-        if(ptoEntrgaActual == puntosEntrega.size() - 1)
-        {
-            ptoEntrgaActual = 0;
+        if(entregando == false ){
+            // Empiezo contar tiempo
+            entregando = true;
+            clockEntrega.restart();
+            /// TODO: Aqui se inicializa la animacion de que este 2 segundos en el pto entrega
         }
-        else
-        {
-            ptoEntrgaActual++;
-            reparto_time +=10;
+        if((int)clockEntrega.getElapsedTime().asSeconds() == 2) {
+            // Permanece 2 segundos dentro del punto de entrega => se genera el nuevo
+            int nextPos = rand() % (puntosEntrega.size()-1);
+            std::cout<<"Muestro la pos aleatoria para el pto entrega"<<std::endl;
+            std::cout<<nextPos<<std::endl;
+            //jugador.puntuacion + 10;
+            while(nextPos == ptoEntrgaActual){
+                nextPos = rand() % (puntosEntrega.size()-1);
+            }
+            puntoEntrega->setPosition(puntosEntrega[nextPos]);
+            pizzas++;
         }
-        puntoEntrega->setPosition(puntosEntrega[ptoEntrgaActual]);
-        pizzas++;
+    } else {
+        entregando = false;
+        clockEntrega.restart();
+        /// TODO: Aqui se reinicia la animacion de que este 2 segundos en el pto entrega
     }
     // colisionAlcantarilla(eRight,eLeft, eUp, eDown);
     colisionAlcantarilla(eRight,eLeft, eUp, eDown);
@@ -393,7 +405,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     //    p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
-        e1[en]->drawEnemigo(ventana,inter);
+      e1[en]->drawEnemigo(ventana,inter);
     }
 
     /// HUD STUFF
@@ -468,6 +480,10 @@ void Mundo::initPuntosEntrega()
     /// Situo los puntos de entrega disponibles
     puntosEntrega.push_back(sf::Vector2f(360,200));
     puntosEntrega.push_back(sf::Vector2f(360,500));
+    puntosEntrega.push_back(sf::Vector2f(400,500));
+    puntosEntrega.push_back(sf::Vector2f(100,500));
+    puntosEntrega.push_back(sf::Vector2f(800,500));
+    puntosEntrega.push_back(sf::Vector2f(100,800));
 
     puntoEntrega->setPosition(puntosEntrega[0]);
 }
