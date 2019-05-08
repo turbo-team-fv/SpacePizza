@@ -263,6 +263,16 @@ void Mundo::colisionItems()
                 p1->restartEstado();
                 break;
             }
+            case 5:
+                // Colisiona con uno de tipo Levitar => Quitar colisiones edificios
+                std::cout<<"Colision con un powerUp de tipo Levitar"<<std::endl;
+                items[i]->restartPowerUp();
+            break;
+            case 6:
+                // Colisiona con modo imparable => ¿?
+                std::cout<<"Colisiona con un powerUp de tip Imparable"<<std::endl;
+                items[i]->restartPowerUp();
+            break;
         }
     }
 
@@ -389,7 +399,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     for(unsigned en=0; en< e1.size(); en++)
     {
 
-        e1[en]->calcInter(ventana,inter);
+        //e1[en]->calcInter(ventana,inter);
     }
 
 
@@ -404,7 +414,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
-        e1[en]->drawEnemigo(ventana,inter);
+       // e1[en]->drawEnemigo(ventana,inter);
     }
 
     /// HUD STUFF
@@ -428,7 +438,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     for(unsigned en=0; en< e1.size(); en++)
     {
 
-        e1[en]->drawEnemigo(ventana,inter);
+       // e1[en]->drawEnemigo(ventana,inter);
     }
 
 
@@ -487,6 +497,8 @@ void Mundo::initItems()
 {
     /// Creo un item de cada tipo en una posicion determinada con un tiempo de
     /// vida y de generacion
+    /// NOTA: El numero de powerUps del mapa se determina en este metodo, ya que el tipo se generara
+    /// aleatoriamente.
     Item *vida1 = new Item(1, sf::Vector2f(360,150), 2, 5);
     items.push_back(vida1);
     Item *turbo = new Item(2, sf::Vector2f(420,425), 2,10);
@@ -495,6 +507,11 @@ void Mundo::initItems()
     items.push_back(tiempo);
     Item *inivisibilidad = new Item(4, sf::Vector2f(100,280), 2,10);
     items.push_back(inivisibilidad);
+    /// TODO: crear uno mas de cada tipo para que inicialmente haya powerUps de todos los tipos
+    /*Item *levitar = new Item(5, sf::Vector2f(), 2,10);
+    items.push_back(levitar);
+    Item *imparable = new Item(6, sf::Vector2f(), 2,10);
+    items.push_back(imparable);*/
 }
 
 Mundo::~Mundo()

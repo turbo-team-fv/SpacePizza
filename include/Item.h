@@ -16,6 +16,7 @@ class Item
         void restartPowerUp();
         void drawItem(sf::RenderWindow * window);
         bool isActivo();
+        void setTipo( int tipo);
 
     protected:
 
