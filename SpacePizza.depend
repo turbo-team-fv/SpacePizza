@@ -536,11 +536,11 @@
 1557249593 /home/carlos/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1557302065 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
+1557308760 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
-1557301584 /home/carlos/FV/SpacePizza/include/Mundo.h
+1557307778 /home/carlos/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>

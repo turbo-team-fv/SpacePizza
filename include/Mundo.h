@@ -45,6 +45,9 @@ public:
     vector< Alcantarilla *> alcantarillas;
 
     void processHUD();
+
+    void calcularPuntuacionVariable();
+    void calcularTiempoBonificacion();
 protected:
 
 private:
@@ -81,6 +84,10 @@ private:
 
     bool entregando;
     sf::Clock clockEntrega;
+    double distanciaPtoEntrega;
+    int puntosPorDistancia;
+    int tiempoBonificacion;
+    int puntuacion;
 };
 
 #endif // MUNDO_H
