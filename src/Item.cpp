@@ -5,7 +5,7 @@ using namespace std;
 
 Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
     //ctor
-    this->tipo = tipo;
+    // this->tipo = tipo;
     posicion = pos;
     tiempoGeneracion = tiempoG;
     tiempoVida = tiempoV;
@@ -21,32 +21,7 @@ Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
     activo = false;
     /// En funcion del tipo de item escoger la zona de recorte para poner la
     /// imagen a cada tipo de powerUp
-    switch (tipo) {
-        case 1:
-            /// Vida Extra
-            sprite->setTextureRect(sf::IntRect(134,13,92,96));
-            sprite->setOrigin(92/2,96/2);
-            sprite->setScale(0.2,0.2);
-        break;
-        case 2:
-            /// Turbo
-            sprite->setTextureRect(sf::IntRect(25,135,67,90));
-            sprite->setOrigin(67/2,90/2);
-            sprite->setScale(0.2,0.2);
-        break;
-        case 3:
-            /// Tiempo Extra
-            sprite->setTextureRect(sf::IntRect(150,133,63,94));
-            sprite->setOrigin(63/2,94/2);
-            sprite->setScale(0.2,0.2);
-        break;
-        case 4:
-            /// Invisibilidad
-            sprite->setTextureRect(sf::IntRect(258,15,91,92));
-            sprite->setOrigin(92/2, 92/2);
-            sprite->setScale(0.2,0.2);
-        break;
-    }
+    setTipo(tipo);
     sprite->setPosition(pos.x, pos.y);
 }
 
@@ -82,6 +57,46 @@ sf::Vector2f Item::getPosicion() {
 void Item::restartPowerUp() {
     activo = false;
     reloj.restart();
+    /// Cambiar el tipo del powerUp
+    int tipo = 1 + rand() % 5;
+    setTipo(tipo);
+
+}
+
+void Item::setTipo(int tipo){
+    this->tipo = tipo;
+    switch (tipo) {
+        case 1:
+            /// Vida Extra
+            sprite->setTextureRect(sf::IntRect(134,13,92,96));
+            sprite->setOrigin(92/2,96/2);
+            sprite->setScale(0.2,0.2);
+        break;
+        case 2:
+            /// Turbo
+            sprite->setTextureRect(sf::IntRect(25,135,67,90));
+            sprite->setOrigin(67/2,90/2);
+            sprite->setScale(0.2,0.2);
+        break;
+        case 3:
+            /// Tiempo Extra
+            sprite->setTextureRect(sf::IntRect(150,133,63,94));
+            sprite->setOrigin(63/2,94/2);
+            sprite->setScale(0.2,0.2);
+        break;
+        case 4:
+            /// Invisibilidad
+            sprite->setTextureRect(sf::IntRect(258,15,91,92));
+            sprite->setOrigin(92/2, 92/2);
+            sprite->setScale(0.2,0.2);
+        break;
+        case 5:
+            /// Levitar
+        break;
+        case 6:
+            /// Modo Imparable
+        break;
+    }
 }
 
 bool Item::isActivo(){

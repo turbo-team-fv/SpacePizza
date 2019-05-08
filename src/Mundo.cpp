@@ -378,7 +378,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     for(unsigned en=0; en< e1.size(); en++)
     {
 
-        e1[en]->calcInter(ventana,inter);
+        //e1[en]->calcInter(ventana,inter);
     }
 
 
@@ -393,7 +393,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
-        e1[en]->drawEnemigo(ventana,inter);
+       // e1[en]->drawEnemigo(ventana,inter);
     }
 
     /// HUD STUFF
@@ -417,7 +417,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     for(unsigned en=0; en< e1.size(); en++)
     {
 
-        e1[en]->drawEnemigo(ventana,inter);
+       // e1[en]->drawEnemigo(ventana,inter);
     }
 
 
