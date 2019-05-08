@@ -262,7 +262,7 @@ void Mundo::colisionItems()
                 p1->setEstado(2);
                 p1->restartEstado();
                 break;
-            }
+
             case 5:
                 // Colisiona con uno de tipo Levitar => Quitar colisiones edificios
                 std::cout<<"Colision con un powerUp de tipo Levitar"<<std::endl;
@@ -273,6 +273,7 @@ void Mundo::colisionItems()
                 std::cout<<"Colisiona con un powerUp de tip Imparable"<<std::endl;
                 items[i]->restartPowerUp();
             break;
+            }
         }
     }
 

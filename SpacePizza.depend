@@ -533,14 +533,14 @@
 1554833552 shed changes
 	<iostream>
 
-1557309787 /home/carlos/FV/SpacePizza/include/Item.h
+1557339326 /home/carlos/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
 1557309224 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
-1557309220 /home/carlos/FV/SpacePizza/include/Mundo.h
+1557339310 /home/carlos/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -623,7 +623,7 @@
 1555317402 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1557249593 /home/carlos/FV/SpacePizza/include/Jugador.h
+1557339310 /home/carlos/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -863,7 +863,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557249593 /home/carlos/FV/SpacePizza/include/PhysicsState.h
+1557339310 /home/carlos/FV/SpacePizza/include/PhysicsState.h
 	<iostream>
 	<vector>
 	<cmath>
@@ -1076,7 +1076,7 @@
 1557249593 source:/home/carlos/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1557310119 source:/home/carlos/FV/SpacePizza/src/Item.cpp
+1557339326 source:/home/carlos/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
@@ -1085,7 +1085,7 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1557309224 source:/home/carlos/FV/SpacePizza/src/Jugador.cpp
+1557339310 source:/home/carlos/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557249593 source:/home/carlos/FV/SpacePizza/src/Mapa.cpp
