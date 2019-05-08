@@ -123,16 +123,22 @@ void Mundo::visionIA()
     }
     else
     {
-        cout<<"MODO INVISIBLE"<<endl;
+        for(unsigned en=0; en< e1.size(); en++)
+        {
+
+            e1[en]->setVision(false);
+        }
     }
 }
+
 
 
 sf::Vector2f Mundo::colisionesMapa()
 {
 
     float offset=0;
-    sf:Vector2f bounce(0,0);
+sf:
+    Vector2f bounce(0,0);
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
     {
         bounce.y=-220;
@@ -288,7 +294,7 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
 {
-sf::Vector2f bounce=colisionesMapa();
+    sf::Vector2f bounce=colisionesMapa();
 
 
     procesarColisiones(eRight,eLeft,eUp,eDown);
@@ -316,10 +322,13 @@ void Mundo::processHUD()
     std::stringstream ss;  // #include <sstream>
     ss << setw(2) << setfill('0') << ptoEntrgaActual;
     std::stringstream ss1;
-    if((reparto_time - (int)time1->asSeconds()) > 60){
-      ss1 << setw(2) << setfill('0') << (reparto_time - (int)time1->asSeconds()) - 60;
-    }else{
-     ss1 << setw(2) << setfill('0') << (reparto_time - (int)time1->asSeconds());
+    if((reparto_time - (int)time1->asSeconds()) > 60)
+    {
+        ss1 << setw(2) << setfill('0') << (reparto_time - (int)time1->asSeconds()) - 60;
+    }
+    else
+    {
+        ss1 << setw(2) << setfill('0') << (reparto_time - (int)time1->asSeconds());
 
     }
 
@@ -343,7 +352,8 @@ void Mundo::processHUD()
     text_player_lifes -> setString(strAux);
 
     // Se que esto no va aqui pero ya lo pondremos mejor
-    if(player_lifes == 0 || (reparto_time - (int)time1->asSeconds()) == 0){
+    if(player_lifes == 0 || (reparto_time - (int)time1->asSeconds()) == 0)
+    {
         exit(0);
     }
 }
@@ -389,7 +399,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawAlcantarillas(ventana);
 
     p1->drawJugador(ventana,inter);
-   // p1->getPhysicsState()->drawColliders(ventana,inter);
+    // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
         e1[en]->drawEnemigo(ventana,inter);

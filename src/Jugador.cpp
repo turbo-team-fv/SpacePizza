@@ -29,6 +29,19 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
 
     turbo->setSpeed(0.1);
 
+    invisible= new SuperSprite("assets/jugador/invisible.png",1,0.6,true);
+
+    invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
+    invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
+    invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
+    invisible->addFrame(sf::IntRect(268, 1,49, 49),0);
+     invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
+      invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
+      invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
+
+
+    invisible->setSpeed(0.1);
+
     jugador_sprite->addFrame(sf::IntRect(50, 52,40, 44),0);//iz
     jugador_sprite->addFrame(sf::IntRect(2, 50,40, 46),0);
 
@@ -154,6 +167,11 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
     if(estado==1)
     {
         this->turbo->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+    }
+
+    if(estado==2)
+    {
+        this->invisible->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
     }
 
 }
