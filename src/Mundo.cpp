@@ -407,18 +407,18 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*text_player_lifes);
 
 
-    ventana->setView(*minimap);///SET VIEW MAP
+    ventana->setView(*minimap);///SET VIEW MINIMAP
     mapa->draw(ventana);
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
     p1->drawJugador(ventana,inter);
 
-
-    for(unsigned en=0; en< e1.size(); en++)
-    {
-
-        e1[en]->drawEnemigo(ventana,inter);
-    }
+//    No enemies in minimap
+//    for(unsigned en=0; en< e1.size(); en++)
+//    {
+//
+//        e1[en]->drawEnemigo(ventana,inter);
+//    }
 
 
 
