@@ -344,9 +344,9 @@ void Mundo::processHUD()
     text_player_lifes -> setString(strAux);
 
     // Se que esto no va aqui pero ya lo pondremos mejor
-    if(player_lifes == 0 || (reparto_time - (int)time1->asSeconds()) == 0){
-        exit(0);
-    }
+//    if(player_lifes == 0 || (reparto_time - (int)time1->asSeconds()) == 0){
+//        exit(0);
+//    }
 }
 
 

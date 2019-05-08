@@ -58,11 +58,12 @@ private:
     Font * font_player_lifes, *font_numbers;
     Text * text_player_lifes, *text_num_pizzas, *text_time;
     Texture * txt_pizza;
-    Sprite * spr_pizza;
+    Sprite * spr_pizza, * spr_pwup_active;
     Clock * clock1;
     Time * time1;
     int reparto_time;
 
+    RectangleShape * bg_pwup_ative;
 
     /**ELEMENTOS**/
     vector< sf::Vector2f > puntosEntrega;
