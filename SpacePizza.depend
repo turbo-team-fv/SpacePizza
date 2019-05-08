@@ -246,7 +246,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1555260155 D
+1557249593 D
 	"SuperSprite.h"
 	"SuperSprite.h"
 	"PhysicsState.h"
@@ -536,11 +536,13 @@
 1557339326 /home/carlos/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1557309224 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
+1557308760 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
+	"Mundo.h"
+	"Juego.h"
 	"Mundo.h"
 	"Juego.h"
 
-1557339310 /home/carlos/FV/SpacePizza/include/Mundo.h
+1557339536 /home/carlos/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -552,6 +554,31 @@
 	"Alcantarilla.h"
 	<sstream>
 	<iomanip>
+
+1557249593 oraPtoEntrega
+	<vector>
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Item.h"
+	"Jugador.h"
+	"Enemigo.h"
+	"Mapa.h"
+	"SuperSprite.h"
+	"Alcantarilla.h"
+	<sstream>
+	<iomanip>
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"PhysicsState.h"
+	"SuperSprite.h"
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
+	"Item.h"
+	<iostream>
+	"Jugador.h"
 
 1554881332 /home/carlos/FV/SpacePizza/lib/tinyxml/tinyxml.h
 	<ctype.h>
@@ -655,7 +682,7 @@
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1557249593 source:/home/carlos/FV/SpacePizza/src/PhysicsState.cpp
+1557339310 source:/home/carlos/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1555265889 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
