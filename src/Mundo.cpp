@@ -127,6 +127,8 @@ void Mundo::visionIA()
         {
 
             e1[en]->setVision(false);
+            e1[en]->setAtaque(false);
+            e1[en]->setActitud(0);
         }
     }
 }
