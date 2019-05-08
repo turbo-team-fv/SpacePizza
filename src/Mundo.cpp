@@ -135,27 +135,25 @@ sf::Vector2f Mundo::colisionesMapa()
     sf:Vector2f bounce(0,0);
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
     {
-        bounce.y=-150;
+        bounce.y=-220;
     }
 
     else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
     {
-        bounce.x=150;
+        bounce.x=220;
     }
 
     else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
     {
 
-        bounce.x=-150;
+        bounce.x=-220;
     }
 
     else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
     {
-        bounce.y=150;
+        bounce.y=220;
     }
-   /* if(bounce.x!=0||bounce.y!=0){
-    p1->getPhysicsState()->Move(bounce.x,bounce.y,true);
-    }*/
+
     return bounce;
 
 
@@ -391,7 +389,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawAlcantarillas(ventana);
 
     p1->drawJugador(ventana,inter);
-    p1->getPhysicsState()->drawColliders(ventana,inter);
+   // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
         e1[en]->drawEnemigo(ventana,inter);

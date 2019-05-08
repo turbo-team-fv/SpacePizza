@@ -43,10 +43,10 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
 
     /**COLLIDERS**/
     vector <sf::Rect<float> > colinit;
-    colinit.push_back(sf::FloatRect(-6,15,10,6));//ab
-    colinit.push_back(sf::FloatRect(-20,4,6,8));//iz
-    colinit.push_back(sf::FloatRect(20,4,-6,8));//der
-    colinit.push_back(sf::FloatRect(-6,-8,10,-4));//arr
+    colinit.push_back(sf::FloatRect(-6,10,10,6));//ab
+    colinit.push_back(sf::FloatRect(-15,0,6,8));//iz
+    colinit.push_back(sf::FloatRect(15,0,-6,8));//der
+    colinit.push_back(sf::FloatRect(-6,-0,10,-8));//arr
     pState->setColliders(colinit);
 
 
@@ -70,19 +70,26 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
 
     double x=0,y=0,potencia=50;
 
-    if(bounce.x<0)
+    if(bounce.x<0){
     eRight=false;
-    if(bounce.x>0)
+    eLeft=true;
+    }
+    if(bounce.x>0){
     eLeft=false;
-    if(bounce.y<0)
+    eRight=true;
+    }
+    if(bounce.y<0){
     eDown=false;
-    if(bounce.y>0)
+    eUp=true;
+    }
+    if(bounce.y>0){
     eUp=false;
-
+    eDown=true;
+}
     if(estado==1)
     {
-        cout<<"TURBO"<<endl;
-        potencia=potencia*3;
+       // cout<<"TURBO"<<endl;
+        potencia=potencia*2;
         jugador_sprite->setSpeed(0.1);
     }
     else
@@ -143,6 +150,7 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
     this->jugador_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+
     if(estado==1)
     {
         this->turbo->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);

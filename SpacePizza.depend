@@ -314,7 +314,7 @@
 
 1555265667 hics.hpp>
 
-1557322077 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557324614 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -476,7 +476,7 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1557322365 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1557324762 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557322374 /home/samuel/FV/SpacePizza/include/Jugador.h
@@ -486,13 +486,13 @@
 	"PhysicsState.h"
 	"SuperSprite.h"
 
-1557312386 /home/samuel/FV/SpacePizza/include/PhysicsState.h
+1557324518 /home/samuel/FV/SpacePizza/include/PhysicsState.h
 	<iostream>
 	<vector>
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557312405 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+1557324511 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1555260155 source:/home/samuel/FV/SpacePizza/src/Item.cpp
