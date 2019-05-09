@@ -314,7 +314,7 @@
 
 1555265667 hics.hpp>
 
-1557401754 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557405312 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -477,10 +477,10 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1557332034 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1557405682 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1557332034 /home/samuel/FV/SpacePizza/include/Jugador.h
+1557405387 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>

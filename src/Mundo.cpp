@@ -166,6 +166,11 @@ sf:
         bounce.y=220;
     }
 
+    if(mapa->estaEnCesped(p1->getSprite()->getActualSprite()->getGlobalBounds()))
+    p1->setCesped(true);
+    else
+    p1->setCesped(false);
+
     return bounce;
 
 
