@@ -192,7 +192,7 @@ void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown)
 /// Colisiones con las alcantarillas
     for( int i = 0; i < alcantarillas.size(); i++ )
     {
-        if(p1->getSprite()->getActualSprite()->getGlobalBounds().intersects(alcantarillas[i]->getSprite().getGlobalBounds()))
+        if(p1->getPhysicsState()->getColliders()[0].intersects(alcantarillas[i]->getSprite().getGlobalBounds()))
         {
             //p1->getPhysicsState()->MoveTo((double) 500, (double) 425);
             // p1->getPhysicsState()->MovePlayerTo((double) 500, (double) 425);
