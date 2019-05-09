@@ -28,7 +28,7 @@ SuperSprite* Popup::getSprite()
  }
 void Popup::throwPopup()
 {
-cout<<"Pop up generado"<<endl;
+
     popup_clock.restart();
     alive=true;
 }
@@ -38,7 +38,6 @@ void Popup::drawPopup(sf::RenderWindow *w, double i)
     if(popup_clock.getElapsedTime().asSeconds()<popup_life&&alive)
     {
         this->popup->drawSuperSprite(pos,pos,w,i);
-        cout<<"Pop up esta vivo y lo dibujo en: "<<pos[0]<<" , "<<pos[1]<<endl;
     }
     if(popup_clock.getElapsedTime().asSeconds()>popup_life){
     alive=false;

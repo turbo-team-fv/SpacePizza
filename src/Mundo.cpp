@@ -143,27 +143,27 @@ sf::Vector2f Mundo::colisionesMapa()
 {
 
     float offset=0;
-sf:
-    Vector2f bounce(0,0);
+sf::Vector2f bounce(0,0);
+
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
     {
-        bounce.y=-220;
+        bounce.y=-1;
     }
 
-    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
+    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[1])!=0)
     {
-        bounce.x=220;
+        bounce.x=1;
     }
 
-    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
+    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[2])!=0)
     {
 
-        bounce.x=-220;
+        bounce.x=-1;
     }
 
-    else if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
+    if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[3])!=0)
     {
-        bounce.y=220;
+        bounce.y=1;
     }
 
     if(mapa->estaEnCesped(p1->getPhysicsState()->getColliders()[0]))
