@@ -65,6 +65,11 @@ Mundo::Mundo()
     tiempo = 10;
 
     initAlcantarillas();
+
+    entregando = false;
+
+    calcularPuntuacionVariable();
+    puntuacion = 0;
 }
 
 int Mundo::getPtoEntregaActual()
@@ -261,6 +266,17 @@ void Mundo::colisionItems()
                 p1->setEstado(2);
                 p1->restartEstado();
                 break;
+
+            case 5:
+                // Colisiona con uno de tipo Levitar => Quitar colisiones edificios
+                std::cout<<"Colision con un powerUp de tipo Levitar"<<std::endl;
+                items[i]->restartPowerUp();
+            break;
+            case 6:
+                // Colisiona con modo imparable => ¿?
+                std::cout<<"Colisiona con un powerUp de tip Imparable"<<std::endl;
+                items[i]->restartPowerUp();
+            break;
             }
         }
     }
@@ -290,18 +306,34 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
     /// Colisiones con los puntos de entrega
     if(puntoEntrega->getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()))
     {
-        //jugador.puntuacion + 10;
-        if(ptoEntrgaActual == puntosEntrega.size() - 1)
-        {
-            ptoEntrgaActual = 0;
+        if(entregando == false ){
+            // Empiezo contar tiempo
+            entregando = true;
+            clockEntrega.restart();
+            /// TODO: Aqui se inicializa la animacion de que este 2 segundos en el pto entrega
         }
-        else
-        {
-            ptoEntrgaActual++;
-            reparto_time +=10;
+        if((int)clockEntrega.getElapsedTime().asSeconds() == 2) {
+            // Permanece 2 segundos dentro del punto de entrega => se genera el nuevo
+            int nextPos = rand() % (puntosEntrega.size()-1);
+            std::cout<<"Muestro la pos aleatoria para el pto entrega"<<std::endl;
+            std::cout<<nextPos<<std::endl;
+            /// actualizo la puntuacion del jugador => de momento se almacena en el Mundo
+            //p1->puntuacion + puntosPorDistancia;
+            puntuacion += puntosPorDistancia;
+            /// Aumento el tiempo de bonificacion al juego
+            reparto_time += tiempoBonificacion;
+            while(nextPos == ptoEntrgaActual){
+                nextPos = rand() % (puntosEntrega.size()-1);
+            }
+            puntoEntrega->setPosition(puntosEntrega[nextPos]);
+            ptoEntrgaActual = nextPos;
+            pizzas++;
+            calcularPuntuacionVariable();
         }
-        puntoEntrega->setPosition(puntosEntrega[ptoEntrgaActual]);
-        pizzas++;
+    } else {
+        entregando = false;
+        clockEntrega.restart();
+        /// TODO: Aqui se reinicia la animacion de que este 2 segundos en el pto entrega
     }
     // colisionAlcantarilla(eRight,eLeft, eUp, eDown);
     colisionAlcantarilla(eRight,eLeft, eUp, eDown);
@@ -320,7 +352,7 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     for(unsigned en=0; en< e1.size(); en++)
     {
 
-        e1[en]->updateEnemigo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1],t);
+       // e1[en]->updateEnemigo(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1],t);
 
     }
 
@@ -408,7 +440,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     for(unsigned en=0; en< e1.size(); en++)
     {
 
-        e1[en]->calcInter(ventana,inter);
+        //e1[en]->calcInter(ventana,inter);
     }
 
 
@@ -427,7 +459,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
-        e1[en]->drawEnemigo(ventana,inter);
+       // e1[en]->drawEnemigo(ventana,inter);
     }
 
     /// HUD STUFF
@@ -452,7 +484,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     for(unsigned en=0; en< e1.size(); en++)
     {
 
-        e1[en]->drawEnemigo(ventana,inter);
+       // e1[en]->drawEnemigo(ventana,inter);
     }
 
 
@@ -504,14 +536,20 @@ void Mundo::initPuntosEntrega()
     /// Situo los puntos de entrega disponibles
     puntosEntrega.push_back(sf::Vector2f(360,200));
     puntosEntrega.push_back(sf::Vector2f(360,500));
+    puntosEntrega.push_back(sf::Vector2f(360,780));
+    puntosEntrega.push_back(sf::Vector2f(45,420));
+    puntosEntrega.push_back(sf::Vector2f(920,890));
+    puntosEntrega.push_back(sf::Vector2f(50,800));
 
-    puntoEntrega->setPosition(puntosEntrega[0]);
+    puntoEntrega->setPosition(puntosEntrega[ptoEntrgaActual]);
 }
 
 void Mundo::initItems()
 {
     /// Creo un item de cada tipo en una posicion determinada con un tiempo de
     /// vida y de generacion
+    /// NOTA: El numero de powerUps del mapa se determina en este metodo, ya que el tipo se generara
+    /// aleatoriamente.
     Item *vida1 = new Item(1, sf::Vector2f(360,150), 2, 5);
     items.push_back(vida1);
     Item *turbo = new Item(2, sf::Vector2f(420,425), 2,10);
@@ -520,6 +558,43 @@ void Mundo::initItems()
     items.push_back(tiempo);
     Item *inivisibilidad = new Item(4, sf::Vector2f(100,280), 2,10);
     items.push_back(inivisibilidad);
+    /// TODO: crear uno mas de cada tipo para que inicialmente haya powerUps de todos los tipos
+    /*Item *levitar = new Item(5, sf::Vector2f(), 2,10);
+    items.push_back(levitar);
+    Item *imparable = new Item(6, sf::Vector2f(), 2,10);
+    items.push_back(imparable);*/
+}
+
+/// Metodo que calcula la puntuacion del siguiente punto de entrega en funcion de la distancia
+/// entre el jugador y el siguiente punto de entrega
+void Mundo::calcularPuntuacionVariable() {
+    vector<double> posJugador = p1->getPhysicsState()->getActualState();
+    sf::Vector2f posPtoEntrega = puntosEntrega[ptoEntrgaActual];
+
+    std::cout<<(posJugador[0] - posPtoEntrega.x)<<std::endl;
+    float x = (float)(posJugador[0] - posPtoEntrega.x);
+    float y = (float)(posJugador[1] - posPtoEntrega.y);
+    sf::Vector2f vectorDistancia = sf::Vector2f(x,y);
+    // Calculo el modulo del vector distnacia para obetener la distancia
+
+    distanciaPtoEntrega = sqrt(pow(vectorDistancia.x,2)+ pow(vectorDistancia.y,2));
+
+    std::cout<<"Muestro la distancia entre el pto de entrega y el jugador"<<std::endl;
+    std::cout<<distanciaPtoEntrega<<std::endl;
+
+    puntosPorDistancia = (int)(distanciaPtoEntrega * 0,5);
+    calcularTiempoBonificacion();
+}
+
+/// Metodo para calcular le tiempo de bonificacion en funcion de la distancia a la que
+/// se encentre el jugador y el ptoentrega
+
+void Mundo::calcularTiempoBonificacion() {
+    /// calcula el tiempo que tardaria en ir en linea recta al ptoEntrega => 50 es el valor de potencia
+    /// del jugador.
+    tiempoBonificacion = (int)distanciaPtoEntrega / 50;
+    std::cout<<"Muestro el tiempo de bonificacion para el pto entrega"<<std::endl;
+    std::cout<<tiempoBonificacion<<std::endl;
 }
 
 Mundo::~Mundo()
