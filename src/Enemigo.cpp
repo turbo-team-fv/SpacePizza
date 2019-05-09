@@ -67,7 +67,8 @@ Enemigo::Enemigo()
 
 
 
-
+    kill=new Popup("assets/hud/popups/kill.png",2);
+    kill->getSprite()->addFrame(sf::IntRect(1,23,98,54),0);
 
 
     /**COSAS ENEMIGO**/
@@ -166,6 +167,7 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
         if(alertclock.getElapsedTime().asSeconds()>=tiempo_alerta)
         {
             if(teveo==true){
+                kill->throwPopup();
                 actitud=2;
                 chaseclock.restart();
             }
@@ -246,6 +248,8 @@ void Enemigo::drawEnemigo(sf::RenderWindow *w, double i)
 {
 
     this->enemigo_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+    kill->setPosition(enemigo_sprite->getRenderPos()[0]-20,enemigo_sprite->getRenderPos()[1]-20);
+    kill->drawPopup(w,i);
 
 }
 

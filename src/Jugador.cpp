@@ -29,6 +29,19 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
 
     turbo->setSpeed(0.1);
 
+    invisible= new SuperSprite("assets/jugador/invisible.png",1,0.6,true);
+
+    invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
+    invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
+    invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
+    invisible->addFrame(sf::IntRect(268, 1,49, 49),0);
+     invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
+      invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
+      invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
+
+
+    invisible->setSpeed(0.1);
+
     jugador_sprite->addFrame(sf::IntRect(50, 52,40, 44),0);//iz
     jugador_sprite->addFrame(sf::IntRect(2, 50,40, 46),0);
 
@@ -43,10 +56,10 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
 
     /**COLLIDERS**/
     vector <sf::Rect<float> > colinit;
-    colinit.push_back(sf::FloatRect(-8,6,18,5));//arr
-    colinit.push_back(sf::FloatRect(-11,-10,5,18));//der
-    colinit.push_back(sf::FloatRect(9,-10,5,18));//iz
-    colinit.push_back(sf::FloatRect(-8,-4,18,-5));//ab
+    colinit.push_back(sf::FloatRect(-6,10,10,6));//ab
+    colinit.push_back(sf::FloatRect(-15,0,6,8));//iz
+    colinit.push_back(sf::FloatRect(15,0,-6,8));//der
+    colinit.push_back(sf::FloatRect(-6,-0,10,-8));//arr
     pState->setColliders(colinit);
 
 
@@ -65,15 +78,31 @@ void Jugador::restartEstado()
     timer_estado.restart();
 
 }
-void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et)
+void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vector2f bounce, sf::Time et)
 {
 
     double x=0,y=0,potencia=50;
 
+    if(bounce.x<0){
+    eRight=false;
+    eLeft=true;
+    }
+    if(bounce.x>0){
+    eLeft=false;
+    eRight=true;
+    }
+    if(bounce.y<0){
+    eDown=false;
+    eUp=true;
+    }
+    if(bounce.y>0){
+    eUp=false;
+    eDown=true;
+}
     if(estado==1)
     {
-        cout<<"TURBO"<<endl;
-        potencia=potencia*3;
+       // cout<<"TURBO"<<endl;
+        potencia=potencia*2;
         jugador_sprite->setSpeed(0.1);
     }
     else
@@ -116,7 +145,7 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time
         estado=0;
     }
 
-    pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
+    pState->Move(x+bounce.x,y+bounce.y,true);//Cambia el booleano para quitar aceleracion o ponerla
     pState->updatePhysicsState(et);
 
 }
@@ -134,9 +163,15 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
     this->jugador_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+
     if(estado==1)
     {
         this->turbo->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+    }
+
+    if(estado==2)
+    {
+        this->invisible->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
     }
 
 }
