@@ -33,7 +33,8 @@ class Enemigo
     private:
     /**GRAFICOS**/
     SuperSprite *enemigo_sprite;
-    Popup *kill;
+    vector <Popup*> alert;
+    int alert_id;
 
 
     /**FISICAS**/
