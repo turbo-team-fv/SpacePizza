@@ -59,14 +59,14 @@ private:
     sf::RectangleShape *ptoEntrega;
 
     /** vista, minimap & HUD stuff **/
-    Popup *warning;
+    Popup *warning,*pizza;
 
     sf::View * vista, * minimap; // La super vista y el super minimapa
     int player_lifes, num_pizzas;
     Font * font_player_lifes, *font_numbers;
     Text * text_player_lifes, *text_num_pizzas, *text_time;
-    Texture * txt_pizza;
-    Sprite * spr_pizza;
+    Texture * txt_pizza,*txt_hud1,*txt_hud2;
+    Sprite * spr_pizza, *spr_hud1,*spr_hud2;
     Clock * clock1;
     Time * time1;
     int reparto_time;
@@ -94,6 +94,7 @@ private:
     int tiempoBonificacion;
     int puntuacion;
     sf::Clock SpawnEnemigo;
+    bool SpawnEnemigo_b;
 
 };
 

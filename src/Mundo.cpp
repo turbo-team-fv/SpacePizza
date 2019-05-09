@@ -22,8 +22,10 @@ Mundo::Mundo()
     // HUD
     // 4th dimension
 
-     warning=new Popup("assets/hud/popups/warning.png",1);
-     warning->getSprite()->addFrame(sf::IntRect(4,3,355,98),0);
+     warning=new Popup("assets/hud/popups/WARNING.png",2);
+     warning->getSprite()->addFrame(sf::IntRect(0,0,410,114),0);
+     pizza=new Popup("assets/hud/popups/PIZZA.png",2);
+     pizza->getSprite()->addFrame(sf::IntRect(2,2,238,118),0);
 
 
 
@@ -34,23 +36,31 @@ Mundo::Mundo()
     player_lifes = p1->getVidas();
     num_pizzas = 0;
     txt_pizza = new Texture();
-    txt_pizza -> loadFromFile("assets/hud/pizza.png");
+    txt_pizza -> loadFromFile("assets/hud/pizza2.png");
+    txt_hud1 = new Texture();
+    txt_hud1 -> loadFromFile("assets/hud/hudtime.png");
+    txt_hud2 = new Texture();
+    txt_hud2 -> loadFromFile("assets/hud/pizzas.png");
     spr_pizza = new Sprite(*txt_pizza);
-    spr_pizza -> setScale(20.f/338, 20.f/400);
+    spr_pizza -> setScale(20.f/270, 20.f/255);
+    spr_hud1 = new Sprite(*txt_hud1);
+    spr_hud1 -> setScale(0.32, 0.3);
+    spr_hud2 = new Sprite(*txt_hud2);
+    spr_hud2 -> setScale(0.4, 0.3);
 
     font_numbers = new Font();
-    font_numbers ->loadFromFile("assets/hud/fullPack2025.ttf");
+    font_numbers ->loadFromFile("assets/hud/m42.TTF");
     font_player_lifes = new Font();
     font_player_lifes ->loadFromFile("assets/hud/HeartsSt.ttf");
     text_num_pizzas = new Text();
     text_num_pizzas -> setFont(*font_numbers);
-    text_num_pizzas -> setCharacterSize(15);
+    text_num_pizzas -> setCharacterSize(10);
     text_time = new Text();
     text_time -> setFont(*font_numbers);
-    text_time -> setCharacterSize(15);
+    text_time -> setCharacterSize(10);
     text_player_lifes = new Text();
     text_player_lifes -> setFont(*font_player_lifes);
-    text_player_lifes -> setCharacterSize(15);
+    text_player_lifes -> setCharacterSize(12);
     text_player_lifes -> setColor(Color::Red);
 
     // Vista
@@ -290,11 +300,13 @@ void Mundo::colisionItems()
 void Mundo::EnemigoGenerator()
 {
 
-    if(SpawnEnemigo.getElapsedTime().asSeconds()>5&&e1.size()<10) ///ESTO SE HARA CON LA PUNTUACION Y NO CON EL TIEMPO
+    if(SpawnEnemigo.getElapsedTime().asSeconds()>20&&e1.size()<10) ///ESTO SE HARA CON LA PUNTUACION Y NO CON EL TIEMPO
+    //if(SpawnEnemigo_b&&e1.size()<10)
     {
         Enemigo *e= new Enemigo();
         e->getPhysicsState()->MoveTo(rand() % 800 + 1,rand() % 800 + 1);
         SpawnEnemigo.restart();
+        SpawnEnemigo_b=false;
         e1.push_back(e);
         warning->throwPopup();
 
@@ -313,11 +325,17 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
     {
         if(entregando == false ){
             // Empiezo contar tiempo
+
+
             entregando = true;
             clockEntrega.restart();
             /// TODO: Aqui se inicializa la animacion de que este 2 segundos en el pto entrega
         }
         if((int)clockEntrega.getElapsedTime().asSeconds() == 2) {
+         pizza->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
+            pizza->throwPopup();
+            //SpawnEnemigo.restart();
+            SpawnEnemigo_b=true;
             // Permanece 2 segundos dentro del punto de entrega => se genera el nuevo
             int nextPos = rand() % (puntosEntrega.size()-1);
             std::cout<<"Muestro la pos aleatoria para el pto entrega"<<std::endl;
@@ -453,13 +471,12 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->setView(*vista);///SET VIEW PLAYER
     mapa->draw(ventana);
 
-    warning->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
-    warning->drawPopup(ventana,inter);
+
 
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
     drawAlcantarillas(ventana);
-
+    pizza->drawPopup(ventana,inter);
     p1->drawJugador(ventana,inter);
     // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
@@ -467,15 +484,25 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     e1[en]->drawEnemigo(ventana,inter);
     }
 
+
     /// HUD STUFF
 
-    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
+
+    spr_hud1 ->setPosition(p1->getSprite()->getRenderPos()[0]+63,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*spr_hud1);
+    spr_hud1 ->setPosition(p1->getSprite()->getRenderPos()[0]-145,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*spr_hud1);
+    spr_hud2 ->setPosition(p1->getSprite()->getRenderPos()[0]-13,p1->getSprite()->getRenderPos()[1] - 100);
+    ventana->draw(*spr_hud2);
+
+     spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0]-10,p1->getSprite()->getRenderPos()[1] - 100);
     ventana->draw(*spr_pizza);
-    text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 100);
+
+    text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 95);
     ventana->draw(*text_num_pizzas);
-    text_time -> setPosition(p1->getSprite()->getRenderPos()[0]+70,p1->getSprite()->getRenderPos()[1] - 100);
+    text_time -> setPosition(p1->getSprite()->getRenderPos()[0]+70,p1->getSprite()->getRenderPos()[1] - 95);
     ventana->draw(*text_time);
-    text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 100);
+    text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 95);
     ventana->draw(*text_player_lifes);
 
 
@@ -491,6 +518,12 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
     e1[en]->drawEnemigo(ventana,inter);
     }
+
+
+     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
+    ventana->setView(*vista);///SET VIEW PLAYER
+         warning->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]+50);
+    warning->drawPopup(ventana,inter);
 
 
 
