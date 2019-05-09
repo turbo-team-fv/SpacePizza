@@ -22,8 +22,10 @@ Mundo::Mundo()
     // HUD
     // 4th dimension
 
-     warning=new Popup("assets/hud/popups/warning.png",1);
-     warning->getSprite()->addFrame(sf::IntRect(4,3,355,98),0);
+     warning=new Popup("assets/hud/popups/WARNING.png",2);
+     warning->getSprite()->addFrame(sf::IntRect(0,0,410,114),0);
+     pizza=new Popup("assets/hud/popups/PIZZA.png",2);
+     pizza->getSprite()->addFrame(sf::IntRect(2,2,238,118),0);
 
 
 
@@ -313,11 +315,15 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
     {
         if(entregando == false ){
             // Empiezo contar tiempo
+
+
             entregando = true;
             clockEntrega.restart();
             /// TODO: Aqui se inicializa la animacion de que este 2 segundos en el pto entrega
         }
         if((int)clockEntrega.getElapsedTime().asSeconds() == 2) {
+         pizza->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
+            pizza->throwPopup();
             // Permanece 2 segundos dentro del punto de entrega => se genera el nuevo
             int nextPos = rand() % (puntosEntrega.size()-1);
             std::cout<<"Muestro la pos aleatoria para el pto entrega"<<std::endl;
@@ -453,19 +459,19 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->setView(*vista);///SET VIEW PLAYER
     mapa->draw(ventana);
 
-    warning->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
-    warning->drawPopup(ventana,inter);
+
 
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
     drawAlcantarillas(ventana);
-
+    pizza->drawPopup(ventana,inter);
     p1->drawJugador(ventana,inter);
     // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
     e1[en]->drawEnemigo(ventana,inter);
     }
+
 
     /// HUD STUFF
 
@@ -491,6 +497,12 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
     e1[en]->drawEnemigo(ventana,inter);
     }
+
+
+     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
+    ventana->setView(*vista);///SET VIEW PLAYER
+         warning->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]+50);
+    warning->drawPopup(ventana,inter);
 
 
 

@@ -59,7 +59,7 @@ private:
     sf::RectangleShape *ptoEntrega;
 
     /** vista, minimap & HUD stuff **/
-    Popup *warning;
+    Popup *warning,*pizza;
 
     sf::View * vista, * minimap; // La super vista y el super minimapa
     int player_lifes, num_pizzas;
