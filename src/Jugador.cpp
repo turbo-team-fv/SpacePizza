@@ -110,6 +110,8 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
         jugador_sprite->setSpeed(0.2);
     }
 
+
+
     if(eRight)
     {
         jugador_sprite->setAnimation(1);
@@ -143,6 +145,13 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
     if(timer_estado.getElapsedTime().asSeconds()>=limite_estado)
     {
         estado=0;
+    }
+
+    if(cesped&&(abs(pState->getVel()[0])>50||abs(pState->getVel()[1])>50)){
+    x=0;
+    y=0;
+
+    cout<<"Reacciona al cesped"<<endl;
     }
 
     pState->Move(x+bounce.x,y+bounce.y,true);//Cambia el booleano para quitar aceleracion o ponerla
@@ -193,6 +202,9 @@ void Jugador::setEstado(int e)
 
     estado=e;
 
+}
+void Jugador::setCesped(bool c){
+cesped=c;
 }
 // Este metodo permite modifcar la vida => hay que pasarle el valor a modificar incluyendo el signo si queremos restar
 void Jugador::updateVida(int change)
