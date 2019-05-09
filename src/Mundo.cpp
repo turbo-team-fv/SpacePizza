@@ -17,18 +17,17 @@ Mundo::Mundo()
     mapa = new Mapa();
     p1 = new Jugador();
 
-    e1.resize(4);
-
-    for(unsigned en=0; en < e1.size(); en++)
-    {
-        e1 [en]= new Enemigo();
-    }
-
-
 
     /** HUD, vista and minimap stuff **/
     // HUD
     // 4th dimension
+
+     warning=new Popup("assets/hud/popups/warning.png",1);
+     warning->getSprite()->addFrame(sf::IntRect(4,3,355,98),0);
+
+
+
+
     clock1 = new Clock();
     time1 = new Time();
     reparto_time = 30;
@@ -94,7 +93,7 @@ void Mundo::atacaIA()
         {
             if(e1[en]->getAtaque())
             {
-                cout<<"ATAQUE HIJO PUTA"<<endl;
+
                 p1->updateVida(-1);
 
             }
@@ -267,6 +266,22 @@ void Mundo::colisionItems()
     }
 
 }
+void Mundo::EnemigoGenerator()
+{
+
+    if(SpawnEnemigo.getElapsedTime().asSeconds()>10&&e1.size()<10) ///ESTO SE HARA CON LA PUNTUACION Y NO CON EL TIEMPO
+    {
+        Enemigo *e= new Enemigo();
+        e->getPhysicsState()->MoveTo(rand() % 800 + 1,rand() % 800 + 1);
+        SpawnEnemigo.restart();
+        e1.push_back(e);
+        warning->throwPopup();
+
+    }
+}
+
+
+
 void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     visionIA();
@@ -301,6 +316,7 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 
     procesarColisiones(eRight,eLeft,eUp,eDown);
     p1->updateJugador(eRight,eLeft,eUp,eDown,bounce,t);
+    EnemigoGenerator();
     for(unsigned en=0; en< e1.size(); en++)
     {
 
@@ -309,6 +325,8 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     }
 
     processHUD();
+
+
 
 
 }
@@ -385,6 +403,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 {
     /***PRIMERO RECALCULAMOS POSICION DE OBJETOS INTERPOLADOS***/
     /**Por algun motivo que no acabo de comprender**/
+
     p1->calcInter(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
@@ -396,6 +415,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
     ventana->setView(*vista);///SET VIEW PLAYER
     mapa->draw(ventana);
+
+    warning->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
+    warning->drawPopup(ventana,inter);
+
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
     drawAlcantarillas(ventana);
@@ -408,6 +431,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     }
 
     /// HUD STUFF
+
     spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1] - 100);
     ventana->draw(*spr_pizza);
     text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 100);
@@ -430,6 +454,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
         e1[en]->drawEnemigo(ventana,inter);
     }
+
 
 
 

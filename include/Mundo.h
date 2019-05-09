@@ -9,6 +9,7 @@
 #include "Mapa.h"
 #include "SuperSprite.h"
 #include "Alcantarilla.h"
+#include "Popup.h"
 #include <sstream>
 #include <iomanip>
 
@@ -33,6 +34,8 @@ public:
     sf::Vector2f colisionesMapa();
     void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
     void colisionItems();
+    void EnemigoGenerator();
+
     void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
     void initAlcantarillas();
 
@@ -53,6 +56,8 @@ private:
     sf::RectangleShape *ptoEntrega;
 
     /** vista, minimap & HUD stuff **/
+    Popup *warning;
+
     sf::View * vista, * minimap; // La super vista y el super minimapa
     int player_lifes, num_pizzas;
     Font * font_player_lifes, *font_numbers;
@@ -78,6 +83,8 @@ private:
     sf::Texture texture;
 
     sf::Clock clockAlcantarillas;
+    sf::Clock SpawnEnemigo;
+
 };
 
 #endif // MUNDO_H

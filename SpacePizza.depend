@@ -314,7 +314,7 @@
 
 1555265667 hics.hpp>
 
-1557327479 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557401754 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -395,7 +395,7 @@
 
 1555240051 nyxml/tinyxml2.h"
 
-1557326645 /home/samuel/FV/SpacePizza/include/Mundo.h
+1557396176 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -405,6 +405,7 @@
 	"Mapa.h"
 	"SuperSprite.h"
 	"Alcantarilla.h"
+	"Popup.h"
 	<sstream>
 	<iomanip>
 
@@ -476,10 +477,10 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1557327012 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1557332034 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1557326839 /home/samuel/FV/SpacePizza/include/Jugador.h
+1557332034 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -507,12 +508,13 @@
 
 1555338625 "
 
-1555347830 /home/samuel/FV/SpacePizza/include/Enemigo.h
+1557401789 /home/samuel/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 	"SuperSprite.h"
+	"Popup.h"
 
 1554833552 ated upstream
 
@@ -973,7 +975,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557311852 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
+1557395208 source:/home/samuel/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
 1555236404 iendoColisiones
@@ -1176,4 +1178,13 @@
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
+
+1557398968 /home/samuel/FV/SpacePizza/include/Popup.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"SuperSprite.h"
+
+1557398977 source:/home/samuel/FV/SpacePizza/src/Popup.cpp
+	"Popup.h"
 
