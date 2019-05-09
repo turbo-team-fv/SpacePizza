@@ -290,7 +290,7 @@ void Mundo::colisionItems()
 void Mundo::EnemigoGenerator()
 {
 
-    if(SpawnEnemigo.getElapsedTime().asSeconds()>10&&e1.size()<10) ///ESTO SE HARA CON LA PUNTUACION Y NO CON EL TIEMPO
+    if(SpawnEnemigo.getElapsedTime().asSeconds()>5&&e1.size()<10) ///ESTO SE HARA CON LA PUNTUACION Y NO CON EL TIEMPO
     {
         Enemigo *e= new Enemigo();
         e->getPhysicsState()->MoveTo(rand() % 800 + 1,rand() % 800 + 1);

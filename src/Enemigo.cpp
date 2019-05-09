@@ -66,9 +66,25 @@ Enemigo::Enemigo()
     enemigo_sprite->addFrame(sf::IntRect(330, 131,44, 38),2);
 
 
+    alert_id=0;
+    Popup *pop=new Popup("assets/hud/popups/dialogos.png",2);
+    pop->getSprite()->addFrame(sf::IntRect(5,1,97,54),0);
+    alert.push_back(pop);
 
-    kill=new Popup("assets/hud/popups/kill.png",2);
-    kill->getSprite()->addFrame(sf::IntRect(1,23,98,54),0);
+    pop=new Popup("assets/hud/popups/dialogos.png",2);
+    pop->getSprite()->addFrame(sf::IntRect(106,7,97,54),0);
+    alert.push_back(pop);
+
+    pop=new Popup("assets/hud/popups/dialogos.png",2);
+    pop->getSprite()->addFrame(sf::IntRect(5,58,89,49),0);
+    alert.push_back(pop);
+
+    pop=new Popup("assets/hud/popups/dialogos.png",2);
+    pop->getSprite()->addFrame(sf::IntRect(106,58,95,49),0);
+    alert.push_back(pop);
+
+
+
 
 
     /**COSAS ENEMIGO**/
@@ -167,8 +183,11 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
         if(alertclock.getElapsedTime().asSeconds()>=tiempo_alerta)
         {
             if(teveo==true){
-                kill->throwPopup();
+
+                alert_id=(rand()%3 + 1);
+                alert[alert_id]->throwPopup();
                 actitud=2;
+
                 chaseclock.restart();
             }
         }
@@ -248,8 +267,8 @@ void Enemigo::drawEnemigo(sf::RenderWindow *w, double i)
 {
 
     this->enemigo_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
-    kill->setPosition(enemigo_sprite->getRenderPos()[0]-20,enemigo_sprite->getRenderPos()[1]-20);
-    kill->drawPopup(w,i);
+    alert[alert_id]->setPosition(enemigo_sprite->getRenderPos()[0]-20,enemigo_sprite->getRenderPos()[1]-20);
+    alert[alert_id]->drawPopup(w,i);
 
 }
 
