@@ -314,7 +314,7 @@
 
 1555265667 hics.hpp>
 
-1557405312 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557423765 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -477,7 +477,7 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1557406354 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1557423893 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557405387 /home/samuel/FV/SpacePizza/include/Jugador.h
@@ -1248,7 +1248,7 @@
 	<SFML/Graphics.hpp>
 	"SuperSprite.h"
 
-1557398977 source:/home/samuel/FV/SpacePizza/src/Popup.cpp
+1557423604 source:/home/samuel/FV/SpacePizza/src/Popup.cpp
 	"Popup.h"
 
 1557249593 source:/home/carlos/FV/SpacePizza/src/Motor2D.cpp

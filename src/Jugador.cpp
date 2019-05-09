@@ -56,7 +56,7 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
 
     /**COLLIDERS**/
     vector <sf::Rect<float> > colinit;
-    colinit.push_back(sf::FloatRect(-6,10,10,6));//ab
+    colinit.push_back(sf::FloatRect(-6,5,10,6));//ab
     colinit.push_back(sf::FloatRect(-15,0,6,8));//iz
     colinit.push_back(sf::FloatRect(15,0,-6,8));//der
     colinit.push_back(sf::FloatRect(-6,-0,10,-8));//arr
@@ -83,7 +83,7 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
 
     double x=0,y=0,potencia=50;
 
-    if(bounce.x<0){
+   /* if(bounce.x<0){
     eRight=false;
     eLeft=true;
     }
@@ -98,7 +98,7 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
     if(bounce.y>0){
     eUp=false;
     eDown=true;
-}
+}*/
     if(estado==1)
     {
        // cout<<"TURBO"<<endl;
@@ -147,14 +147,31 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
         estado=0;
     }
 
+    if(bounce.x<0){
+    x=-potencia*2;
+    }
+    else if(bounce.x>0){
+    x=potencia*2;
+    }
+    if(bounce.y<0){
+    y=-potencia*2;
+    }
+    else if(bounce.y>0){
+    y=potencia*2;
+    }
+
     if(cesped&&(abs(pState->getVel()[0])>50||abs(pState->getVel()[1])>50)){
     x=0;
     y=0;
-
-    cout<<"Reacciona al cesped"<<endl;
     }
 
-    pState->Move(x+bounce.x,y+bounce.y,true);//Cambia el booleano para quitar aceleracion o ponerla
+    /*if(bounce.x!=0||bounce.y!=0){
+    x+=bounce.x;
+    y+=bounce.y;
+    }*/
+
+    pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
+
     pState->updatePhysicsState(et);
 
 }
