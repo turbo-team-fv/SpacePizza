@@ -166,7 +166,7 @@ sf:
         bounce.y=220;
     }
 
-    if(mapa->estaEnCesped(p1->getSprite()->getActualSprite()->getGlobalBounds()))
+    if(mapa->estaEnCesped(p1->getPhysicsState()->getColliders()[0]))
     p1->setCesped(true);
     else
     p1->setCesped(false);
