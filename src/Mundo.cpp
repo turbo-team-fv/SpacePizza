@@ -22,10 +22,10 @@ Mundo::Mundo()
     // HUD
     // 4th dimension
 
-     warning=new Popup("assets/hud/popups/WARNING.png",2);
-     warning->getSprite()->addFrame(sf::IntRect(0,0,410,114),0);
-     pizza=new Popup("assets/hud/popups/PIZZA.png",2);
-     pizza->getSprite()->addFrame(sf::IntRect(2,2,238,118),0);
+    warning=new Popup("assets/hud/popups/WARNING.png",2);
+    warning->getSprite()->addFrame(sf::IntRect(0,0,410,114),0);
+    pizza=new Popup("assets/hud/popups/PIZZA.png",2);
+    pizza->getSprite()->addFrame(sf::IntRect(2,2,238,118),0);
 
 
 
@@ -169,7 +169,7 @@ sf::Vector2f Mundo::colisionesMapa()
 {
 
     float offset=0;
-sf::Vector2f bounce(0,0);
+    sf::Vector2f bounce(0,0);
 
     if(mapa->checkearColision(p1->getPhysicsState()->getColliders()[0])!=0)
     {
@@ -193,9 +193,9 @@ sf::Vector2f bounce(0,0);
     }
 
     if(mapa->estaEnCesped(p1->getPhysicsState()->getColliders()[0]))
-    p1->setCesped(true);
+        p1->setCesped(true);
     else
-    p1->setCesped(false);
+        p1->setCesped(false);
 
     return bounce;
 
@@ -302,12 +302,12 @@ void Mundo::colisionItems()
                 // Colisiona con uno de tipo Levitar => Quitar colisiones edificios
                 std::cout<<"Colision con un powerUp de tipo Levitar"<<std::endl;
                 items[i]->restartPowerUp();
-            break;
+                break;
             case 6:
                 // Colisiona con modo imparable => ¿?
                 std::cout<<"Colisiona con un powerUp de tip Imparable"<<std::endl;
                 items[i]->restartPowerUp();
-            break;
+                break;
             }
         }
     }
@@ -317,7 +317,7 @@ void Mundo::EnemigoGenerator()
 {
 
     if(SpawnEnemigo.getElapsedTime().asSeconds()>20&&e1.size()<10) ///ESTO SE HARA CON LA PUNTUACION Y NO CON EL TIEMPO
-    //if(SpawnEnemigo_b&&e1.size()<10)
+        //if(SpawnEnemigo_b&&e1.size()<10)
     {
         Enemigo *e= new Enemigo();
         e->getPhysicsState()->MoveTo(rand() % 800 + 1,rand() % 800 + 1);
@@ -339,7 +339,8 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
     /// Colisiones con los puntos de entrega
     if(puntoEntrega->getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()))
     {
-        if(entregando == false ){
+        if(entregando == false )
+        {
             // Empiezo contar tiempo
 
 
@@ -347,8 +348,9 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
             clockEntrega.restart();
             /// TODO: Aqui se inicializa la animacion de que este 2 segundos en el pto entrega
         }
-        if((int)clockEntrega.getElapsedTime().asSeconds() == 2) {
-         pizza->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
+        if((int)clockEntrega.getElapsedTime().asSeconds() == 2)
+        {
+            pizza->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);
             pizza->throwPopup();
             //SpawnEnemigo.restart();
             SpawnEnemigo_b=true;
@@ -361,7 +363,8 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
             puntuacion += puntosPorDistancia;
             /// Aumento el tiempo de bonificacion al juego
             reparto_time += tiempoBonificacion;
-            while(nextPos == ptoEntrgaActual){
+            while(nextPos == ptoEntrgaActual)
+            {
                 nextPos = rand() % (puntosEntrega.size()-1);
             }
             puntoEntrega->setPosition(puntosEntrega[nextPos]);
@@ -369,7 +372,9 @@ void Mundo::procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown)
             pizzas++;
             calcularPuntuacionVariable();
         }
-    } else {
+    }
+    else
+    {
         entregando = false;
         clockEntrega.restart();
         /// TODO: Aqui se reinicia la animacion de que este 2 segundos en el pto entrega
@@ -496,7 +501,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
-    e1[en]->drawEnemigo(ventana,inter);
+        e1[en]->drawEnemigo(ventana,inter);
     }
 
 
@@ -510,7 +515,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     spr_hud2 ->setPosition(p1->getSprite()->getRenderPos()[0]-13,p1->getSprite()->getRenderPos()[1] - 100);
     ventana->draw(*spr_hud2);
 
-     spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0]-10,p1->getSprite()->getRenderPos()[1] - 100);
+    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0]-10,p1->getSprite()->getRenderPos()[1] - 100);
     ventana->draw(*spr_pizza);
 
     text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 95);
@@ -542,9 +547,9 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 //    }
 
 
-     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
+    vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
     ventana->setView(*vista);///SET VIEW PLAYER
-         warning->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]+50);
+    warning->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]+50);
     warning->drawPopup(ventana,inter);
 
 
@@ -567,7 +572,7 @@ void Mundo::drawAlcantarillas(sf::RenderWindow * ventana)
 void Mundo::initAlcantarillas()
 {
     Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(360,280));
-    Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(360,665));
+    Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(745,665));
     alcantarillas.push_back(alc1);
     alcantarillas.push_back(alc2);
 }
@@ -627,7 +632,8 @@ void Mundo::initItems()
 
 /// Metodo que calcula la puntuacion del siguiente punto de entrega en funcion de la distancia
 /// entre el jugador y el siguiente punto de entrega
-void Mundo::calcularPuntuacionVariable() {
+void Mundo::calcularPuntuacionVariable()
+{
     vector<double> posJugador = p1->getPhysicsState()->getActualState();
     sf::Vector2f posPtoEntrega = puntosEntrega[ptoEntrgaActual];
 
@@ -649,7 +655,8 @@ void Mundo::calcularPuntuacionVariable() {
 /// Metodo para calcular le tiempo de bonificacion en funcion de la distancia a la que
 /// se encentre el jugador y el ptoentrega
 
-void Mundo::calcularTiempoBonificacion() {
+void Mundo::calcularTiempoBonificacion()
+{
     /// calcula el tiempo que tardaria en ir en linea recta al ptoEntrega => 50 es el valor de potencia
     /// del jugador.
     tiempoBonificacion = (int)distanciaPtoEntrega / 50;
