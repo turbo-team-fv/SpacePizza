@@ -28,31 +28,33 @@ EMenu::EMenu()
 void EMenu::Init()
 {
 
-    if(!font.loadFromFile("assets/PressStart2P.ttf"))
+    if(!font.loadFromFile("assets/hud/m42.TTF"))
     {
         cout<<"Error, no se encuentra la tipografia"<<endl;
     }
 
     bgMenu_txt = new Texture();
 
-    if(!bgMenu_txt->loadFromFile("assets/hud/SpacePizzaSplashScreen.jpg"))
+    if(!bgMenu_txt->loadFromFile("assets/hud/SpacePizzaSplashScreen2.png"))
     {
         cout<<"Error, no se encuentra la imagen SpacePizzaSplashScreen"<<endl;
     }
 
     bg_menu = new Sprite(*bgMenu_txt);
     bg_menu->setScale(0.4f,0.4f);
-
+    menu[0].setCharacterSize(23);
     menu[0].setFont(font);
     menu[0].setColor(Color::Cyan);
     menu[0].setString("Play");
     menu[0].setPosition(Vector2f(675/2,1300/(MAX_NUMBER_OF_ITEMS + 1) * 1));
 
+    menu[1].setCharacterSize(23);
     menu[1].setFont(font);
     menu[1].setColor(Color::White);
     menu[1].setString("How to play");
-    menu[1].setPosition(Vector2f(480/2,800/(MAX_NUMBER_OF_ITEMS + 1) * 2));
+    menu[1].setPosition(Vector2f(480/2-10,800/(MAX_NUMBER_OF_ITEMS + 1) * 2));
 
+    menu[2].setCharacterSize(23);
     menu[2].setFont(font);
     menu[2].setColor(Color::White);
     menu[2].setString("Exit");

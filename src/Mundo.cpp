@@ -509,21 +509,21 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     /// HUD STUFF
 
 
-    spr_hud1 ->setPosition(p1->getSprite()->getRenderPos()[0]+63,p1->getSprite()->getRenderPos()[1] - 100);
+    spr_hud1 ->setPosition(p1->getSprite()->getRenderPos()[0]+63,p1->getSprite()->getRenderPos()[1] - 95);
     ventana->draw(*spr_hud1);
-    spr_hud1 ->setPosition(p1->getSprite()->getRenderPos()[0]-145,p1->getSprite()->getRenderPos()[1] - 100);
+    spr_hud1 ->setPosition(p1->getSprite()->getRenderPos()[0]-145,p1->getSprite()->getRenderPos()[1] - 95);
     ventana->draw(*spr_hud1);
-    spr_hud2 ->setPosition(p1->getSprite()->getRenderPos()[0]-13,p1->getSprite()->getRenderPos()[1] - 100);
+    spr_hud2 ->setPosition(p1->getSprite()->getRenderPos()[0]-13,p1->getSprite()->getRenderPos()[1] - 95);
     ventana->draw(*spr_hud2);
 
-    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0]-10,p1->getSprite()->getRenderPos()[1] - 100);
+    spr_pizza ->setPosition(p1->getSprite()->getRenderPos()[0]-10,p1->getSprite()->getRenderPos()[1] - 93);
     ventana->draw(*spr_pizza);
 
-    text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 95);
+    text_num_pizzas -> setPosition(p1->getSprite()->getRenderPos()[0]+20,p1->getSprite()->getRenderPos()[1] - 89);
     ventana->draw(*text_num_pizzas);
-    text_time -> setPosition(p1->getSprite()->getRenderPos()[0]+70,p1->getSprite()->getRenderPos()[1] - 95);
+    text_time -> setPosition(p1->getSprite()->getRenderPos()[0]+73,p1->getSprite()->getRenderPos()[1] - 89);
     ventana->draw(*text_time);
-    text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 95);
+    text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 90);
     ventana->draw(*text_player_lifes);
 
 
