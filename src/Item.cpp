@@ -10,8 +10,8 @@ Item::Item(int tipo, sf::Vector2f pos, int tiempoG, int tiempoV) {
     tiempoGeneracion = tiempoG;
     tiempoVida = tiempoV;
     /// Carga el spriteSheet
-    textura.loadFromFile("assets/PowerUps/power.png");
-    if (!textura.loadFromFile("assets/PowerUps/power.png"))
+    textura.loadFromFile("assets/PowerUps/powerUps.png");
+    if (!textura.loadFromFile("assets/PowerUps/powerUps.png"))
     {
         std::cout<< "Error cargando la imagen PowerUps.png"<<std::endl;
         exit(0);
@@ -59,7 +59,7 @@ void Item::restartPowerUp() {
     reloj.restart();
     /// Cambiar el tipo del powerUp
     int tipo = 1 + rand() % 5;
-    setTipo(tipo);
+    setTipo(this->tipo);
 
 }
 
@@ -68,31 +68,34 @@ void Item::setTipo(int tipo){
     switch (tipo) {
         case 1:
             /// Vida Extra
-            sprite->setTextureRect(sf::IntRect(134,13,92,96));
-            sprite->setOrigin(92/2,96/2);
-            sprite->setScale(0.2,0.2);
+            sprite->setTextureRect(sf::IntRect(269,138,49,76));
+            sprite->setOrigin(49/2,76/2);
+            sprite->setScale(0.3,0.3);
         break;
         case 2:
             /// Turbo
-            sprite->setTextureRect(sf::IntRect(25,135,67,90));
-            sprite->setOrigin(67/2,90/2);
-            sprite->setScale(0.2,0.2);
+            sprite->setTextureRect(sf::IntRect(30,254,48,80));
+            sprite->setOrigin(48/2,80/2);
+            sprite->setScale(0.3,0.3);
         break;
         case 3:
             /// Tiempo Extra
-            sprite->setTextureRect(sf::IntRect(150,133,63,94));
-            sprite->setOrigin(63/2,94/2);
+            sprite->setTextureRect(sf::IntRect(20,140,81,85));
+            sprite->setOrigin(81/2,85/2);
             sprite->setScale(0.2,0.2);
         break;
         case 4:
             /// Invisibilidad
-            sprite->setTextureRect(sf::IntRect(258,15,91,92));
-            sprite->setOrigin(92/2, 92/2);
+            sprite->setTextureRect(sf::IntRect(140,20,81,85));
+            sprite->setOrigin(81/2, 85/2);
             sprite->setScale(0.2,0.2);
         break;
         case 5:
-            /// Levitar
+            /// Levitar => Escudo???
             /// TODO: Poner el sprite correspondiente
+            sprite->setTextureRect(sf::IntRect(20,20,81,85));
+            sprite->setOrigin(81/2, 85/2);
+            sprite->setScale(0.2,0.2);
         break;
         case 6:
             /// Modo Imparable

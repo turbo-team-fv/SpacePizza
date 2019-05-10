@@ -621,9 +621,9 @@ void Mundo::initItems()
     Item *inivisibilidad = new Item(4, sf::Vector2f(100,280), 2,10);
     items.push_back(inivisibilidad);
     /// TODO: crear uno mas de cada tipo para que inicialmente haya powerUps de todos los tipos
-    /*Item *levitar = new Item(5, sf::Vector2f(), 2,10);
+    Item *levitar = new Item(2, sf::Vector2f(360,100), 1,10);
     items.push_back(levitar);
-    Item *imparable = new Item(6, sf::Vector2f(), 2,10);
+    /* Item *imparable = new Item(6, sf::Vector2f(), 2,10);
     items.push_back(imparable);*/
 }
 
