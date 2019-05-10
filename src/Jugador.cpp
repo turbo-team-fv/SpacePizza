@@ -35,9 +35,9 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
     invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
     invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
     invisible->addFrame(sf::IntRect(268, 1,49, 49),0);
-     invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
-      invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
-      invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
+    invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
+    invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
+    invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
 
 
     invisible->setSpeed(0.1);
@@ -53,6 +53,20 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
 
     jugador_sprite->addFrame(sf::IntRect(10, 4,28, 44),3);//ab
     jugador_sprite->addFrame(sf::IntRect(58, 6,28, 42),3);
+
+    muerte= new Popup("assets/jugador/player_death.png",0.5);
+    muerte->getSprite()->addFrame(sf::IntRect(20,18,75,77),0);
+    muerte->getSprite()->addFrame(sf::IntRect(141,10,95,108),0);
+    muerte->getSprite()->addFrame(sf::IntRect(264,2,107,121),0);
+    muerte->getSprite()->addFrame(sf::IntRect(392,5,113,118),0);
+    muerte->getSprite()->addFrame(sf::IntRect(10,133,108,115),0);
+    muerte->getSprite()->addFrame(sf::IntRect(141,133,100,115),0);
+    muerte->getSprite()->addFrame(sf::IntRect(269,141,95,95),0);
+    muerte->getSprite()->addFrame(sf::IntRect(397,146,95,87),0);
+    muerte->getSprite()->addFrame(sf::IntRect(18,274,84,87),0);
+    muerte->getSprite()->addFrame(sf::IntRect(164,294,48,54),0);
+    muerte->getSprite()->addFrame(sf::IntRect(292,294,48,52),0);
+    muerte->getSprite()->addFrame(sf::IntRect(420,297,46,49),0);
 
     /**COLLIDERS**/
     vector <sf::Rect<float> > colinit;
@@ -83,25 +97,9 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
 
     double x=0,y=0,potencia=50;
 
-   /* if(bounce.x<0){
-    eRight=false;
-    eLeft=true;
-    }
-    if(bounce.x>0){
-    eLeft=false;
-    eRight=true;
-    }
-    if(bounce.y<0){
-    eDown=false;
-    eUp=true;
-    }
-    if(bounce.y>0){
-    eUp=false;
-    eDown=true;
-}*/
     if(estado==1)
     {
-       // cout<<"TURBO"<<endl;
+        // cout<<"TURBO"<<endl;
         potencia=potencia*2;
         jugador_sprite->setSpeed(0.1);
     }
@@ -142,37 +140,45 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
         //La tecla Abajo está pulsada:
     }
 
-    if(timer_estado.getElapsedTime().asSeconds()>=limite_estado)
+    if(timer_estado.getElapsedTime().asSeconds()>=limite_estado&&estado!=10)
     {
         estado=0;
     }
 
-    if(bounce.x<0){
-    x=-potencia*2;
+    if(bounce.x<0)
+    {
+        x=-potencia*2;
     }
-    else if(bounce.x>0){
-    x=potencia*2;
+    else if(bounce.x>0)
+    {
+        x=potencia*2;
     }
-    if(bounce.y<0){
-    y=-potencia*2;
+    if(bounce.y<0)
+    {
+        y=-potencia*2;
     }
-    else if(bounce.y>0){
-    y=potencia*2;
+    else if(bounce.y>0)
+    {
+        y=potencia*2;
     }
 
-    if(cesped&&(abs(pState->getVel()[0])>50||abs(pState->getVel()[1])>50)){
-    x=0;
-    y=0;
+    if(cesped&&(abs(pState->getVel()[0])>50||abs(pState->getVel()[1])>50))
+    {
+        x=0;
+        y=0;
     }
 
-    /*if(bounce.x!=0||bounce.y!=0){
-    x+=bounce.x;
-    y+=bounce.y;
-    }*/
+    if(estado!=10)
+    {
 
-    pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
-
-    pState->updatePhysicsState(et);
+        pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
+        pState->updatePhysicsState(et);
+    }
+    else
+    {
+        cout<<"muerto"<<endl;
+        muerte->throwPopup();
+    }
 
 }
 
@@ -199,6 +205,10 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
     {
         this->invisible->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
     }
+    if(estado==10){
+    muerte->setPosition(jugador_sprite->getRenderPos()[0],jugador_sprite->getRenderPos()[1]);
+    muerte->drawPopup(w,i);
+    }
 
 }
 
@@ -220,16 +230,21 @@ void Jugador::setEstado(int e)
     estado=e;
 
 }
-void Jugador::setCesped(bool c){
-cesped=c;
+void Jugador::setCesped(bool c)
+{
+    cesped=c;
 }
 // Este metodo permite modifcar la vida => hay que pasarle el valor a modificar incluyendo el signo si queremos restar
 void Jugador::updateVida(int change)
 {
     vidas = vidas + change;
+    cout<<"estado antes de cambiar "<<estado<<endl;
     if(vidas < 0)
     {
         vidas = 0;
+        std::cout<<"se queda sin vidas "<< vidas<<std::endl;
+        estado=10;
+
     }
     if(vidas >= 5 )
     {

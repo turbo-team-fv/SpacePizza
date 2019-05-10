@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include "PhysicsState.h"
 #include "SuperSprite.h"
+#include "Popup.h"
 using namespace std;
 
 
@@ -43,6 +44,8 @@ class Jugador
 
     sf::Clock timer_estado;
     double limite_estado;
+
+    Popup *muerte;
 
 };
 

@@ -1,6 +1,6 @@
 #include "Popup.h"
 
-Popup::Popup(string ruta, int life)
+Popup::Popup(string ruta, double life)
 {
     //ctor
     pos.push_back(0);
@@ -13,7 +13,7 @@ Popup::Popup(string ruta, int life)
     alive=false;
 }
 
-void Popup::setLife(int t)
+void Popup::setLife(double t)
 {
     popup_life=t;
 }
