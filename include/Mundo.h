@@ -72,7 +72,7 @@ private:
     Time * time1;
     int reparto_time;
 
-    RectangleShape * bg_pwup_ative;
+    RectangleShape * pwupHUD_ative;
     Texture * txt_pwupHUD_empty,* txt_pwupHUD_escudo,* txt_pwupHUD_invisibilidad,
     * txt_pwupHUD_tiempo,* txt_pwupHUD_velocidad,* txt_pwupHUD_vida;
 
