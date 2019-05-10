@@ -84,6 +84,7 @@ Mundo::Mundo()
     vista -> reset(sf::FloatRect(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1], 300, 200));
     vista->setCenter((float)p1->getPhysicsState()->getActualState()[0], (float)p1->getPhysicsState()->getActualState()[1]);
     vista->setViewport(sf::FloatRect(0.f, 0.f, 1.f, 1.f));
+    //vista->zoom(0.8f);
     // Minimap
     minimap = new View();
     minimap->setViewport(sf::FloatRect(0.75f, 0.75f, 0.25f, 0.25f));
@@ -482,12 +483,12 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     p1->calcInter(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
-
-        //e1[en]->calcInter(ventana,inter);
+        e1[en]->calcInter(ventana,inter);
     }
 
 
     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
+
     ventana->setView(*vista);///SET VIEW PLAYER
     mapa->draw(ventana);
 
@@ -530,6 +531,12 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     if(p1-> checkEstado() == 0) pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);
+    if(p1-> checkEstado() == 10){
+
+
+    }
+
+
 //    if(p1-> checkEstado() == 3) pwupHUD_ative -> setTexture(txt_pwupHUD_tiempo);
     pwupHUD_ative-> setPosition(p1->getSprite()->getRenderPos()[0]-150,p1->getSprite()->getRenderPos()[1] + 55);
     ventana->draw(*pwupHUD_ative);
@@ -541,26 +548,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawItems(ventana);
     p1->drawJugador(ventana,inter);
 
-//    No enemies in minimap
-//    for(unsigned en=0; en< e1.size(); en++)
-//    {
-//
-//        e1[en]->drawEnemigo(ventana,inter);
-//    }
-
-//
-//    e1[en]->drawEnemigo(ventana,inter);
-//    }
-
-
     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
     ventana->setView(*vista);///SET VIEW PLAYER
     warning->setPosition(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]+50);
     warning->drawPopup(ventana,inter);
-
-
-
-
 
 }
 
