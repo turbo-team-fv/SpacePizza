@@ -65,12 +65,16 @@ private:
     int player_lifes, num_pizzas;
     Font * font_player_lifes, *font_numbers;
     Text * text_player_lifes, *text_num_pizzas, *text_time;
+
     Texture * txt_pizza,*txt_hud1,*txt_hud2;
     Sprite * spr_pizza, *spr_hud1,*spr_hud2;
     Clock * clock1;
     Time * time1;
     int reparto_time;
 
+    RectangleShape * pwupHUD_ative;
+    Texture * txt_pwupHUD_empty,* txt_pwupHUD_escudo,* txt_pwupHUD_invisibilidad,
+    * txt_pwupHUD_tiempo,* txt_pwupHUD_velocidad,* txt_pwupHUD_vida;
 
     /**ELEMENTOS**/
     vector< sf::Vector2f > puntosEntrega;
