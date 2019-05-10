@@ -64,11 +64,18 @@ Mundo::Mundo()
     text_player_lifes -> setColor(Color::Red);
 
     txt_pwupHUD_empty = new Texture();
+    txt_pwupHUD_empty -> loadFromFile("assets/hud/powerups/Hud_empty.png");
     txt_pwupHUD_escudo = new Texture();
+    txt_pwupHUD_escudo -> loadFromFile("assets/hud/powerups/Hud_escudo.png");
     txt_pwupHUD_invisibilidad = new Texture();
+    txt_pwupHUD_invisibilidad -> loadFromFile("assets/hud/powerups/Hud_invisibilidad.png");
     txt_pwupHUD_tiempo = new Texture();
+    txt_pwupHUD_tiempo -> loadFromFile("assets/hud/powerups/Hud_tiempo.png");
     txt_pwupHUD_velocidad = new Texture();
+    txt_pwupHUD_velocidad -> loadFromFile("assets/hud/powerups/Hud_velocidad.png");
     txt_pwupHUD_vida = new Texture();
+    txt_pwupHUD_vida -> loadFromFile("assets/hud/powerups/Hud_vida.png");
+
 
     // Vista
     vista = new View();
