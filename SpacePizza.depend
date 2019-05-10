@@ -538,7 +538,7 @@
 1557339326 /home/carlos/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1557477438 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
+1557510107 source:/home/carlos/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -1105,7 +1105,7 @@
 1557476628 source:/home/carlos/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1557477082 source:/home/carlos/FV/SpacePizza/src/Item.cpp
+1557510191 source:/home/carlos/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 

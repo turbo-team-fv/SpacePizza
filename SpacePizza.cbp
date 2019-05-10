@@ -55,6 +55,7 @@
 		<Unit filename="include/Motor2D.h" />
 		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/PhysicsState.h" />
+		<Unit filename="include/Popup.h" />
 		<Unit filename="include/State.h" />
 		<Unit filename="include/SuperSprite.h" />
 		<Unit filename="lib/tinyxml/tinystr.cpp" />
@@ -79,6 +80,7 @@
 		<Unit filename="src/Motor2D.cpp" />
 		<Unit filename="src/Mundo.cpp" />
 		<Unit filename="src/PhysicsState.cpp" />
+		<Unit filename="src/Popup.cpp" />
 		<Unit filename="src/SuperSprite.cpp" />
 		<Extensions>
 			<code_completion />

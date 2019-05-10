@@ -68,15 +68,15 @@ void Item::setTipo(int tipo){
     switch (tipo) {
         case 1:
             /// Vida Extra
-            sprite->setTextureRect(sf::IntRect(260,20,81,85));
-            sprite->setOrigin(81/2,85/2);
-            sprite->setScale(0.2,0.2);
+            sprite->setTextureRect(sf::IntRect(269,138,49,76));
+            sprite->setOrigin(49/2,76/2);
+            sprite->setScale(0.3,0.3);
         break;
         case 2:
             /// Turbo
-            sprite->setTextureRect(sf::IntRect(140,140,81,85));
-            sprite->setOrigin(81/2,85/2);
-            sprite->setScale(0.2,0.2);
+            sprite->setTextureRect(sf::IntRect(30,254,48,80));
+            sprite->setOrigin(48/2,80/2);
+            sprite->setScale(0.3,0.3);
         break;
         case 3:
             /// Tiempo Extra
