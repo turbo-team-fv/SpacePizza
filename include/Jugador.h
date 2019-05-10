@@ -15,13 +15,14 @@ class Jugador
         Jugador();
         virtual ~Jugador();
         PhysicsState* getPhysicsState();
-        void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown, sf::Time et);
+        void updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vector2f bounce, sf::Time et);
         void calcInter(sf::RenderWindow *w, double i);
         void drawJugador(sf::RenderWindow *w, double i);
         void updateVida(int change);
         int getVidas();
         int checkEstado();
         void setEstado(int e);
+        void setCesped(bool c);
         void restartEstado();
         SuperSprite* getSprite(){ return jugador_sprite; };
 
@@ -31,13 +32,14 @@ class Jugador
      private:
     /**GRAFICOS**/
     SuperSprite *jugador_sprite;
-    SuperSprite *turbo;
+    SuperSprite *turbo,*invisible;
 
 
     /**FISICAS**/
     PhysicsState *pState;
     int vidas;
     int estado;
+    bool cesped;
 
     sf::Clock timer_estado;
     double limite_estado;

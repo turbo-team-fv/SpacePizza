@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include "PhysicsState.h"
 #include "SuperSprite.h"
+#include "Popup.h"
 
 class Enemigo
 {
@@ -32,6 +33,9 @@ class Enemigo
     private:
     /**GRAFICOS**/
     SuperSprite *enemigo_sprite;
+    vector <Popup*> alert;
+    int alert_id;
+
 
     /**FISICAS**/
     PhysicsState *pState;

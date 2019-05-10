@@ -33,6 +33,7 @@ public:
 
 
     void updatePhysicsState(sf::Time et);
+    void updateColliders(double x, double y);
 
 protected:
 

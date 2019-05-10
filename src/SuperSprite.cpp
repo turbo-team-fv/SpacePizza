@@ -73,6 +73,7 @@ void SuperSprite::drawSuperSprite(vector<double> past, vector<double> actual,sf:
             frame++;
             if(frame==frames[animacion].size()){
             frame=0;
+
             }
         }
     changer.restart();

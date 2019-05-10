@@ -9,6 +9,7 @@
 #include "Mapa.h"
 #include "SuperSprite.h"
 #include "Alcantarilla.h"
+#include "Popup.h"
 #include <sstream>
 #include <iomanip>
 
@@ -30,9 +31,11 @@ public:
     int getTime();
     void initItems();
     void initPuntosEntrega();
-    void colisionesMapa();
+    sf::Vector2f colisionesMapa();
     void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
     void colisionItems();
+    void EnemigoGenerator();
+
     void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
     void initAlcantarillas();
 
@@ -45,6 +48,9 @@ public:
     vector< Alcantarilla *> alcantarillas;
 
     void processHUD();
+
+    void calcularPuntuacionVariable();
+    void calcularTiempoBonificacion();
 protected:
 
 private:
@@ -53,12 +59,15 @@ private:
     sf::RectangleShape *ptoEntrega;
 
     /** vista, minimap & HUD stuff **/
+    Popup *warning,*pizza;
+
     sf::View * vista, * minimap; // La super vista y el super minimapa
     int player_lifes, num_pizzas;
     Font * font_player_lifes, *font_numbers;
     Text * text_player_lifes, *text_num_pizzas, *text_time;
-    Texture * txt_pizza;
-    Sprite * spr_pizza, * spr_pwup_active;
+
+    Texture * txt_pizza,*txt_hud1,*txt_hud2;
+    Sprite * spr_pizza, *spr_hud1,*spr_hud2, * spr_pwup_active;
     Clock * clock1;
     Time * time1;
     int reparto_time;
@@ -79,6 +88,16 @@ private:
     sf::Texture texture;
 
     sf::Clock clockAlcantarillas;
+
+    bool entregando;
+    sf::Clock clockEntrega;
+    double distanciaPtoEntrega;
+    int puntosPorDistancia;
+    int tiempoBonificacion;
+    int puntuacion;
+    sf::Clock SpawnEnemigo;
+    bool SpawnEnemigo_b;
+
 };
 
 #endif // MUNDO_H
