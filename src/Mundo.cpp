@@ -63,6 +63,13 @@ Mundo::Mundo()
     text_player_lifes -> setCharacterSize(12);
     text_player_lifes -> setColor(Color::Red);
 
+    txt_pwupHUD_empty = new Texture();
+    txt_pwupHUD_escudo = new Texture();
+    txt_pwupHUD_invisibilidad = new Texture();
+    txt_pwupHUD_tiempo = new Texture();
+    txt_pwupHUD_velocidad = new Texture();
+    txt_pwupHUD_vida = new Texture();
+
     // Vista
     vista = new View();
     vista -> reset(sf::FloatRect(p1->getPhysicsState()->getActualState()[0],p1->getPhysicsState()->getActualState()[1], 300, 200));
@@ -503,6 +510,8 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*text_time);
     text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 95);
     ventana->draw(*text_player_lifes);
+
+
 
 
     ventana->setView(*minimap);///SET VIEW MINIMAP
