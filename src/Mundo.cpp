@@ -526,10 +526,11 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*text_player_lifes);
 
 
-    cout << p1-> checkEstado() <<endl;
+//    cout << p1-> checkEstado() <<endl;
     if(p1-> checkEstado() == 0) pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);
+//    if(p1-> checkEstado() == 3) pwupHUD_ative -> setTexture(txt_pwupHUD_tiempo);
     pwupHUD_ative-> setPosition(p1->getSprite()->getRenderPos()[0]-150,p1->getSprite()->getRenderPos()[1] + 55);
     ventana->draw(*pwupHUD_ative);
 
