@@ -76,8 +76,7 @@ Mundo::Mundo()
     txt_pwupHUD_vida = new Texture();
     txt_pwupHUD_vida -> loadFromFile("assets/hud/powerups/Hud_vida.png");
 
-    pwupHUD_ative = new RectangleShape({100,100});
-    pwupHUD_ative -> setPosition(120,120);
+    pwupHUD_ative = new RectangleShape({50,45});
     pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
 
     // Vista
@@ -521,7 +520,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     text_player_lifes -> setPosition(p1->getSprite()->getRenderPos()[0]-140,p1->getSprite()->getRenderPos()[1] - 95);
     ventana->draw(*text_player_lifes);
 
-pwupHUD_ative-> setPosition(p1->getSprite()->getRenderPos()[0]-10,p1->getSprite()->getRenderPos()[1] + 10);
+    pwupHUD_ative-> setPosition(p1->getSprite()->getRenderPos()[0]-150,p1->getSprite()->getRenderPos()[1] + 55);
     ventana->draw(*pwupHUD_ative);
 
 
