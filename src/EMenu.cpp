@@ -61,6 +61,9 @@ void EMenu::Init()
     menu[2].setPosition(Vector2f(680/2,650/(MAX_NUMBER_OF_ITEMS + 1) * 3));
 
     selectedItemIndex = 0;
+
+    /**Ejemplo de uso de los sonidos**/
+    ControladorSonido::getInstance()->playMusicaMenu();
 }
 
 void EMenu::Draw(RenderWindow * ventana)
@@ -134,6 +137,10 @@ void EMenu::HandleEvents(RenderWindow * ventana)
             cout<<"SelectedItemIndex"<<selectedItemIndex<<endl;
             if(selectedItemIndex == 0)
             {
+
+                ControladorSonido::getInstance()->stopMusicaMenu();
+                ControladorSonido::getInstance()->playRadio(0);
+
                 Juego::getInstance()->cambiarEstado(EJugando::getInstance());
 
                 cout<<"Play"<<endl;

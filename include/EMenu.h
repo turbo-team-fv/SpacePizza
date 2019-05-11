@@ -4,6 +4,7 @@
 #include <sstream>
 #include <SFML/Graphics.hpp>
 #include "State.h"
+#include "ControladorSonido.h"
 
 using namespace std;
 using namespace sf;

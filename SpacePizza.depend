@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1554883996 source:/home/pablo/Source/FV/SpacePizza/main.cpp
+1557574884 source:/home/pablo/Source/FV/SpacePizza/main.cpp
 	"Juego.h"
+	"SFML/Audio.hpp"
 
 1555665872 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
@@ -661,7 +662,7 @@
 	"PhysicsState.h"
 	"SuperSprite.h"
 
-1557570761 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
+1557577165 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
 	"EJugando.h"
@@ -670,11 +671,12 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1555665872 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
+1557576960 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 	"State.h"
+	"ControladorSonido.h"
 
 1557504501 source:/home/pablo/Source/FV/SpacePizza/src/EFin.cpp
 	"EFin.h"
@@ -1292,4 +1294,12 @@
 
 1557570761 source:/home/pablo/Source/FV/SpacePizza/src/Popup.cpp
 	"Popup.h"
+
+1557577043 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
+	"ControladorSonido.h"
+	<iostream>
+
+1557576822 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
+	<vector>
+	"SFML/Audio.hpp"
 
