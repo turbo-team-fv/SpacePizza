@@ -16,6 +16,7 @@ class Mapa
         void load();
         void setTileMapSprites();
         void draw(RenderWindow * window);
+        void drawMini(RenderWindow * window);
         float checkearColision(FloatRect rect);
         bool estaEnCesped(FloatRect rect);
 
@@ -23,6 +24,7 @@ class Mapa
         Texture* mapTexture;
         Sprite*** spriteSet;
         Sprite ****tilemapSprite;
+        RectangleShape *edificios,*cesped;
 
         int numLayers = 0;
         int tileWidth = 0;

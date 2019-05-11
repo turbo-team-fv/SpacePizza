@@ -71,13 +71,15 @@ Mundo::Mundo()
     pwupHUD_ative = new RectangleShape({50,45});
     pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
 
-    minimap_player = new CircleShape(40);
+    minimap_player = new CircleShape(20);
     minimap_player -> setFillColor(sf::Color(150, 50, 250));
     minimap_player -> setOutlineThickness(10);
     minimap_player -> setOutlineColor(sf::Color(250, 150, 100));
 
-    minimap_pizza = new CircleShape(50);
+    minimap_pizza = new CircleShape(30);
     minimap_pizza -> setFillColor(sf::Color(100, 250, 50));
+    minimap_pizza -> setOutlineThickness(10);
+    minimap_pizza -> setOutlineColor(sf::Color(50, 150, 250));
 
     // Vista
     vista = new View();
@@ -620,7 +622,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
 
     ventana->setView(*minimap);///SET VIEW MINIMAP
-    mapa->draw(ventana);
+    mapa->drawMini(ventana);
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
 //    p1->drawJugador(ventana,inter);

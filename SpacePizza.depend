@@ -316,7 +316,7 @@
 
 1555265667 hics.hpp>
 
-1557530333 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557589165 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -391,13 +391,13 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557311852 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
+1557589041 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
 1555240051 nyxml/tinyxml2.h"
 
-1557529182 /home/samuel/FV/SpacePizza/include/Mundo.h
+1557573750 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -433,7 +433,7 @@
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 
-1557311852 /home/samuel/FV/SpacePizza/include/Mapa.h
+1557589324 /home/samuel/FV/SpacePizza/include/Mapa.h
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"
@@ -462,9 +462,9 @@
 
 1555085415 antarillas
 
-1554929462 source:/home/samuel/FV/SpacePizza/main.cpp
+1557583561 source:/home/samuel/FV/SpacePizza/main.cpp
 	"Juego.h"
-	"Juego.h"
+	"SFML/Audio.hpp"
 
 1555266433 /home/samuel/FV/SpacePizza/include/Juego.h
 	"EMenu.h"
@@ -474,12 +474,12 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1557519149 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+1557569727 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 	"EJugando.h"
 	"EMenu.h"
 
-1557530409 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1557530814 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557515564 /home/samuel/FV/SpacePizza/include/Jugador.h
@@ -723,7 +723,7 @@
 	"Juego.h"
 	"SFML/Graphics.hpp"
 
-1557515564 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
+1557583561 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
 	"EJugando.h"
@@ -734,11 +734,12 @@
 
 1555241191 h"
 
-1555265667 /home/samuel/FV/SpacePizza/include/EMenu.h
+1557583561 /home/samuel/FV/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 	"State.h"
+	"ControladorSonido.h"
 
 1557570761 /home/pablo/Source/FV/SpacePizza/include/Enemigo.h
 	<iostream>
@@ -1313,4 +1314,12 @@
 1557578745 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
+
+1557583561 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
+	<vector>
+	"SFML/Audio.hpp"
+
+1557583561 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
+	"ControladorSonido.h"
+	<iostream>
 
