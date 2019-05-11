@@ -2,30 +2,31 @@
 
 PhysicsState::PhysicsState()
 {
-    posNow.push_back(0.0),posNow.push_back(0.0);
-    posBef.push_back(0.0),posBef.push_back(0.0);
-    vel.push_back(0.0),vel.push_back(0.0);
+    posNow.x=0,posNow.y=0;
+    posBef.x=0,posBef.y=0;
+    vel.x=0,vel.y=0;
+
 }
 
 
 
-vector<double> PhysicsState::getPastState()
+sf::Vector2f PhysicsState::getPastState()
 {
     return posBef;
 }
 
-vector<double> PhysicsState::getActualState()
+sf::Vector2f PhysicsState::getActualState()
 {
     return posNow;
 }
 
-vector<double> PhysicsState::getVel()
+sf::Vector2f PhysicsState::getVel()
 {
     return vel;
 }
 
-void PhysicsState::setVel(double x, double y){
-    vel[0]=x,vel[1]=y;
+void PhysicsState::setVel(sf::Vector2f newvel){
+    vel=newvel;
 
 }
 
@@ -36,8 +37,8 @@ initialColliders=colinit;
 
     for (unsigned i=0; i< colinit.size(); i++)
     {
-        colinit[i].top+=posNow[1];
-        colinit[i].left+=posNow[0];
+        colinit[i].top+=posNow.y;
+        colinit[i].left+=posNow.x;
 
         boxes.push_back(sf::RectangleShape(sf::Vector2f(colinit[i].width,colinit[i].height)));
 
@@ -58,88 +59,85 @@ vector <sf::Rect<float> >  PhysicsState::getColliders()
 }
 
 
-void PhysicsState::setActualState(double x, double y)
+void PhysicsState::setActualState(sf::Vector2f new_AS)
 {
-    posNow[0]=x,posNow[1]=y;
+    posNow=new_AS;
 }
-void PhysicsState::setPastState(double x, double y)
+void PhysicsState::setPastState(sf::Vector2f new_PS)
 {
-    posBef[0]=x,posBef[1]=y;
+    posBef=new_PS;
 }
 
-void PhysicsState::Move(double ax, double ay, bool acelerado)
+void PhysicsState::Move(sf::Vector2f mover, bool acelerado)
 {
     int freno=15,limit=150;
 
     if(acelerado)//MOTOR CON ACELERACION
     {
-        if(std::abs(vel[0])<=limit)
+        if(std::abs(vel.x)<=limit)
         {
-            vel[0]+=ax;
+            vel.x+=mover.x;
         }
         else
         {
             /**Esta maravilla de aqui devuelve el signo en forma de -1 o 1 : (ax > 0) - (ax < 0)**/
-            vel[0]=limit*((ax > 0) - (ax < 0)) ;
+            vel.x=limit*((mover.x > 0) - (mover.x < 0)) ;
         }
-        if(std::abs(vel[1])<=limit)
+        if(std::abs(vel.y)<=limit)
         {
-            vel[1]+=ay;
-        }
-        else
-        {
-            vel[1]=limit*((ay > 0) - (ay < 0)) ;
-        }
-
-
-        if (vel[0]<=freno&&vel[0]>=-freno)
-        {
-            vel[0] = 0.0;
+            vel.y+=mover.y;
         }
         else
         {
-            //decrease the speed
-            if(vel[0]>freno)
-                vel[0] -= freno;
-
-            if(vel[0]<-7.0)
-                vel[0] += freno;
+            vel.y=limit*((mover.y > 0) - (mover.y < 0)) ;
         }
 
-        if (vel[1]<=freno&&vel[1]>=-freno)
+
+        if (vel.x<=freno&&vel.x>=-freno)
         {
-            vel[1] = 0.0;
+            vel.x = 0.0;
         }
         else
         {
             //decrease the speed
-            if(vel[1]>freno)
-                vel[1] -= freno;
+            if(vel.x>freno)
+                vel.x -= freno;
 
-            if(vel[1]<-freno)
-                vel[1] += freno;
+            if(vel.x<-7.0)
+                vel.x += freno;
+        }
+
+        if (vel.y<=freno&&vel.y>=-freno)
+        {
+            vel.y = 0.0;
+        }
+        else
+        {
+            //decrease the speed
+            if(vel.y>freno)
+                vel.y -= freno;
+
+            if(vel.y<-freno)
+                vel.y += freno;
         }
     }
     else//MOTOR SIMPLE
     {
 
-        vel[0]=ax;
-        vel[1]=ay;
+        vel=mover;
     }
 
 }
 
 
-void PhysicsState::MoveTo(double ax,double ay)
+void PhysicsState::MoveTo(sf::Vector2f mover_a)
 {
 
    colliders=initialColliders;
-    posNow[0]=ax,posNow[1]=ay;
-    //posBef=posNow;
-    cout<<"Dentro de estado Fisico x es :" << posNow[0]<<endl;
+   posNow=mover_a;
     for(unsigned i = 0; i< colliders.size(); i++){
-        colliders[i].top+=posNow[1];
-        colliders[i].left+=posNow[0];
+        colliders[i].top+=posNow.y;
+        colliders[i].left+=posNow.x;
 
     }
 
@@ -151,21 +149,19 @@ void PhysicsState::updatePhysicsState(sf::Time et)
 
     posBef=posNow;
 
-    posNow[0] += vel[0]*et.asSeconds();
-    posNow[1] += vel[1]*et.asSeconds();
-
-
-updateColliders(vel[0]*et.asSeconds(),vel[1]*et.asSeconds());
+    posNow += vel*et.asSeconds();
+    //posNow.y += vel.y*et.asSeconds();
+    updateColliders(vel*et.asSeconds());
 
 }
 
-void PhysicsState::updateColliders(double x, double y){
+void PhysicsState::updateColliders(sf::Vector2f new_pos){
 
 
  for(unsigned i=0; i < colliders.size(); i++)
     {
-    colliders[i].top+=y;
-    colliders[i].left+=x;
+    colliders[i].top+=new_pos.y;
+    colliders[i].left+=new_pos.x;
 
 
    boxes[i].setPosition(colliders[i].left,colliders[i].top);
