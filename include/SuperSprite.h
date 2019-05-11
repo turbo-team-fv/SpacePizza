@@ -16,9 +16,9 @@ class SuperSprite
         void setSpeed(double s);
         void setAnimation(int a);
         sf::Sprite* getActualSprite();
-        vector<double> getRenderPos();
-        void calcInter(vector<double> past, vector<double> actual,sf::RenderWindow *w, double i);
-        void drawSuperSprite(vector<double> past, vector<double> actual,sf::RenderWindow *w, double i);
+        sf::Vector2f getRenderPos();
+        void calcInter(sf::Vector2f past, sf::Vector2f actual,sf::RenderWindow *w, double i);
+        void drawSuperSprite(sf::Vector2f past, sf::Vector2f actual,sf::RenderWindow *w, double i);
         virtual ~SuperSprite();
 
     protected:
@@ -37,7 +37,7 @@ class SuperSprite
     int numeroAnimaciones;
     bool animado;
 
-    vector<double> renderPos;
+    sf::Vector2f renderPos;
 
 
 };

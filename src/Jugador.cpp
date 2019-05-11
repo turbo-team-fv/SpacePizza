@@ -2,11 +2,10 @@
 
 Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsecos del padre**/
 {
-    pState=new PhysicsState();
-    //ctor
+
     pState= new PhysicsState();
-    pState->setActualState(150,250);
-    /**Funcionamiento: le digo la ruta de la textura y el numero de animaciones**/
+    pState->setActualState(sf::Vector2f(150,250));
+
     jugador_sprite= new SuperSprite("assets/jugador/sp_alien_texture.png",4,0.4,true);
     turbo= new SuperSprite("assets/jugador/turbo.png",4,0.6,true);
 
@@ -26,7 +25,6 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
     turbo->addFrame(sf::IntRect(74, 197,48, 31),3);
     turbo->addFrame(sf::IntRect(128, 193,54, 35),3);
     turbo->addFrame(sf::IntRect(188, 193,56, 35),3);
-
     turbo->setSpeed(0.1);
 
     invisible= new SuperSprite("assets/jugador/invisible.png",1,0.6,true);
@@ -38,8 +36,6 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
     invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
     invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
     invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
-
-
     invisible->setSpeed(0.1);
 
     jugador_sprite->addFrame(sf::IntRect(50, 52,40, 44),0);//iz
@@ -95,7 +91,8 @@ void Jugador::restartEstado()
 void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vector2f bounce, sf::Time et)
 {
 
-    double x=0,y=0,potencia=50;
+    sf::Vector2f incremento;
+    float potencia=35;
 
     if(estado==1)
     {
@@ -115,28 +112,28 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
         jugador_sprite->setAnimation(1);
         turbo->setAnimation(1);
         //La tecla Derecha está pulsada:
-        x=potencia;
+        incremento.x=potencia;
 
     }
     if(eLeft)
     {
         jugador_sprite->setAnimation(0);
         turbo->setAnimation(0);
-        x=-potencia;
+        incremento.x=-potencia;
         //La tecla Izquierda está pulsada:
     }
     if(eUp)
     {
         turbo->setAnimation(2);
         jugador_sprite->setAnimation(2);
-        y=-potencia;
+        incremento.y=-potencia;
         //La tecla Arriba está pulsada:
     }
     if(eDown)
     {
         jugador_sprite->setAnimation(3);
         turbo->setAnimation(3);
-        y=potencia;
+        incremento.y=potencia;
         //La tecla Abajo está pulsada:
     }
 
@@ -147,31 +144,31 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
 
     if(bounce.x<0)
     {
-        x=-potencia*2;
+        incremento.x=-potencia*2;
     }
     else if(bounce.x>0)
     {
-        x=potencia*2;
+        incremento.x=potencia*2;
     }
     if(bounce.y<0)
     {
-        y=-potencia*2;
+        incremento.y=-potencia*2;
     }
     else if(bounce.y>0)
     {
-        y=potencia*2;
+        incremento.y=potencia*2;
     }
 
-    if(cesped&&(abs(pState->getVel()[0])>50||abs(pState->getVel()[1])>50))
+    if(cesped&&(abs(pState->getVel().x)>50||abs(pState->getVel().y)>50))
     {
-        x=0;
-        y=0;
+        incremento.x=0;
+        incremento.y=0;
     }
 
     if(estado!=10)
     {
 
-        pState->Move(x,y,true);//Cambia el booleano para quitar aceleracion o ponerla
+        pState->Move(incremento,true);//Cambia el booleano para quitar aceleracion o ponerla
         pState->updatePhysicsState(et);
     }
     else
@@ -206,7 +203,7 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
         this->invisible->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
     }
     if(estado==10){
-    muerte->setPosition(jugador_sprite->getRenderPos()[0],jugador_sprite->getRenderPos()[1]);
+    muerte->setPosition(jugador_sprite->getRenderPos());
     muerte->drawPopup(w,i);
     }
 
@@ -238,11 +235,9 @@ void Jugador::setCesped(bool c)
 void Jugador::updateVida(int change)
 {
     vidas = vidas + change;
-    cout<<"estado antes de cambiar "<<estado<<endl;
     if(vidas < 0)
     {
         vidas = 0;
-        std::cout<<"se queda sin vidas "<< vidas<<std::endl;
         estado=10;
 
     }
@@ -250,7 +245,6 @@ void Jugador::updateVida(int change)
     {
         vidas = 5;
     }
-    std::cout<<"Muestor la vida despues de la operacion: "<< vidas<<std::endl;
 }
 
 Jugador::~Jugador()
