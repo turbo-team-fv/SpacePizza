@@ -76,6 +76,7 @@ private:
     RectangleShape * pwupHUD_ative;
     Texture * txt_pwupHUD_empty,* txt_pwupHUD_escudo,* txt_pwupHUD_invisibilidad,
     * txt_pwupHUD_tiempo,* txt_pwupHUD_velocidad,* txt_pwupHUD_vida;
+    CircleShape * minimap_player, * minimap_pizza;
 
     /**ELEMENTOS**/
     vector< sf::Vector2f > puntosEntrega;

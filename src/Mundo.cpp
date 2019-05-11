@@ -71,7 +71,15 @@ Mundo::Mundo()
     pwupHUD_ative = new RectangleShape({50,45});
     pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
 
-    /// Vista
+    minimap_player = new CircleShape(40);
+    minimap_player -> setFillColor(sf::Color(150, 50, 250));
+    minimap_player -> setOutlineThickness(10);
+    minimap_player -> setOutlineColor(sf::Color(250, 150, 100));
+
+    minimap_pizza = new CircleShape(50);
+    minimap_pizza -> setFillColor(sf::Color(100, 250, 50));
+
+    // Vista
     vista = new View();
     vista -> reset(sf::FloatRect(p1->getPhysicsState()->getActualState().x,p1->getPhysicsState()->getActualState().y, 300, 200));
     vista->setCenter((float)p1->getPhysicsState()->getActualState().x, (float)p1->getPhysicsState()->getActualState().y);
@@ -601,6 +609,8 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     if(p1-> checkEstado() == 0) pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);
+    if(p1-> checkEstado() == 10)
+    {}
 
 
 //    if(p1-> checkEstado() == 3) pwupHUD_ative -> setTexture(txt_pwupHUD_tiempo);
@@ -612,7 +622,13 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     mapa->draw(ventana);
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
-    p1->drawJugador(ventana,inter);
+//    p1->drawJugador(ventana,inter);
+
+    minimap_player -> setPosition(p1->getSprite()->getRenderPos().x-40,p1->getSprite()->getRenderPos().y-40);
+    ventana->draw(*minimap_player);
+
+    minimap_pizza -> setPosition(puntoEntrega->getPosition().x-50,puntoEntrega->getPosition().y-50);
+    ventana->draw(*minimap_pizza);
 
     vista->setCenter(p1->getSprite()->getRenderPos().x,p1->getSprite()->getRenderPos().y);///SET CAMERA PLAYER
     ventana->setView(*vista);///SET VIEW PLAYER
