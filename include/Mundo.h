@@ -34,9 +34,10 @@ public:
     sf::Vector2f colisionesMapa();
     void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
     void colisionItems();
+    void checkPuntoEntrega();
     void EnemigoGenerator();
 
-    void procesarColisiones(bool eRight, bool eLeft, bool eUp, bool eDown);
+    void procesarInteraccion(bool eRight, bool eLeft, bool eUp, bool eDown);
     void initAlcantarillas();
 
 

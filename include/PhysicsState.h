@@ -13,13 +13,13 @@ public:
     PhysicsState();
     virtual ~PhysicsState();
 
-    vector<double> getPastState();
-    vector<double> getActualState();
-    vector<double> getVel();
-    void setVel(double x, double y);
+    sf::Vector2f getPastState();
+    sf::Vector2f getActualState();
+    sf::Vector2f getVel();
+    void setVel(sf::Vector2f newvel);
 
-    void setPastState(double x, double y);
-    void setActualState(double x, double y);
+    void setPastState(sf::Vector2f new_PS);
+    void setActualState(sf::Vector2f new_AS);
     void setColliders(vector <sf::Rect<float> > colinit);
 
     /**TESTER**/
@@ -27,20 +27,20 @@ public:
     /**TESTER**/
     vector <sf::Rect<float> > getColliders();
 
-    void Move(double ax,double ay,bool acelerado);//Mueve el objeto que tenga fisicas la distancia pasada por parametro, de forma acelerada o no
-    void MoveTo(double ax,double ay);//Mueve el objeto a ciertas coordenadas
+    void Move(sf::Vector2f mover,bool acelerado);//Mueve el objeto que tenga fisicas la distancia pasada por parametro, de forma acelerada o no
+    void MoveTo(sf::Vector2f mover_a);//Mueve el objeto a ciertas coordenadas
 
 
 
     void updatePhysicsState(sf::Time et);
-    void updateColliders(double x, double y);
+    void updateColliders(sf::Vector2f new_pos);
 
 protected:
 
 private:
 
-    vector<double> posNow,posBef;
-    vector<double> vel;
+    sf::Vector2f posNow,posBef;
+    sf::Vector2f vel;
 
     /**Colisionadores**/
     vector < sf::Rect<float> > colliders;

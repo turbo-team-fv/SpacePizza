@@ -3,12 +3,12 @@
 Popup::Popup(string ruta, double life)
 {
     //ctor
-    pos.push_back(0);
-    pos.push_back(0);
-    popup=new SuperSprite(ruta,1,0.5,true);
+    pos.x=0,pos.y=0;
 
+    popup=new SuperSprite(ruta,1,0.5,true);
     popup->setSpeed(0.1);
     popup->setAnimation(0);
+
     setLife(life);
     alive=false;
 }
@@ -21,10 +21,9 @@ SuperSprite* Popup::getSprite()
 {
     return popup;
 }
- void Popup::setPosition(double x, double y){
+ void Popup::setPosition(sf::Vector2f new_pos){
 
- pos[0]=x;
- pos[1]=y;
+ pos=new_pos;
  }
 void Popup::throwPopup()
 {
