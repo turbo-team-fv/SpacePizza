@@ -610,7 +610,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);
     if(p1-> checkEstado() == 10)
-    {
+    {}
 
 
 //    if(p1-> checkEstado() == 3) pwupHUD_ative -> setTexture(txt_pwupHUD_tiempo);
@@ -624,13 +624,13 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawItems(ventana);
 //    p1->drawJugador(ventana,inter);
 
-    minimap_player -> setPosition(p1->getSprite()->getRenderPos()[0]-40,p1->getSprite()->getRenderPos()[1]-40);
+    minimap_player -> setPosition(p1->getSprite()->getRenderPos().x-40,p1->getSprite()->getRenderPos().y-40);
     ventana->draw(*minimap_player);
 
     minimap_pizza -> setPosition(puntoEntrega->getPosition().x-50,puntoEntrega->getPosition().y-50);
     ventana->draw(*minimap_pizza);
 
-    vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
+    vista->setCenter(p1->getSprite()->getRenderPos().x,p1->getSprite()->getRenderPos().y);///SET CAMERA PLAYER
     ventana->setView(*vista);///SET VIEW PLAYER
     warning->setPosition(sf::Vector2f(p1->getSprite()->getRenderPos().x,p1->getSprite()->getRenderPos().y+50));
     warning->drawPopup(ventana,inter);
