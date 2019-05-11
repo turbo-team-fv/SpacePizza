@@ -79,7 +79,7 @@ Mundo::Mundo()
     pwupHUD_ative = new RectangleShape({50,45});
     pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
 
-    minimap_player = new CircleShape(50);
+    minimap_player = new CircleShape(40);
     minimap_player -> setFillColor(sf::Color(150, 50, 250));
     minimap_player -> setOutlineThickness(10);
     minimap_player -> setOutlineColor(sf::Color(250, 150, 100));
@@ -557,8 +557,11 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawItems(ventana);
 //    p1->drawJugador(ventana,inter);
 
-    minimap_player -> setPosition(p1->getSprite()->getRenderPos()[0]-25,p1->getSprite()->getRenderPos()[1]-25);
+    minimap_player -> setPosition(p1->getSprite()->getRenderPos()[0]-40,p1->getSprite()->getRenderPos()[1]-40);
     ventana->draw(*minimap_player);
+
+    minimap_pizza -> setPosition(puntoEntrega->getPosition().x-50,puntoEntrega->getPosition().y-50);
+    ventana->draw(*minimap_pizza);
 
     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
     ventana->setView(*vista);///SET VIEW PLAYER
