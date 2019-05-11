@@ -18,6 +18,12 @@ ControladorSonido::ControladorSonido()
     soundsRadio[0]->setBuffer(*buffersRadio[0]);
     soundsRadio[0]->setVolume(50.f);
 
+    /**CARGA EFECTOŜ**/
+    bufferPowerUp = new SoundBuffer();
+    bufferPowerUp->loadFromFile("assets/sonidos/powerUp.ogg");
+    soundPowerUp = new Sound();
+    soundPowerUp->setBuffer(*bufferPowerUp);
+
 }
 
 ControladorSonido* ControladorSonido::instancia = new ControladorSonido();
@@ -60,4 +66,9 @@ void ControladorSonido::playMusicaMenu()
 void ControladorSonido::stopMusicaMenu()
 {
     soundMenu->stop();
+}
+
+void ControladorSonido::playPowerUp()
+{
+    soundPowerUp->play();
 }

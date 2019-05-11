@@ -309,6 +309,7 @@ void Mundo::colisionItems()
     {
         if(items[i]->getSprite().getGlobalBounds().intersects(p1->getSprite()->getActualSprite()->getGlobalBounds()) && items[i]->isActivo())
         {
+            ControladorSonido::getInstance()->playPowerUp();
             // Colision del jugador con uno de los powerUps del vector
             std::cout<<"Colision con un item"<<std::endl;
             int tipo = items[i]->getTipo();

@@ -13,6 +13,7 @@ class ControladorSonido
         void playRadio(int r);
         void playMusicaMenu();
         void stopMusicaMenu();
+        void playPowerUp();
 
     private:
         ControladorSonido();
@@ -24,6 +25,8 @@ class ControladorSonido
         std::vector<SoundBuffer*> buffersRadio;
         std::vector<Sound*> soundsRadio;
 
+        SoundBuffer *bufferPowerUp;
+        Sound *soundPowerUp;
 
 };
 
