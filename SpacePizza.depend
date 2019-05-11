@@ -246,7 +246,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1555265667 D
+1557476628 D
 	"SuperSprite.h"
 	"SuperSprite.h"
 	"PhysicsState.h"
@@ -863,7 +863,7 @@
 	<SFML/Graphics.hpp>
 	"State.h"
 
-1557479871 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
+1557569887 /home/ramon/Desktop/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -880,12 +880,13 @@
 1557477690 /home/ramon/Desktop/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1557477690 /home/ramon/Desktop/FV/SpacePizza/include/Jugador.h
+1557568915 /home/ramon/Desktop/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 	"SuperSprite.h"
+	"Popup.h"
 
 1557477690 /home/ramon/Desktop/FV/SpacePizza/include/PhysicsState.h
 	<iostream>
@@ -939,7 +940,7 @@
 	"Juego.h"
 	"SFML/Graphics.hpp"
 
-1555274022 source:/home/ramon/Desktop/FV/SpacePizza/src/EMenu.cpp
+1557568915 source:/home/ramon/Desktop/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
 	"EJugando.h"
@@ -974,11 +975,11 @@
 1557477690 source:/home/ramon/Desktop/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1557477690 source:/home/ramon/Desktop/FV/SpacePizza/src/Item.cpp
+1557568915 source:/home/ramon/Desktop/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
-1557477690 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
+1557568915 source:/home/ramon/Desktop/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1555254754 source:/home/ramon/Desktop/FV/SpacePizza/src/Mapa.cpp
@@ -1266,20 +1267,23 @@
 
 1557249593 c2336d9b9e36dac538cd29549dad692e0b675
 
-<<<<<<< HEAD
-1557477690 /home/ramon/Desktop/FV/SpacePizza/include/Popup.h
-=======
-1557476628 /home/carlos/FV/SpacePizza/include/Popup.h
->>>>>>> MejoraPowerUps2.0
+1557568915 /home/ramon/Desktop/FV/SpacePizza/include/Popup.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"SuperSprite.h"
 
-<<<<<<< HEAD
-1557477690 source:/home/ramon/Desktop/FV/SpacePizza/src/Popup.cpp
-=======
-1557476628 source:/home/carlos/FV/SpacePizza/src/Popup.cpp
->>>>>>> MejoraPowerUps2.0
+1557476628 /home/carlos/FV/SpacePizza/include/Popup.h
+
+1557476628 oraPowerUps2.0
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"SuperSprite.h"
 	"Popup.h"
+
+1557568915 source:/home/ramon/Desktop/FV/SpacePizza/src/Popup.cpp
+	"Popup.h"
+
+1557476628 source:/home/carlos/FV/SpacePizza/src/Popup.cpp
 

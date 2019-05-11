@@ -85,7 +85,7 @@ Mundo::Mundo()
     minimap_player -> setOutlineColor(sf::Color(250, 150, 100));
 
     minimap_pizza = new CircleShape(50);
-    minimap_pizza = setFillColor(sf::Color(100, 250, 50));
+    minimap_pizza -> setFillColor(sf::Color(100, 250, 50));
 
     // Vista
     vista = new View();
@@ -555,7 +555,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     mapa->draw(ventana);
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
-    p1->drawJugador(ventana,inter);
+//    p1->drawJugador(ventana,inter);
+
+    minimap_player -> setPosition(p1->getSprite()->getRenderPos()[0]-25,p1->getSprite()->getRenderPos()[1]-25);
+    ventana->draw(*minimap_player);
 
     vista->setCenter(p1->getSprite()->getRenderPos()[0],p1->getSprite()->getRenderPos()[1]);///SET CAMERA PLAYER
     ventana->setView(*vista);///SET VIEW PLAYER
