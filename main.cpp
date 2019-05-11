@@ -1,4 +1,5 @@
 #include "Juego.h"
+#include "SFML/Audio.hpp"
 using namespace std;
 
 
