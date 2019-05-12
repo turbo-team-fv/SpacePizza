@@ -112,7 +112,7 @@ void Mundo::initPuntosEntrega()
 {
     /// Inicializo la textura del punto de entrega
     texture.loadFromFile("assets/PowerUps/power.png");
-    if (!texture.loadFromFile("assets/PowerUps/power.png"))
+    if (!texture.loadFromFile("assets/PowerUps/powerUps.png"))
     {
         std::cout<< "Error cargando la imagen PowerUps.png"<<std::endl;
         exit(0);
@@ -120,8 +120,8 @@ void Mundo::initPuntosEntrega()
     /// Pongo el sprite del punto de entrega
     puntoEntrega = new sf::Sprite();
     puntoEntrega->setTexture(texture);
-    puntoEntrega->setTextureRect(sf::IntRect(15,16,88,89));
-    puntoEntrega->setOrigin(88/2,89/2);
+    puntoEntrega->setTextureRect(sf::IntRect(254,136,92,91));
+    puntoEntrega->setOrigin(92/2,91/2);
     puntoEntrega->setScale(0.4,0.4);
 
     /// Situo los puntos de entrega disponibles
@@ -152,8 +152,6 @@ void Mundo::initItems()
     /// TODO: crear uno mas de cada tipo para que inicialmente haya powerUps de todos los tipos
     Item *levitar = new Item(2, sf::Vector2f(360,100), 1,10);
     items.push_back(levitar);
-    /* Item *imparable = new Item(6, sf::Vector2f(), 2,10);
-    items.push_back(imparable);*/
 }
 int Mundo::getPtoEntregaActual()
 {
