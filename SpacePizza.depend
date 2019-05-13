@@ -3,16 +3,16 @@
 	"Juego.h"
 	"SFML/Audio.hpp"
 
-1557749695 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
+1557763190 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1557676136 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
+1557763190 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1557676885 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
+1557763190 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 	"EJugando.h"
 	"EMenu.h"
@@ -62,10 +62,11 @@
 	"Mundo.h"
 	"Juego.h"
 
-1557578968 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+1557764446 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
+	<math.h>
 	"Item.h"
 	"Jugador.h"
 	"Enemigo.h"
@@ -705,7 +706,7 @@
 1557570761 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1557570761 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
+1557763190 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
@@ -741,7 +742,7 @@
 	"State.h"
 	"ControladorSonido.h"
 
-1557751500 /home/pablo/Source/FV/SpacePizza/include/Enemigo.h
+1557763190 /home/pablo/Source/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -750,7 +751,7 @@
 	"SuperSprite.h"
 	"Popup.h"
 
-1557750359 source:/home/pablo/Source/FV/SpacePizza/src/Enemigo.cpp
+1557765230 source:/home/pablo/Source/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1554832897 source:/home/ramon/Desktop/FV/SpacePizza/lib/tinyxml/tinystr.cpp
@@ -1308,11 +1309,11 @@
 1557570761 source:/home/pablo/Source/FV/SpacePizza/src/Popup.cpp
 	"Popup.h"
 
-1557750172 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
+1557763190 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
-1557750314 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
+1557763190 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 

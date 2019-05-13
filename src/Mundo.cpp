@@ -485,6 +485,16 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 
         e1[en]->updateEnemigo(p1->getPhysicsState()->getActualState(),t);
 
+        int distanciaEnemigo = std::sqrt(std::pow(e1[en]->getPhysicsState()->getActualState().x - p1->getPhysicsState()->getActualState().x, 2) + std::pow(e1[en]->getPhysicsState()->getActualState().y - p1->getPhysicsState()->getActualState().y, 2));
+
+        float factorVolumen = 0;
+
+        if(distanciaEnemigo < 500)
+            factorVolumen = ((float)500 - (float)distanciaEnemigo) / (float)500;
+
+        std::cout << "Factor de volumen enemigo -> " << factorVolumen << std::endl;
+
+        e1[en]->setVolumen(factorVolumen * 210);
     }
 
     processHUD();

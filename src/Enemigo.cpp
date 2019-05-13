@@ -101,6 +101,7 @@ Enemigo::Enemigo()
     soundAlien->setBuffer(*bufferAlien);
     soundAlien->setLoop(true);
     soundAlien->setVolume(200);
+    soundAlien->setPitch(1.3);
     soundAlien->play();
 }
 
