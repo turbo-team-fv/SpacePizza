@@ -4,13 +4,11 @@ Enemigo::Enemigo()
 {
 
     pState=new PhysicsState();
-    //ctor
-    //La carga de texturas podria ser otra clase
-
 
     //ctor
     pState= new PhysicsState();
-    pState->setActualState(150,250);
+    pState->setActualState(sf::Vector2f(150,250));
+
     /**Funcionamiento: le digo la ruta de la textura y el numero de animaciones**/
     enemigo_sprite= new SuperSprite("assets/enemigo/ufo.png",4,0.6,true);
     enemigo_sprite->setSpeed(0.1);
@@ -66,13 +64,27 @@ Enemigo::Enemigo()
     enemigo_sprite->addFrame(sf::IntRect(330, 131,44, 38),2);
 
 
+    alert_id=0;
+    Popup *pop=new Popup("assets/hud/popups/dialogos.png",2);
+    pop->getSprite()->addFrame(sf::IntRect(5,1,97,54),0);
+    alert.push_back(pop);
 
-    kill=new Popup("assets/hud/popups/kill.png",2);
-    kill->getSprite()->addFrame(sf::IntRect(1,23,98,54),0);
+    pop=new Popup("assets/hud/popups/dialogos.png",2);
+    pop->getSprite()->addFrame(sf::IntRect(106,7,97,54),0);
+    alert.push_back(pop);
+
+    pop=new Popup("assets/hud/popups/dialogos.png",2);
+    pop->getSprite()->addFrame(sf::IntRect(5,58,89,49),0);
+    alert.push_back(pop);
+
+    pop=new Popup("assets/hud/popups/dialogos.png",2);
+    pop->getSprite()->addFrame(sf::IntRect(106,58,95,49),0);
+    alert.push_back(pop);
+
 
 
     /**COSAS ENEMIGO**/
-    pState->MoveTo(500,500);
+    pState->MoveTo(sf::Vector2f(500,500));
     actitud = 0;
     teataco = 0;
     tiempo_espera = 1;
@@ -82,7 +94,15 @@ Enemigo::Enemigo()
     direccion_patrullaje = 0;
     direccion_patrullaje2 = 0;
 
-
+    /**SONIDO**/
+    bufferAlien = new sf::SoundBuffer();
+    bufferAlien->loadFromFile("assets/sonidos/alien.ogg");
+    soundAlien = new sf::Sound();
+    soundAlien->setBuffer(*bufferAlien);
+    soundAlien->setLoop(true);
+    soundAlien->setVolume(200);
+    soundAlien->setPitch(1.3);
+    soundAlien->play();
 }
 
 PhysicsState* Enemigo::getPhysicsState()
@@ -103,10 +123,10 @@ void Enemigo::setActitud(int a)
     actitud=a;
 }
 
-void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
+void Enemigo::updateEnemigo(sf::Vector2f vel, sf::Time et)
 {
-
-    double x=0.0,y=0.0,power=20;
+    sf::Vector2f incremento;
+    float power=20;
 
     switch (actitud)
     {
@@ -131,31 +151,31 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
         switch(direccion_patrullaje)
         {
         case 1:
-            x+=-power;
+            incremento.x+=-power;
             break;
         case 2:
-            x+=power;
+            incremento.x+=power;
             break;
         case 3:
-            y+=-power;
+            incremento.y+=-power;
             break;
         case 4:
-            y+=power;
+            incremento.y+=power;
             break;
         }
         switch(direccion_patrullaje2)
         {
         case 1:
-            x+=-power;
+            incremento.x+=-power;
             break;
         case 2:
-            x+=power;
+            incremento.x+=power;
             break;
         case 3:
-            y+=-power;
+            incremento.y+=-power;
             break;
         case 4:
-            y+=power;
+            incremento.y+=power;
             break;
         }
         break;
@@ -167,8 +187,11 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
         if(alertclock.getElapsedTime().asSeconds()>=tiempo_alerta)
         {
             if(teveo==true){
-                kill->throwPopup();
+
+                alert_id=(rand()%3 + 1);
+                alert[alert_id]->throwPopup();
                 actitud=2;
+
                 chaseclock.restart();
             }
         }
@@ -178,21 +201,21 @@ void Enemigo::updateEnemigo(double velx, double vely, sf::Time et)
 case 2:
 
     enemigo_sprite->setAnimation(2);
-    if (velx> pState->getActualState()[0])
+    if (vel.x> pState->getActualState().x)
     {
-        x+=power;
+        incremento.x+=power;
     }
-    else if (velx< pState->getActualState()[0])
+    else if (vel.x< pState->getActualState().x)
     {
-        x+=-power;
+        incremento.x+=-power;
     }
-    if(vely>pState->getActualState()[1])
+    if(vel.y>pState->getActualState().y)
     {
-        y+=power;
+       incremento.y+=power;
     }
-    else if(vely < pState->getActualState()[1])
+    else if(vel.y < pState->getActualState().y)
     {
-        y+=-power;
+        incremento.y+=-power;
     }
 
     if(atackClock.getElapsedTime().asSeconds()>tiempo_ataque){
@@ -218,20 +241,20 @@ if(chaseclock.getElapsedTime().asSeconds()>=tiempo_persecucion)
 
 }
 
-if(pState->getActualState()[0]>960)
-x-=power;
+if(pState->getActualState().x>960)
+incremento.x-=power;
 
-if(pState->getActualState()[0]<0)
-x+=power;
+if(pState->getActualState().x<0)
+incremento.x+=power;
 
-if(pState->getActualState()[1]>960)
-y-=power;
+if(pState->getActualState().y>960)
+incremento.y-=power;
 
-if(pState->getActualState()[1]<0)
-y+=power;
+if(pState->getActualState().y<0)
+incremento.y+=power;
 
 
-pState->Move(x,y,true);
+pState->Move(incremento,true);
 pState->updatePhysicsState(et);
 
 }
@@ -248,9 +271,14 @@ void Enemigo::drawEnemigo(sf::RenderWindow *w, double i)
 {
 
     this->enemigo_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
-    kill->setPosition(enemigo_sprite->getRenderPos()[0]-20,enemigo_sprite->getRenderPos()[1]-20);
-    kill->drawPopup(w,i);
+    alert[alert_id]->setPosition(sf::Vector2f(enemigo_sprite->getRenderPos().x-20,enemigo_sprite->getRenderPos().y-20));
+    alert[alert_id]->drawPopup(w,i);
 
+}
+
+void Enemigo::setVolumen(float v)
+{
+    this->soundAlien->setVolume(v);
 }
 
 Enemigo::~Enemigo()

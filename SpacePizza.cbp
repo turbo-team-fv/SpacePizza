@@ -19,6 +19,7 @@
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
+					<Add library="sfml-audio" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -35,6 +36,7 @@
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
+					<Add library="sfml-audio" />
 				</Linker>
 			</Target>
 		</Build>
@@ -43,6 +45,7 @@
 		</Compiler>
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Alcantarilla.h" />
+		<Unit filename="include/ControladorSonido.h" />
 		<Unit filename="include/EFin.h" />
 		<Unit filename="include/EJugando.h" />
 		<Unit filename="include/EMenu.h" />
@@ -55,6 +58,7 @@
 		<Unit filename="include/Motor2D.h" />
 		<Unit filename="include/Mundo.h" />
 		<Unit filename="include/PhysicsState.h" />
+		<Unit filename="include/Popup.h" />
 		<Unit filename="include/State.h" />
 		<Unit filename="include/SuperSprite.h" />
 		<Unit filename="lib/tinyxml/tinystr.cpp" />
@@ -67,6 +71,7 @@
 		<Unit filename="lib/tinyxml/tinyxmlparser.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Alcantarilla.cpp" />
+		<Unit filename="src/ControladorSonido.cpp" />
 		<Unit filename="src/EFin.cpp" />
 		<Unit filename="src/EJugando.cpp" />
 		<Unit filename="src/EMenu.cpp" />
@@ -79,6 +84,7 @@
 		<Unit filename="src/Motor2D.cpp" />
 		<Unit filename="src/Mundo.cpp" />
 		<Unit filename="src/PhysicsState.cpp" />
+		<Unit filename="src/Popup.cpp" />
 		<Unit filename="src/SuperSprite.cpp" />
 		<Extensions>
 			<code_completion />

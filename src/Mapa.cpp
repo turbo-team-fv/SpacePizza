@@ -12,7 +12,6 @@ Mapa::Mapa()
 
 void Mapa::load()
 {
-
     XMLDocument doc;
     XMLError error = doc.LoadFile("assets/maps/MapaFinal.tmx");
 
@@ -104,6 +103,12 @@ void Mapa::load()
     }
 
 
+edificios = new RectangleShape(sf::Vector2f((float)tileWidth, (float)tileHeight));
+cesped = new RectangleShape(sf::Vector2f((float)tileWidth, (float)tileHeight));
+
+
+cesped->setFillColor(sf::Color(111, 200, 50));
+edificios->setFillColor(sf::Color(50,50,50));
 
     // for testing
     // printTileMap();
@@ -187,6 +192,30 @@ void Mapa::draw(RenderWindow * window)
                 {
                     window->draw(*tilemapSprite[l][y][x]);
                 }
+            }
+        }
+    }
+}
+
+void Mapa::drawMini(RenderWindow * window)
+{
+    for(int l = 0; l < numLayers; l++)
+    {
+        for(int y = 0; y < height; y++)
+        {
+            for(int x = 0; x < width; x++)
+            {
+                    if(tilemapSprite[l][y][x]!=NULL&&l==1){
+                    cesped->setPosition(x*tileWidth,y*tileHeight);
+                    window->draw(*cesped);
+                    }
+                    else if(tilemapSprite[l][y][x]!=NULL&&l==0){
+                    edificios->setPosition(x*tileWidth,y*tileHeight);
+                    window->draw(*edificios);
+                    }
+
+
+
             }
         }
     }

@@ -6,6 +6,7 @@
 #include <SFML/Graphics.hpp>
 #include "PhysicsState.h"
 #include "SuperSprite.h"
+#include "Popup.h"
 using namespace std;
 
 
@@ -22,6 +23,7 @@ class Jugador
         int getVidas();
         int checkEstado();
         void setEstado(int e);
+        void setCesped(bool c);
         void restartEstado();
         SuperSprite* getSprite(){ return jugador_sprite; };
 
@@ -38,9 +40,12 @@ class Jugador
     PhysicsState *pState;
     int vidas;
     int estado;
+    bool cesped;
 
     sf::Clock timer_estado;
     double limite_estado;
+
+    Popup *muerte;
 
 };
 

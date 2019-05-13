@@ -9,10 +9,10 @@
 class Popup
 {
     public:
-        Popup(string ruta, int life);
-        void setLife(int t);
+        Popup(string ruta, double life);
+        void setLife(double t);
         SuperSprite* getSprite();
-        void setPosition(double x, double y);
+        void setPosition(sf::Vector2f new_pos);
         void drawPopup(sf::RenderWindow *w, double i);
         void throwPopup();
 
@@ -25,9 +25,9 @@ class Popup
     private:
     SuperSprite* popup;
     sf::Clock popup_clock;
-    int popup_life;
+    double popup_life;
     bool alive;
-    vector <double> pos;
+    sf::Vector2f pos;
 };
 
 #endif // POPUP_H
