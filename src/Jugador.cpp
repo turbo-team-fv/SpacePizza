@@ -175,6 +175,8 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
     {
         cout<<"muerto"<<endl;
         muerte->throwPopup();
+
+//        ControladorSonido::getInstance()->playExplosion();
     }
 
 }

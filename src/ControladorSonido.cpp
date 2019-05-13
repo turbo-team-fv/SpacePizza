@@ -27,7 +27,14 @@ ControladorSonido::ControladorSonido()
     bufferExplosion = new SoundBuffer();
     bufferExplosion->loadFromFile("assets/sonidos/explosion.ogg");
     soundExplosion = new Sound();
+    soundExplosion->setVolume(130);
     soundExplosion->setBuffer(*bufferExplosion);
+
+    bufferTurbo = new SoundBuffer();
+    bufferTurbo->loadFromFile("assets/sonidos/turboXD.ogg");
+    soundTurbo = new Sound();
+    soundTurbo->setVolume(130);
+    soundTurbo->setBuffer(*bufferTurbo);
 
 }
 
@@ -81,4 +88,9 @@ void ControladorSonido::playPowerUp()
 void ControladorSonido::playExplosion()
 {
     soundExplosion->play();
+}
+
+void ControladorSonido::playTurbo()
+{
+    soundTurbo->play();
 }

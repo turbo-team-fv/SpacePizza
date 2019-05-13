@@ -58,11 +58,11 @@
 	"tinyxml.h"
 	<windows.h>
 
-1557765994 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
+1557768128 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
-1557764446 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+1557767118 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -522,13 +522,14 @@
 
 1554833552 ated upstream
 
-1557570761 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
+1557767412 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 	"SuperSprite.h"
 	"Popup.h"
+	"ControladorSonido.h"
 
 1555254841 /home/claudia/Desktop/SpacePizza/include/Jugador.h
 	<iostream>
@@ -653,7 +654,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557749692 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
+1557767779 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557476628 /home/carlos/FV/SpacePizza/include/Jugador.h
@@ -751,7 +752,7 @@
 	"SuperSprite.h"
 	"Popup.h"
 
-1557765230 source:/home/pablo/Source/FV/SpacePizza/src/Enemigo.cpp
+1557767118 source:/home/pablo/Source/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1554832897 source:/home/ramon/Desktop/FV/SpacePizza/lib/tinyxml/tinystr.cpp
@@ -1309,11 +1310,11 @@
 1557570761 source:/home/pablo/Source/FV/SpacePizza/src/Popup.cpp
 	"Popup.h"
 
-1557763190 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
+1557768154 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
-1557767018 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
+1557768061 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 

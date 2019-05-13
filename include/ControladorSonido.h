@@ -16,6 +16,7 @@ class ControladorSonido
         void playPowerUp();
         void playAlien();
         void playExplosion();
+        void playTurbo();
 
     private:
         ControladorSonido();
@@ -32,6 +33,9 @@ class ControladorSonido
 
         SoundBuffer *bufferExplosion;
         Sound *soundExplosion;
+
+        SoundBuffer *bufferTurbo;
+        Sound *soundTurbo;
 
 };
 

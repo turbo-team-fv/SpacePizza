@@ -7,6 +7,7 @@
 #include "PhysicsState.h"
 #include "SuperSprite.h"
 #include "Popup.h"
+#include "ControladorSonido.h"
 using namespace std;
 
 

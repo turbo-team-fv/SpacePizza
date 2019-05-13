@@ -323,6 +323,7 @@ void Mundo::colisionItems()
                 break;
             case 2:
                 // Colisiona con un turbo => aumenta la velocidad durante un perido de tiempo
+                ControladorSonido::getInstance()->playTurbo();
                 items[i]->restartPowerUp();
                 p1->setEstado(1);
                 p1->restartEstado();
@@ -491,8 +492,6 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 
         if(distanciaEnemigo < 500)
             factorVolumen = ((float)500 - (float)distanciaEnemigo) / (float)500;
-
-        std::cout << "Factor de volumen enemigo -> " << factorVolumen << std::endl;
 
         e1[en]->setVolumen(factorVolumen * 210);
     }
