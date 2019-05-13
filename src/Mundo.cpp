@@ -1,6 +1,7 @@
 #include "Mundo.h"
 #include "Juego.h"
-
+#include "Car.h"
+#include "Path.h"
 Mundo::Mundo()
 {
     //ctor
@@ -19,7 +20,10 @@ Mundo::Mundo()
     time1 = new Time();
     player_lifes = p1->getVidas();
 
-
+    /** COCHES Y PATHS**/
+    DeployCarPaths();
+    DeployCars();
+    /**********/
 
     /** HUD, vista and minimap stuff **/
     warning=new Popup("assets/hud/popups/WARNING.png",2);
@@ -490,6 +494,10 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 
         e1[en]->setVolumen(factorVolumen * 210);
     }
+    /**coches**/
+    for(unsigned int i = 0; i<carsVector.size(); i++)
+        carsVector[i]->Update(t);
+
 
     processHUD();
 }
@@ -589,6 +597,16 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
         e1[en]->drawEnemigo(ventana,inter);
     }
 
+    /**  DIBUJADO DE PATHS Y COCHES **/
+
+    for(size_t i = 0; i < wPaths.size(); i++)
+        ventana->draw(wPaths[i]);
+
+    for(size_t i = 0; i < carsVector.size(); i++)
+        carsVector[i]->Draw(ventana);
+
+    /***********************/
+
 
     /// HUD STUFF
 
@@ -653,7 +671,500 @@ void Mundo::drawAlcantarillas(sf::RenderWindow * ventana)
 
 }
 
+
+//Despliega todos los paths de los coches.
+void Mundo::DeployCarPaths()
+{
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints;//carsPath[0]
+    waypoints.push_back(sf::Vector2f(283.0f, 488.0f));
+    waypoints.push_back(sf::Vector2f(561.0f, 488.0f));
+    waypoints.push_back(sf::Vector2f(561.0f, 622.0f));
+    waypoints.push_back(sf::Vector2f(283.0f, 622.0f));
+
+    CreateCarPath(waypoints, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::Yellow);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints2; //carsPath[1]
+    waypoints2.push_back(sf::Vector2f(561.0f, 622.0f));
+    waypoints2.push_back(sf::Vector2f(283.0f, 622.0f));
+    waypoints2.push_back(sf::Vector2f(283.0f, 488.0f));
+    waypoints2.push_back(sf::Vector2f(561.0f, 488.0f));
+
+    CreateCarPath(waypoints2, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::Yellow);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints3; //carsPath[2]
+    waypoints3.push_back(sf::Vector2f(606.0f, 220.0f));
+    waypoints3.push_back(sf::Vector2f(1156.0f, 220.0f));
+    waypoints3.push_back(sf::Vector2f(1156.0f, 450.0f));
+    waypoints3.push_back(sf::Vector2f(606.0f, 450.0f));
+
+    CreateCarPath(waypoints3, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::Red);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints4; //carsPath[3]
+    waypoints4.push_back(sf::Vector2f(1156.0f, 220.0f));
+    waypoints4.push_back(sf::Vector2f(1156.0f, 450.0f));
+    waypoints4.push_back(sf::Vector2f(606.0f, 450.0f));
+    waypoints4.push_back(sf::Vector2f(606.0f, 220.0f));
+
+    CreateCarPath(waypoints4, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::Red);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints5; //carsPath[4]
+
+    waypoints5.push_back(sf::Vector2f(1156.0f, 450.0f));
+    waypoints5.push_back(sf::Vector2f(606.0f, 450.0f));
+    waypoints5.push_back(sf::Vector2f(606.0f, 220.0f));
+    waypoints5.push_back(sf::Vector2f(1156.0f, 220.0f));
+
+    CreateCarPath(waypoints5, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::Red);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints6; //carsPath[4]
+    waypoints6.push_back(sf::Vector2f(606.0f, 450.0f));
+    waypoints6.push_back(sf::Vector2f(606.0f, 220.0f));
+    waypoints6.push_back(sf::Vector2f(1156.0f, 220.0f));
+    waypoints6.push_back(sf::Vector2f(1156.0f, 450.0f));
+
+    CreateCarPath(waypoints6, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::Red);
+    /** ========================== **/
+
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints7;//carsPath[4]
+    waypoints7.push_back(sf::Vector2f(561.0f, 940.0f));
+    waypoints7.push_back(sf::Vector2f(561.0f, 1040.0f));
+    waypoints7.push_back(sf::Vector2f(300.0f, 1040.0f));
+    waypoints7.push_back(sf::Vector2f(300.0f, 940.0f));
+
+    CreateCarPath(waypoints7, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::Green);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints8;//carsPath[4]
+    waypoints8.push_back(sf::Vector2f(300.0f, 1040.0f));
+    waypoints8.push_back(sf::Vector2f(300.0f, 940.0f));
+    waypoints8.push_back(sf::Vector2f(561.0f, 940.0f));
+    waypoints8.push_back(sf::Vector2f(561.0f, 1040.0f));
+
+    CreateCarPath(waypoints8, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::Green);
+    /** ========================== **/
+
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints9;//carsPath[0]
+    waypoints9.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints9.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints9.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints9.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints9.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints9.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints9.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints9.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints9.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints9.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints9.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints9.push_back(sf::Vector2f(1005.0f, 625.0f));
+
+    CreateCarPath(waypoints9, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints10;//carsPath[0]
+    waypoints10.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints10.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints10.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints10.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints10.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints10.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints10.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints10.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints10.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints10.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints10.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints10.push_back(sf::Vector2f(606.0f, 625.0f));
+
+    CreateCarPath(waypoints10, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints11;//carsPath[0]
+    waypoints11.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints11.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints11.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints11.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints11.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints11.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints11.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints11.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints11.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints11.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints11.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints11.push_back(sf::Vector2f(606.0f, 900.0f));
+
+    CreateCarPath(waypoints11, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints12;//carsPath[0]
+    waypoints12.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints12.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints12.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints12.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints12.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints12.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints12.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints12.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints12.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints12.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints12.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints12.push_back(sf::Vector2f(260.0f, 900.0f));
+
+    CreateCarPath(waypoints12, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints13;//carsPath[0]
+    waypoints13.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints13.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints13.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints13.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints13.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints13.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints13.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints13.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints13.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints13.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints13.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints13.push_back(sf::Vector2f(260.0f, 1240.0f));
+
+    CreateCarPath(waypoints13, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints14;//carsPath[0]
+    waypoints14.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints14.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints14.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints14.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints14.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints14.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints14.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints14.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints14.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints14.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints14.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints14.push_back(sf::Vector2f(825.0f, 1240.0f));
+
+    CreateCarPath(waypoints14, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints15;//carsPath[0]
+    waypoints15.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints15.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints15.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints15.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints15.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints15.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints15.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints15.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints15.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints15.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints15.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints15.push_back(sf::Vector2f(825.0f, 1115.0f));
+
+    CreateCarPath(waypoints15, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints16;//carsPath[0]
+    waypoints16.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints16.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints16.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints16.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints16.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints16.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints16.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints16.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints16.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints16.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints16.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints16.push_back(sf::Vector2f(885.0f, 1115.0f));
+
+    CreateCarPath(waypoints16, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints17;//carsPath[0]
+    waypoints17.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints17.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints17.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints17.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints17.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints17.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints17.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints17.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints17.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints17.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints17.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints17.push_back(sf::Vector2f(885.0f, 1240.0f));
+
+    CreateCarPath(waypoints17, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints18;//carsPath[0]
+    waypoints18.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints18.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints18.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints18.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints18.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints18.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints18.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints18.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints18.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints18.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints18.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints18.push_back(sf::Vector2f(1195.0f, 1240.0f));
+
+    CreateCarPath(waypoints18, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints19;//carsPath[0]
+    waypoints19.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints19.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints19.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints19.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints19.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints19.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints19.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints19.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints19.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints19.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints19.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints19.push_back(sf::Vector2f(1195.0f, 900.0f));
+
+    CreateCarPath(waypoints19, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints20;//carsPath[0]
+    waypoints20.push_back(sf::Vector2f(1005.0f, 625.0f));
+    waypoints20.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints20.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints20.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints20.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints20.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints20.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints20.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints20.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints20.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints20.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints20.push_back(sf::Vector2f(1005.0f, 900.0f));
+
+    CreateCarPath(waypoints20, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+    /** ESTE BLOQUE CREA UN PATH **/
+    std::vector<sf::Vector2f> waypoints21;//carsPath[0]
+    waypoints21.push_back(sf::Vector2f(606.0f, 625.0f));
+    waypoints21.push_back(sf::Vector2f(606.0f, 900.0f));
+    waypoints21.push_back(sf::Vector2f(260.0f, 900.0f));
+    waypoints21.push_back(sf::Vector2f(260.0f, 1240.0f));
+    waypoints21.push_back(sf::Vector2f(825.0f, 1240.0f));
+    waypoints21.push_back(sf::Vector2f(825.0f, 1115.0f));
+    waypoints21.push_back(sf::Vector2f(885.0f, 1115.0f));
+    waypoints21.push_back(sf::Vector2f(885.0f, 1240.0f));
+    waypoints21.push_back(sf::Vector2f(1195.0f, 1240.0f));
+    waypoints21.push_back(sf::Vector2f(1195.0f, 900.0f));
+    waypoints21.push_back(sf::Vector2f(1005.0f, 900.0f));
+    waypoints21.push_back(sf::Vector2f(1005.0f, 625.0f));
+
+    CreateCarPath(waypoints21, 5.0f);
+    //Llamada a la funcion que crea el contenido de debug de los paths. (Agrega este que he creado)
+    LoadDebugPath(carsPaths.back(), sf::Color::White);
+    /** ========================== **/
+
+
+
+}
+
+//Crea un path para los coches.
+void Mundo::CreateCarPath(const std::vector<sf::Vector2f>& l_wps, float l_pathRadius)
+{
+    carsPaths.push_back(new Path(l_wps, l_pathRadius));
+}
+
+//Genera los shapes para visualizar los puntos de los paths;
+void Mundo::LoadDebugPath(Path * path, const sf::Color& color)
+{
+    std::vector<sf::Vector2f> wps =path->GetWPs();
+    for(size_t i = 0; i < wps.size(); i++)
+    {
+        sf::CircleShape circle;
+        circle.setRadius(4.0f);
+        circle.setFillColor(color);
+        circle.setOrigin(circle.getGlobalBounds().width / 2, circle.getGlobalBounds().height / 2);
+        circle.setPosition(wps[i]);
+        this->wps.push_back(circle);
+    }
+
+    //wPaths.push_back(ToVertex(wps, color));
+
+}
+
+//Genera la geometria necesaria para pintar los paths.
+sf::VertexArray Mundo::ToVertex(const std::vector<sf::Vector2f>& points, const sf::Color& color)
+{
+    sf::VertexArray vertices(sf::LinesStrip, 0);
+
+    for(std::vector<sf::Vector2f>::const_iterator a = points.begin(); a!= points.end(); a++)
+    {
+        vertices.append(sf::Vertex(*a, color));
+    }
+    vertices.append(sf::Vertex(points[0], color));
+    wPaths.push_back(vertices);
+}
+
+//Devuelve un path de todos los disponibles
+Path* Mundo::GetPath()
+{
+    lastPath++;
+
+    if(lastPath >= carsPaths.size())
+    {
+        lastPath = 1;
+    }
+
+    return carsPaths[lastPath - 1];
+}
+
+//Despliega todos los coches.
+void Mundo::DeployCars()
+{
+
+    CreateCar(normal, sf::Vector2f(322, 279));
+
+
+}
+
+//Crea un coche de un tipo y en una position determinada.
+void Mundo::CreateCar(unsigned int l_type, const sf::Vector2f& l_position)
+{
+    Path * path = carsPaths[0];
+    Path * path2 = carsPaths[1];
+    Path * path3 = carsPaths[2];
+    Path * path4 = carsPaths[3];
+    Path * path5 = carsPaths[4];
+    Path * path6 = carsPaths[5];
+    Path * path7 = carsPaths[6];
+    Path * path8 = carsPaths[7];
+    Path * path9 = carsPaths[8];
+    Path * path10 = carsPaths[9];
+    Path * path11 = carsPaths[10];
+    Path * path12 = carsPaths[11];
+    Path * path13 = carsPaths[12];
+    Path * path14 = carsPaths[13];
+    Path * path15 = carsPaths[14];
+    Path * path16 = carsPaths[15];
+    Path * path17 = carsPaths[16];
+    Path * path18 = carsPaths[17];
+    Path * path19 = carsPaths[18];
+    Path * path20 = carsPaths[19];
+    Path * path21 = carsPaths[20];
+
+    carsVector.push_back(new Car(l_type, path->GetWPs()[0], carsPaths[0]));
+    carsVector.push_back(new Car(l_type, path2->GetWPs()[0], carsPaths[1]));
+    carsVector.push_back(new Car(l_type, path3->GetWPs()[0], carsPaths[2]));
+    carsVector.push_back(new Car(l_type, path4->GetWPs()[0], carsPaths[3]));
+    carsVector.push_back(new Car(l_type, path5->GetWPs()[0], carsPaths[4]));
+    carsVector.push_back(new Car(l_type, path6->GetWPs()[0], carsPaths[5]));
+    carsVector.push_back(new Car(l_type, path7->GetWPs()[0], carsPaths[6]));
+    carsVector.push_back(new Car(l_type, path8->GetWPs()[0], carsPaths[7]));
+    carsVector.push_back(new Car(l_type, path9->GetWPs()[0], carsPaths[8]));
+    carsVector.push_back(new Car(l_type, path10->GetWPs()[0], carsPaths[9]));
+    carsVector.push_back(new Car(l_type, path11->GetWPs()[0], carsPaths[10]));
+    carsVector.push_back(new Car(l_type, path12->GetWPs()[0], carsPaths[11]));
+    carsVector.push_back(new Car(l_type, path13->GetWPs()[0], carsPaths[12]));
+    carsVector.push_back(new Car(l_type, path14->GetWPs()[0], carsPaths[13]));
+    /*carsVector.push_back(new Car(l_type, path15->GetWPs()[0], carsPaths[14]));
+    carsVector.push_back(new Car(l_type, path16->GetWPs()[0], carsPaths[15]));
+    carsVector.push_back(new Car(l_type, path17->GetWPs()[0], carsPaths[16]));
+    carsVector.push_back(new Car(l_type, path18->GetWPs()[0], carsPaths[17]));
+    carsVector.push_back(new Car(l_type, path19->GetWPs()[0], carsPaths[18]));
+    carsVector.push_back(new Car(l_type, path20->GetWPs()[0], carsPaths[19]));
+    carsVector.push_back(new Car(l_type, path21->GetWPs()[0], carsPaths[20]));*/
+}
+
 Mundo::~Mundo()
 {
-    //dtor
+
+    /** HUGOOOOOOOOOOOOOOOOOOOO COCHES Y PATHS **/
+
+    for(size_t i = 0; i < carsVector.size(); i++)
+    {
+        delete carsVector[i];
+    }
+
+    for(size_t i = 0; i < carsPaths.size(); i++)
+    {
+        delete carsPaths[i];
+    }
+
+    carsVector.clear();
+    carsPaths.clear();
+    wps.clear();
+    wPaths.clear();
+    /***********************/
+
 }
+
