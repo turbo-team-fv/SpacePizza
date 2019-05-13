@@ -34,7 +34,7 @@ class Car
 
         // === PATH FOLLOWING === //
         Path * path;
-        int direction      = 1;
+        int direction= 1;
         unsigned int currentWP = 0;
         sf::Vector2f currentTarget;
         sf::Vector2f currentVelocity;

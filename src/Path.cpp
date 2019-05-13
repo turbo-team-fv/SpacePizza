@@ -1,6 +1,6 @@
 #include "Path.h"
 
-Path::Path()
+/*Path::Path()
 {
     //ctor
 }
@@ -9,3 +9,4 @@ Path::~Path()
 {
     //dtor
 }
+*/

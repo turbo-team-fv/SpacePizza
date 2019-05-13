@@ -317,9 +317,11 @@
 
 1555265667 hics.hpp>
 
-1557788561 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557790360 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
+	"Car.h"
+	"Path.h"
 
 1555265667 antarillas2.1
 	"EMenu.h"
@@ -398,7 +400,7 @@
 
 1555240051 nyxml/tinyxml2.h"
 
-1557783125 /home/samuel/FV/SpacePizza/include/Mundo.h
+1557790331 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -410,6 +412,8 @@
 	"SuperSprite.h"
 	"Alcantarilla.h"
 	"Popup.h"
+	"Car.h"
+	"Path.h"
 	<sstream>
 	<iomanip>
 
@@ -481,7 +485,7 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1557783125 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1557789466 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557783125 /home/samuel/FV/SpacePizza/include/Jugador.h
@@ -1556,4 +1560,30 @@
 1557686129 source:/home/carlos/FV2.0/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
+
+1557790440 /home/samuel/FV/SpacePizza/include/Car.h
+	<vector>
+	<map>
+	<string>
+	<SFML/Graphics.hpp>
+
+1557754144 /home/samuel/FV/SpacePizza/include/Path.h
+	"vector"
+	<SFML/Graphics.hpp>
+
+1557764144 source:/home/samuel/FV/SpacePizza/src/Car.cpp
+	"Car.h"
+	"Path.h"
+	"MathHelper.h"
+	<iostream>
+
+1557754056 /home/samuel/FV/SpacePizza/include/MathHelper.h
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1557790749 source:/home/samuel/FV/SpacePizza/src/MathHelper.cpp
+	"MathHelper.h"
+
+1557790760 source:/home/samuel/FV/SpacePizza/src/Path.cpp
+	"Path.h"
 
