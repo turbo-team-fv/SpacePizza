@@ -24,7 +24,10 @@ ControladorSonido::ControladorSonido()
     soundPowerUp = new Sound();
     soundPowerUp->setBuffer(*bufferPowerUp);
 
-
+    bufferExplosion = new SoundBuffer();
+    bufferExplosion->loadFromFile("assets/sonidos/explosion.ogg");
+    soundExplosion = new Sound();
+    soundExplosion->setBuffer(*bufferExplosion);
 
 }
 
@@ -73,4 +76,9 @@ void ControladorSonido::stopMusicaMenu()
 void ControladorSonido::playPowerUp()
 {
     soundPowerUp->play();
+}
+
+void ControladorSonido::playExplosion()
+{
+    soundExplosion->play();
 }

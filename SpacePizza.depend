@@ -58,7 +58,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1557676136 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
+1557765994 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 
@@ -1313,7 +1313,7 @@
 	"ControladorSonido.h"
 	<iostream>
 
-1557763190 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
+1557767018 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
