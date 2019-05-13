@@ -1405,14 +1405,15 @@
 1557683649 /home/carlos/FV2.0/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
 
-1557683649 /home/carlos/FV2.0/SpacePizza/include/ControladorSonido.h
+1557770856 /home/carlos/FV2.0/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
-1557683649 /home/carlos/FV2.0/SpacePizza/include/Mundo.h
+1557768008 /home/carlos/FV2.0/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
+	<math.h>
 	"Item.h"
 	"Jugador.h"
 	"Enemigo.h"
@@ -1426,13 +1427,14 @@
 1557683649 /home/carlos/FV2.0/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1557683649 /home/carlos/FV2.0/SpacePizza/include/Jugador.h
+1557770856 /home/carlos/FV2.0/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 	"SuperSprite.h"
 	"Popup.h"
+	"ControladorSonido.h"
 
 1557683649 /home/carlos/FV2.0/SpacePizza/include/PhysicsState.h
 	<iostream>
@@ -1453,10 +1455,11 @@
 	<SFML/Graphics.hpp>
 	"SuperSprite.h"
 
-1557683649 /home/carlos/FV2.0/SpacePizza/include/Enemigo.h
+1557768008 /home/carlos/FV2.0/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	"PhysicsState.h"
 	"SuperSprite.h"
 	"Popup.h"
@@ -1474,7 +1477,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1557683649 source:/home/carlos/FV2.0/SpacePizza/src/ControladorSonido.cpp
+1557770856 source:/home/carlos/FV2.0/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
@@ -1501,18 +1504,18 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1557683649 source:/home/carlos/FV2.0/SpacePizza/src/Enemigo.cpp
+1557768008 source:/home/carlos/FV2.0/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1557683649 source:/home/carlos/FV2.0/SpacePizza/src/Juego.cpp
+1557768008 source:/home/carlos/FV2.0/SpacePizza/src/Juego.cpp
 	"Juego.h"
 	"EJugando.h"
 	"EMenu.h"
 
-1557683649 source:/home/carlos/FV2.0/SpacePizza/src/Jugador.cpp
+1557770856 source:/home/carlos/FV2.0/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1557683649 source:/home/carlos/FV2.0/SpacePizza/src/Mapa.cpp
+1557770848 source:/home/carlos/FV2.0/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -1543,7 +1546,7 @@
 1557683649 source:/home/carlos/FV2.0/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
-1557684641 source:/home/carlos/FV2.0/SpacePizza/src/Item.cpp
+1557785785 source:/home/carlos/FV2.0/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 

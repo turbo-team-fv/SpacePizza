@@ -96,6 +96,7 @@ void Item::setTipo(int tipo){
             sprite->setOrigin(51/2, 79/2);
             sprite->setScale(0.3,0.3);
         break;
+
     }
 }
 

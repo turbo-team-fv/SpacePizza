@@ -150,7 +150,7 @@ void Mundo::initItems()
     Item *inivisibilidad = new Item(4, sf::Vector2f(100,280), 2,10);
     items.push_back(inivisibilidad);
     /// TODO: crear uno mas de cada tipo para que inicialmente haya powerUps de todos los tipos
-    Item *levitar = new Item(2, sf::Vector2f(360,100), 1,10);
+    Item *levitar = new Item(5, sf::Vector2f(360,100), 1,10);
     items.push_back(levitar);
 }
 int Mundo::getPtoEntregaActual()
@@ -346,11 +346,6 @@ void Mundo::colisionItems()
             case 5:
                 // Colisiona con uno de tipo Levitar => Quitar colisiones edificios
                 std::cout<<"Colision con un powerUp de tipo Levitar"<<std::endl;
-                items[i]->restartPowerUp();
-                break;
-            case 6:
-                // Colisiona con modo imparable => ¿?
-                std::cout<<"Colisiona con un powerUp de tip Imparable"<<std::endl;
                 items[i]->restartPowerUp();
                 break;
             }
