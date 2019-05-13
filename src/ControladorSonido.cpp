@@ -36,6 +36,13 @@ ControladorSonido::ControladorSonido()
     soundTurbo->setVolume(130);
     soundTurbo->setBuffer(*bufferTurbo);
 
+    bufferCesped = new SoundBuffer();
+    bufferCesped->loadFromFile("assets/sonidos/cesped.ogg");
+    soundCesped = new Sound();
+    soundCesped->setVolume(200);
+    soundCesped->setBuffer(*bufferCesped);
+    soundCesped->setLoop(true);
+
 }
 
 ControladorSonido* ControladorSonido::instancia = new ControladorSonido();
@@ -93,4 +100,9 @@ void ControladorSonido::playExplosion()
 void ControladorSonido::playTurbo()
 {
     soundTurbo->play();
+}
+
+void ControladorSonido::playCesped()
+{
+    soundCesped->play();
 }
