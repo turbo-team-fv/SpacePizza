@@ -94,7 +94,14 @@ Enemigo::Enemigo()
     direccion_patrullaje = 0;
     direccion_patrullaje2 = 0;
 
-
+    /**SONIDO**/
+    bufferAlien = new sf::SoundBuffer();
+    bufferAlien->loadFromFile("assets/sonidos/alien.ogg");
+    soundAlien = new sf::Sound();
+    soundAlien->setBuffer(*bufferAlien);
+    soundAlien->setLoop(true);
+    soundAlien->setVolume(200);
+    soundAlien->play();
 }
 
 PhysicsState* Enemigo::getPhysicsState()
@@ -266,6 +273,11 @@ void Enemigo::drawEnemigo(sf::RenderWindow *w, double i)
     alert[alert_id]->setPosition(sf::Vector2f(enemigo_sprite->getRenderPos().x-20,enemigo_sprite->getRenderPos().y-20));
     alert[alert_id]->drawPopup(w,i);
 
+}
+
+void Enemigo::setVolumen(float v)
+{
+    this->soundAlien->setVolume(v);
 }
 
 Enemigo::~Enemigo()

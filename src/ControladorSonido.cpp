@@ -24,6 +24,8 @@ ControladorSonido::ControladorSonido()
     soundPowerUp = new Sound();
     soundPowerUp->setBuffer(*bufferPowerUp);
 
+
+
 }
 
 ControladorSonido* ControladorSonido::instancia = new ControladorSonido();

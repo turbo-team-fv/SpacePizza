@@ -15,7 +15,9 @@ Juego::Juego()
     int resol_y=600;
     string gamename="Space Pizza";
 
-    ventana = new RenderWindow(VideoMode(resol_x,resol_y),gamename);
+//    ventana = new RenderWindow(VideoMode(resol_x,resol_y), gamename, sf::Style::Fullscreen);
+    ventana = new RenderWindow(VideoMode(resol_x,resol_y), gamename);
+
     ventana->setVerticalSyncEnabled(true); //Para evitar cortes en los refrescos
     //ventana->setFramerateLimit(25);
 

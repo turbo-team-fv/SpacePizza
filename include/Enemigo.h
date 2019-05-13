@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "PhysicsState.h"
 #include "SuperSprite.h"
 #include "Popup.h"
@@ -23,6 +24,7 @@ class Enemigo
         void setVision(bool v);
         void setAtaque(bool v);
         void setActitud(int a);
+        void setVolumen(float v);
 
         bool getVision(){return teveo;};
         bool getAtaque(){return teataco;};
@@ -35,6 +37,9 @@ class Enemigo
     SuperSprite *enemigo_sprite;
     vector <Popup*> alert;
     int alert_id;
+    /**SONIDO**/
+    sf::SoundBuffer *bufferAlien;
+    sf::Sound *soundAlien;
 
 
     /**FISICAS**/
