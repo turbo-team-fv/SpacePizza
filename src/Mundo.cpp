@@ -1132,11 +1132,11 @@ void Mundo::CreateCar(unsigned int l_type, const sf::Vector2f& l_position)
     carsVector.push_back(new Car(l_type, path8->GetWPs()[0], carsPaths[7]));
     carsVector.push_back(new Car(l_type, path9->GetWPs()[0], carsPaths[8]));
     carsVector.push_back(new Car(l_type, path10->GetWPs()[0], carsPaths[9]));
-   /* carsVector.push_back(new Car(l_type, path11->GetWPs()[0], carsPaths[10]));
+    carsVector.push_back(new Car(l_type, path11->GetWPs()[0], carsPaths[10]));
     carsVector.push_back(new Car(l_type, path12->GetWPs()[0], carsPaths[11]));
     carsVector.push_back(new Car(l_type, path13->GetWPs()[0], carsPaths[12]));
     carsVector.push_back(new Car(l_type, path14->GetWPs()[0], carsPaths[13]));
-    carsVector.push_back(new Car(l_type, path15->GetWPs()[0], carsPaths[14]));
+    /*carsVector.push_back(new Car(l_type, path15->GetWPs()[0], carsPaths[14]));
     carsVector.push_back(new Car(l_type, path16->GetWPs()[0], carsPaths[15]));
     carsVector.push_back(new Car(l_type, path17->GetWPs()[0], carsPaths[16]));
     carsVector.push_back(new Car(l_type, path18->GetWPs()[0], carsPaths[17]));

@@ -63,9 +63,9 @@ void Car::InitSprite(const sf::IntRect& l_rect)
     sprite = new sf::Sprite();
     texture = new sf::Texture();
 
-    if (!texture->loadFromFile("assets/maps/roguelikeCity_magenta.png"))
+    if (!texture->loadFromFile("assets/maps/roguelikeCity_magenta3.png"))
     {
-        std::cout<< "Error cargando la imagen roguelikeCity_magenta.png"<<std::endl;
+        std::cout<< "Error cargando la imagen roguelikeCity_magenta3.png"<<std::endl;
         exit(0);
     }
 
