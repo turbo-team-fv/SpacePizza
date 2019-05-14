@@ -9,6 +9,7 @@ Car::Car(unsigned int l_type, const sf::Vector2f& l_position, Path * l_path)
     path  = l_path;
 
     Init();
+    actualPos=l_position;
 
     sprite->setPosition(l_position);
 }
@@ -81,6 +82,11 @@ void Car::Update(sf::Time elapsedTime)
     PathFollowing(elapsedTime);
 }
 
+sf::Sprite* Car::getSprite(){
+
+return sprite;
+
+}
 //Funcion de movimiento del coche a lo largo de un path.
 void Car::PathFollowing(sf::Time elapsedTime)
 {
