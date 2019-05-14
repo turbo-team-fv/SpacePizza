@@ -149,17 +149,21 @@ void Mundo::initItems()
     /// vida y de generacion
     /// NOTA: El numero de powerUps del mapa se determina en este metodo, ya que el tipo se generara
     /// aleatoriamente.
-    Item *vida1 = new Item(1, sf::Vector2f(360,150), 2, 5);
+    Item *vida1 = new Item(1, sf::Vector2f(800,200), 2, 5);
     items.push_back(vida1);
-    Item *turbo = new Item(2, sf::Vector2f(420,425), 2,10);
+    Item *turbo = new Item(2, sf::Vector2f(1170,455), 2,10);
     items.push_back(turbo);
-    Item *tiempo = new Item(3, sf::Vector2f(100,425), 2,10);
+    Item *tiempo = new Item(3, sf::Vector2f(427,475), 2,10);
     items.push_back(tiempo);
-    Item *inivisibilidad = new Item(4, sf::Vector2f(100,280), 2,10);
+    Item *inivisibilidad = new Item(4, sf::Vector2f(580,920), 2,10);
     items.push_back(inivisibilidad);
     /// TODO: crear uno mas de cada tipo para que inicialmente haya powerUps de todos los tipos
-    Item *levitar = new Item(5, sf::Vector2f(360,100), 1,10);
+    Item *levitar = new Item(5, sf::Vector2f(1170,925), 1,10);
     items.push_back(levitar);
+     Item *item1 = new Item(2, sf::Vector2f(980,1100), 1,10);
+     items.push_back(item1);
+      Item *item2 = new Item(4, sf::Vector2f(510,1220), 1,10);
+    items.push_back(item2);
 }
 int Mundo::getPtoEntregaActual()
 {

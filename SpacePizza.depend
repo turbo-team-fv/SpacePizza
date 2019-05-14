@@ -317,7 +317,7 @@
 
 1555265667 hics.hpp>
 
-1557850485 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557851662 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
@@ -1325,11 +1325,11 @@
 	<vector>
 	"SFML/Audio.hpp"
 
-1557783125 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
+1557851081 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
-1557783125 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
+1557851081 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
