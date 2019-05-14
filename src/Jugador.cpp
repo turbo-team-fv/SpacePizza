@@ -6,6 +6,26 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
     pState= new PhysicsState();
     pState->setActualState(sf::Vector2f(250,450));
 
+    /**Funcionamiento: le digo la ruta de la textura y el numero de animaciones**/
+    fake= new SuperSprite("assets/jugador/playercamo.png",4,0.6,true);
+    fake->setSpeed(0.1);
+     fake->addFrame(sf::IntRect(5, 89,44, 38),0);
+    fake->addFrame(sf::IntRect(52, 89,44, 38),0);
+    fake->addFrame(sf::IntRect(99, 89,44, 38),0);
+    fake->addFrame(sf::IntRect(146, 89,44, 38),0);
+    fake->addFrame(sf::IntRect(192, 89,44, 38),0);
+    fake->addFrame(sf::IntRect(238, 89,44, 38),0);
+    fake->addFrame(sf::IntRect(284, 89,44, 38),0);
+    fake->addFrame(sf::IntRect(330, 89,44, 38),0);
+    fake->addFrame(sf::IntRect(5, 131,44, 38),0);
+    fake->addFrame(sf::IntRect(52, 131,44, 38),0);
+    fake->addFrame(sf::IntRect(99, 131,44, 38),0);
+    fake->addFrame(sf::IntRect(146, 131,44, 38),0);
+    fake->addFrame(sf::IntRect(192, 131,44, 38),0);
+    fake->addFrame(sf::IntRect(238, 131,44, 38),0);
+    fake->addFrame(sf::IntRect(284, 131,44, 38),0);
+    fake->addFrame(sf::IntRect(330, 131,44, 38),0);
+
     jugador_sprite= new SuperSprite("assets/jugador/sp_alien_texture.png",4,0.4,true);
     turbo= new SuperSprite("assets/jugador/turbo.png",4,0.6,true);
 
@@ -27,16 +47,34 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
     turbo->addFrame(sf::IntRect(188, 193,56, 35),3);
     turbo->setSpeed(0.1);
 
-    invisible= new SuperSprite("assets/jugador/invisible.png",1,0.6,true);
+    escudo= new SuperSprite("assets/jugador/invisible.png",1,0.6,true);
 
-    invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
-    invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
-    invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
-    invisible->addFrame(sf::IntRect(268, 1,49, 49),0);
-    invisible->addFrame(sf::IntRect(219, 1,47, 47),0);
-    invisible->addFrame(sf::IntRect(172, 3,45, 44),0);
-    invisible->addFrame(sf::IntRect(127, 4,43, 42),0);
-    invisible->setSpeed(0.1);
+    escudo->addFrame(sf::IntRect(127, 4,43, 42),0);
+    escudo->addFrame(sf::IntRect(172, 3,45, 44),0);
+    escudo->addFrame(sf::IntRect(219, 1,47, 47),0);
+    escudo->addFrame(sf::IntRect(268, 1,49, 49),0);
+    escudo->addFrame(sf::IntRect(219, 1,47, 47),0);
+    escudo->addFrame(sf::IntRect(172, 3,45, 44),0);
+    escudo->addFrame(sf::IntRect(127, 4,43, 42),0);
+    escudo->setSpeed(0.1);
+
+    bump= new Popup("assets/jugador/bump.png",0.2);
+    bump->getSprite()->addFrame(sf::IntRect(26, 16,8, 8),0);
+    bump->getSprite()->addFrame(sf::IntRect(82, 13,17, 16),0);
+    bump->getSprite()->addFrame(sf::IntRect(141, 11,22, 22),0);
+    bump->getSprite()->addFrame(sf::IntRect(197, 7,30, 30),0);
+    bump->getSprite()->addFrame(sf::IntRect(253, 5,38, 34),0);
+
+    camuflaje= new SuperSprite("assets/jugador/invisible.png",1,0.6,true);
+
+    camuflaje->addFrame(sf::IntRect(26, 16,8, 8),0);
+    camuflaje->addFrame(sf::IntRect(82, 13,17, 16),0);
+    camuflaje->addFrame(sf::IntRect(141, 11,22, 22),0);
+    camuflaje->addFrame(sf::IntRect(197, 7,30, 30),0);
+    camuflaje->addFrame(sf::IntRect(253, 5,38, 34),0);
+
+
+    camuflaje->setSpeed(0.05);
 
     jugador_sprite->addFrame(sf::IntRect(50, 52,40, 44),0);//iz
     jugador_sprite->addFrame(sf::IntRect(2, 50,40, 46),0);
@@ -145,18 +183,22 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
     if(bounce.x<0)
     {
         incremento.x=-potencia*2;
+        bump->throwPopup();
     }
     else if(bounce.x>0)
     {
         incremento.x=potencia*2;
+        bump->throwPopup();
     }
     if(bounce.y<0)
     {
         incremento.y=-potencia*2;
+        bump->throwPopup();
     }
     else if(bounce.y>0)
     {
         incremento.y=potencia*2;
+        bump->throwPopup();
     }
 
     if(cesped&&(abs(pState->getVel().x)>50||abs(pState->getVel().y)>50))
@@ -203,7 +245,10 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 {
 
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
+    if(estado!=2)
     this->jugador_sprite->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+    else
+    this->fake->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
 
     if(estado==1)
     {
@@ -212,12 +257,15 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
 
     if(estado==3)
     {
-        this->invisible->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
+        this->escudo->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
     }
     if(estado==10){
     muerte->setPosition(jugador_sprite->getRenderPos());
+
     muerte->drawPopup(w,i);
     }
+    bump->setPosition(jugador_sprite->getRenderPos());
+    bump->drawPopup(w,i);
 
 }
 
@@ -247,6 +295,9 @@ void Jugador::setCesped(bool c)
 void Jugador::updateVida(int change)
 {
     vidas = vidas + change;
+    if(change<0)
+    bump->throwPopup();
+
     if(vidas < 0)
     {
         vidas = 0;

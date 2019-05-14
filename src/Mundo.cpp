@@ -57,12 +57,16 @@ Mundo::Mundo()
     txt_hud1 -> loadFromFile("assets/hud/hudtime.png");
     txt_hud2 = new Texture();
     txt_hud2 -> loadFromFile("assets/hud/pizzas.png");
+     txt_hud3 = new Texture();
+    txt_hud3 -> loadFromFile("assets/hud/basemapa.png");
     spr_pizza = new Sprite(*txt_pizza);
     spr_pizza -> setScale(20.f/270, 20.f/255);
     spr_hud1 = new Sprite(*txt_hud1);
     spr_hud1 -> setScale(0.32, 0.3);
     spr_hud2 = new Sprite(*txt_hud2);
     spr_hud2 -> setScale(0.4, 0.3);
+      spr_hud3 = new Sprite(*txt_hud3);
+    spr_hud3 -> setScale(0.7, 0.55);
 
     font_numbers = new Font();
     font_numbers ->loadFromFile("assets/hud/m42.TTF");
@@ -116,7 +120,8 @@ Mundo::Mundo()
 
     /// Minimap
     minimap = new View();
-    minimap->setViewport(sf::FloatRect(0.75f, 0.75f, 0.25f, 0.25f));
+    minimap->setViewport(sf::FloatRect(.53f, 0.52f, 0.5f, 0.5f));
+    minimap->zoom(2);
 
     ///inits
     initPuntosEntrega();
@@ -152,7 +157,7 @@ void Mundo::initPuntosEntrega()
     puntoEntrega->setTexture(texture);
     puntoEntrega->setTextureRect(sf::IntRect(254,136,92,91));
     puntoEntrega->setOrigin(92/2,91/2);
-    puntoEntrega->setScale(0.4,0.4);
+    puntoEntrega->setScale(0.7,0.7);
 
     /// Situo los puntos de entrega disponibles
     puntosEntrega.push_back(sf::Vector2f(1080,210));
@@ -719,6 +724,8 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*spr_hud1);
     spr_hud2 ->setPosition(p1->getSprite()->getRenderPos().x-13,p1->getSprite()->getRenderPos().y - 95);
     ventana->draw(*spr_hud2);
+     spr_hud3 ->setPosition(p1->getSprite()->getRenderPos().x+57,p1->getSprite()->getRenderPos().y +25);
+    ventana->draw(*spr_hud3);
 
     spr_pizza ->setPosition(p1->getSprite()->getRenderPos().x-10,p1->getSprite()->getRenderPos().y - 93);
     ventana->draw(*spr_pizza);
@@ -745,7 +752,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
 
     ventana->setView(*minimap);///SET VIEW MINIMAP
-    // mapa->drawMini(ventana);
+   // mapa->drawMini(ventana);
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
 // p1->drawJugador(ventana,inter);

@@ -33,8 +33,8 @@ class Jugador
 
      private:
     /**GRAFICOS**/
-    SuperSprite *jugador_sprite;
-    SuperSprite *turbo,*invisible;
+    SuperSprite *jugador_sprite,*fake;
+    SuperSprite *turbo,*escudo,*camuflaje;
 
 
     /**FISICAS**/
@@ -46,7 +46,7 @@ class Jugador
     sf::Clock timer_estado;
     double limite_estado;
 
-    Popup *muerte;
+    Popup *muerte,*bump;
 
 };
 

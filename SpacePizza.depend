@@ -264,7 +264,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1557848298 D
+1557852421 D
 	"SuperSprite.h"
 	"SuperSprite.h"
 	"PhysicsState.h"
@@ -332,13 +332,13 @@
 
 1555265667 hics.hpp>
 
-<<<<<<< HEAD
-1557851662 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557871378 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+	"Mundo.h"
+	"Juego.h"
+	"Car.h"
+	"Path.h"
 
 1557852421 osicionarElementos
-=======
-1557866709 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
->>>>>>> el_increible_hudk
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
@@ -346,11 +346,15 @@
 	"ControladorSonido.h"
 	<iostream>
 
-1557852421 osicionarElementos
+1557856263 increible_hudk
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
 	"Path.h"
+	"ControladorSonido.h"
+	<iostream>
+	"Jugador.h"
+	"Enemigo.h"
 	"ControladorSonido.h"
 	<iostream>
 
@@ -439,7 +443,7 @@
 
 1555240051 nyxml/tinyxml2.h"
 
-1557866247 /home/samuel/FV/SpacePizza/include/Mundo.h
+1557870502 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -524,14 +528,10 @@
 	"EJugando.h"
 	"EMenu.h"
 
-<<<<<<< HEAD
-1557857830 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
-=======
-1557866247 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
->>>>>>> el_increible_hudk
+1557869275 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1557783125 /home/samuel/FV/SpacePizza/include/Jugador.h
+1557869035 /home/samuel/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -556,11 +556,7 @@
 1557402419 /home/samuel/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-<<<<<<< HEAD
-1557857663 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
-=======
-1557866247 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
->>>>>>> el_increible_hudk
+1557867005 source:/home/samuel/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1555338625 "
@@ -1400,31 +1396,29 @@
 	<vector>
 	"SFML/Audio.hpp"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-1557851081 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
-	<vector>
-	"SFML/Audio.hpp"
-	<vector>
-	"SFML/Audio.hpp"
-
-1557851081 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
-=======
 1557855930 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
-
-1557855930 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
-=======
-1557855930 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
+	<vector>
+	"SFML/Audio.hpp"
+	<vector>
+	"SFML/Audio.hpp"
 	<vector>
 	"SFML/Audio.hpp"
 
-1557866247 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
->>>>>>> el_increible_hudk
+1557867005 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
->>>>>>> bedc7dcb5720c354a7500b4c40b9240debf30079
+
+1557853173 c7dcb5720c354a7500b4c40b9240debf30079
+	"EComo.h"
+	"Juego.h"
+	"EMenu.h"
+	"EJugando.h"
+	<iostream>
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
 
 1557683649 source:/home/carlos/FV2.0/SpacePizza/lib/tinyxml/tinystr.cpp
 	"tinystr.h"
@@ -1781,22 +1775,7 @@
 1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Path.cpp
 	"Path.h"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-1557855587 source:/home/pablo/Source/FV/SpacePizza/src/EComo.cpp
-=======
-=======
->>>>>>> el_increible_hudk
 1557853173 source:/home/pablo/Source/FV/SpacePizza/src/EComo.cpp
->>>>>>> bedc7dcb5720c354a7500b4c40b9240debf30079
-	"EComo.h"
-	"Juego.h"
-	"EMenu.h"
-	"EJugando.h"
-	<iostream>
-	<string>
-	<sstream>
-	<SFML/Graphics.hpp>
 
 1557855587 /home/pablo/Source/FV/SpacePizza/include/EComo.h
 	<string>
@@ -1853,8 +1832,6 @@
 
 1557852421 source:/home/carlos/FV2.0/SpacePizza/src/Path.cpp
 	"Path.h"
-<<<<<<< HEAD
-=======
 
 1557856263 /home/ramon/Desktop/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
@@ -1906,5 +1883,4 @@
 
 1557856263 source:/home/ramon/Desktop/FV/SpacePizza/src/Path.cpp
 	"Path.h"
->>>>>>> el_increible_hudk
 
