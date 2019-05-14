@@ -133,12 +133,12 @@ void Mundo::initPuntosEntrega()
     puntoEntrega->setScale(0.4,0.4);
 
     /// Situo los puntos de entrega disponibles
-    puntosEntrega.push_back(sf::Vector2f(360,200));
-    puntosEntrega.push_back(sf::Vector2f(360,500));
-    puntosEntrega.push_back(sf::Vector2f(360,780));
-    puntosEntrega.push_back(sf::Vector2f(45,420));
-    puntosEntrega.push_back(sf::Vector2f(920,890));
-    puntosEntrega.push_back(sf::Vector2f(50,800));
+    puntosEntrega.push_back(sf::Vector2f(1080,210));
+    puntosEntrega.push_back(sf::Vector2f(245,455));
+    puntosEntrega.push_back(sf::Vector2f(940,665));
+    puntosEntrega.push_back(sf::Vector2f(280,910));
+    puntosEntrega.push_back(sf::Vector2f(710,1210));
+    puntosEntrega.push_back(sf::Vector2f(1175,1235));
 
     puntoEntrega->setPosition(puntosEntrega[ptoEntrgaActual]);
 }
@@ -490,7 +490,7 @@ void Mundo::calcularTiempoBonificacion()
 {
     /// calcula el tiempo que tardaria en ir en linea recta al ptoEntrega => 50 es el valor de potencia
     /// del jugador.
-    tiempoBonificacion = (int)distanciaPtoEntrega / 50;
+    tiempoBonificacion = (int)distanciaPtoEntrega / 60;
     std::cout<<"Muestro el tiempo de bonificacion para el pto entrega"<<std::endl;
     std::cout<<tiempoBonificacion<<std::endl;
 }
