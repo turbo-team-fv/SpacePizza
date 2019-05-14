@@ -22,9 +22,13 @@ class ControladorSonido
         void stopCesped();
         void stopDerrape();
 
+        int getRadioActiva() { return radioActiva; }
+
     private:
         ControladorSonido();
         static ControladorSonido *instancia;
+
+        int radioActiva = 0;
 
         SoundBuffer *bufferMenu;
         Sound *soundMenu;

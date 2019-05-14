@@ -122,6 +122,13 @@ void EJugando::HandleInputs(sf::Keyboard::Key key, bool isPressed)
             ControladorSonido::getInstance()->playRadio(1);
             break;
 
+        case sf::Keyboard::Num3 :
+            ControladorSonido::getInstance()->playRadio(2);
+            break;
+
+        case sf::Keyboard::Num4 :
+            ControladorSonido::getInstance()->playRadio(3);
+            break;
 
     }
 }
