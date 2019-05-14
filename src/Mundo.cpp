@@ -288,6 +288,7 @@ sf::Vector2f Mundo::colisionesMapa()
         bounce.y=1;
     }
 
+    if(p1->checkEstado()!=3){
     for(unsigned int i = 0; i<carsVector.size(); i++)
     {
         if((p1->getPhysicsState()->getColliders()[0].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
@@ -311,6 +312,7 @@ sf::Vector2f Mundo::colisionesMapa()
             bounce.y=1;
         }
 
+    }
     }
 
     if(mapa->estaEnCesped(p1->getPhysicsState()->getColliders()[0]))
@@ -419,6 +421,8 @@ void Mundo::colisionItems()
                 // Colisiona con uno de tipo Levitar => Quitar colisiones edificios
                 std::cout<<"Colision con un powerUp de tipo Levitar"<<std::endl;
                 items[i]->restartPowerUp();
+                p1->setEstado(3);
+                p1->restartEstado();
                 break;
             }
         }
@@ -719,7 +723,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     text_player_lifes -> setPosition(p1->getSprite()->getRenderPos().x-140,p1->getSprite()->getRenderPos().y - 90);
     ventana->draw(*text_player_lifes);
 
-cout << p1-> checkEstado() << endl;
+
     if(p1-> checkEstado() == 0) pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);

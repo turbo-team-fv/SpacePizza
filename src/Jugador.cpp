@@ -200,7 +200,7 @@ void Jugador::drawJugador(sf::RenderWindow *w, double i)
         this->turbo->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
     }
 
-    if(estado==2)
+    if(estado==3)
     {
         this->invisible->drawSuperSprite(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
     }
