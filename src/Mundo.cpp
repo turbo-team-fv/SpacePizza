@@ -324,7 +324,6 @@ sf::Vector2f Mundo::colisionesMapa()
 
     return bounce;
 
-
 }
 
 void Mundo::colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown)
@@ -718,7 +717,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     text_player_lifes -> setPosition(p1->getSprite()->getRenderPos().x-140,p1->getSprite()->getRenderPos().y - 90);
     ventana->draw(*text_player_lifes);
 
-
+cout << p1-> checkEstado() << endl;
     if(p1-> checkEstado() == 0) pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);
@@ -760,7 +759,6 @@ void Mundo::drawAlcantarillas(sf::RenderWindow * ventana)
     }
 
 }
-
 
 //Despliega todos los paths de los coches.
 void Mundo::DeployCarPaths()
