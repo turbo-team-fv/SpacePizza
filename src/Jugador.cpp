@@ -4,7 +4,7 @@ Jugador::Jugador() /**Asi inicializamos de mejor forma objetos que son intrinsec
 {
 
     pState= new PhysicsState();
-    pState->setActualState(sf::Vector2f(150,250));
+    pState->setActualState(sf::Vector2f(250,450));
 
     jugador_sprite= new SuperSprite("assets/jugador/sp_alien_texture.png",4,0.4,true);
     turbo= new SuperSprite("assets/jugador/turbo.png",4,0.6,true);

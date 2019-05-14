@@ -13,7 +13,7 @@ Mapa::Mapa()
 void Mapa::load()
 {
     XMLDocument doc;
-    XMLError error = doc.LoadFile("assets/maps/MapaFinal.tmx");
+    XMLError error = doc.LoadFile("assets/maps/MapaFinalAncho.tmx");
 
     if(error)
     {
@@ -213,8 +213,6 @@ void Mapa::drawMini(RenderWindow * window)
                     edificios->setPosition(x*tileWidth,y*tileHeight);
                     window->draw(*edificios);
                     }
-
-
 
             }
         }

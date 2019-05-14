@@ -11,6 +11,8 @@
 #include "SuperSprite.h"
 #include "Alcantarilla.h"
 #include "Popup.h"
+#include "Car.h"
+#include "Path.h"
 #include <sstream>
 #include <iomanip>
 
@@ -40,6 +42,16 @@ public:
 
     void procesarInteraccion(bool eRight, bool eLeft, bool eUp, bool eDown);
     void initAlcantarillas();
+
+     /** HUGOOOOOOOOOOOOOOOOOOOOO COCHES Y PATHS **/
+    void DeployCarPaths();
+    void LoadDebugPath(Path * path, const sf::Color& color);
+    sf::VertexArray ToVertex(const std::vector<sf::Vector2f>& points, const sf::Color& color);
+    void CreateCarPath(const std::vector<sf::Vector2f>& l_wps, float l_pathRadius);
+    Path* GetPath();
+    void DeployCars();
+    void CreateCar(unsigned int l_type, const sf::Vector2f& l_position);
+    /************************/
 
 
 
@@ -86,6 +98,14 @@ private:
     Jugador *p1;
     vector< Enemigo* > e1;
     /**ELEMENTOS**/
+
+    /** HUGOOOOOOOOOOOOOOOOOOOOO COCHES Y PATHS **/
+    vector<Car*> carsVector;
+    vector<Path*> carsPaths;
+    unsigned int lastPath = 0;
+    std::vector<sf::CircleShape> wps;
+    std::vector<sf::VertexArray> wPaths;
+    /********************/
 
     int pizzas;
     int tiempo;
