@@ -107,10 +107,14 @@ Mundo::Mundo()
 /// Metodo para inizializar las Alcantarillas del Mundo
 void Mundo::initAlcantarillas()
 {
-    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(360,280));
-    Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(745,665));
+    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(265,650));
+    Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(285,1220));
+     Alcantarilla *alc3 = new Alcantarilla(sf::Vector2f(1110,650));
+    Alcantarilla *alc4 = new Alcantarilla( sf::Vector2f(590,195));
     alcantarillas.push_back(alc1);
     alcantarillas.push_back(alc2);
+     alcantarillas.push_back(alc3);
+      alcantarillas.push_back(alc4);
 }
 void Mundo::initPuntosEntrega()
 {
@@ -605,7 +609,6 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
 
     vista->setCenter(p1->getSprite()->getRenderPos().x,p1->getSprite()->getRenderPos().y);///SET CAMERA PLAYER
-
     ventana->setView(*vista);///SET VIEW PLAYER
     mapa->draw(ventana);
 

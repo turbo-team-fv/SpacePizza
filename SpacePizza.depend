@@ -317,7 +317,7 @@
 
 1555265667 hics.hpp>
 
-1557845029 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557849831 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
@@ -394,7 +394,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557789390 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
+1557846249 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
