@@ -107,14 +107,14 @@ Mundo::Mundo()
 /// Metodo para inizializar las Alcantarillas del Mundo
 void Mundo::initAlcantarillas()
 {
-    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(265,650));
-    Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(285,1220));
-     Alcantarilla *alc3 = new Alcantarilla(sf::Vector2f(1110,650));
-    Alcantarilla *alc4 = new Alcantarilla( sf::Vector2f(590,195));
+    Alcantarilla *alc1 = new Alcantarilla(sf::Vector2f(585,200));
+    Alcantarilla *alc2 = new Alcantarilla( sf::Vector2f(585,650));
+    Alcantarilla *alc3 = new Alcantarilla(sf::Vector2f(985,650));
+    Alcantarilla *alc4 = new Alcantarilla( sf::Vector2f(860,1120));
     alcantarillas.push_back(alc1);
     alcantarillas.push_back(alc2);
-     alcantarillas.push_back(alc3);
-      alcantarillas.push_back(alc4);
+    alcantarillas.push_back(alc3);
+    alcantarillas.push_back(alc4);
 }
 void Mundo::initPuntosEntrega()
 {
@@ -149,21 +149,29 @@ void Mundo::initItems()
     /// vida y de generacion
     /// NOTA: El numero de powerUps del mapa se determina en este metodo, ya que el tipo se generara
     /// aleatoriamente.
-    Item *vida1 = new Item(1, sf::Vector2f(800,200), 2, 5);
-    items.push_back(vida1);
-    Item *turbo = new Item(2, sf::Vector2f(1170,455), 2,10);
-    items.push_back(turbo);
-    Item *tiempo = new Item(3, sf::Vector2f(427,475), 2,10);
-    items.push_back(tiempo);
-    Item *inivisibilidad = new Item(4, sf::Vector2f(580,920), 2,10);
-    items.push_back(inivisibilidad);
-    /// TODO: crear uno mas de cada tipo para que inicialmente haya powerUps de todos los tipos
-    Item *levitar = new Item(5, sf::Vector2f(1170,925), 1,10);
-    items.push_back(levitar);
-     Item *item1 = new Item(2, sf::Vector2f(980,1100), 1,10);
-     items.push_back(item1);
-      Item *item2 = new Item(4, sf::Vector2f(510,1220), 1,10);
+    Item *item1     = new Item(1, sf::Vector2f(855,200), 5,10);
+    Item *item2     = new Item(2, sf::Vector2f(445,475), 8,15);
+    Item *item3     = new Item(3, sf::Vector2f(835,475), 10,20);
+    Item *item4     = new Item(4, sf::Vector2f(1175,470), 5,10);
+    Item *item5     = new Item(5, sf::Vector2f(580,925), 7,12);
+    Item *item6     = new Item(1, sf::Vector2f(1175,925), 5,12);
+    Item *item7     = new Item(2, sf::Vector2f(280,1065), 8,16);
+    Item *item8     = new Item(3, sf::Vector2f(980,1100), 5,10);
+    Item *item9     = new Item(4, sf::Vector2f(515,1230), 7,15);
+    Item *item10    = new Item(5, sf::Vector2f(775,650), 5,10);
+
+
+    items.push_back(item1);
     items.push_back(item2);
+    items.push_back(item3);
+    items.push_back(item4);
+    items.push_back(item5);
+    items.push_back(item6);
+    items.push_back(item7);
+    items.push_back(item8);
+    items.push_back(item9);
+    items.push_back(item10);
+
 }
 int Mundo::getPtoEntregaActual()
 {

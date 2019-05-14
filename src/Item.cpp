@@ -59,7 +59,7 @@ void Item::restartPowerUp() {
     reloj.restart();
     /// Cambiar el tipo del powerUp
     int tipo = 1 + rand() % 5;
-    setTipo(this->tipo);
+    setTipo(tipo);
 
 }
 
