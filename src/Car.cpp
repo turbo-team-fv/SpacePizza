@@ -81,6 +81,11 @@ void Car::Update(sf::Time elapsedTime)
     PathFollowing(elapsedTime);
 }
 
+Sprite* Car::getSprite(){
+
+
+
+}
 //Funcion de movimiento del coche a lo largo de un path.
 void Car::PathFollowing(sf::Time elapsedTime)
 {

@@ -28,6 +28,7 @@ class Car
         void PathFollowing(sf::Time elapsedTime);
         void Seek(sf::Vector2f l_target, sf::Time elapsedTime);
         void CheckSpriteDirection(const sf::Vector2f& l_dir);
+        Sprite* getSprite();
 
     private:
         unsigned int type;

@@ -496,7 +496,7 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     }
     /**coches**/
     for(unsigned int i = 0; i<carsVector.size(); i++)
-        carsVector[i]->Update(t);
+    carsVector[i]->Update(t);
 
 
     processHUD();
@@ -603,7 +603,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
         ventana->draw(wPaths[i]);
 
     for(size_t i = 0; i < carsVector.size(); i++)
-        carsVector[i]->Draw(ventana,inter);
+    carsVector[i]->Draw(ventana,inter);
 
     /***********************/
 
@@ -642,10 +642,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
 
     ventana->setView(*minimap);///SET VIEW MINIMAP
-    mapa->drawMini(ventana);
+   // mapa->drawMini(ventana);
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
-//    p1->drawJugador(ventana,inter);
+// p1->drawJugador(ventana,inter);
 
     minimap_player -> setPosition(p1->getSprite()->getRenderPos().x-40,p1->getSprite()->getRenderPos().y-40);
     ventana->draw(*minimap_player);
