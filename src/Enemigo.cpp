@@ -241,13 +241,13 @@ if(chaseclock.getElapsedTime().asSeconds()>=tiempo_persecucion)
 
 }
 
-if(pState->getActualState().x>960)
+if(pState->getActualState().x>1400)
 incremento.x-=power;
 
 if(pState->getActualState().x<0)
 incremento.x+=power;
 
-if(pState->getActualState().y>960)
+if(pState->getActualState().y>1400)
 incremento.y-=power;
 
 if(pState->getActualState().y<0)

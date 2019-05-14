@@ -286,6 +286,7 @@ sf::Vector2f Mundo::colisionesMapa()
         bounce.y=1;
     }
 
+
     for(unsigned int i = 0; i<carsVector.size(); i++)
     {
         if((p1->getPhysicsState()->getColliders()[0].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
@@ -310,6 +311,13 @@ sf::Vector2f Mundo::colisionesMapa()
         }
 
     }
+
+            if((p1->getPhysicsState()->getActualState().x>1215)||(p1->getPhysicsState()->getActualState().x<240)||(p1->getPhysicsState()->getActualState().y>1260)||(p1->getPhysicsState()->getActualState().y<165)){
+bounce.x=0;
+bounce.y=0;
+}
+
+
 
     if(mapa->estaEnCesped(p1->getPhysicsState()->getColliders()[0]))
     {
