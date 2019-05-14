@@ -43,9 +43,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="assets/howtoplay/1.png" />
+		<Unit filename="assets/howtoplay/2.png" />
+		<Unit filename="assets/howtoplay/3.png" />
+		<Unit filename="assets/howtoplay/4.png" />
+		<Unit filename="assets/howtoplay/5.png" />
+		<Unit filename="assets/howtoplay/6.png" />
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Alcantarilla.h" />
 		<Unit filename="include/ControladorSonido.h" />
+		<Unit filename="include/EComo.h" />
 		<Unit filename="include/EFin.h" />
 		<Unit filename="include/EJugando.h" />
 		<Unit filename="include/EMenu.h" />
@@ -71,7 +78,9 @@
 		<Unit filename="lib/tinyxml/tinyxmlparser.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Alcantarilla.cpp" />
+		<Unit filename="src/Car.cpp" />
 		<Unit filename="src/ControladorSonido.cpp" />
+		<Unit filename="src/EComo.cpp" />
 		<Unit filename="src/EFin.cpp" />
 		<Unit filename="src/EJugando.cpp" />
 		<Unit filename="src/EMenu.cpp" />
