@@ -25,6 +25,12 @@ ControladorSonido::ControladorSonido()
     soundsRadio[1]->setBuffer(*buffersRadio[1]);
 //    soundsRadio[1]->setVolume(50.f);
 
+    buffersRadio.push_back(new SoundBuffer());
+    buffersRadio[2]->loadFromFile("assets/sonidos/lowrider.ogg");
+    soundsRadio.push_back(new Sound());
+    soundsRadio[2]->setBuffer(*buffersRadio[2]);
+    soundsRadio[2]->setVolume(50.f);
+
     /**CARGA EFECTOŜ**/
     bufferPowerUp = new SoundBuffer();
     bufferPowerUp->loadFromFile("assets/sonidos/powerUp.ogg");
