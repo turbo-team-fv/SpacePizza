@@ -31,6 +31,12 @@ ControladorSonido::ControladorSonido()
     soundsRadio[2]->setBuffer(*buffersRadio[2]);
     soundsRadio[2]->setVolume(50.f);
 
+    buffersRadio.push_back(new SoundBuffer());
+    buffersRadio[3]->loadFromFile("assets/sonidos/dem2.ogg");
+    soundsRadio.push_back(new Sound());
+    soundsRadio[3]->setBuffer(*buffersRadio[3]);
+    soundsRadio[3]->setVolume(50.f);
+
     /**CARGA EFECTOŜ**/
     bufferPowerUp = new SoundBuffer();
     bufferPowerUp->loadFromFile("assets/sonidos/powerUp.ogg");
@@ -90,6 +96,7 @@ void ControladorSonido::playRadio(int r)
         }
 
         soundsRadio[r]->play();
+        radioActiva = r;
     }
     else
     {
