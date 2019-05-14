@@ -164,7 +164,17 @@ void Jugador::updateJugador(bool eRight,bool eLeft,bool eUp,bool eDown,sf::Vecto
         incremento.x=0;
         incremento.y=0;
     }
+    if(pState->getActualState().x>1215)
+incremento.x-=potencia;
 
+if(pState->getActualState().x<240)
+incremento.x+=potencia;
+
+if(pState->getActualState().y>1260)
+incremento.y-=potencia;
+
+if(pState->getActualState().y<165)
+incremento.y+=potencia;
     if(estado!=10)
     {
 
