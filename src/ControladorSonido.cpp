@@ -33,7 +33,7 @@ ControladorSonido::ControladorSonido()
     bufferTurbo = new SoundBuffer();
     bufferTurbo->loadFromFile("assets/sonidos/turboXD.ogg");
     soundTurbo = new Sound();
-    soundTurbo->setVolume(130);
+    soundTurbo->setVolume(250);
     soundTurbo->setBuffer(*bufferTurbo);
 
     bufferCesped = new SoundBuffer();
