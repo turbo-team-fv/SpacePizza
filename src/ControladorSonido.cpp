@@ -106,3 +106,8 @@ void ControladorSonido::playCesped()
 {
     soundCesped->play();
 }
+
+void ControladorSonido::playCesped()
+{
+    soundCesped->stop();
+}
