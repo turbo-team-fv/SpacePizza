@@ -11,6 +11,7 @@ ControladorSonido::ControladorSonido()
     soundMenu = new Sound();
     soundMenu->setVolume(50.0);
     soundMenu->setBuffer(*bufferMenu);
+    soundMenu->setLoop(true);
 
     /**CARGA CANCIONES RADIO**/
     buffersRadio.push_back(new SoundBuffer());
@@ -18,11 +19,13 @@ ControladorSonido::ControladorSonido()
     soundsRadio.push_back(new Sound());
     soundsRadio[0]->setBuffer(*buffersRadio[0]);
     soundsRadio[0]->setVolume(30.f);
+    soundsRadio[0]->setLoop(true);
 
     buffersRadio.push_back(new SoundBuffer());
     buffersRadio[1]->loadFromFile("assets/sonidos/gasolina.ogg");
     soundsRadio.push_back(new Sound());
     soundsRadio[1]->setBuffer(*buffersRadio[1]);
+    soundsRadio[1]->setLoop(true);
 //    soundsRadio[1]->setVolume(50.f);
 
     buffersRadio.push_back(new SoundBuffer());
@@ -30,12 +33,14 @@ ControladorSonido::ControladorSonido()
     soundsRadio.push_back(new Sound());
     soundsRadio[2]->setBuffer(*buffersRadio[2]);
     soundsRadio[2]->setVolume(50.f);
+    soundsRadio[2]->setLoop(true);
 
     buffersRadio.push_back(new SoundBuffer());
     buffersRadio[3]->loadFromFile("assets/sonidos/dem2.ogg");
     soundsRadio.push_back(new Sound());
     soundsRadio[3]->setBuffer(*buffersRadio[3]);
     soundsRadio[3]->setVolume(50.f);
+    soundsRadio[3]->setLoop(true);
 
     /**CARGA EFECTOŜ**/
     bufferPowerUp = new SoundBuffer();

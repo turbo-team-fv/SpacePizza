@@ -1,23 +1,23 @@
 # depslib dependency file v1.0
-1557577445 source:/home/pablo/Source/FV/SpacePizza/main.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/main.cpp
 	"Juego.h"
 	"SFML/Audio.hpp"
 
-1557851666 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
-1557763190 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Mapa.h
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1557763190 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 	"EJugando.h"
 	"EMenu.h"
 
-1557504501 /home/pablo/Source/FV/SpacePizza/include/Juego.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Juego.h
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -58,13 +58,13 @@
 	"tinyxml.h"
 	<windows.h>
 
-1557851845 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
+1557857794 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
 	"Path.h"
 
-1557848298 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+1557857794 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -332,15 +332,15 @@
 
 1555265667 hics.hpp>
 
-<<<<<<< HEAD
-1557856319 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
-=======
 1557851662 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
->>>>>>> ReposicionarElementos
+
+1557852421 osicionarElementos
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
 	"Path.h"
+	"ControladorSonido.h"
+	<iostream>
 
 1555265667 antarillas2.1
 	"EMenu.h"
@@ -556,7 +556,7 @@
 
 1554833552 ated upstream
 
-1557769868 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -678,7 +678,7 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1557570761 /home/pablo/Source/FV/SpacePizza/include/PhysicsState.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/PhysicsState.h
 	<iostream>
 	<vector>
 	<cmath>
@@ -690,7 +690,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557476628 /home/carlos/FV/SpacePizza/include/Jugador.h
@@ -700,7 +700,7 @@
 	"PhysicsState.h"
 	"SuperSprite.h"
 
-1557853173 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
+1557855587 source:/home/pablo/Source/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
 	"EComo.h"
@@ -710,7 +710,7 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1557577445 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
@@ -730,21 +730,21 @@
 1557476628 source:/home/carlos/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1557853189 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
+1557857791 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
-1557504501 /home/pablo/Source/FV/SpacePizza/include/EJugando.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/EJugando.h
 	"State.h"
 	"Juego.h"
 	"SFML/Graphics.hpp"
 
-1557570761 /home/pablo/Source/FV/SpacePizza/include/Item.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1557854181 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
+1557855587 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
+1557857794 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
@@ -781,7 +781,7 @@
 	"State.h"
 	"ControladorSonido.h"
 
-1557763190 /home/pablo/Source/FV/SpacePizza/include/Enemigo.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -790,7 +790,7 @@
 	"SuperSprite.h"
 	"Popup.h"
 
-1557767118 source:/home/pablo/Source/FV/SpacePizza/src/Enemigo.cpp
+1557858008 source:/home/pablo/Source/FV/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1554832897 source:/home/ramon/Desktop/FV/SpacePizza/lib/tinyxml/tinystr.cpp
@@ -1045,25 +1045,25 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1555665872 /home/pablo/Source/FV/SpacePizza/include/State.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
 
-1555665872 source:/home/pablo/Source/FV/SpacePizza/src/MaquinaEstados.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/MaquinaEstados.cpp
 	"MaquinaEstados.h"
 	"EJugando.h"
 
-1555665872 /home/pablo/Source/FV/SpacePizza/include/MaquinaEstados.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/MaquinaEstados.h
 	<vector>
 	"State.h"
 
-1557570761 /home/pablo/Source/FV/SpacePizza/include/SuperSprite.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/SuperSprite.h
 	"PhysicsState.h"
 	<iostream>
 	<vector>
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557570761 source:/home/pablo/Source/FV/SpacePizza/src/SuperSprite.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
 1557526445 /home/samuel/FV/SpacePizza/include/SuperSprite.h
@@ -1262,20 +1262,20 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1557573202 /home/pablo/Source/FV/SpacePizza/include/Alcantarilla.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Alcantarilla.h
 	<SFML/Graphics.hpp>
 
-1555665872 source:/home/pablo/Source/FV/SpacePizza/src/Alcantarilla.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Alcantarilla.cpp
 	"Alcantarilla.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1555665872 source:/home/pablo/Source/FV/SpacePizza/src/Motor2D.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Motor2D.cpp
 	"Motor2D.h"
 	"Juego.h"
 	<iostream>
 
-1555665872 /home/pablo/Source/FV/SpacePizza/include/Motor2D.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Motor2D.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
@@ -1349,38 +1349,30 @@
 
 1557476628 source:/home/carlos/FV/SpacePizza/src/Popup.cpp
 
-1557570761 /home/pablo/Source/FV/SpacePizza/include/Popup.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Popup.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"SuperSprite.h"
 
-1557570761 source:/home/pablo/Source/FV/SpacePizza/src/Popup.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Popup.cpp
 	"Popup.h"
 
-1557852901 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
+1557857692 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
-1557855342 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
+1557855587 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
-<<<<<<< HEAD
-1557855930 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
-	<vector>
-	"SFML/Audio.hpp"
-
-1557855930 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
-=======
 1557851081 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
+	<vector>
+	"SFML/Audio.hpp"
 	<vector>
 	"SFML/Audio.hpp"
 
 1557851081 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
->>>>>>> ReposicionarElementos
-	"ControladorSonido.h"
-	<iostream>
 
 1557683649 source:/home/carlos/FV2.0/SpacePizza/lib/tinyxml/tinystr.cpp
 	"tinystr.h"
@@ -1666,7 +1658,11 @@
 	<string>
 	<SFML/Graphics.hpp>
 
-1557848298 /home/pablo/Source/FV/SpacePizza/include/Car.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Car.h
+	<vector>
+	<map>
+	<string>
+	<SFML/Graphics.hpp>
 
 1557844549 /home/claudia/Desktop/SpacePizza/include/Path.h
 	"vector"
@@ -1690,11 +1686,15 @@
 	"MathHelper.h"
 	<iostream>
 
-1557848298 /home/pablo/Source/FV/SpacePizza/include/Path.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/Path.h
 	"vector"
 	<SFML/Graphics.hpp>
 
-1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Car.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Car.cpp
+	"Car.h"
+	"Path.h"
+	"MathHelper.h"
+	<iostream>
 
 1557844549 /home/claudia/Desktop/SpacePizza/include/MathHelper.h
 	<cmath>
@@ -1717,20 +1717,19 @@
 	"State.h"
 	"ControladorSonido.h"
 
-1557853173 orSonido.h"
+1557855930 orSonido.h"
 
-1557848298 /home/pablo/Source/FV/SpacePizza/include/MathHelper.h
+1557855583 /home/pablo/Source/FV/SpacePizza/include/MathHelper.h
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557848298 source:/home/pablo/Source/FV/SpacePizza/src/MathHelper.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/MathHelper.cpp
 	"MathHelper.h"
 
-1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Path.cpp
+1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Path.cpp
 	"Path.h"
 
-<<<<<<< HEAD
-1557853173 source:/home/pablo/Source/FV/SpacePizza/src/EComo.cpp
+1557855587 source:/home/pablo/Source/FV/SpacePizza/src/EComo.cpp
 	"EComo.h"
 	"Juego.h"
 	"EMenu.h"
@@ -1740,7 +1739,7 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1557853173 /home/pablo/Source/FV/SpacePizza/include/EComo.h
+1557855587 /home/pablo/Source/FV/SpacePizza/include/EComo.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
@@ -1769,7 +1768,7 @@
 	<SFML/Graphics.hpp>
 	"State.h"
 	"ControladorSonido.h"
-=======
+
 1557852421 /home/carlos/FV2.0/SpacePizza/include/Car.h
 	<vector>
 	<map>
@@ -1795,5 +1794,4 @@
 
 1557852421 source:/home/carlos/FV2.0/SpacePizza/src/Path.cpp
 	"Path.h"
->>>>>>> ReposicionarElementos
 
