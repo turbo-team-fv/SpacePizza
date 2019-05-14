@@ -284,9 +284,15 @@ sf::Vector2f Mundo::colisionesMapa()
     }
 
     if(mapa->estaEnCesped(p1->getPhysicsState()->getColliders()[0]))
+    {
         p1->setCesped(true);
+        ControladorSonido::getInstance()->playCesped();
+    }
     else
+    {
         p1->setCesped(false);
+        ControladorSonido::getInstance()->stopCesped();
+    }
 
     return bounce;
 
@@ -530,6 +536,15 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     /**coches**/
     for(unsigned int i = 0; i<carsVector.size(); i++)
         carsVector[i]->Update(t);
+
+//    if(p1->getPhysicsState()->getVel().x > 0 && p1->getPhysicsState()->getVel().y > 0)
+//    {
+//        ControladorSonido::getInstance()->playDerrape();
+//    }
+//    else
+//    {
+//        ControladorSonido::getInstance()->stopDerrape();
+//    }
 
 
     processHUD();

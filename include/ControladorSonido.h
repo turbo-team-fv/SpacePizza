@@ -17,6 +17,10 @@ class ControladorSonido
         void playAlien();
         void playExplosion();
         void playTurbo();
+        void playCesped();
+        void playDerrape();
+        void stopCesped();
+        void stopDerrape();
 
     private:
         ControladorSonido();
@@ -36,6 +40,14 @@ class ControladorSonido
 
         SoundBuffer *bufferTurbo;
         Sound *soundTurbo;
+
+        bool reproduciendoCesped = false;
+        SoundBuffer *bufferCesped;
+        Sound *soundCesped;
+
+        bool reproduciendoDerrape = false;
+        SoundBuffer *bufferDerrape;
+        Sound *soundDerrape;
 
 };
 

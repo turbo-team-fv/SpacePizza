@@ -9,6 +9,7 @@ ControladorSonido::ControladorSonido()
     bufferMenu = new SoundBuffer();
     bufferMenu->loadFromFile("assets/sonidos/snarky-puppy_bad-kids-to-the-back.ogg");
     soundMenu = new Sound();
+    soundMenu->setVolume(50.0);
     soundMenu->setBuffer(*bufferMenu);
 
     /**CARGA CANCIONES RADIO**/
@@ -16,7 +17,13 @@ ControladorSonido::ControladorSonido()
     buffersRadio[0]->loadFromFile("assets/sonidos/lettuce-chief.ogg");
     soundsRadio.push_back(new Sound());
     soundsRadio[0]->setBuffer(*buffersRadio[0]);
-    soundsRadio[0]->setVolume(50.f);
+    soundsRadio[0]->setVolume(30.f);
+
+    buffersRadio.push_back(new SoundBuffer());
+    buffersRadio[1]->loadFromFile("assets/sonidos/gasolina.ogg");
+    soundsRadio.push_back(new Sound());
+    soundsRadio[1]->setBuffer(*buffersRadio[1]);
+//    soundsRadio[1]->setVolume(50.f);
 
     /**CARGA EFECTOŜ**/
     bufferPowerUp = new SoundBuffer();
@@ -33,8 +40,22 @@ ControladorSonido::ControladorSonido()
     bufferTurbo = new SoundBuffer();
     bufferTurbo->loadFromFile("assets/sonidos/turboXD.ogg");
     soundTurbo = new Sound();
-    soundTurbo->setVolume(130);
+    soundTurbo->setVolume(250);
     soundTurbo->setBuffer(*bufferTurbo);
+
+    bufferCesped = new SoundBuffer();
+    bufferCesped->loadFromFile("assets/sonidos/cesped.ogg");
+    soundCesped = new Sound();
+    soundCesped->setVolume(200);
+    soundCesped->setBuffer(*bufferCesped);
+    soundCesped->setLoop(true);
+
+    bufferDerrape = new SoundBuffer();
+    bufferDerrape->loadFromFile("assets/sonidos/derrape.ogg");
+    soundDerrape = new Sound();
+    soundDerrape->setVolume(200);
+    soundDerrape->setBuffer(*bufferDerrape);
+    soundDerrape->setLoop(false);
 
 }
 
@@ -93,4 +114,34 @@ void ControladorSonido::playExplosion()
 void ControladorSonido::playTurbo()
 {
     soundTurbo->play();
+}
+
+void ControladorSonido::playCesped()
+{
+    if(reproduciendoCesped == false)
+    {
+        soundCesped->play();
+        reproduciendoCesped = true;
+    }
+}
+
+void ControladorSonido::stopCesped()
+{
+    soundCesped->stop();
+    reproduciendoCesped = false;
+}
+
+void ControladorSonido::playDerrape()
+{
+    if(reproduciendoDerrape == false)
+    {
+        soundDerrape->play();
+        reproduciendoDerrape = true;
+    }
+}
+
+void ControladorSonido::stopDerrape()
+{
+    soundDerrape->stop();
+    reproduciendoDerrape = false;
 }

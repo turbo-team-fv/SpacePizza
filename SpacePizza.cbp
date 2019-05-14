@@ -45,6 +45,7 @@
 		</Compiler>
 		<Unit filename="cb.bmp" />
 		<Unit filename="include/Alcantarilla.h" />
+		<Unit filename="include/Car.h" />
 		<Unit filename="include/ControladorSonido.h" />
 		<Unit filename="include/EFin.h" />
 		<Unit filename="include/EJugando.h" />
@@ -55,8 +56,10 @@
 		<Unit filename="include/Jugador.h" />
 		<Unit filename="include/Mapa.h" />
 		<Unit filename="include/MaquinaEstados.h" />
+		<Unit filename="include/MathHelper.h" />
 		<Unit filename="include/Motor2D.h" />
 		<Unit filename="include/Mundo.h" />
+		<Unit filename="include/Path.h" />
 		<Unit filename="include/PhysicsState.h" />
 		<Unit filename="include/Popup.h" />
 		<Unit filename="include/State.h" />
@@ -71,6 +74,7 @@
 		<Unit filename="lib/tinyxml/tinyxmlparser.cpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Alcantarilla.cpp" />
+		<Unit filename="src/Car.cpp" />
 		<Unit filename="src/ControladorSonido.cpp" />
 		<Unit filename="src/EFin.cpp" />
 		<Unit filename="src/EJugando.cpp" />
@@ -81,8 +85,10 @@
 		<Unit filename="src/Jugador.cpp" />
 		<Unit filename="src/Mapa.cpp" />
 		<Unit filename="src/MaquinaEstados.cpp" />
+		<Unit filename="src/MathHelper.cpp" />
 		<Unit filename="src/Motor2D.cpp" />
 		<Unit filename="src/Mundo.cpp" />
+		<Unit filename="src/Path.cpp" />
 		<Unit filename="src/PhysicsState.cpp" />
 		<Unit filename="src/Popup.cpp" />
 		<Unit filename="src/SuperSprite.cpp" />
