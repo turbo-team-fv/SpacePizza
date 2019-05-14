@@ -91,6 +91,8 @@ Mundo::Mundo()
     txt_pwupHUD_velocidad -> loadFromFile("assets/hud/powerups/Hud_velocidad.png");
     txt_pwupHUD_vida = new Texture();
     txt_pwupHUD_vida -> loadFromFile("assets/hud/powerups/Hud_vida.png");
+    txt_pwupHUD_levitar = new Texture();
+    txt_pwupHUD_levitar -> loadFromFile("assets/hud/powerups/Hud_levitar.png");
 
     pwupHUD_ative = new RectangleShape({50,45});
     pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
@@ -286,7 +288,7 @@ sf::Vector2f Mundo::colisionesMapa()
         bounce.y=1;
     }
 
-
+    if(p1->checkEstado()!=3){
     for(unsigned int i = 0; i<carsVector.size(); i++)
     {
         if((p1->getPhysicsState()->getColliders()[0].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
@@ -311,6 +313,7 @@ sf::Vector2f Mundo::colisionesMapa()
         }
 
     }
+    }
 
             if((p1->getPhysicsState()->getActualState().x>1215)||(p1->getPhysicsState()->getActualState().x<240)||(p1->getPhysicsState()->getActualState().y>1260)||(p1->getPhysicsState()->getActualState().y<165)){
 bounce.x=0;
@@ -331,7 +334,6 @@ bounce.y=0;
     }
 
     return bounce;
-
 
 }
 
@@ -426,6 +428,8 @@ void Mundo::colisionItems()
                 // Colisiona con uno de tipo Levitar => Quitar colisiones edificios
                 std::cout<<"Colision con un powerUp de tipo Levitar"<<std::endl;
                 items[i]->restartPowerUp();
+                p1->setEstado(3);
+                p1->restartEstado();
                 break;
             }
         }
@@ -730,6 +734,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     if(p1-> checkEstado() == 0) pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);
+    if(p1-> checkEstado() == 3) pwupHUD_ative -> setTexture(txt_pwupHUD_levitar);
     if(p1-> checkEstado() == 10)
     {}
 
@@ -768,7 +773,6 @@ void Mundo::drawAlcantarillas(sf::RenderWindow * ventana)
     }
 
 }
-
 
 //Despliega todos los paths de los coches.
 void Mundo::DeployCarPaths()
