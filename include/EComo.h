@@ -43,7 +43,7 @@ class EComo : public State
 
         Text menu[2];
 
-        int numero;
+        int numero=-1;
         int contador;
         bool cambiar=false;
 

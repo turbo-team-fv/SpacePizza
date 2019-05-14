@@ -184,7 +184,7 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1557844549 source:/home/claudia/Desktop/SpacePizza/src/Mundo.cpp
+1557853065 source:/home/claudia/Desktop/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
@@ -264,7 +264,7 @@
 	"tinyxml.h"
 	<windows.h>
 
-1557476628 D
+1557848298 D
 	"SuperSprite.h"
 	"SuperSprite.h"
 	"PhysicsState.h"
@@ -381,7 +381,7 @@
 	<SFML/Graphics.hpp>
 	"State.h"
 
-1555265889 ter
+1557848298 ter
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
@@ -408,6 +408,14 @@
 	<vector>
 	<cmath>
 	<SFML/Graphics.hpp>
+	<vector>
+	<map>
+	<string>
+	<SFML/Graphics.hpp>
+	"Car.h"
+	"Path.h"
+	"MathHelper.h"
+	<iostream>
 
 1557789390 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
@@ -710,7 +718,7 @@
 1557504501 /home/pablo/Source/FV/SpacePizza/include/EFin.h
 	"State.h"
 
-1557844549 source:/home/claudia/Desktop/SpacePizza/src/Mapa.cpp
+1557853065 source:/home/claudia/Desktop/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -1128,7 +1136,7 @@
 1557415567 /home/claudia/Desktop/SpacePizza/include/EFin.h
 	"State.h"
 
-1557415567 source:/home/claudia/Desktop/SpacePizza/src/EJugando.cpp
+1557853065 source:/home/claudia/Desktop/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
 1555265667 /home/samuel/FV/SpacePizza/include/State.h
@@ -1222,7 +1230,7 @@
 1557844549 source:/home/claudia/Desktop/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1557768235 source:/home/claudia/Desktop/SpacePizza/src/PhysicsState.cpp
+1557853065 source:/home/claudia/Desktop/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1557768235 source:/home/claudia/Desktop/SpacePizza/src/SuperSprite.cpp
@@ -1619,8 +1627,7 @@
 	<fstream>
 	<iostream>
 
-<<<<<<< HEAD
-1557770955 /home/claudia/Desktop/SpacePizza/include/ControladorSonido.h
+1557853065 /home/claudia/Desktop/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
@@ -1633,16 +1640,14 @@
 1555782019 /home/claudia/Desktop/SpacePizza/include/Alcantarilla.h
 	<SFML/Graphics.hpp>
 
-1557844549 /home/claudia/Desktop/SpacePizza/include/Car.h
-=======
-1557848298 /home/pablo/Source/FV/SpacePizza/include/Car.h
->>>>>>> master
+1557853065 /home/claudia/Desktop/SpacePizza/include/Car.h
 	<vector>
 	<map>
 	<string>
 	<SFML/Graphics.hpp>
 
-<<<<<<< HEAD
+1557848298 /home/pablo/Source/FV/SpacePizza/include/Car.h
+
 1557844549 /home/claudia/Desktop/SpacePizza/include/Path.h
 	"vector"
 	<SFML/Graphics.hpp>
@@ -1652,32 +1657,30 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1557770955 source:/home/claudia/Desktop/SpacePizza/src/ControladorSonido.cpp
+1557853065 source:/home/claudia/Desktop/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
 1557768235 source:/home/claudia/Desktop/SpacePizza/src/Popup.cpp
 	"Popup.h"
 
-1557844549 source:/home/claudia/Desktop/SpacePizza/src/Car.cpp
-=======
-1557848298 /home/pablo/Source/FV/SpacePizza/include/Path.h
-	"vector"
-	<SFML/Graphics.hpp>
-
-1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Car.cpp
->>>>>>> master
+1557853065 source:/home/claudia/Desktop/SpacePizza/src/Car.cpp
 	"Car.h"
 	"Path.h"
 	"MathHelper.h"
 	<iostream>
 
-<<<<<<< HEAD
+1557848298 /home/pablo/Source/FV/SpacePizza/include/Path.h
+	"vector"
+	<SFML/Graphics.hpp>
+
+1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Car.cpp
+
 1557844549 /home/claudia/Desktop/SpacePizza/include/MathHelper.h
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557848978 source:/home/claudia/Desktop/SpacePizza/src/EComo.cpp
+1557849036 source:/home/claudia/Desktop/SpacePizza/src/EComo.cpp
 	"EComo.h"
 	"Juego.h"
 	"EMenu.h"
@@ -1687,13 +1690,15 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1557847712 /home/claudia/Desktop/SpacePizza/include/EComo.h
+1557853496 /home/claudia/Desktop/SpacePizza/include/EComo.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 	"State.h"
 	"ControladorSonido.h"
-=======
+
+1557847712 orSonido.h"
+
 1557848298 /home/pablo/Source/FV/SpacePizza/include/MathHelper.h
 	<cmath>
 	<SFML/Graphics.hpp>
@@ -1703,5 +1708,10 @@
 
 1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Path.cpp
 	"Path.h"
->>>>>>> master
+
+1557844549 source:/home/claudia/Desktop/SpacePizza/src/MathHelper.cpp
+	"MathHelper.h"
+
+1557844549 source:/home/claudia/Desktop/SpacePizza/src/Path.cpp
+	"Path.h"
 

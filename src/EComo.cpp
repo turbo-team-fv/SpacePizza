@@ -28,8 +28,7 @@ EComo::EComo()
 
 void EComo::Init()
 {
-
-    numero = -1;
+    cout<<"numero: "<<numero<<endl;
     contador = 0;
 
     if(!font.loadFromFile("assets/hud/m42.TTF"))
@@ -95,25 +94,22 @@ void EComo::Draw(RenderWindow * ventana)
     {
         if(bg[i]!=NULL)
         {
+
+            if(numero == -1)
+            {
+                ventana->draw(*bg[0]);
+            }
             if(cambiar)
             {
-            cout<<numero<<endl;
-                if(numero == 0)
+                if(numero == 10)
                 {
-                    ventana->draw(*bg[0]);
-                }
-                else
-                {
-                    if(numero == 10)
-                    {
-                        menu[0].setString(" ");
-                        menu[1].setString(" ");
+                    menu[0].setString(" ");
+                    menu[1].setString(" ");
 
-                        Juego::getInstance()->cambiarEstado(EMenu::getInstance());
+                    Juego::getInstance()->cambiarEstado(EMenu::getInstance());
 
-                    }
-                    ventana->draw(*bg[numero-(numero/2)]);
                 }
+                ventana->draw(*bg[numero-(numero/2)]);
             }
         }
     }
@@ -186,8 +182,6 @@ void EComo::HandleEvents(RenderWindow * ventana)
                 cout<<"Next"<<endl;
 
                 numero++;
-
-                cout<<"numero: "<<numero<<endl;
 
                 cambiar = true;
             }
