@@ -398,7 +398,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557789390 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
+1557846249 source:/home/samuel/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -1329,7 +1329,7 @@
 	<vector>
 	"SFML/Audio.hpp"
 
-1557783125 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
+1557852511 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
