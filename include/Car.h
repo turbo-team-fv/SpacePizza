@@ -23,7 +23,7 @@ class Car
         void Init();
         void InitSprite(const sf::IntRect& l_rect);
         void Update(sf::Time elapsedTime);
-        void Draw(sf::RenderWindow *w);
+        void Draw(sf::RenderWindow *w,double i);
 
         void PathFollowing(sf::Time elapsedTime);
         void Seek(sf::Vector2f l_target, sf::Time elapsedTime);
@@ -39,6 +39,7 @@ class Car
         sf::Vector2f currentTarget;
         sf::Vector2f currentVelocity;
         sf::Vector2f lastVelocity;
+        sf::Vector2f lastPos,actualPos,renderPos;
         // === STEERING BEHAVIORS === //
         float mass         = 0.0f;
         float force        = 0.0f;

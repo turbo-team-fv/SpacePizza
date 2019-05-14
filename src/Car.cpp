@@ -113,8 +113,13 @@ void Car::Seek(sf::Vector2f l_target, sf::Time elapsedTime)
     CheckSpriteDirection(nDir);
     //Para optimizar multiplicaciones, la hago solo una vez.
     float ve = maxVelocity * elapsedTime.asSeconds();
+
+    lastPos=actualPos;
+
+    actualPos.x+=nDir.x * ve;
+    actualPos.y+=nDir.y * ve;
     //Movemos el sprite del coche a su velocidad maxima.
-    sprite->move(sf::Vector2f(nDir.x * ve, nDir.y * ve));
+    //sprite->move(sf::Vector2f(nDir.x * ve, nDir.y * ve));
 }
 
 //Chequeo que sprite tiene que cambiar.
@@ -149,7 +154,12 @@ void Car::CheckSpriteDirection(const sf::Vector2f& l_dir)
 }
 
 //Dibujado del coche.
-void Car::Draw(sf::RenderWindow *w)
+void Car::Draw(sf::RenderWindow *w, double i)
 {
+     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
+    /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
+    renderPos=(actualPos-lastPos)*(float)i+lastPos;
+
+    sprite->setPosition(renderPos.x,renderPos.y);
     w->draw(*sprite);
 }

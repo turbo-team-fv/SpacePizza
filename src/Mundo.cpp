@@ -603,7 +603,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
         ventana->draw(wPaths[i]);
 
     for(size_t i = 0; i < carsVector.size(); i++)
-        carsVector[i]->Draw(ventana);
+        carsVector[i]->Draw(ventana,inter);
 
     /***********************/
 
