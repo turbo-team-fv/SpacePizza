@@ -18,6 +18,7 @@ class ControladorSonido
         void playExplosion();
         void playTurbo();
         void playCesped();
+        void stopCesped();
 
     private:
         ControladorSonido();
@@ -38,6 +39,7 @@ class ControladorSonido
         SoundBuffer *bufferTurbo;
         Sound *soundTurbo;
 
+        bool reproduciendoCesped = false;
         SoundBuffer *bufferCesped;
         Sound *soundCesped;
 

@@ -247,9 +247,15 @@ sf::Vector2f Mundo::colisionesMapa()
     }
 
     if(mapa->estaEnCesped(p1->getPhysicsState()->getColliders()[0]))
+    {
         p1->setCesped(true);
+        ControladorSonido::getInstance()->playCesped();
+    }
     else
+    {
         p1->setCesped(false);
+        ControladorSonido::getInstance()->stopCesped();
+    }
 
     return bounce;
 

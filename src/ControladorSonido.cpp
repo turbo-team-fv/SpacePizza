@@ -9,6 +9,7 @@ ControladorSonido::ControladorSonido()
     bufferMenu = new SoundBuffer();
     bufferMenu->loadFromFile("assets/sonidos/snarky-puppy_bad-kids-to-the-back.ogg");
     soundMenu = new Sound();
+    soundMenu->setVolume(50.0);
     soundMenu->setBuffer(*bufferMenu);
 
     /**CARGA CANCIONES RADIO**/
@@ -16,7 +17,7 @@ ControladorSonido::ControladorSonido()
     buffersRadio[0]->loadFromFile("assets/sonidos/lettuce-chief.ogg");
     soundsRadio.push_back(new Sound());
     soundsRadio[0]->setBuffer(*buffersRadio[0]);
-    soundsRadio[0]->setVolume(50.f);
+    soundsRadio[0]->setVolume(30.f);
 
     /**CARGA EFECTOŜ**/
     bufferPowerUp = new SoundBuffer();
@@ -104,10 +105,15 @@ void ControladorSonido::playTurbo()
 
 void ControladorSonido::playCesped()
 {
-    soundCesped->play();
+    if(reproduciendoCesped == false)
+    {
+        soundCesped->play();
+        reproduciendoCesped = true;
+    }
 }
 
-void ControladorSonido::playCesped()
+void ControladorSonido::stopCesped()
 {
     soundCesped->stop();
+    reproduciendoCesped = false;
 }
