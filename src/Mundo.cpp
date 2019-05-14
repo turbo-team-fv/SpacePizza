@@ -33,6 +33,26 @@ Mundo::Mundo()
 
     txt_pizza = new Texture();
     txt_pizza -> loadFromFile("assets/hud/pizza2.png");
+
+    radio4 = new Texture();
+    radio4 -> loadFromFile("assets/Radio/LEKTRO.png");
+    radio1 = new Texture();
+    radio1 -> loadFromFile("assets/Radio/FUNKY.png");
+    radio3 = new Texture();
+    radio3 -> loadFromFile("assets/Radio/SANTOS.png");
+    radio2 = new Texture();
+    radio2 -> loadFromFile("assets/Radio/machetaso.png");
+
+    s_radio1 = new Sprite(*radio1);
+    s_radio2 = new Sprite(*radio2);
+    s_radio3 = new Sprite(*radio3);
+    s_radio4 = new Sprite(*radio4);
+    s_radio1->setScale(0.4,0.3);
+    s_radio2->setScale(0.4,0.3);
+    s_radio3->setScale(0.4,0.3);
+    s_radio4->setScale(0.4,0.3);
+
+
     txt_hud1 = new Texture();
     txt_hud1 -> loadFromFile("assets/hud/hudtime.png");
     txt_hud2 = new Texture();
@@ -650,6 +670,21 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
     /// HUD STUFF
 
+    if(ControladorSonido::getInstance()->getRadioActiva()==0){
+    s_radio1 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
+    ventana->draw(*s_radio1);}
+
+    if(ControladorSonido::getInstance()->getRadioActiva()==1){
+    s_radio2 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
+    ventana->draw(*s_radio2);}
+
+    if(ControladorSonido::getInstance()->getRadioActiva()==2){
+    s_radio3 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
+    ventana->draw(*s_radio3);}
+
+    if(ControladorSonido::getInstance()->getRadioActiva()==3){
+    s_radio4 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
+    ventana->draw(*s_radio4);}
 
     spr_hud1 ->setPosition(p1->getSprite()->getRenderPos().x+63,p1->getSprite()->getRenderPos().y - 95);
     ventana->draw(*spr_hud1);

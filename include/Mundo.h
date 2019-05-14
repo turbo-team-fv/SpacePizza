@@ -75,6 +75,9 @@ private:
     /** vista, minimap & HUD stuff **/
     Popup *warning,*pizza;
 
+    sf::Sprite *s_radio1,*s_radio2,*s_radio3,*s_radio4;
+    sf::Texture *radio1,*radio2,*radio3,*radio4;
+
     sf::View * vista, * minimap; // La super vista y el super minimapa
     int player_lifes, num_pizzas;
     Font * font_player_lifes, *font_numbers;
