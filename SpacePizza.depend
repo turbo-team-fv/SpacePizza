@@ -158,20 +158,21 @@
 	"tinyxml.h"
 	<windows.h>
 
-1555262705 source:/home/claudia/Desktop/SpacePizza/main.cpp
+1557768235 source:/home/claudia/Desktop/SpacePizza/main.cpp
 	"Juego.h"
+	"SFML/Audio.hpp"
 
-1555254841 /home/claudia/Desktop/SpacePizza/include/Mapa.h
+1557768235 /home/claudia/Desktop/SpacePizza/include/Mapa.h
 	<string>
 	<iostream>
 	"SFML/Graphics.hpp"
 
-1555263139 source:/home/claudia/Desktop/SpacePizza/src/Juego.cpp
+1557768235 source:/home/claudia/Desktop/SpacePizza/src/Juego.cpp
 	"Juego.h"
 	"EJugando.h"
 	"EMenu.h"
 
-1555262705 /home/claudia/Desktop/SpacePizza/include/Juego.h
+1555782019 /home/claudia/Desktop/SpacePizza/include/Juego.h
 	"EMenu.h"
 	<iostream>
 	<vector>
@@ -179,18 +180,28 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1555258860 source:/home/claudia/Desktop/SpacePizza/src/Mundo.cpp
+1557844549 source:/home/claudia/Desktop/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
+	"Juego.h"
+	"Car.h"
+	"Path.h"
 
-1555258860 /home/claudia/Desktop/SpacePizza/include/Mundo.h
+1557844549 /home/claudia/Desktop/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
+	<math.h>
 	"Item.h"
 	"Jugador.h"
 	"Enemigo.h"
 	"Mapa.h"
 	"SuperSprite.h"
+	"Alcantarilla.h"
+	"Popup.h"
+	"Car.h"
+	"Path.h"
+	<sstream>
+	<iomanip>
 
 1554636422 source:/home/samuel/FV/SpacePizza/lib/tinyxml/tinystr.cpp
 	"tinystr.h"
@@ -538,12 +549,14 @@
 	"Popup.h"
 	"ControladorSonido.h"
 
-1555254841 /home/claudia/Desktop/SpacePizza/include/Jugador.h
+1557770955 /home/claudia/Desktop/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 	"PhysicsState.h"
 	"SuperSprite.h"
+	"Popup.h"
+	"ControladorSonido.h"
 
 1554833552 shed changes
 	<iostream>
@@ -655,7 +668,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555254841 /home/claudia/Desktop/SpacePizza/include/PhysicsState.h
+1557768235 /home/claudia/Desktop/SpacePizza/include/PhysicsState.h
 	<iostream>
 	<vector>
 	<cmath>
@@ -693,7 +706,7 @@
 1557504501 /home/pablo/Source/FV/SpacePizza/include/EFin.h
 	"State.h"
 
-1555254841 source:/home/claudia/Desktop/SpacePizza/src/Mapa.cpp
+1557844549 source:/home/claudia/Desktop/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -1054,56 +1067,64 @@
 
 1555236404 iendoColisiones
 
-1555262705 /home/claudia/Desktop/SpacePizza/include/EMenu.h
+1557768235 /home/claudia/Desktop/SpacePizza/include/EMenu.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 	"State.h"
+	"ControladorSonido.h"
 
-1555262705 /home/claudia/Desktop/SpacePizza/include/State.h
+1555782019 /home/claudia/Desktop/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
 
-1555146395 /home/claudia/Desktop/SpacePizza/include/Item.h
+1557415662 /home/claudia/Desktop/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1555254841 /home/claudia/Desktop/SpacePizza/include/SuperSprite.h
+1557768235 /home/claudia/Desktop/SpacePizza/include/SuperSprite.h
 	"PhysicsState.h"
+	<iostream>
+	<vector>
+	<cmath>
+	<SFML/Graphics.hpp>
 
 1555241161 ate.h"
 
-1555254841 /home/claudia/Desktop/SpacePizza/include/Enemigo.h
+1557768235 /home/claudia/Desktop/SpacePizza/include/Enemigo.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 	"PhysicsState.h"
+	"SuperSprite.h"
+	"Popup.h"
 
-1555254841 source:/home/claudia/Desktop/SpacePizza/src/Enemigo.cpp
+1557768235 source:/home/claudia/Desktop/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1555146395 source:/home/claudia/Desktop/SpacePizza/src/Item.cpp
+1557844549 source:/home/claudia/Desktop/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
-1555262705 source:/home/claudia/Desktop/SpacePizza/src/MaquinaEstados.cpp
+1555782019 source:/home/claudia/Desktop/SpacePizza/src/MaquinaEstados.cpp
 	"MaquinaEstados.h"
 	"EJugando.h"
 
-1555262705 /home/claudia/Desktop/SpacePizza/include/MaquinaEstados.h
+1555782019 /home/claudia/Desktop/SpacePizza/include/MaquinaEstados.h
 	<vector>
 	"State.h"
 
-1555262705 /home/claudia/Desktop/SpacePizza/include/EJugando.h
+1555782019 /home/claudia/Desktop/SpacePizza/include/EJugando.h
 	"State.h"
 	"Juego.h"
 	"SFML/Graphics.hpp"
 
-1555254841 source:/home/claudia/Desktop/SpacePizza/src/EFin.cpp
+1557415567 source:/home/claudia/Desktop/SpacePizza/src/EFin.cpp
 	"EFin.h"
 
-1555254841 /home/claudia/Desktop/SpacePizza/include/EFin.h
+1557415567 /home/claudia/Desktop/SpacePizza/include/EFin.h
 	"State.h"
 
-1555262705 source:/home/claudia/Desktop/SpacePizza/src/EJugando.cpp
+1557415567 source:/home/claudia/Desktop/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
 1555265667 /home/samuel/FV/SpacePizza/include/State.h
@@ -1194,29 +1215,31 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1555254841 source:/home/claudia/Desktop/SpacePizza/src/Jugador.cpp
+1557844549 source:/home/claudia/Desktop/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1555254841 source:/home/claudia/Desktop/SpacePizza/src/PhysicsState.cpp
+1557768235 source:/home/claudia/Desktop/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1555254841 source:/home/claudia/Desktop/SpacePizza/src/SuperSprite.cpp
+1557768235 source:/home/claudia/Desktop/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
-1555264561 source:/home/claudia/Desktop/SpacePizza/src/EMenu.cpp
+1557844786 source:/home/claudia/Desktop/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
+	"EComo.h"
+	"EJugando.h"
 	<iostream>
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1555262716 source:/home/claudia/Desktop/SpacePizza/src/Motor2D.cpp
+1555782019 source:/home/claudia/Desktop/SpacePizza/src/Motor2D.cpp
 	"Motor2D.h"
 	"Juego.h"
 	<iostream>
 
-1555262717 /home/claudia/Desktop/SpacePizza/include/Motor2D.h
+1555782019 /home/claudia/Desktop/SpacePizza/include/Motor2D.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
@@ -1591,4 +1614,66 @@
 	<SFML/Network.hpp>
 	<fstream>
 	<iostream>
+
+1557770955 /home/claudia/Desktop/SpacePizza/include/ControladorSonido.h
+	<vector>
+	"SFML/Audio.hpp"
+
+1557768235 /home/claudia/Desktop/SpacePizza/include/Popup.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+	"SuperSprite.h"
+
+1555782019 /home/claudia/Desktop/SpacePizza/include/Alcantarilla.h
+	<SFML/Graphics.hpp>
+
+1557844549 /home/claudia/Desktop/SpacePizza/include/Car.h
+	<vector>
+	<map>
+	<string>
+	<SFML/Graphics.hpp>
+
+1557844549 /home/claudia/Desktop/SpacePizza/include/Path.h
+	"vector"
+	<SFML/Graphics.hpp>
+
+1555782019 source:/home/claudia/Desktop/SpacePizza/src/Alcantarilla.cpp
+	"Alcantarilla.h"
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1557770955 source:/home/claudia/Desktop/SpacePizza/src/ControladorSonido.cpp
+	"ControladorSonido.h"
+	<iostream>
+
+1557768235 source:/home/claudia/Desktop/SpacePizza/src/Popup.cpp
+	"Popup.h"
+
+1557844549 source:/home/claudia/Desktop/SpacePizza/src/Car.cpp
+	"Car.h"
+	"Path.h"
+	"MathHelper.h"
+	<iostream>
+
+1557844549 /home/claudia/Desktop/SpacePizza/include/MathHelper.h
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1557848978 source:/home/claudia/Desktop/SpacePizza/src/EComo.cpp
+	"EComo.h"
+	"Juego.h"
+	"EMenu.h"
+	"EJugando.h"
+	<iostream>
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
+
+1557847712 /home/claudia/Desktop/SpacePizza/include/EComo.h
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
+	"State.h"
+	"ControladorSonido.h"
 
