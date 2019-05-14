@@ -70,7 +70,7 @@ void PhysicsState::setPastState(sf::Vector2f new_PS)
 
 void PhysicsState::Move(sf::Vector2f mover, bool acelerado)
 {
-    int freno=15,limit=150;
+    int freno=15,limit=170;
 
     if(acelerado)//MOTOR CON ACELERACION
     {

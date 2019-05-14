@@ -214,8 +214,6 @@ void Mapa::drawMini(RenderWindow * window)
                     window->draw(*edificios);
                     }
 
-
-
             }
         }
     }

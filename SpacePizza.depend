@@ -3,7 +3,7 @@
 	"Juego.h"
 	"SFML/Audio.hpp"
 
-1557763190 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
+1557851666 source:/home/pablo/Source/FV/SpacePizza/src/Mapa.cpp
 	"Mapa.h"
 	"../lib/tinyxml/tinyxml2.h"
 
@@ -58,11 +58,13 @@
 	"tinyxml.h"
 	<windows.h>
 
-1557768128 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
+1557851845 source:/home/pablo/Source/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
+	"Car.h"
+	"Path.h"
 
-1557767118 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
+1557848298 /home/pablo/Source/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -74,6 +76,8 @@
 	"SuperSprite.h"
 	"Alcantarilla.h"
 	"Popup.h"
+	"Car.h"
+	"Path.h"
 	<sstream>
 	<iomanip>
 
@@ -328,7 +332,7 @@
 
 1555265667 hics.hpp>
 
-1557832996 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557845029 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
@@ -540,7 +544,7 @@
 
 1554833552 ated upstream
 
-1557767412 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
+1557769868 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -674,7 +678,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557767779 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
+1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557476628 /home/carlos/FV/SpacePizza/include/Jugador.h
@@ -713,7 +717,7 @@
 1557476628 source:/home/carlos/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1555665872 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
+1557851845 source:/home/pablo/Source/FV/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
 1557504501 /home/pablo/Source/FV/SpacePizza/include/EJugando.h
@@ -724,10 +728,10 @@
 1557570761 /home/pablo/Source/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1557570761 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
+1557851845 source:/home/pablo/Source/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
-1557763190 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
+1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
@@ -1340,11 +1344,11 @@
 1557570761 source:/home/pablo/Source/FV/SpacePizza/src/Popup.cpp
 	"Popup.h"
 
-1557768154 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
+1557851845 source:/home/pablo/Source/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
-1557768061 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
+1557851845 /home/pablo/Source/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
@@ -1584,7 +1588,7 @@
 	"Mundo.h"
 	"Juego.h"
 
-1557832753 /home/samuel/FV/SpacePizza/include/Car.h
+1557843626 /home/samuel/FV/SpacePizza/include/Car.h
 	<vector>
 	<map>
 	<string>
@@ -1594,7 +1598,7 @@
 	"vector"
 	<SFML/Graphics.hpp>
 
-1557791075 source:/home/samuel/FV/SpacePizza/src/Car.cpp
+1557845214 source:/home/samuel/FV/SpacePizza/src/Car.cpp
 	"Car.h"
 	"Path.h"
 	"MathHelper.h"
@@ -1615,6 +1619,7 @@
 	<fstream>
 	<iostream>
 
+<<<<<<< HEAD
 1557770955 /home/claudia/Desktop/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
@@ -1629,11 +1634,15 @@
 	<SFML/Graphics.hpp>
 
 1557844549 /home/claudia/Desktop/SpacePizza/include/Car.h
+=======
+1557848298 /home/pablo/Source/FV/SpacePizza/include/Car.h
+>>>>>>> master
 	<vector>
 	<map>
 	<string>
 	<SFML/Graphics.hpp>
 
+<<<<<<< HEAD
 1557844549 /home/claudia/Desktop/SpacePizza/include/Path.h
 	"vector"
 	<SFML/Graphics.hpp>
@@ -1651,11 +1660,19 @@
 	"Popup.h"
 
 1557844549 source:/home/claudia/Desktop/SpacePizza/src/Car.cpp
+=======
+1557848298 /home/pablo/Source/FV/SpacePizza/include/Path.h
+	"vector"
+	<SFML/Graphics.hpp>
+
+1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Car.cpp
+>>>>>>> master
 	"Car.h"
 	"Path.h"
 	"MathHelper.h"
 	<iostream>
 
+<<<<<<< HEAD
 1557844549 /home/claudia/Desktop/SpacePizza/include/MathHelper.h
 	<cmath>
 	<SFML/Graphics.hpp>
@@ -1676,4 +1693,15 @@
 	<SFML/Graphics.hpp>
 	"State.h"
 	"ControladorSonido.h"
+=======
+1557848298 /home/pablo/Source/FV/SpacePizza/include/MathHelper.h
+	<cmath>
+	<SFML/Graphics.hpp>
+
+1557848298 source:/home/pablo/Source/FV/SpacePizza/src/MathHelper.cpp
+	"MathHelper.h"
+
+1557848298 source:/home/pablo/Source/FV/SpacePizza/src/Path.cpp
+	"Path.h"
+>>>>>>> master
 

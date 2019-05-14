@@ -112,6 +112,17 @@ void EJugando::HandleInputs(sf::Keyboard::Key key, bool isPressed)
         case sf::Keyboard::Right :
             eRight = isPressed;
             break;
+
+        /**SELECCION DE RADIOS**/
+        case sf::Keyboard::Num1 :
+            ControladorSonido::getInstance()->playRadio(0);
+            break;
+
+        case sf::Keyboard::Num2 :
+            ControladorSonido::getInstance()->playRadio(1);
+            break;
+
+
     }
 }
 void EJugando::Update()
