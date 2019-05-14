@@ -250,23 +250,28 @@ sf::Vector2f Mundo::colisionesMapa()
         bounce.y=1;
     }
 
-     for(unsigned int i = 0; i<carsVector.size(); i++){
-    if((p1->getPhysicsState()->getColliders()[0].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
-    (p1->getPhysicsState()->getColliders()[0].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0)){
-     bounce.y=-1;
-    }
-    if((p1->getPhysicsState()->getColliders()[1].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
-    (p1->getPhysicsState()->getColliders()[1].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0)){
-     bounce.x=1;
-    }
-    if((p1->getPhysicsState()->getColliders()[2].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
-    (p1->getPhysicsState()->getColliders()[2].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0)){
-     bounce.x=-1;
-    }
-    if((p1->getPhysicsState()->getColliders()[3].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
-    (p1->getPhysicsState()->getColliders()[3].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0)){
-     bounce.y=1;
-    }
+    for(unsigned int i = 0; i<carsVector.size(); i++)
+    {
+        if((p1->getPhysicsState()->getColliders()[0].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
+                (p1->getPhysicsState()->getColliders()[0].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+        {
+            bounce.y=-1;
+        }
+        if((p1->getPhysicsState()->getColliders()[1].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
+                (p1->getPhysicsState()->getColliders()[1].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+        {
+            bounce.x=1;
+        }
+        if((p1->getPhysicsState()->getColliders()[2].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
+                (p1->getPhysicsState()->getColliders()[2].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+        {
+            bounce.x=-1;
+        }
+        if((p1->getPhysicsState()->getColliders()[3].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
+                (p1->getPhysicsState()->getColliders()[3].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+        {
+            bounce.y=1;
+        }
 
     }
 
@@ -516,7 +521,7 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     }
     /**coches**/
     for(unsigned int i = 0; i<carsVector.size(); i++)
-    carsVector[i]->Update(t);
+        carsVector[i]->Update(t);
 
 
     processHUD();
@@ -623,7 +628,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
         ventana->draw(wPaths[i]);
 
     for(size_t i = 0; i < carsVector.size(); i++)
-    carsVector[i]->Draw(ventana,inter);
+        carsVector[i]->Draw(ventana,inter);
 
     /***********************/
 
@@ -662,7 +667,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
 
     ventana->setView(*minimap);///SET VIEW MINIMAP
-   // mapa->drawMini(ventana);
+    // mapa->drawMini(ventana);
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
 // p1->drawJugador(ventana,inter);

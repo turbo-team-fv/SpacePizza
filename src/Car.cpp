@@ -9,6 +9,7 @@ Car::Car(unsigned int l_type, const sf::Vector2f& l_position, Path * l_path)
     path  = l_path;
 
     Init();
+    actualPos=l_position;
 
     sprite->setPosition(l_position);
 }
