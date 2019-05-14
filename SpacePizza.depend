@@ -321,7 +321,7 @@
 
 1555265667 hics.hpp>
 
-1557845029 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1557855384 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
@@ -404,7 +404,7 @@
 
 1555240051 nyxml/tinyxml2.h"
 
-1557790331 /home/samuel/FV/SpacePizza/include/Mundo.h
+1557855010 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -507,7 +507,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557530128 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
+1557852511 source:/home/samuel/FV/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1557788561 source:/home/samuel/FV/SpacePizza/src/Item.cpp
@@ -728,7 +728,7 @@
 1555250862 /home/samuel/FV/SpacePizza/include/EFin.h
 	"State.h"
 
-1555265667 source:/home/samuel/FV/SpacePizza/src/EJugando.cpp
+1557852511 source:/home/samuel/FV/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
 1555265667 /home/samuel/FV/SpacePizza/include/EJugando.h
@@ -1333,7 +1333,7 @@
 	<vector>
 	"SFML/Audio.hpp"
 
-1557783125 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
+1557853035 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
