@@ -91,6 +91,8 @@ Mundo::Mundo()
     txt_pwupHUD_velocidad -> loadFromFile("assets/hud/powerups/Hud_velocidad.png");
     txt_pwupHUD_vida = new Texture();
     txt_pwupHUD_vida -> loadFromFile("assets/hud/powerups/Hud_vida.png");
+    txt_pwupHUD_levitar = new Texture();
+    txt_pwupHUD_levitar -> loadFromFile("assets/hud/powerups/Hud_levitar.png");
 
     pwupHUD_ative = new RectangleShape({50,45});
     pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
@@ -721,6 +723,7 @@ cout << p1-> checkEstado() << endl;
     if(p1-> checkEstado() == 0) pwupHUD_ative -> setTexture(txt_pwupHUD_empty);
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);
+    if(p1-> checkEstado() == 3) pwupHUD_ative -> setTexture(txt_pwupHUD_levitar);
     if(p1-> checkEstado() == 10)
     {}
 
