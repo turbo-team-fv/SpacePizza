@@ -443,8 +443,8 @@ void Mundo::colisionItems()
 }
 void Mundo::EnemigoGenerator()
 {
-
-    if(SpawnEnemigo.getElapsedTime().asSeconds()>20&&e1.size()<10) ///ESTO SE HARA CON LA PUNTUACION Y NO CON EL TIEMPO
+//&&e1.size()<10
+    if(SpawnEnemigo.getElapsedTime().asSeconds()>20) ///ESTO SE HARA CON LA PUNTUACION Y NO CON EL TIEMPO
         //if(SpawnEnemigo_b&&e1.size()<10)
     {
         Enemigo *e= new Enemigo();
@@ -545,7 +545,7 @@ void Mundo::calcularTiempoBonificacion()
 {
     /// calcula el tiempo que tardaria en ir en linea recta al ptoEntrega => 50 es el valor de potencia
     /// del jugador.
-    tiempoBonificacion = (int)distanciaPtoEntrega / 60;
+    tiempoBonificacion = (int)distanciaPtoEntrega / 80;
     std::cout<<"Muestro el tiempo de bonificacion para el pto entrega"<<std::endl;
     std::cout<<tiempoBonificacion<<std::endl;
 }
@@ -607,6 +607,7 @@ void Mundo::processHUD()
     //ss << setw(2) << setfill('0') << ptoEntrgaActual;
     ss << setw(2) << setfill('0') << pizzas;
     std::stringstream ss1;
+
     if((reparto_time - (int)time1->asSeconds()) > 60)
     {
         ss1 << setw(2) << setfill('0') << (reparto_time - (int)time1->asSeconds()) - 60;
@@ -628,6 +629,9 @@ void Mundo::processHUD()
 
     text_num_pizzas -> setString(ss.str());
     text_time -> setString(ss2.str()+":"+ss1.str());
+     if((reparto_time - (int)time1->asSeconds()) <=0){
+        p1->setEstado(10);
+     }
 
     string strAux;
     for (int i = 0; i<player_lifes; i++ )
