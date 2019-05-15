@@ -682,7 +682,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     drawItems(ventana);
     drawAlcantarillas(ventana);
     pizza->drawPopup(ventana,inter);
-    p1->drawJugador(ventana,inter);
+
     // p1->getPhysicsState()->drawColliders(ventana,inter);
     for(unsigned en=0; en< e1.size(); en++)
     {
@@ -698,6 +698,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
         carsVector[i]->Draw(ventana,inter);
 
     /***********************/
+     p1->drawJugador(ventana,inter);
 
 
     /// HUD STUFF
