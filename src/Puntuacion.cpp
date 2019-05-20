@@ -33,8 +33,11 @@ void Puntuacion::addTiempoEmpleado(int time) {
 void Puntuacion::calcularPuntuacion(){
     int ptoXpizza = 100;
     for(int i = 0; i < tiempoEmpleado.size(); i++ ){
-           float aux = (float)(tiempoParaentregar[i]) / (float)(tiempoEmpleado[i]);
-           puntuacionFinal += aux*ptoXpizza;
+           float aux = ((float)(tiempoParaentregar[i]) / (float)(tiempoEmpleado[i])) * ptoXpizza;
+           if(aux > ptoXpizza) { /// Para que como maximo una pizza solo pueda dar 100 puntos
+            aux = ptoXpizza;
+           }
+           puntuacionFinal += aux;
     }
     /// Penalizacion por colisiones con los coches
     puntuacionFinal -= numColisionTrafico;
