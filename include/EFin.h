@@ -21,6 +21,7 @@ class EFin : public State
 
         /**STATE**/
         void Init();
+        void restartRank();
         void HandleEvents(RenderWindow * ventana);
         void loop(RenderWindow * ventana, Time timePerFrame);
         void Update();
@@ -42,10 +43,15 @@ class EFin : public State
         Sprite *bg[6];
 
         Text menu[2];
+        Text puntuacion,estilo,pizzas;
+
+        Clock dibujado;
 
         int numero=-1;
         int contador;
-        bool cambiar=false;
+        bool cambiar=false,dibuja=false;
+        int in_puntos,out_puntos,in_pizzas,out_pizzas,in_estilo,out_estilo;
+        string s_puntos,s_pizzas,s_estilo;
 
         int selectedItemIndex;
 };

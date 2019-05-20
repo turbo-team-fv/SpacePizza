@@ -332,11 +332,12 @@
 
 1555265667 hics.hpp>
 
-1558357356 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1558365084 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
 	"Path.h"
+	"Puntuacion.h"
 
 1557852421 osicionarElementos
 	"Mundo.h"
@@ -443,7 +444,7 @@
 
 1555240051 nyxml/tinyxml2.h"
 
-1558351532 /home/samuel/FV/SpacePizza/include/Mundo.h
+1558369479 /home/samuel/FV/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -529,7 +530,7 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1557869275 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
+1558364942 source:/home/samuel/FV/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557869035 /home/samuel/FV/SpacePizza/include/Jugador.h
@@ -765,17 +766,18 @@
 	"Item.h"
 	<iostream>
 
-1558358603 source:/home/samuel/FV/SpacePizza/src/EFin.cpp
+1558369184 source:/home/samuel/FV/SpacePizza/src/EFin.cpp
 	"EFin.h"
 	"Juego.h"
 	"EMenu.h"
 	"EJugando.h"
+	"Puntuacion.h"
 	<iostream>
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1558351168 /home/samuel/FV/SpacePizza/include/EFin.h
+1558364702 /home/samuel/FV/SpacePizza/include/EFin.h
 	"State.h"
 	"SuperSprite.h"
 	"ControladorSonido.h"
@@ -1407,11 +1409,11 @@
 	<vector>
 	"SFML/Audio.hpp"
 
-1558352223 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
+1558366318 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
-1558352594 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
+1558366344 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
@@ -1922,5 +1924,13 @@
 	<SFML/Graphics.hpp>
 
 1558352098 source:/home/carlos/FV2.0/SpacePizza/src/Puntuacion.cpp
+	"Puntuacion.h"
+
+1558359304 /home/samuel/FV/SpacePizza/include/Puntuacion.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+
+1558359304 source:/home/samuel/FV/SpacePizza/src/Puntuacion.cpp
 	"Puntuacion.h"
 

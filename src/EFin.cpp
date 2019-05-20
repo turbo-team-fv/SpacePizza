@@ -2,6 +2,7 @@
 #include "Juego.h"
 #include "EMenu.h"
 #include "EJugando.h"
+#include "Puntuacion.h"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -37,87 +38,124 @@ void EFin::Init()
     }
 
     primera = new Texture();
-    primera->loadFromFile("assets/howtoplay/1.png");
+    primera->loadFromFile("assets/hud/points.png");
 
-    segunda = new Texture();
-    segunda->loadFromFile("assets/howtoplay/2.png");
 
-    tercera = new Texture();
-    tercera->loadFromFile("assets/howtoplay/3.png");
-
-    cuarta = new Texture();
-    cuarta->loadFromFile("assets/howtoplay/4.png");
-
-    quinta = new Texture();
-    quinta->loadFromFile("assets/howtoplay/5.png");
-
-    sexta = new Texture();
-    sexta->loadFromFile("assets/howtoplay/6.png");
 
     for (int i=0; i<6; i++)
     {
         bg[i] = new Sprite();
 
-        bg[i]->setScale(0.85f,0.85f);
+        bg[i]->setScale(0.42f,0.40f);
         bg[i]->setPosition(Vector2f(-15,0));
     }
 
     bg[0]->setTexture(*primera);
-    bg[1]->setTexture(*segunda);
-    bg[2]->setTexture(*tercera);
-    bg[3]->setTexture(*cuarta);
-    bg[4]->setTexture(*quinta);
-    bg[5]->setTexture(*sexta);
+
 
     menu[0].setCharacterSize(23);
     menu[0].setFont(font);
     menu[0].setColor(Color::Cyan);
     menu[0].setString("Exit");
-    menu[0].setPosition(Vector2f(150,520));
+    menu[0].setPosition(Vector2f(260,490));
 
     menu[1].setCharacterSize(23);
     menu[1].setFont(font);
     menu[1].setColor(Color::White);
     menu[1].setString("Try Again");
-    menu[1].setPosition(Vector2f(500,520));
+    menu[1].setPosition(Vector2f(260,540));
+
+    puntuacion.setCharacterSize(25);
+    puntuacion.setFont(font);
+    puntuacion.setColor(Color::Yellow);
+    puntuacion.setString("Puntuacion");
+    puntuacion.setPosition(Vector2f(250,220));
+
+    estilo.setCharacterSize(21);
+    estilo.setFont(font);
+    estilo.setColor(Color::Red);
+    estilo.setString("Estilo");
+    estilo.setPosition(Vector2f(250,260));
+
+    pizzas.setCharacterSize(21);
+    pizzas.setFont(font);
+    pizzas.setColor(Color::Green);
+    pizzas.setString("Pizzas");
+    pizzas.setPosition(Vector2f(250,300));
 
     selectedItemIndex = 0;
+
+
+    //in_puntos= Puntuacion::getInstance()->getPuntuacionFinal();
+    in_puntos=10283;
+    in_estilo=203;
+    in_pizzas=12;
+    out_pizzas=0,out_puntos=0,out_estilo=0;
+
+
 
     /**Ejemplo de uso de los sonidos**/
     //ControladorSonido::getInstance()->playMusicaMenu();
 }
 
+void EFin::restartRank(){
+out_pizzas=0,out_puntos=0,out_estilo=0;
+ControladorSonido::getInstance()->playFin();
+}
+
 void EFin::Draw(RenderWindow * ventana)
 {
 
-    for (int i=0; i< 25; i++)
-    {
-        if(bg[i]!=NULL)
-        {
 
-            if(numero == -1)
-            {
-                ventana->draw(*bg[0]);
-            }
-            if(cambiar)
-            {
-                if(numero == 10)
-                {
-                    menu[0].setString(" ");
-                    menu[1].setString(" ");
-
-                    Juego::getInstance()->cambiarEstado(EMenu::getInstance());
-
-                }
-                ventana->draw(*bg[numero-(numero/2)]);
-            }
-        }
-    }
-
+    ventana->draw(*bg[0]);
     for(int i = 0; i < 2; i++)
     {
         ventana->draw(menu[i]);
     }
+
+
+
+    std::stringstream ss;
+    ss << out_puntos;
+    s_puntos = "POINTS: ";
+    s_puntos += ss.str();
+    puntuacion.setString(s_puntos);
+    std::stringstream ss1;
+    ss1 << out_estilo;
+    s_estilo = "HITS: ";
+    s_estilo += ss1.str();
+    estilo.setString(s_estilo);
+    std::stringstream ss2;
+    ss2 << out_pizzas;
+    s_pizzas = "PIZZAS: ";
+    s_pizzas += ss2.str();
+    pizzas.setString(s_pizzas);
+
+    ventana->draw(puntuacion);
+    ventana->draw(estilo);
+    ventana->draw(pizzas);
+
+
+
+    if(dibujado.getElapsedTime().asMilliseconds()>20)
+    {
+        if(out_puntos<=in_puntos)
+        {
+            out_puntos+=50;
+        }
+        if(out_estilo<=in_estilo)
+        {
+            out_estilo+=10;
+        }
+        if(out_pizzas<=in_pizzas)
+        {
+            out_pizzas+=1;
+        }
+        dibujado.restart();
+    }
+
+
+
 
     ventana->display();
 }
@@ -149,7 +187,7 @@ void EFin::MoveLeft()
 
 void EFin::MoveRight()
 {
-    if(selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS)
+    if(selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS-1)
     {
         menu[selectedItemIndex].setColor(Color::White);
         selectedItemIndex=selectedItemIndex+1;
@@ -164,25 +202,26 @@ void EFin::HandleEvents(RenderWindow * ventana)
     {
         Keyboard e;
 
-        if(e.isKeyPressed(Keyboard::Right))
-        {
-            MoveRight();
-        }
-
-        if(e.isKeyPressed(Keyboard::Left))
+        if(e.isKeyPressed(Keyboard::Up))
         {
             MoveLeft();
         }
 
+        if(e.isKeyPressed(Keyboard::Down))
+        {
+            MoveRight();
+        }
+
         if (e.isKeyPressed(Keyboard::Return))
         {
+
+
             cout<<"SelectedItemIndex"<<selectedItemIndex<<endl;
             if(selectedItemIndex == 0)
             {
-               EMenu::getInstance()->Init();
-                Juego::getInstance()->cambiarEstado(EMenu::getInstance());
-                ControladorSonido::getInstance()->playMusicaMenu();
-                 ventana->close();
+
+                ventana->close();
+
             }
             else if(selectedItemIndex == 1)
             {
@@ -191,6 +230,7 @@ void EFin::HandleEvents(RenderWindow * ventana)
                 EJugando::getInstance()->Init();
                 Juego::getInstance()->cambiarEstado(EJugando::getInstance());
                 ControladorSonido::getInstance()->playRadio(0);
+                ControladorSonido::getInstance()->stopFin();
 
             }
         }

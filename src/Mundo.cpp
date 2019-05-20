@@ -9,7 +9,7 @@ Mundo::Mundo()
     ptoEntrgaActual = 0;
     pizzas = 0;
     entregando = false;
-    reparto_time = 35;
+    reparto_time = 5;
     puntuacion = 0;
     tiempo = 10;
 
@@ -60,7 +60,7 @@ Mundo::Mundo()
     txt_hud1 -> loadFromFile("assets/hud/hudtime.png");
     txt_hud2 = new Texture();
     txt_hud2 -> loadFromFile("assets/hud/pizzas.png");
-     txt_hud3 = new Texture();
+    txt_hud3 = new Texture();
     txt_hud3 -> loadFromFile("assets/hud/basemapa.png");
     spr_pizza = new Sprite(*txt_pizza);
     spr_pizza -> setScale(20.f/270, 20.f/255);
@@ -68,7 +68,7 @@ Mundo::Mundo()
     spr_hud1 -> setScale(0.32, 0.3);
     spr_hud2 = new Sprite(*txt_hud2);
     spr_hud2 -> setScale(0.4, 0.3);
-      spr_hud3 = new Sprite(*txt_hud3);
+    spr_hud3 = new Sprite(*txt_hud3);
     spr_hud3 -> setScale(0.7, 0.55);
 
     font_numbers = new Font();
@@ -296,41 +296,43 @@ sf::Vector2f Mundo::colisionesMapa()
         bounce.y=1;
     }
 
-    if(p1->checkEstado()!=3){
-    for(unsigned int i = 0; i<carsVector.size(); i++)
+    if(p1->checkEstado()!=3)
     {
-        if((p1->getPhysicsState()->getColliders()[0].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
-                (p1->getPhysicsState()->getColliders()[0].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+        for(unsigned int i = 0; i<carsVector.size(); i++)
         {
-            bounce.y=-1;
-            Puntuacion::getInstance()->addColision();
-        }
-        if((p1->getPhysicsState()->getColliders()[1].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
-                (p1->getPhysicsState()->getColliders()[1].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
-        {
-            bounce.x=1;
-            Puntuacion::getInstance()->addColision();
-        }
-        if((p1->getPhysicsState()->getColliders()[2].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
-                (p1->getPhysicsState()->getColliders()[2].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
-        {
-            bounce.x=-1;
-            Puntuacion::getInstance()->addColision();
-        }
-        if((p1->getPhysicsState()->getColliders()[3].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
-                (p1->getPhysicsState()->getColliders()[3].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
-        {
-            bounce.y=1;
-            Puntuacion::getInstance()->addColision();
-        }
+            if((p1->getPhysicsState()->getColliders()[0].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
+                    (p1->getPhysicsState()->getColliders()[0].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+            {
+                bounce.y=-1;
+                Puntuacion::getInstance()->addColision();
+            }
+            if((p1->getPhysicsState()->getColliders()[1].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
+                    (p1->getPhysicsState()->getColliders()[1].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+            {
+                bounce.x=1;
+                Puntuacion::getInstance()->addColision();
+            }
+            if((p1->getPhysicsState()->getColliders()[2].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
+                    (p1->getPhysicsState()->getColliders()[2].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+            {
+                bounce.x=-1;
+                Puntuacion::getInstance()->addColision();
+            }
+            if((p1->getPhysicsState()->getColliders()[3].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
+                    (p1->getPhysicsState()->getColliders()[3].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
+            {
+                bounce.y=1;
+                Puntuacion::getInstance()->addColision();
+            }
 
-    }
+        }
     }
 
-            if((p1->getPhysicsState()->getActualState().x>1215)||(p1->getPhysicsState()->getActualState().x<240)||(p1->getPhysicsState()->getActualState().y>1260)||(p1->getPhysicsState()->getActualState().y<165)){
-bounce.x=0;
-bounce.y=0;
-}
+    if((p1->getPhysicsState()->getActualState().x>1215)||(p1->getPhysicsState()->getActualState().x<240)||(p1->getPhysicsState()->getActualState().y>1260)||(p1->getPhysicsState()->getActualState().y<165))
+    {
+        bounce.x=0;
+        bounce.y=0;
+    }
 
 
 
@@ -634,9 +636,10 @@ void Mundo::processHUD()
 
     text_num_pizzas -> setString(ss.str());
     text_time -> setString(ss2.str()+":"+ss1.str());
-     if((reparto_time - (int)time1->asSeconds()) <=0){
+    if((reparto_time - (int)time1->asSeconds()) <=0)
+    {
         p1->setEstado(10);
-     }
+    }
 
     string strAux;
     for (int i = 0; i<player_lifes; i++ )
@@ -707,26 +710,34 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
         carsVector[i]->Draw(ventana,inter);
 
     /***********************/
-     p1->drawJugador(ventana,inter);
+    p1->drawJugador(ventana,inter);
 
 
     /// HUD STUFF
 
-    if(ControladorSonido::getInstance()->getRadioActiva()==0){
-    s_radio1 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
-    ventana->draw(*s_radio1);}
+    if(ControladorSonido::getInstance()->getRadioActiva()==0)
+    {
+        s_radio1 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
+        ventana->draw(*s_radio1);
+    }
 
-    if(ControladorSonido::getInstance()->getRadioActiva()==1){
-    s_radio2 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
-    ventana->draw(*s_radio2);}
+    if(ControladorSonido::getInstance()->getRadioActiva()==1)
+    {
+        s_radio2 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
+        ventana->draw(*s_radio2);
+    }
 
-    if(ControladorSonido::getInstance()->getRadioActiva()==2){
-    s_radio3 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
-    ventana->draw(*s_radio3);}
+    if(ControladorSonido::getInstance()->getRadioActiva()==2)
+    {
+        s_radio3 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
+        ventana->draw(*s_radio3);
+    }
 
-    if(ControladorSonido::getInstance()->getRadioActiva()==3){
-    s_radio4 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
-    ventana->draw(*s_radio4);}
+    if(ControladorSonido::getInstance()->getRadioActiva()==3)
+    {
+        s_radio4 ->setPosition(p1->getSprite()->getRenderPos().x-60,p1->getSprite()->getRenderPos().y+70);
+        ventana->draw(*s_radio4);
+    }
 
     spr_hud1 ->setPosition(p1->getSprite()->getRenderPos().x+63,p1->getSprite()->getRenderPos().y - 95);
     ventana->draw(*spr_hud1);
@@ -734,7 +745,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*spr_hud1);
     spr_hud2 ->setPosition(p1->getSprite()->getRenderPos().x-13,p1->getSprite()->getRenderPos().y - 95);
     ventana->draw(*spr_hud2);
-     spr_hud3 ->setPosition(p1->getSprite()->getRenderPos().x+57,p1->getSprite()->getRenderPos().y +25);
+    spr_hud3 ->setPosition(p1->getSprite()->getRenderPos().x+57,p1->getSprite()->getRenderPos().y +25);
     ventana->draw(*spr_hud3);
 
     spr_pizza ->setPosition(p1->getSprite()->getRenderPos().x-10,p1->getSprite()->getRenderPos().y - 93);
@@ -761,7 +772,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
 
     ventana->setView(*minimap);///SET VIEW MINIMAP
-   // mapa->drawMini(ventana);
+    // mapa->drawMini(ventana);
     ventana->draw(*puntoEntrega);
     drawItems(ventana);
 // p1->drawJugador(ventana,inter);
@@ -777,15 +788,20 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     warning->setPosition(sf::Vector2f(p1->getSprite()->getRenderPos().x,p1->getSprite()->getRenderPos().y+50));
     warning->drawPopup(ventana,inter);
 
-     if(p1-> checkEstado() == 10){
 
-    ControladorSonido::getInstance()->stopMusica();
-   vista = new View();
-    vista->reset(sf::FloatRect(0,0,800, 600));
-    //vista->setCenter(400, 300);
-    ventana->setView(*vista);///SET VIEW MINIMAP*/
-    EFin::getInstance()->Init();
-    Juego::getInstance()->cambiarEstado(EFin::getInstance());
+    if(p1-> checkEstado() == 10)
+    {
+    if( transfer.getElapsedTime().asSeconds()>0.8){
+        ControladorSonido::getInstance()->stopMusica();
+        vista = new View();
+        vista->reset(sf::FloatRect(0,0,800, 600));
+        //vista->setCenter(400, 300);
+        ventana->setView(*vista);///SET VIEW MINIMAP*/
+        EFin::getInstance()->restartRank();
+        Juego::getInstance()->cambiarEstado(EFin::getInstance());
+        }
+    }else{
+    transfer.restart();
     }
 
 
