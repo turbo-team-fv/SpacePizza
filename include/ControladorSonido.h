@@ -15,12 +15,18 @@ class ControladorSonido
         void stopMusicaMenu();
         void playPowerUp();
         void playAlien();
+
         void playExplosion();
         void playTurbo();
         void playCesped();
         void playDerrape();
         void stopCesped();
         void stopDerrape();
+        void stopMusica();
+        void stopAlien();
+        void stopRadio();
+        void stopFin();
+        void playFin();
 
         int getRadioActiva() { return radioActiva; }
 
@@ -44,6 +50,12 @@ class ControladorSonido
 
         SoundBuffer *bufferTurbo;
         Sound *soundTurbo;
+
+        SoundBuffer *bufferFin;
+        Sound *soundFin;
+
+        SoundBuffer *bufferAddPoint;
+        Sound *addPoint;
 
         bool reproduciendoCesped = false;
         SoundBuffer *bufferCesped;

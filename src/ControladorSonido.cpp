@@ -74,6 +74,14 @@ ControladorSonido::ControladorSonido()
     soundDerrape->setBuffer(*bufferDerrape);
     soundDerrape->setLoop(false);
 
+
+    bufferFin = new SoundBuffer();
+    bufferFin->loadFromFile("assets/sonidos/homeboy-sandman-edan-the-gut.ogg");
+    soundFin = new Sound();
+    soundFin->setVolume(200);
+    soundFin->setBuffer(*bufferFin);
+    soundFin->setLoop(false);
+
 }
 
 ControladorSonido* ControladorSonido::instancia = new ControladorSonido();
@@ -117,6 +125,34 @@ void ControladorSonido::playMusicaMenu()
 void ControladorSonido::stopMusicaMenu()
 {
     soundMenu->stop();
+}
+void ControladorSonido::stopFin()
+{
+    soundFin->stop();
+}
+void ControladorSonido::playFin()
+{
+    soundFin->play();
+}
+
+void ControladorSonido::stopMusica()
+{
+    soundMenu->stop();
+    soundCesped->stop();
+    reproduciendoCesped = false;
+    soundDerrape->stop();
+    reproduciendoDerrape = false;
+    stopRadio();
+}
+void ControladorSonido::stopAlien()
+{
+
+}
+void ControladorSonido::stopRadio()
+{
+    for(unsigned i=0; i<soundsRadio.size(); i++){
+    soundsRadio[i]->stop();
+    }
 }
 
 void ControladorSonido::playPowerUp()

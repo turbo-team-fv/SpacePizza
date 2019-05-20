@@ -65,6 +65,7 @@ void EMenu::Init()
 
     /**Ejemplo de uso de los sonidos**/
     ControladorSonido::getInstance()->playMusicaMenu();
+
 }
 
 void EMenu::Draw(RenderWindow * ventana)
@@ -141,7 +142,7 @@ void EMenu::HandleEvents(RenderWindow * ventana)
 
                 ControladorSonido::getInstance()->stopMusicaMenu();
                 ControladorSonido::getInstance()->playRadio(0);
-
+                EJugando::getInstance()->Init();
                 Juego::getInstance()->cambiarEstado(EJugando::getInstance());
 
                 cout<<"Play"<<endl;
