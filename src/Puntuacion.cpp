@@ -63,7 +63,6 @@ void Puntuacion::resetPuntuacion() {
     puntuacionFinal = 0;
     tiempoEmpleado =  std::vector<int>();
     tiempoEmpleado =  std::vector<int>();
-
 }
 
 int Puntuacion::getPizzasEntregadas() {

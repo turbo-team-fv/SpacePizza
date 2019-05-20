@@ -2,6 +2,7 @@
 #include "Juego.h"
 #include "EMenu.h"
 #include "EJugando.h"
+#include "Puntuacion.h"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -30,6 +31,15 @@ void EFin::Init()
 {
     cout<<"numero: "<<numero<<endl;
     contador = 0;
+    /// NOTA=> Como acceder a la puntuacion
+    Puntuacion::getInstance()->calcularPuntuacion();
+    int puntuacionTotal = Puntuacion::getInstance()->getPuntuacionFinal();
+    int pizzasEntregadas = Puntuacion::getInstance()->getPizzasEntregadas();
+    int colisionesTrafico = Puntuacion::getInstance()->getColisiones();
+    cout<<"Puntuacion final: " << puntuacionTotal<<std::endl;
+    cout<<"Pizzas entregadas: " <<pizzasEntregadas<<std::endl;
+    cout<<"Colisiones con el trafico: "<< colisionesTrafico<<std::endl;
+    /// TODO => falta resetear la posicion cuando vuelves a empezar partida => Puntuacion::getInstance()->resetPuntuacion()
 
     if(!font.loadFromFile("assets/hud/m42.TTF"))
     {
