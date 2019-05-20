@@ -14,9 +14,13 @@ class Puntuacion
         void addTiempoParaEntregar(int time);
         void addTiempoEmpleado(int time);
         void calcularPuntuacion();
-        int getPuntuacionFinal();
         void setPizzasEntregadas(int pizzas);
         void addColision();
+        void resetPuntuacion();
+        int getPuntuacionFinal();
+        int getColisiones();
+        int getPizzasEntregadas();
+
 
     protected:
         Puntuacion();
@@ -29,8 +33,6 @@ class Puntuacion
         int pizzasEntregadas;
         int puntuacionFinal;
         int numColisionTrafico;
-
-
 };
 
 #endif // PUNTUACION_H
