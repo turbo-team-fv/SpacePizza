@@ -69,6 +69,7 @@
 		<Unit filename="include/Path.h" />
 		<Unit filename="include/PhysicsState.h" />
 		<Unit filename="include/Popup.h" />
+		<Unit filename="include/Puntuacion.h" />
 		<Unit filename="include/State.h" />
 		<Unit filename="include/SuperSprite.h" />
 		<Unit filename="lib/tinyxml/tinystr.cpp" />
@@ -99,6 +100,7 @@
 		<Unit filename="src/Path.cpp" />
 		<Unit filename="src/PhysicsState.cpp" />
 		<Unit filename="src/Popup.cpp" />
+		<Unit filename="src/Puntuacion.cpp" />
 		<Unit filename="src/SuperSprite.cpp" />
 		<Extensions>
 			<code_completion />

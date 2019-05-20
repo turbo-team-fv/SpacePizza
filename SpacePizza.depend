@@ -1504,11 +1504,11 @@
 1557683649 /home/carlos/FV2.0/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
 
-1557852421 /home/carlos/FV2.0/SpacePizza/include/ControladorSonido.h
+1558116674 /home/carlos/FV2.0/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
-1557852421 /home/carlos/FV2.0/SpacePizza/include/Mundo.h
+1558350599 /home/carlos/FV2.0/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -1528,7 +1528,7 @@
 1557683649 /home/carlos/FV2.0/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
 
-1557770856 /home/carlos/FV2.0/SpacePizza/include/Jugador.h
+1558116674 /home/carlos/FV2.0/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -1578,7 +1578,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1557852421 source:/home/carlos/FV2.0/SpacePizza/src/ControladorSonido.cpp
+1558116674 source:/home/carlos/FV2.0/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
@@ -1588,7 +1588,7 @@
 1557683649 /home/carlos/FV2.0/SpacePizza/include/EFin.h
 	"State.h"
 
-1557852421 source:/home/carlos/FV2.0/SpacePizza/src/EJugando.cpp
+1558116674 source:/home/carlos/FV2.0/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
 1557683649 /home/carlos/FV2.0/SpacePizza/include/EJugando.h
@@ -1596,16 +1596,17 @@
 	"Juego.h"
 	"SFML/Graphics.hpp"
 
-1557683649 source:/home/carlos/FV2.0/SpacePizza/src/EMenu.cpp
+1558116674 source:/home/carlos/FV2.0/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
+	"EComo.h"
 	"EJugando.h"
 	<iostream>
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1557768008 source:/home/carlos/FV2.0/SpacePizza/src/Enemigo.cpp
+1558116674 source:/home/carlos/FV2.0/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
 1557768008 source:/home/carlos/FV2.0/SpacePizza/src/Juego.cpp
@@ -1613,7 +1614,7 @@
 	"EJugando.h"
 	"EMenu.h"
 
-1557852421 source:/home/carlos/FV2.0/SpacePizza/src/Jugador.cpp
+1558116674 source:/home/carlos/FV2.0/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
 1557852421 source:/home/carlos/FV2.0/SpacePizza/src/Mapa.cpp
@@ -1638,7 +1639,7 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1557852421 source:/home/carlos/FV2.0/SpacePizza/src/PhysicsState.cpp
+1558116674 source:/home/carlos/FV2.0/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1557683649 source:/home/carlos/FV2.0/SpacePizza/src/Popup.cpp
@@ -1647,15 +1648,16 @@
 1557683649 source:/home/carlos/FV2.0/SpacePizza/src/SuperSprite.cpp
 	"SuperSprite.h"
 
-1557854163 source:/home/carlos/FV2.0/SpacePizza/src/Item.cpp
+1558116674 source:/home/carlos/FV2.0/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
-1557854255 source:/home/carlos/FV2.0/SpacePizza/src/Mundo.cpp
+1558351889 source:/home/carlos/FV2.0/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
 	"Path.h"
+	"Puntuacion.h"
 
 1557843626 /home/samuel/FV/SpacePizza/include/Car.h
 	<vector>
@@ -1896,4 +1898,29 @@
 
 1557856263 source:/home/ramon/Desktop/FV/SpacePizza/src/Path.cpp
 	"Path.h"
+
+1558116674 source:/home/carlos/FV2.0/SpacePizza/src/EComo.cpp
+	"EComo.h"
+	"Juego.h"
+	"EMenu.h"
+	"EJugando.h"
+	<iostream>
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
+
+1558116674 /home/carlos/FV2.0/SpacePizza/include/EComo.h
+	<string>
+	<sstream>
+	<SFML/Graphics.hpp>
+	"State.h"
+	"ControladorSonido.h"
+
+1558351875 /home/carlos/FV2.0/SpacePizza/include/Puntuacion.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+
+1558352098 source:/home/carlos/FV2.0/SpacePizza/src/Puntuacion.cpp
+	"Puntuacion.h"
 

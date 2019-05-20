@@ -2,6 +2,7 @@
 #include "Juego.h"
 #include "Car.h"
 #include "Path.h"
+#include "Puntuacion.h"
 Mundo::Mundo()
 {
     //ctor
@@ -302,21 +303,25 @@ sf::Vector2f Mundo::colisionesMapa()
                 (p1->getPhysicsState()->getColliders()[0].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
         {
             bounce.y=-1;
+            Puntuacion::getInstance()->addColision();
         }
         if((p1->getPhysicsState()->getColliders()[1].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
                 (p1->getPhysicsState()->getColliders()[1].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
         {
             bounce.x=1;
+            Puntuacion::getInstance()->addColision();
         }
         if((p1->getPhysicsState()->getColliders()[2].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
                 (p1->getPhysicsState()->getColliders()[2].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
         {
             bounce.x=-1;
+            Puntuacion::getInstance()->addColision();
         }
         if((p1->getPhysicsState()->getColliders()[3].intersects(carsVector[i]->getSprite()->getGlobalBounds()))&&
                 (p1->getPhysicsState()->getColliders()[3].top-carsVector[i]->getSprite()->getGlobalBounds().top!=0))
         {
             bounce.y=1;
+            Puntuacion::getInstance()->addColision();
         }
 
     }
@@ -496,6 +501,11 @@ void Mundo::checkPuntoEntrega()
             ptoEntrgaActual = nextPos;
             pizzas++;
             calcularPuntuacionVariable();
+            /// Reseteo el clock para ver lo que he tardado
+            int tiempo = clockTiempoEmpleado.getElapsedTime().asSeconds();
+            Puntuacion::getInstance()->addTiempoEmpleado(tiempo);
+            Puntuacion::getInstance()->setPizzasEntregadas(pizzas);
+            clockTiempoEmpleado.restart();
         }
     }
     else
@@ -537,6 +547,8 @@ void Mundo::calcularPuntuacionVariable()
     std::cout<<distanciaPtoEntrega<<std::endl;
 
     puntosPorDistancia = (int)(distanciaPtoEntrega * 0,5);
+    std::cout<< "Muestro la variable puntos por distancia"<<std::endl;
+    std::cout<<puntosPorDistancia<<std::endl;
     calcularTiempoBonificacion();
 }
 
@@ -550,6 +562,7 @@ void Mundo::calcularTiempoBonificacion()
     tiempoBonificacion = (int)distanciaPtoEntrega / 80;
     std::cout<<"Muestro el tiempo de bonificacion para el pto entrega"<<std::endl;
     std::cout<<tiempoBonificacion<<std::endl;
+    Puntuacion::getInstance()->addTiempoParaEntregar(tiempoBonificacion);
 }
 
 int Mundo::getTime()
