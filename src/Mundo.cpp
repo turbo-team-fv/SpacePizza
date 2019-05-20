@@ -535,6 +535,8 @@ void Mundo::calcularPuntuacionVariable()
     std::cout<<distanciaPtoEntrega<<std::endl;
 
     puntosPorDistancia = (int)(distanciaPtoEntrega * 0,5);
+    std::cout<< "Muestro la variable puntos por distancia"<<std::endl;
+    std::cout<<puntosPorDistancia<<std::endl;
     calcularTiempoBonificacion();
 }
 
