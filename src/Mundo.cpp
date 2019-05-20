@@ -523,7 +523,7 @@ void Mundo::checkPuntoEntrega()
 void Mundo::procesarInteraccion(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     visionIA();
-    if(p1->checkEstado()!=11){
+    if(!p1->checkGod()){
     atacaIA();
     }
     colisionItems();
@@ -570,7 +570,7 @@ int Mundo::getTime()
 void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown,bool godMode, sf::Time t)
 {
  sf::Vector2f bounce(0.0,0.0);
-    if(p1->checkEstado()!=11){
+    if(!p1->checkGod()){
     bounce=colisionesMapa(godMode);
     }
     EnemigoGenerator();
@@ -579,9 +579,9 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown,bool godMo
     p1->updateJugador(eRight,eLeft,eUp,eDown,bounce,t);
 
     if(godMode)
-    p1->setEstado(11);
+    p1->setGod(true);
     else{
-    p1->setEstado(0);
+    p1->setGod(false);
     }
 
 
@@ -598,6 +598,7 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown,bool godMo
             factorVolumen = ((float)500 - (float)distanciaEnemigo) / (float)500;
 
         e1[en]->setVolumen(factorVolumen * 210);
+
     }
     /**coches**/
     for(unsigned int i = 0; i<carsVector.size(); i++)
@@ -762,7 +763,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     text_player_lifes -> setPosition(p1->getSprite()->getRenderPos().x-140,p1->getSprite()->getRenderPos().y - 90);
     ventana->draw(*text_player_lifes);
 
-       if(p1->checkEstado()==11){
+       if(p1->checkGod()){
  text_player_lifes -> setColor(Color::Green);
     }else{
      text_player_lifes -> setColor(Color::Red);
@@ -802,6 +803,10 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
 
     if(p1-> checkEstado() == 10)
     {
+    for(unsigned en=0; en< e1.size(); en++)
+    {
+        e1[en]->setVolumen(0.0);
+    }
     if( transfer.getElapsedTime().asSeconds()>0.8){
         ControladorSonido::getInstance()->stopMusica();
         vista = new View();

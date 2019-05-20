@@ -23,7 +23,9 @@ class Jugador
         void updateVida(int change);
         int getVidas();
         int checkEstado();
+        bool checkGod();
         void setEstado(int e);
+        void setGod(bool c);
         void setCesped(bool c);
         void restartEstado();
         SuperSprite* getSprite(){ return jugador_sprite; };
@@ -41,7 +43,7 @@ class Jugador
     PhysicsState *pState;
     int vidas;
     int estado;
-    bool cesped;
+    bool cesped,god;
 
     sf::Clock timer_estado;
     double limite_estado;

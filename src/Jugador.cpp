@@ -292,6 +292,13 @@ void Jugador::setCesped(bool c)
 {
     cesped=c;
 }
+void Jugador::setGod(bool c)
+{
+    god=c;
+}
+bool Jugador::checkGod(){
+return god;
+}
 // Este metodo permite modifcar la vida => hay que pasarle el valor a modificar incluyendo el signo si queremos restar
 void Jugador::updateVida(int change)
 {
