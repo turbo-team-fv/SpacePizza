@@ -184,13 +184,13 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1557853065 source:/home/claudia/Desktop/SpacePizza/src/Mundo.cpp
+1557990174 source:/home/claudia/Desktop/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
 	"Path.h"
 
-1557844549 /home/claudia/Desktop/SpacePizza/include/Mundo.h
+1557990174 /home/claudia/Desktop/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -264,7 +264,13 @@
 	"tinyxml.h"
 	<windows.h>
 
-1557852421 D
+1557855583 ated upstream
+	<vector>
+	"SFML/Audio.hpp"
+
+1557855583 D
+
+1557853173 shed changes
 	"SuperSprite.h"
 	"SuperSprite.h"
 	"PhysicsState.h"
@@ -287,6 +293,13 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 	"Mundo.h"
+	<iostream>
+	<vector>
+	"SFML/Audio.hpp"
+	<vector>
+	"SFML/Audio.hpp"
+	<vector>
+	"SFML/Audio.hpp"
 
 1555265889 te.h"
 	"Alcantarilla.h"
@@ -330,7 +343,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1555265667 hics.hpp>
+1557855587 hics.hpp>
 
 1557905531 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
@@ -570,8 +583,6 @@
 	"SuperSprite.h"
 	"Popup.h"
 
-1554833552 ated upstream
-
 1557906916 /home/pablo/Source/FV/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
@@ -581,7 +592,7 @@
 	"Popup.h"
 	"ControladorSonido.h"
 
-1557770955 /home/claudia/Desktop/SpacePizza/include/Jugador.h
+1557990174 /home/claudia/Desktop/SpacePizza/include/Jugador.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
@@ -589,9 +600,6 @@
 	"SuperSprite.h"
 	"Popup.h"
 	"ControladorSonido.h"
-
-1554833552 shed changes
-	<iostream>
 
 1557339326 /home/carlos/FV/SpacePizza/include/Item.h
 	<SFML/Graphics.hpp>
@@ -1146,10 +1154,10 @@
 	"SuperSprite.h"
 	"Popup.h"
 
-1557768235 source:/home/claudia/Desktop/SpacePizza/src/Enemigo.cpp
+1557861703 source:/home/claudia/Desktop/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1557844549 source:/home/claudia/Desktop/SpacePizza/src/Item.cpp
+1557861703 source:/home/claudia/Desktop/SpacePizza/src/Item.cpp
 	"Item.h"
 	<iostream>
 
@@ -1172,7 +1180,7 @@
 1557415567 /home/claudia/Desktop/SpacePizza/include/EFin.h
 	"State.h"
 
-1557853065 source:/home/claudia/Desktop/SpacePizza/src/EJugando.cpp
+1557861703 source:/home/claudia/Desktop/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
 1555265667 /home/samuel/FV/SpacePizza/include/State.h
@@ -1263,10 +1271,10 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1557844549 source:/home/claudia/Desktop/SpacePizza/src/Jugador.cpp
+1557990174 source:/home/claudia/Desktop/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 
-1557853065 source:/home/claudia/Desktop/SpacePizza/src/PhysicsState.cpp
+1557861703 source:/home/claudia/Desktop/SpacePizza/src/PhysicsState.cpp
 	"PhysicsState.h"
 
 1557768235 source:/home/claudia/Desktop/SpacePizza/src/SuperSprite.cpp
@@ -1397,14 +1405,8 @@
 	"SFML/Audio.hpp"
 
 1557855930 /home/samuel/FV/SpacePizza/include/ControladorSonido.h
-	<vector>
-	"SFML/Audio.hpp"
-	<vector>
-	"SFML/Audio.hpp"
-	<vector>
-	"SFML/Audio.hpp"
-	<vector>
-	"SFML/Audio.hpp"
+
+1557855930 o.hpp"
 
 1557867005 source:/home/samuel/FV/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
@@ -1683,7 +1685,9 @@
 	<fstream>
 	<iostream>
 
-1557853065 /home/claudia/Desktop/SpacePizza/include/ControladorSonido.h
+1557861703 /home/claudia/Desktop/SpacePizza/include/ControladorSonido.h
+	<vector>
+	"SFML/Audio.hpp"
 
 1557844549 db2969ba7c926a48aea086fbab0c13ec3dff3
 	<vector>
@@ -1719,7 +1723,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1557853065 source:/home/claudia/Desktop/SpacePizza/src/ControladorSonido.cpp
+1557861703 source:/home/claudia/Desktop/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
@@ -1746,7 +1750,7 @@
 	<cmath>
 	<SFML/Graphics.hpp>
 
-1557849036 source:/home/claudia/Desktop/SpacePizza/src/EComo.cpp
+1558369244 source:/home/claudia/Desktop/SpacePizza/src/EComo.cpp
 	"EComo.h"
 	"Juego.h"
 	"EMenu.h"
@@ -1756,7 +1760,7 @@
 	<sstream>
 	<SFML/Graphics.hpp>
 
-1557853496 /home/claudia/Desktop/SpacePizza/include/EComo.h
+1558369141 /home/claudia/Desktop/SpacePizza/include/EComo.h
 	<string>
 	<sstream>
 	<SFML/Graphics.hpp>
@@ -1775,7 +1779,7 @@
 1557855583 source:/home/pablo/Source/FV/SpacePizza/src/Path.cpp
 	"Path.h"
 
-1557855587 source:/home/pablo/Source/FV/SpacePizza/src/EComo.cpp
+1557853173 source:/home/pablo/Source/FV/SpacePizza/src/EComo.cpp
 	"EComo.h"
 	"Juego.h"
 	"EMenu.h"

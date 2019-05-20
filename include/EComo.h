@@ -16,8 +16,6 @@ class EComo : public State
 
         void HandleInputs(sf::Keyboard::Key key, bool isPressed);
         int getSelectedItem();
-        void MoveRight();
-        void MoveLeft();
 
         /**STATE**/
         void Init();
@@ -41,7 +39,7 @@ class EComo : public State
 
         Sprite *bg[6];
 
-        Text menu[2];
+        Text menu;
 
         int numero=-1;
         int contador;

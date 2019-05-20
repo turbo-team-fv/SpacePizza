@@ -28,7 +28,7 @@ EComo::EComo()
 
 void EComo::Init()
 {
-    cout<<"numero: "<<numero<<endl;
+    numero = -1;
     contador = 0;
 
     if(!font.loadFromFile("assets/hud/m42.TTF"))
@@ -57,7 +57,6 @@ void EComo::Init()
     for (int i=0; i<6; i++)
     {
         bg[i] = new Sprite();
-
         bg[i]->setScale(0.85f,0.85f);
         bg[i]->setPosition(Vector2f(-15,0));
     }
@@ -69,17 +68,11 @@ void EComo::Init()
     bg[4]->setTexture(*quinta);
     bg[5]->setTexture(*sexta);
 
-    menu[0].setCharacterSize(23);
-    menu[0].setFont(font);
-    menu[0].setColor(Color::Cyan);
-    menu[0].setString("Next");
-    menu[0].setPosition(Vector2f(150,520));
-
-    menu[1].setCharacterSize(23);
-    menu[1].setFont(font);
-    menu[1].setColor(Color::White);
-    menu[1].setString("Play");
-    menu[1].setPosition(Vector2f(500,520));
+    menu.setCharacterSize(23);
+    menu.setFont(font);
+    menu.setColor(Color::Cyan);
+    menu.setString("Next");
+    menu.setPosition(Vector2f(320,520));
 
     selectedItemIndex = 0;
 
@@ -90,11 +83,10 @@ void EComo::Init()
 void EComo::Draw(RenderWindow * ventana)
 {
 
-    for (int i=0; i< 25; i++)
+    for (int i = 0; i < 6; i++)
     {
         if(bg[i]!=NULL)
         {
-
             if(numero == -1)
             {
                 ventana->draw(*bg[0]);
@@ -103,23 +95,19 @@ void EComo::Draw(RenderWindow * ventana)
             {
                 if(numero == 10)
                 {
-                    menu[0].setString(" ");
-                    menu[1].setString(" ");
-
+                    menu.setString("");
                     Juego::getInstance()->cambiarEstado(EMenu::getInstance());
-
                 }
-                ventana->draw(*bg[numero-(numero/2)]);
+                else
+                {
+                    ventana->draw(*bg[numero-(numero/2)]);
+                }
             }
         }
+        ventana->draw(menu);
     }
-
-    for(int i = 0; i < 2; i++)
-    {
-        ventana->draw(menu[i]);
-    }
-
     ventana->display();
+
 }
 
 void EComo::HandleInputs(Keyboard::Key key, bool isPressed)
@@ -137,26 +125,6 @@ int EComo::getSelectedItem()
     return selectedItemIndex;
 }
 
-void EComo::MoveLeft()
-{
-    if(selectedItemIndex - 1 >= 0)
-    {
-        menu[selectedItemIndex].setColor(Color::White);
-        selectedItemIndex=selectedItemIndex-1;
-        menu[selectedItemIndex].setColor(Color::Cyan);
-    }
-}
-
-void EComo::MoveRight()
-{
-    if(selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS)
-    {
-        menu[selectedItemIndex].setColor(Color::White);
-        selectedItemIndex=selectedItemIndex+1;
-        menu[selectedItemIndex].setColor(Color::Cyan);
-    }
-}
-
 void EComo::HandleEvents(RenderWindow * ventana)
 {
     Event event;
@@ -164,31 +132,12 @@ void EComo::HandleEvents(RenderWindow * ventana)
     {
         Keyboard e;
 
-        if(e.isKeyPressed(Keyboard::Right))
-        {
-            MoveRight();
-        }
-
-        if(e.isKeyPressed(Keyboard::Left))
-        {
-            MoveLeft();
-        }
-
         if (e.isKeyPressed(Keyboard::Return))
         {
-            cout<<"SelectedItemIndex"<<selectedItemIndex<<endl;
             if(selectedItemIndex == 0)
             {
-                cout<<"Next"<<endl;
-
                 numero++;
-
                 cambiar = true;
-            }
-            else if(selectedItemIndex == 1)
-            {
-                cout<<"Play"<<endl;
-                Juego::getInstance()->cambiarEstado(EJugando::getInstance());
             }
         }
     }
