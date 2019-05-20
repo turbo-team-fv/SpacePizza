@@ -18,6 +18,7 @@ class EJugando : public State
         void Init();
         void HandleEvents(RenderWindow * window);
         void Update();
+
         void Draw(RenderWindow * ventana);
 
     protected:

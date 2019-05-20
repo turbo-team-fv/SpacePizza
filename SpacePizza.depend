@@ -332,7 +332,7 @@
 
 1555265667 hics.hpp>
 
-1558352013 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
+1558357356 source:/home/samuel/FV/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
@@ -524,7 +524,7 @@
 	<SFML/Graphics.hpp>
 	"Mundo.h"
 
-1557783125 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
+1558356117 source:/home/samuel/FV/SpacePizza/src/Juego.cpp
 	"Juego.h"
 	"EJugando.h"
 	"EMenu.h"
@@ -765,7 +765,7 @@
 	"Item.h"
 	<iostream>
 
-1558352183 source:/home/samuel/FV/SpacePizza/src/EFin.cpp
+1558358603 source:/home/samuel/FV/SpacePizza/src/EFin.cpp
 	"EFin.h"
 	"Juego.h"
 	"EMenu.h"
@@ -781,15 +781,15 @@
 	"ControladorSonido.h"
 	"SFML/Graphics.hpp"
 
-1557855930 source:/home/samuel/FV/SpacePizza/src/EJugando.cpp
+1558355980 source:/home/samuel/FV/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
-1555265667 /home/samuel/FV/SpacePizza/include/EJugando.h
+1558355885 /home/samuel/FV/SpacePizza/include/EJugando.h
 	"State.h"
 	"Juego.h"
 	"SFML/Graphics.hpp"
 
-1557855930 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
+1558358519 source:/home/samuel/FV/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
 	"EComo.h"

@@ -179,16 +179,19 @@ void EFin::HandleEvents(RenderWindow * ventana)
             cout<<"SelectedItemIndex"<<selectedItemIndex<<endl;
             if(selectedItemIndex == 0)
             {
-                cout<<"Next"<<endl;
-
-                numero++;
-
-                cambiar = true;
+               EMenu::getInstance()->Init();
+                Juego::getInstance()->cambiarEstado(EMenu::getInstance());
+                ControladorSonido::getInstance()->playMusicaMenu();
+                 ventana->close();
             }
             else if(selectedItemIndex == 1)
             {
                 cout<<"Play"<<endl;
+
+                EJugando::getInstance()->Init();
                 Juego::getInstance()->cambiarEstado(EJugando::getInstance());
+                ControladorSonido::getInstance()->playRadio(0);
+
             }
         }
     }

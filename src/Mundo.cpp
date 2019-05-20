@@ -8,11 +8,13 @@ Mundo::Mundo()
     ptoEntrgaActual = 0;
     pizzas = 0;
     entregando = false;
-    reparto_time = 5;
+    reparto_time = 35;
     puntuacion = 0;
     tiempo = 10;
 
     /**ELEMENTOS**/
+    cout<<"iniciamos mundo"<<endl;
+
     mapa = new Mapa();
     p1 = new Jugador();
 
@@ -563,11 +565,6 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     procesarInteraccion(eRight,eLeft,eUp,eDown);
     p1->updateJugador(eRight,eLeft,eUp,eDown,bounce,t);
 
-    if(p1->checkEstado()==10){
-    ControladorSonido::getInstance()->stopMusica();
-    Juego::getInstance()->cambiarEstado(EFin::getInstance());
-
-    }
 
 
     for(unsigned en=0; en< e1.size(); en++)
@@ -588,17 +585,12 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
     for(unsigned int i = 0; i<carsVector.size(); i++)
         carsVector[i]->Update(t);
 
-//    if(p1->getPhysicsState()->getVel().x > 0 && p1->getPhysicsState()->getVel().y > 0)
-//    {
-//        ControladorSonido::getInstance()->playDerrape();
-//    }
-//    else
-//    {
-//        ControladorSonido::getInstance()->stopDerrape();
-//    }
-
 
     processHUD();
+
+
+
+
 }
 
 /**Metodo para processar los elementos del HUD*/
@@ -626,12 +618,6 @@ void Mundo::processHUD()
 
     std::stringstream ss2;
     ss2 << setw(2) << setfill('0') << (int)((reparto_time - (int)time1->asSeconds())/60);
-    /*t_score.setString("score  "+ss.str()+"");
-    t_score.setCharacterSize(23);
-    t_score.setColor(sf::Color::White);
-    t_score.setStyle(sf::Text::Bold);
-    t_score.setOrigin(0,0);
-    t_score.setPosition(16.0,-8.0);*/
 
     text_num_pizzas -> setString(ss.str());
     text_time -> setString(ss2.str()+":"+ss1.str());
@@ -753,8 +739,7 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     if(p1-> checkEstado() == 1) pwupHUD_ative -> setTexture(txt_pwupHUD_velocidad);
     if(p1-> checkEstado() == 2) pwupHUD_ative -> setTexture(txt_pwupHUD_escudo);
     if(p1-> checkEstado() == 3) pwupHUD_ative -> setTexture(txt_pwupHUD_levitar);
-    if(p1-> checkEstado() == 10)
-    {}
+
 
 
 //    if(p1-> checkEstado() == 3) pwupHUD_ative -> setTexture(txt_pwupHUD_tiempo);
@@ -778,6 +763,18 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->setView(*vista);///SET VIEW PLAYER
     warning->setPosition(sf::Vector2f(p1->getSprite()->getRenderPos().x,p1->getSprite()->getRenderPos().y+50));
     warning->drawPopup(ventana,inter);
+
+     if(p1-> checkEstado() == 10){
+
+    ControladorSonido::getInstance()->stopMusica();
+   vista = new View();
+    vista->reset(sf::FloatRect(0,0,800, 600));
+    //vista->setCenter(400, 300);
+    ventana->setView(*vista);///SET VIEW MINIMAP*/
+    EFin::getInstance()->Init();
+    Juego::getInstance()->cambiarEstado(EFin::getInstance());
+    }
+
 
 }
 
