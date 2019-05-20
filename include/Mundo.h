@@ -13,6 +13,7 @@
 #include "Popup.h"
 #include "Car.h"
 #include "Path.h"
+#include "EFin.h"
 #include <sstream>
 #include <iomanip>
 

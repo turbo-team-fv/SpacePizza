@@ -15,12 +15,16 @@ class ControladorSonido
         void stopMusicaMenu();
         void playPowerUp();
         void playAlien();
+        void playFin();
         void playExplosion();
         void playTurbo();
         void playCesped();
         void playDerrape();
         void stopCesped();
         void stopDerrape();
+        void stopMusica();
+        void stopAlien();
+        void stopRadio();
 
         int getRadioActiva() { return radioActiva; }
 

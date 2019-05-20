@@ -4,15 +4,8 @@ EJugando::EJugando()
 {
     //ctor
 
-    /**Eventos**/
-    eUp=false;
-    eDown=false;
-    eLeft=false;
-    eRight=false;
-    /**Eventos**/
+  this->Init();
 
-    /// inicializa un mundo (contiene todos los objetos del juego)
-    mundo = new Mundo();
 }
 
 EJugando* EJugando::eJugandoInstancia = 0;
@@ -23,7 +16,24 @@ EJugando* EJugando::getInstance()
     {
         eJugandoInstancia = new EJugando();
     }
-    //return eJugandoInstancia;
+    return eJugandoInstancia;
+}
+
+
+void EJugando::Init()
+{
+
+  /**Eventos**/
+    eUp=false;
+    eDown=false;
+    eLeft=false;
+    eRight=false;
+    /**Eventos**/
+
+    /// inicializa un mundo (contiene todos los objetos del juego)
+    mundo = new Mundo();
+
+
 }
 
 void EJugando::loop(RenderWindow * ventana, Time timePerFrame)
@@ -88,10 +98,6 @@ void EJugando::render(double i, RenderWindow * ventana, Time timePerFrame)
 }
 
 
-void EJugando::Init()
-{
-
-}
 
 void EJugando::HandleInputs(sf::Keyboard::Key key, bool isPressed)
 {
