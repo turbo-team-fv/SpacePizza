@@ -9,7 +9,7 @@ Mundo::Mundo()
     ptoEntrgaActual = 0;
     pizzas = 0;
     entregando = false;
-    reparto_time = 5;
+    reparto_time = 30;
     puntuacion = 0;
     tiempo = 10;
 
@@ -269,7 +269,7 @@ void Mundo::visionIA()
 
 
 
-sf::Vector2f Mundo::colisionesMapa()
+sf::Vector2f Mundo::colisionesMapa(bool godMode)
 {
 
     float offset=0;
@@ -523,7 +523,9 @@ void Mundo::checkPuntoEntrega()
 void Mundo::procesarInteraccion(bool eRight, bool eLeft, bool eUp, bool eDown)
 {
     visionIA();
+    if(p1->checkEstado()!=11){
     atacaIA();
+    }
     colisionItems();
     checkPuntoEntrega();
     colisionAlcantarilla(eRight,eLeft, eUp, eDown);
@@ -537,20 +539,14 @@ void Mundo::calcularPuntuacionVariable()
     sf::Vector2f posJugador = p1->getPhysicsState()->getActualState();
     sf::Vector2f posPtoEntrega = puntosEntrega[ptoEntrgaActual];
 
-    std::cout<<(posJugador.x - posPtoEntrega.x)<<std::endl;
-    /*float x = (float)(posJugador[0] - posPtoEntrega.x);
-    float y = (float)(posJugador[1] - posPtoEntrega.y);*/
+
     sf::Vector2f vectorDistancia = posJugador-posPtoEntrega;
     // Calculo el modulo del vector distnacia para obetener la distancia
 
     distanciaPtoEntrega = sqrt(pow(vectorDistancia.x,2)+ pow(vectorDistancia.y,2));
 
-    std::cout<<"Muestro la distancia entre el pto de entrega y el jugador"<<std::endl;
-    std::cout<<distanciaPtoEntrega<<std::endl;
-
     puntosPorDistancia = (int)(distanciaPtoEntrega * 0,5);
-    std::cout<< "Muestro la variable puntos por distancia"<<std::endl;
-    std::cout<<puntosPorDistancia<<std::endl;
+
     calcularTiempoBonificacion();
 }
 
@@ -562,8 +558,7 @@ void Mundo::calcularTiempoBonificacion()
     /// calcula el tiempo que tardaria en ir en linea recta al ptoEntrega => 50 es el valor de potencia
     /// del jugador.
     tiempoBonificacion = (int)distanciaPtoEntrega / 80;
-    std::cout<<"Muestro el tiempo de bonificacion para el pto entrega"<<std::endl;
-    std::cout<<tiempoBonificacion<<std::endl;
+
     Puntuacion::getInstance()->addTiempoParaEntregar(tiempoBonificacion);
 }
 
@@ -572,21 +567,29 @@ int Mundo::getTime()
     return tiempo;
 }
 
-void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t)
+void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown,bool godMode, sf::Time t)
 {
-    sf::Vector2f bounce=colisionesMapa();
+ sf::Vector2f bounce(0.0,0.0);
+    if(p1->checkEstado()!=11){
+    bounce=colisionesMapa(godMode);
+    }
     EnemigoGenerator();
 
     procesarInteraccion(eRight,eLeft,eUp,eDown);
     p1->updateJugador(eRight,eLeft,eUp,eDown,bounce,t);
 
+    if(godMode)
+    p1->setEstado(11);
+    else{
+    p1->setEstado(0);
+    }
+
+
 
 
     for(unsigned en=0; en< e1.size(); en++)
     {
-
         e1[en]->updateEnemigo(p1->getPhysicsState()->getActualState(),t);
-
         int distanciaEnemigo = std::sqrt(std::pow(e1[en]->getPhysicsState()->getActualState().x - p1->getPhysicsState()->getActualState().x, 2) + std::pow(e1[en]->getPhysicsState()->getActualState().y - p1->getPhysicsState()->getActualState().y, 2));
 
         float factorVolumen = 0;
@@ -647,6 +650,7 @@ void Mundo::processHUD()
         strAux.append("b");
     }
     text_player_lifes -> setString(strAux);
+
 
 
 }
@@ -757,6 +761,13 @@ void Mundo::drawMundo(sf::RenderWindow * ventana, double inter)
     ventana->draw(*text_time);
     text_player_lifes -> setPosition(p1->getSprite()->getRenderPos().x-140,p1->getSprite()->getRenderPos().y - 90);
     ventana->draw(*text_player_lifes);
+
+       if(p1->checkEstado()==11){
+ text_player_lifes -> setColor(Color::Green);
+    }else{
+     text_player_lifes -> setColor(Color::Red);
+    }
+
 
 
     if(p1-> checkEstado() == 0) pwupHUD_ative -> setTexture(txt_pwupHUD_empty);

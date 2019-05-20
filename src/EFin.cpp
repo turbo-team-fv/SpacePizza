@@ -29,7 +29,7 @@ EFin::EFin()
 
 void EFin::Init()
 {
-    cout<<"numero: "<<numero<<endl;
+    /*cout<<"numero: "<<numero<<endl;
     contador = 0;
     /// NOTA=> Como acceder a la puntuacion
     Puntuacion::getInstance()->calcularPuntuacion();
@@ -38,7 +38,7 @@ void EFin::Init()
     int colisionesTrafico = Puntuacion::getInstance()->getColisiones();
     cout<<"Puntuacion final: " << puntuacionTotal<<std::endl;
     cout<<"Pizzas entregadas: " <<pizzasEntregadas<<std::endl;
-    cout<<"Colisiones con el trafico: "<< colisionesTrafico<<std::endl;
+    cout<<"Colisiones con el trafico: "<< colisionesTrafico<<std::endl;*/
     /// TODO => falta resetear la posicion cuando vuelves a empezar partida => Puntuacion::getInstance()->resetPuntuacion()
 
     if(!font.loadFromFile("assets/hud/m42.TTF"))
@@ -96,9 +96,9 @@ void EFin::Init()
 
 
     //in_puntos= Puntuacion::getInstance()->getPuntuacionFinal();
-    in_puntos=10283;
-    in_estilo=203;
-    in_pizzas=12;
+    in_puntos=0;
+    in_estilo=0;
+    in_pizzas=0;
     out_pizzas=0,out_puntos=0,out_estilo=0;
 
 
@@ -108,6 +108,14 @@ void EFin::Init()
 }
 
 void EFin::restartRank(){
+  Puntuacion::getInstance()->calcularPuntuacion();
+in_puntos=Puntuacion::getInstance()->getPuntuacionFinal();
+    in_estilo=Puntuacion::getInstance()->getColisiones();
+    in_pizzas=Puntuacion::getInstance()->getPizzasEntregadas();
+
+    cout<<"Estilo: "<<in_estilo<<endl;
+    cout<<"Puntos: "<<in_puntos<<endl;
+    cout<<"pizzas: "<<in_pizzas<<endl;
 out_pizzas=0,out_puntos=0,out_estilo=0;
 ControladorSonido::getInstance()->playFin();
 }
@@ -129,10 +137,32 @@ void EFin::Draw(RenderWindow * ventana)
     s_puntos = "POINTS: ";
     s_puntos += ss.str();
     puntuacion.setString(s_puntos);
-    std::stringstream ss1;
-    ss1 << out_estilo;
-    s_estilo = "HITS: ";
-    s_estilo += ss1.str();
+
+
+
+    s_estilo = "STYLE: ";
+    if(in_estilo>100){
+    s_estilo += "SO BAD";
+        estilo.setColor(Color::Red);
+    }else if(in_estilo<100&&in_estilo>65){
+    s_estilo += "CLUMSY";
+        estilo.setColor(Color::Magenta);
+    }
+    else if(in_estilo<65&&in_estilo>40){
+    s_estilo += "GOOD";
+    estilo.setColor(Color::Yellow);
+    }
+     else if(in_estilo<40&&in_estilo>5){
+    s_estilo += "COOL RIDER";
+    estilo.setColor(Color::Green);
+    }
+    else if(in_estilo<5){
+    s_estilo += "PERFECT!!";
+    estilo.setColor(Color::Cyan);
+    }
+
+
+    //s_estilo += ss1.str();
     estilo.setString(s_estilo);
     std::stringstream ss2;
     ss2 << out_pizzas;
@@ -146,16 +176,16 @@ void EFin::Draw(RenderWindow * ventana)
 
 
 
-    if(dibujado.getElapsedTime().asMilliseconds()>20)
+    if(dibujado.getElapsedTime().asMilliseconds()>10)
     {
         if(out_puntos<=in_puntos)
         {
-            out_puntos+=50;
+            out_puntos+=1;
         }
-        if(out_estilo<=in_estilo)
+        /*if(out_estilo<=in_estilo)
         {
             out_estilo+=10;
-        }
+        }*/
         if(out_pizzas<=in_pizzas)
         {
             out_pizzas+=1;

@@ -28,14 +28,14 @@ public:
     vector< sf::Vector2f > getPuntosEntrega();
     vector<Item*> getItems();
 
-    void updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time t);
+    void updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, bool godMode, sf::Time t);
     void drawMundo(sf::RenderWindow * window, double i);
     void drawItems(sf::RenderWindow * window);
     void drawAlcantarillas(sf::RenderWindow * window);
     int getTime();
     void initItems();
     void initPuntosEntrega();
-    sf::Vector2f colisionesMapa();
+    sf::Vector2f colisionesMapa(bool godMode);
     void colisionAlcantarilla(bool eRight, bool eLeft, bool eUp, bool eDown);
     void colisionItems();
     void checkPuntoEntrega();
