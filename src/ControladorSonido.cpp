@@ -119,6 +119,26 @@ void ControladorSonido::stopMusicaMenu()
     soundMenu->stop();
 }
 
+void ControladorSonido::stopMusica()
+{
+    soundMenu->stop();
+    soundCesped->stop();
+    reproduciendoCesped = false;
+    soundDerrape->stop();
+    reproduciendoDerrape = false;
+    stopRadio();
+}
+void ControladorSonido::stopAlien()
+{
+
+}
+void ControladorSonido::stopRadio()
+{
+    for(unsigned i=0; i<soundsRadio.size(); i++){
+    soundsRadio[i]->stop();
+    }
+}
+
 void ControladorSonido::playPowerUp()
 {
     soundPowerUp->play();

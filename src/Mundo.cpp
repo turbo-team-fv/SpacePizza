@@ -8,7 +8,7 @@ Mundo::Mundo()
     ptoEntrgaActual = 0;
     pizzas = 0;
     entregando = false;
-    reparto_time = 30;
+    reparto_time = 5;
     puntuacion = 0;
     tiempo = 10;
 
@@ -562,6 +562,12 @@ void Mundo::updateMundo(bool eRight, bool eLeft, bool eUp, bool eDown, sf::Time 
 
     procesarInteraccion(eRight,eLeft,eUp,eDown);
     p1->updateJugador(eRight,eLeft,eUp,eDown,bounce,t);
+
+    if(p1->checkEstado()==10){
+    ControladorSonido::getInstance()->stopMusica();
+    Juego::getInstance()->cambiarEstado(EFin::getInstance());
+
+    }
 
 
     for(unsigned en=0; en< e1.size(); en++)
