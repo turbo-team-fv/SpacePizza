@@ -237,7 +237,6 @@ incremento.y+=potencia;
 
 void Jugador::calcInter(sf::RenderWindow *w, double i)
 {
-Puntuacion::getInstance()->calcularPuntuacion();
     /** Posicion = (Estado_actual - Estado_pasado) * Interpolacion + Estado_pasado **/
     this->jugador_sprite->calcInter(this->getPhysicsState()->getPastState(),this->getPhysicsState()->getActualState(),w,i);
 

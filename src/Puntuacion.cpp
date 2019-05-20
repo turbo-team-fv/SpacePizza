@@ -25,7 +25,6 @@ void  Puntuacion::addTiempoParaEntregar(int time)  {
 
 void Puntuacion::addTiempoEmpleado(int time) {
     std::cout<<"Añado el tiempo empleado en entregar una pizza"<<std::endl;
-    std::cout<<time<<std::endl;
     tiempoEmpleado.push_back(time);
 }
 /// Metodo que calcula la puntuacion en funcion de los tiempos empleados y los tiempos que me dan para
@@ -34,13 +33,11 @@ void Puntuacion::addTiempoEmpleado(int time) {
 void Puntuacion::calcularPuntuacion(){
     int ptoXpizza = 100;
     for(int i = 0; i < tiempoEmpleado.size(); i++ ){
-           float aux = (tiempoParaentregar[i]) / (tiempoEmpleado[i]);
+           float aux = (float)(tiempoParaentregar[i]) / (float)(tiempoEmpleado[i]);
            puntuacionFinal += aux*ptoXpizza;
     }
     /// Penalizacion por colisiones con los coches
-    puntuacionFinal -= numColisionTrafico * 5;
-    std::cout<<"Puntuacion final"<<std::endl;
-    std::cout<<puntuacionFinal<<std::endl;
+    puntuacionFinal -= numColisionTrafico;
     if(puntuacionFinal <= 0 ){
         puntuacionFinal = 0;
     }
@@ -53,8 +50,8 @@ int Puntuacion::getPuntuacionFinal() {
 }
 
 void Puntuacion::addColision(){
+    std::cout<<"Añado colison con el trafico"<<std::endl;
     numColisionTrafico++;
-    std::cout<<"Aumento una colison con el trafico"<<std::endl;
     std::cout<<numColisionTrafico<<std::endl;
 }
 

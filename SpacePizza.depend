@@ -1499,11 +1499,11 @@
 1557683649 /home/carlos/FV2.0/SpacePizza/include/State.h
 	<SFML/Graphics.hpp>
 
-1558116674 /home/carlos/FV2.0/SpacePizza/include/ControladorSonido.h
+1558361956 /home/carlos/FV2.0/SpacePizza/include/ControladorSonido.h
 	<vector>
 	"SFML/Audio.hpp"
 
-1558350599 /home/carlos/FV2.0/SpacePizza/include/Mundo.h
+1558361956 /home/carlos/FV2.0/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -1573,25 +1573,25 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1558116674 source:/home/carlos/FV2.0/SpacePizza/src/ControladorSonido.cpp
+1558361956 source:/home/carlos/FV2.0/SpacePizza/src/ControladorSonido.cpp
 	"ControladorSonido.h"
 	<iostream>
 
-1557683649 source:/home/carlos/FV2.0/SpacePizza/src/EFin.cpp
+1558361956 source:/home/carlos/FV2.0/SpacePizza/src/EFin.cpp
 	"EFin.h"
 
-1557683649 /home/carlos/FV2.0/SpacePizza/include/EFin.h
+1558361956 /home/carlos/FV2.0/SpacePizza/include/EFin.h
 	"State.h"
 
-1558116674 source:/home/carlos/FV2.0/SpacePizza/src/EJugando.cpp
+1558361956 source:/home/carlos/FV2.0/SpacePizza/src/EJugando.cpp
 	"EJugando.h"
 
-1557683649 /home/carlos/FV2.0/SpacePizza/include/EJugando.h
+1558361956 /home/carlos/FV2.0/SpacePizza/include/EJugando.h
 	"State.h"
 	"Juego.h"
 	"SFML/Graphics.hpp"
 
-1558116674 source:/home/carlos/FV2.0/SpacePizza/src/EMenu.cpp
+1558361956 source:/home/carlos/FV2.0/SpacePizza/src/EMenu.cpp
 	"EMenu.h"
 	"Juego.h"
 	"EComo.h"
@@ -1604,12 +1604,12 @@
 1558116674 source:/home/carlos/FV2.0/SpacePizza/src/Enemigo.cpp
 	"Enemigo.h"
 
-1557768008 source:/home/carlos/FV2.0/SpacePizza/src/Juego.cpp
+1558361956 source:/home/carlos/FV2.0/SpacePizza/src/Juego.cpp
 	"Juego.h"
 	"EJugando.h"
 	"EMenu.h"
 
-1558361098 source:/home/carlos/FV2.0/SpacePizza/src/Jugador.cpp
+1558363275 source:/home/carlos/FV2.0/SpacePizza/src/Jugador.cpp
 	"Jugador.h"
 	"Puntuacion.h"
 
@@ -1648,7 +1648,7 @@
 	"Item.h"
 	<iostream>
 
-1558351889 source:/home/carlos/FV2.0/SpacePizza/src/Mundo.cpp
+1558363311 source:/home/carlos/FV2.0/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
@@ -1912,11 +1912,11 @@
 	"State.h"
 	"ControladorSonido.h"
 
-1558353555 /home/carlos/FV2.0/SpacePizza/include/Puntuacion.h
+1558361956 /home/carlos/FV2.0/SpacePizza/include/Puntuacion.h
 	<iostream>
 	<vector>
 	<SFML/Graphics.hpp>
 
-1558353624 source:/home/carlos/FV2.0/SpacePizza/src/Puntuacion.cpp
+1558363967 source:/home/carlos/FV2.0/SpacePizza/src/Puntuacion.cpp
 	"Puntuacion.h"
 
