@@ -125,6 +125,7 @@ private:
     int puntuacion;
     sf::Clock SpawnEnemigo;
     bool SpawnEnemigo_b;
+    sf::Clock clockTiempoEmpleado;
 
 };
 

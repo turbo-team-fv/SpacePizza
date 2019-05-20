@@ -1503,7 +1503,7 @@
 	<vector>
 	"SFML/Audio.hpp"
 
-1558116674 /home/carlos/FV2.0/SpacePizza/include/Mundo.h
+1558350599 /home/carlos/FV2.0/SpacePizza/include/Mundo.h
 	<vector>
 	<SFML/Graphics.hpp>
 	<iostream>
@@ -1647,11 +1647,12 @@
 	"Item.h"
 	<iostream>
 
-1558349133 source:/home/carlos/FV2.0/SpacePizza/src/Mundo.cpp
+1558351889 source:/home/carlos/FV2.0/SpacePizza/src/Mundo.cpp
 	"Mundo.h"
 	"Juego.h"
 	"Car.h"
 	"Path.h"
+	"Puntuacion.h"
 
 1557843626 /home/samuel/FV/SpacePizza/include/Car.h
 	<vector>
@@ -1909,4 +1910,12 @@
 	<SFML/Graphics.hpp>
 	"State.h"
 	"ControladorSonido.h"
+
+1558351875 /home/carlos/FV2.0/SpacePizza/include/Puntuacion.h
+	<iostream>
+	<vector>
+	<SFML/Graphics.hpp>
+
+1558352098 source:/home/carlos/FV2.0/SpacePizza/src/Puntuacion.cpp
+	"Puntuacion.h"
 
