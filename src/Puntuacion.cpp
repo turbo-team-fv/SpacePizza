@@ -61,6 +61,7 @@ void Puntuacion::addColision(){
 void Puntuacion::resetPuntuacion() {
     numColisionTrafico = 0;
     puntuacionFinal = 0;
+    pizzasEntregadas = 0;
     tiempoEmpleado =  std::vector<int>();
     tiempoEmpleado =  std::vector<int>();
 }

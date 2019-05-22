@@ -178,7 +178,7 @@ void EFin::Draw(RenderWindow * ventana)
 
     if(dibujado.getElapsedTime().asMilliseconds()>10)
     {
-        if(out_puntos<=in_puntos)
+        if(out_puntos<in_puntos)
         {
             out_puntos+=1;
         }
@@ -186,7 +186,7 @@ void EFin::Draw(RenderWindow * ventana)
         {
             out_estilo+=10;
         }*/
-        if(out_pizzas<=in_pizzas)
+        if(out_pizzas<in_pizzas)
         {
             out_pizzas+=1;
         }
